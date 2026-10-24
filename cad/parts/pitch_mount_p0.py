@@ -16,8 +16,8 @@ import params as P
 WALL = 5.0
 BACK = 4.0
 FOOT_T = 6.0
-FOOT_W = 12.0            # how far the foot extends beyond the walls in X, each side
-GRID = 8.0               # TB3 plate hole pitch
+FOOT_W = 14.9            # sized so the foot slots land 56 mm apart (7 x 8 mm grid)
+GRID = P.GRID
 
 PW = P.XL430_W + 2 * P.XL430_CLEAR
 PH = P.XL430_H + 2 * P.XL430_CLEAR

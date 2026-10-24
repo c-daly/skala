@@ -53,3 +53,21 @@ B6001 = dict(od=28.0, id=12.0, w=8.0)
 B625 = dict(od=16.0, id=5.0, w=5.0)
 PRESS_FIT = -0.10         # bore offset for bearing seats in PLA (test coupon first)
 CLEAR_FIT = +0.20         # bore offset for running clearance on shafts
+
+# ----------------------------------------------------------- P0 chassis ------
+GRID = 8.0                # hole grid pitch (matches TB3 waffle plates)
+GRID_HOLE = 3.4           # M3 clearance
+CHASSIS_L = 200.0         # X, 25 grid pitches
+CHASSIS_W = 152.0         # Y, 19 grid pitches
+CHASSIS_T = 6.0
+PITCH_MOUNT_X = 60.0      # pitch servo axis X (front arms)
+SKID_X = -60.0            # rear skid pivot X
+PI5_HOLES = (58.0, 49.0)  # Raspberry Pi mounting pattern, M2.5
+PI5_HOLE_D = 2.7
+OPENCR_HOLES = (85.0, 65.0)   # OpenCR 1.0 mounting pattern                 VERIFY
+OPENCR_HOLE_D = 3.4
+
+# ----------------------------------------------------------- P0 skid arm -----
+SKID_LEN = 120.0          # pivot to tip axle
+SKID_ANGLES = (0, 20, 35, 50)    # indexed down-angles, degrees; 0 = flat stance, 35 matches front arms at 30° down
+SKID_INDEX_R = 22.0       # radius of the index pin holes from the pivot

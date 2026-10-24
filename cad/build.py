@@ -4,7 +4,7 @@ HERE = pathlib.Path(__file__).resolve().parent
 sys.path.insert(0, str(HERE))
 from build123d import *
 
-PARTS = ["arm_p0", "tip_hub_p0", "coupon_p0", "pitch_mount_p0"]
+PARTS = ["arm_p0", "tip_hub_p0", "coupon_p0", "pitch_mount_p0", "chassis_p0", "skid_p0", "pi_adapter_p0"]
 OUT = HERE / "out"
 (OUT / "step").mkdir(parents=True, exist_ok=True)
 (OUT / "stl").mkdir(parents=True, exist_ok=True)
@@ -24,11 +24,19 @@ def views(part, name):
         svg.add_shape(hid, layer="hid")
         svg.write(str(OUT / "svg" / f"{name}_{label}.svg"))
 
-for name in PARTS:
-    mod = importlib.import_module(f"parts.{name}")
-    part = mod.build()
+def emit(part, name):
     export_step(part, str(OUT / "step" / f"{name}.step"))
     export_stl(part, str(OUT / "stl" / f"{name}.stl"), tolerance=0.02, angular_tolerance=0.1)
     views(part, name)
     bb = part.bounding_box().size
     print(f"{name}: {bb.X:.1f} x {bb.Y:.1f} x {bb.Z:.1f} mm, {part.volume/1000:.1f} cm3")
+
+if __name__ == "__main__":
+    only = sys.argv[1:]
+    for name in PARTS:
+        if only and name not in only:
+            continue
+        mod = importlib.import_module(f"parts.{name}")
+        result = mod.build()
+        for part in (result if isinstance(result, list) else [result]):
+            emit(part, part.label or name)
