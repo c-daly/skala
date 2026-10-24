@@ -24,7 +24,11 @@ Design spec (living doc): https://claude.ai/artifact/DH7kdYLKpPLf4d8KyuJBgt
 
 ## Regenerating CAD
 
+Uses [uv](https://docs.astral.sh/uv/). First run creates `.venv` and installs build123d (a few minutes, it pulls OpenCascade); after that a build takes seconds.
+
 ```
-pip install build123d
-python cad/build.py
+uv sync
+uv run cad/build.py
 ```
+
+Outputs land in `cad/out/` (STEP, STL, SVG views). Commit the regenerated outputs along with any change to `cad/params.py`.

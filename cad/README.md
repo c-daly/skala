@@ -4,8 +4,8 @@ Parametric source in Python (build123d). `params.py` holds every dimension; each
 module in `parts/`; `build.py` regenerates STEP, STL and SVG views into `out/`.
 
 ```
-pip install build123d
-python cad/build.py
+uv sync            # once, from the repo root
+uv run cad/build.py
 ```
 
 STEP files import directly into Fusion 360, Onshape or FreeCAD. STL files slice in Orca.
