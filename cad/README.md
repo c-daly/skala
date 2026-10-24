@@ -1,4 +1,4 @@
-# Track robot CAD
+# skala CAD
 
 Parametric source in Python (build123d). `params.py` holds every dimension; each part is a
 module in `parts/`; `build.py` regenerates STEP, STL and SVG views into `out/`.
