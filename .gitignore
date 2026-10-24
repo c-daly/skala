@@ -1,0 +1,4 @@
+__pycache__/
+*.pyc
+cad/out/svg/*.png
+.venv/

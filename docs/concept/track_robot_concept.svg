@@ -1,0 +1,173 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1640" font-family="Helvetica, Arial, sans-serif">
+  <rect width="1000" height="1640" fill="#f7f7f5"/>
+  <defs>
+    <marker id="arr" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto-start-reverse">
+      <path d="M0,0 L8,4 L0,8 z" fill="#444"/>
+    </marker>
+    <g id="flipper">
+      <!-- arm: pivot at (0,0), tip at (220,0); 90 mm sprocket, 50 mm idler -->
+      <path d="M0,-45 L220,-25 A25,25 0 0 1 220,25 L0,45 A45,45 0 0 1 0,-45 z" fill="#2b2b2b" stroke="#111" stroke-width="2"/>
+      <path d="M12,-28 L212,-14 A14,14 0 0 1 212,14 L12,28 A28,28 0 0 1 12,-28 z" fill="#8a6d3b" stroke="#5a4624" stroke-width="2"/>
+      <circle cx="0" cy="0" r="12" fill="#c9c9c9" stroke="#333" stroke-width="2"/>
+      <circle cx="220" cy="0" r="8" fill="#c9c9c9" stroke="#333" stroke-width="2"/>
+      <circle cx="80" cy="30" r="7" fill="#999" stroke="#333" stroke-width="1.5"/>
+      <circle cx="150" cy="24" r="7" fill="#999" stroke="#333" stroke-width="1.5"/>
+      <!-- grousers -->
+      <g stroke="#e8752a" stroke-width="3">
+        <line x1="20" y1="43" x2="20" y2="49"/><line x1="45" y1="41" x2="45" y2="47"/><line x1="70" y1="39" x2="70" y2="45"/>
+        <line x1="95" y1="36" x2="95" y2="42"/><line x1="120" y1="34" x2="120" y2="40"/><line x1="145" y1="32" x2="145" y2="38"/>
+        <line x1="170" y1="29" x2="170" y2="35"/><line x1="195" y1="27" x2="195" y2="33"/>
+        <line x1="20" y1="-43" x2="20" y2="-49"/><line x1="45" y1="-41" x2="45" y2="-47"/><line x1="70" y1="-39" x2="70" y2="-45"/>
+        <line x1="95" y1="-36" x2="95" y2="-42"/><line x1="120" y1="-34" x2="120" y2="-40"/><line x1="145" y1="-32" x2="145" y2="-38"/>
+        <line x1="170" y1="-29" x2="170" y2="-35"/><line x1="195" y1="-27" x2="195" y2="-33"/>
+      </g>
+    </g>
+    <g id="body-side">
+      <!-- chassis 340 x 110, origin at rear-bottom corner (0,0), extends +x and -y -->
+      <rect x="0" y="-110" width="340" height="110" rx="8" fill="#5d6b7a" stroke="#2f3842" stroke-width="2.5"/>
+      <line x1="170" y1="-110" x2="170" y2="0" stroke="#2f3842" stroke-width="1.5" stroke-dasharray="4 4"/>
+      <rect x="0" y="-116" width="340" height="8" fill="#8894a0" stroke="#2f3842" stroke-width="1.5"/>
+      <!-- LiDAR mast + unit, front third -->
+      <rect x="232" y="-176" width="16" height="60" fill="#8894a0" stroke="#2f3842" stroke-width="1.5"/>
+      <rect x="203" y="-241" width="75" height="65" rx="6" fill="#e8752a" stroke="#8a3f0f" stroke-width="2"/>
+      <circle cx="240" cy="-209" r="14" fill="#2b2b2b"/>
+      <!-- camera on tilt mount at front edge -->
+      <rect x="300" y="-140" width="34" height="22" rx="3" fill="#2b2b2b" stroke="#111" stroke-width="1.5" transform="rotate(10 317 -129)"/>
+      <circle cx="334" cy="-129" r="5" fill="#9ad" transform="rotate(10 317 -129)"/>
+      <!-- rear handle / e-stop -->
+      <rect x="8" y="-134" width="40" height="18" rx="6" fill="#8894a0" stroke="#2f3842" stroke-width="1.5"/>
+      <circle cx="60" cy="-124" r="7" fill="#c0392b" stroke="#111" stroke-width="1.5"/>
+      <!-- fan grille -->
+      <g stroke="#2f3842" stroke-width="1.5"><line x1="14" y1="-90" x2="14" y2="-30"/><line x1="22" y1="-90" x2="22" y2="-30"/><line x1="30" y1="-90" x2="30" y2="-30"/></g>
+    </g>
+  </defs>
+
+  <!-- ===== Panel 1: side view, flat stance ===== -->
+  <text x="40" y="48" font-size="22" font-weight="bold" fill="#222">Side view — flat stance</text>
+  <text x="40" y="72" font-size="14" fill="#555">1 unit = 1 mm. Near-side arms shown; far-side arms identical.</text>
+
+  <g transform="translate(0,0)">
+    <line x1="40" y1="400" x2="960" y2="400" stroke="#333" stroke-width="2"/>
+    <g stroke="#999" stroke-width="1"><line x1="60" y1="400" x2="50" y2="412"/><line x1="110" y1="400" x2="100" y2="412"/><line x1="160" y1="400" x2="150" y2="412"/><line x1="210" y1="400" x2="200" y2="412"/><line x1="260" y1="400" x2="250" y2="412"/><line x1="310" y1="400" x2="300" y2="412"/><line x1="360" y1="400" x2="350" y2="412"/><line x1="410" y1="400" x2="400" y2="412"/><line x1="460" y1="400" x2="450" y2="412"/><line x1="510" y1="400" x2="500" y2="412"/><line x1="560" y1="400" x2="550" y2="412"/><line x1="610" y1="400" x2="600" y2="412"/><line x1="660" y1="400" x2="650" y2="412"/><line x1="710" y1="400" x2="700" y2="412"/><line x1="760" y1="400" x2="750" y2="412"/><line x1="810" y1="400" x2="800" y2="412"/><line x1="860" y1="400" x2="850" y2="412"/><line x1="910" y1="400" x2="900" y2="412"/></g>
+
+    <!-- far-side arms (dimmed) -->
+    <g opacity="0.35">
+      <use href="#flipper" transform="translate(330,355) rotate(180)"/>
+      <use href="#flipper" transform="translate(670,355)"/>
+    </g>
+    <use href="#body-side" transform="translate(330,355)"/>
+    <!-- near-side arms -->
+    <use href="#flipper" transform="translate(330,355) rotate(180)"/>
+    <use href="#flipper" transform="translate(670,355)"/>
+
+    <!-- dimensions -->
+    <g stroke="#444" stroke-width="1.2" fill="none">
+      <line x1="330" y1="150" x2="670" y2="150" marker-start="url(#arr)" marker-end="url(#arr)"/>
+      <line x1="330" y1="235" x2="330" y2="145" stroke-dasharray="3 3"/>
+      <line x1="670" y1="235" x2="670" y2="145" stroke-dasharray="3 3"/>
+      <line x1="110" y1="440" x2="890" y2="440" marker-start="url(#arr)" marker-end="url(#arr)"/>
+      <line x1="110" y1="380" x2="110" y2="445" stroke-dasharray="3 3"/>
+      <line x1="890" y1="380" x2="890" y2="445" stroke-dasharray="3 3"/>
+      <line x1="930" y1="245" x2="930" y2="355" marker-start="url(#arr)" marker-end="url(#arr)"/>
+      <line x1="930" y1="355" x2="930" y2="400" marker-start="url(#arr)" marker-end="url(#arr)"/>
+      <line x1="670" y1="300" x2="890" y2="300" marker-start="url(#arr)" marker-end="url(#arr)"/>
+    </g>
+    <g font-size="13" fill="#333">
+      <text x="500" y="142" text-anchor="middle">chassis 340</text>
+      <text x="500" y="462" text-anchor="middle">extended length ≈ 780</text>
+      <text x="940" y="305">110</text>
+      <text x="940" y="383">45</text>
+      <text x="780" y="292" text-anchor="middle">arm 220</text>
+      <text x="240" y="118" fill="#8a3f0f">Unitree L2 LiDAR on 60 mm mast</text>
+      <line x1="300" y1="122" x2="560" y2="135" stroke="#8a3f0f" stroke-width="1"/>
+      <text x="720" y="200" fill="#333">camera, tilt mount</text>
+      <line x1="718" y1="204" x2="652" y2="226" stroke="#333" stroke-width="1"/>
+      <text x="60" y="200" fill="#333">handle + e-stop</text>
+      <line x1="140" y1="204" x2="370" y2="232" stroke="#333" stroke-width="1"/>
+      <text x="700" y="484" fill="#e8752a">TPU chevron track, 45 wide</text>
+    </g>
+  </g>
+
+  <!-- ===== Panel 2: side view, climbing ===== -->
+  <text x="40" y="520" font-size="22" font-weight="bold" fill="#222">Side view — mid-climb on a 178 × 280 stair</text>
+  <text x="40" y="544" font-size="14" fill="#555">Rear arms push off the floor; front arms level with the next tread. Body pitch ≈ 32°.</text>
+
+  <g transform="translate(0,200)">
+    <path d="M40,920 L380,920 L380,742 L660,742 L660,564 L940,564 L940,386 L960,386 L960,930 L40,930 z" fill="#d9d4c7" stroke="#6b6355" stroke-width="2"/>
+    <g font-size="12" fill="#6b6355">
+      <text x="560" y="735">280</text>
+      <text x="668" y="670">178</text>
+    </g>
+    <g transform="translate(491,556) rotate(-32)">
+      <g opacity="0.35">
+        <use href="#flipper" transform="translate(-170,55) rotate(145)"/>
+        <use href="#flipper" transform="translate(170,55) rotate(39)"/>
+      </g>
+      <use href="#body-side" transform="translate(-170,55)"/>
+      <use href="#flipper" transform="translate(-170,55) rotate(145)"/>
+      <use href="#flipper" transform="translate(170,55) rotate(39)"/>
+    </g>
+    <g font-size="13" fill="#333">
+      <text x="60" y="640">rear arms rotated ~35° below</text>
+      <text x="60" y="658">the body axis, pushing off the floor</text>
+      <text x="700" y="440">front arms ~40° below the body axis,</text>
+      <text x="700" y="458">track flat on the next tread</text>
+    </g>
+  </g>
+
+  <!-- ===== Panel 3: top view ===== -->
+  <text x="40" y="1190" font-size="22" font-weight="bold" fill="#222">Top view — flat stance</text>
+  <text x="40" y="1214" font-size="14" fill="#555">Arms outboard of the chassis; tracks 45 mm wide, overall width ≈ 340 mm.</text>
+
+  <g transform="translate(0,200)">
+    <!-- arms -->
+    <g fill="#2b2b2b" stroke="#111" stroke-width="2">
+      <rect x="110" y="1040" width="220" height="45" rx="22"/>
+      <rect x="670" y="1040" width="220" height="45" rx="22"/>
+      <rect x="110" y="1325" width="220" height="45" rx="22"/>
+      <rect x="670" y="1325" width="220" height="45" rx="22"/>
+    </g>
+    <g stroke="#e8752a" stroke-width="3">
+      <line x1="140" y1="1044" x2="140" y2="1081"/><line x1="175" y1="1044" x2="175" y2="1081"/><line x1="210" y1="1044" x2="210" y2="1081"/><line x1="245" y1="1044" x2="245" y2="1081"/><line x1="280" y1="1044" x2="280" y2="1081"/>
+      <line x1="720" y1="1044" x2="720" y2="1081"/><line x1="755" y1="1044" x2="755" y2="1081"/><line x1="790" y1="1044" x2="790" y2="1081"/><line x1="825" y1="1044" x2="825" y2="1081"/><line x1="860" y1="1044" x2="860" y2="1081"/>
+      <line x1="140" y1="1329" x2="140" y2="1366"/><line x1="175" y1="1329" x2="175" y2="1366"/><line x1="210" y1="1329" x2="210" y2="1366"/><line x1="245" y1="1329" x2="245" y2="1366"/><line x1="280" y1="1329" x2="280" y2="1366"/>
+      <line x1="720" y1="1329" x2="720" y2="1366"/><line x1="755" y1="1329" x2="755" y2="1366"/><line x1="790" y1="1329" x2="790" y2="1366"/><line x1="825" y1="1329" x2="825" y2="1366"/><line x1="860" y1="1329" x2="860" y2="1366"/>
+    </g>
+    <!-- pivot housings -->
+    <g fill="#c9c9c9" stroke="#333" stroke-width="2">
+      <rect x="310" y="1038" width="40" height="52" rx="4"/><rect x="650" y="1038" width="40" height="52" rx="4"/>
+      <rect x="310" y="1320" width="40" height="52" rx="4"/><rect x="650" y="1320" width="40" height="52" rx="4"/>
+    </g>
+    <!-- chassis -->
+    <rect x="330" y="1085" width="340" height="240" rx="10" fill="#5d6b7a" stroke="#2f3842" stroke-width="2.5"/>
+    <line x1="500" y1="1085" x2="500" y2="1325" stroke="#2f3842" stroke-width="1.5" stroke-dasharray="4 4"/>
+    <!-- deck items -->
+    <rect x="560" y="1168" width="75" height="75" rx="8" fill="#e8752a" stroke="#8a3f0f" stroke-width="2"/>
+    <circle cx="597" cy="1205" r="22" fill="#2b2b2b"/>
+    <rect x="648" y="1190" width="18" height="30" rx="3" fill="#2b2b2b" stroke="#111" stroke-width="1.5"/>
+    <rect x="345" y="1140" width="22" height="130" rx="6" fill="#8894a0" stroke="#2f3842" stroke-width="1.5"/>
+    <circle cx="380" cy="1120" r="9" fill="#c0392b" stroke="#111" stroke-width="1.5"/>
+    <rect x="380" y="1280" width="60" height="30" rx="4" fill="#8894a0" stroke="#2f3842" stroke-width="1.5"/>
+    <circle cx="500" cy="1205" r="4" fill="#111"/>
+    <text x="508" y="1200" font-size="11" fill="#eee">IMU / CoG</text>
+    <!-- labels -->
+    <g font-size="13" fill="#333">
+      <text x="675" y="1150" fill="#8a3f0f">LiDAR</text>
+      <text x="675" y="1232">camera</text>
+      <text x="300" y="1395">rear access panel + fan</text>
+      <line x1="380" y1="1382" x2="410" y2="1312" stroke="#333" stroke-width="1"/>
+      <text x="450" y="1395">handle</text>
+      <text x="930" y="1210" transform="rotate(90 930 1210)" text-anchor="middle">overall ≈ 340</text>
+    </g>
+    <g stroke="#444" stroke-width="1.2" fill="none">
+      <line x1="910" y1="1040" x2="910" y2="1370" marker-start="url(#arr)" marker-end="url(#arr)"/>
+      <line x1="330" y1="1400" x2="670" y2="1400" marker-start="url(#arr)" marker-end="url(#arr)"/>
+      <line x1="330" y1="1330" x2="330" y2="1405" stroke-dasharray="3 3"/>
+      <line x1="670" y1="1330" x2="670" y2="1405" stroke-dasharray="3 3"/>
+    </g>
+    <text x="500" y="1416" font-size="13" fill="#333" text-anchor="middle">340</text>
+    <text x="610" y="1416" font-size="13" fill="#333" text-anchor="start"> </text>
+    <text x="90" y="1210" font-size="13" fill="#333" transform="rotate(-90 90 1210)" text-anchor="middle">chassis 240 wide</text>
+    <text x="780" y="1030" font-size="13" fill="#333" text-anchor="middle">FRONT →</text>
+  </g>
+</svg>
