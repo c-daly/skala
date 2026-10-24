@@ -2,8 +2,7 @@
 
 *Skala* (Greek σκάλα, staircase): a four-flipper articulated tracked robot for stairs and rough indoor terrain.
 
-Four-flipper articulated tracked robot for stairs and rough indoor terrain. Mostly 3D printed
-(FlashForge Adventurer 5M Pro), controlled by a body layer (`talos`) that can run standalone or
+Mostly 3D printed (FlashForge Adventurer 5M Pro), controlled by a body layer (`talos`) that can run standalone or
 hand cognition off to LOGOS on a desktop.
 
 Design spec (living doc): https://claude.ai/artifact/DH7kdYLKpPLf4d8KyuJBgt
