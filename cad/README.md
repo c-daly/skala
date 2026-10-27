@@ -12,15 +12,18 @@ STEP files import directly into Fusion 360, Onshape or FreeCAD. STL files slice 
 
 ## Prototype 0 parts
 
+Two configurations share these parts: **A** (full design, four flippers) and **B** (interim, two flippers + two rear skids). See `docs/assembly/p0-assembly.md`.
+
 | Part | File | Size (mm) | Material | Orientation | Qty | Notes |
 | --- | --- | --- | --- | --- | --- | --- |
-| Flipper arm | `out/stl/arm_p0.stl` | 211 × 60 × 44 | PLA+ | Inboard face (Z=0) down, rotated 45° on the bed | 1 per arm | 211 mm exceeds the 210 limit by a hair; fits diagonally with room. 5 walls, 40 % gyroid. Supports only under the cable slot. |
+| Flipper arm | `out/stl/arm_p0.stl` | 211 × 60 × 44 | PLA+ | Inboard face (Z=0) down, rotated 45° on the bed | 1 per flipper (4 in A, 2 in B); all identical | 211 mm exceeds the 210 limit by a hair; fits diagonally with room. 5 walls, 40 % gyroid. Supports only under the cable slot. |
 | Tip wheel hub | `out/stl/tip_hub_p0.stl` | 30 × 30 × 21 | PLA | Wheel face (flange) down | 4 (2 arms + 2 skids) | 6 walls, 100 % infill. Bearing seats at −0.10 mm; adjust from the coupon. |
-| Pitch servo mount | `out/stl/pitch_mount_p0.stl` | 63 × 63 × 38 | PLA | Back wall (Z=0) down | 1 per arm | 5 walls, 40 %. Foot slots on an 8 mm pitch for TB3 waffle plates. Horn face is the arm's pivot plane. |
+| Pitch servo mount | `out/stl/pitch_mount_p0.stl` | 69 × 63 × 38 | PLA | Back wall (Z=0) down | 1 per flipper (4 in config A, 2 in B) | 5 walls, 40 %. Foot slots on an 8 mm pitch for TB3 waffle plates. Horn face is the arm's pivot plane. |
 | Chassis plate | `out/stl/chassis_p0.stl` | 200 × 152 × 6 | PLA | Flat | 1 | 8 mm M3 grid throughout, battery strap slots, two lightening windows. 4 walls, 30 %. Pitch mounts at the front corners with horn faces flush to the side edges. |
 | Pi adapter | `out/stl/pi_adapter_p0.stl` | 76 × 66 × 3 | PLA | Flat | 1 | Pi 58 × 49 pattern (M2.5) to the 8 mm grid (M3); the Pi pattern does not land on the grid. |
-| Skid bracket | `out/stl/skid_bracket_p0_L.stl`, `_R.stl` | 56 × 60 × 24 | PLA | Foot down | 1 each | Rear corners; handed. 8 mm pivot axle, index holes at 0 / 20 / 35 / 50°. 5 walls, 40 %. |
-| Skid arm | `out/stl/skid_arm_p0.stl` | 148 × 32 × 44 | PLA+ | Flat | 2 | Passive rear arm carrying a TB3 wheel on a tip hub. Angle fixed by an M3 index pin; 35° matches the front arms at 30° down. |
+| Skid bracket | `out/stl/skid_bracket_p0_L.stl`, `_R.stl` | 56 × 60 × 24 | PLA | Foot down | 1 each (config B only) | Rear corners; handed. 8 mm pivot axle, index holes at 0 / 20 / 35 / 50°. 5 walls, 40 %. |
+| Skid arm | `out/stl/skid_arm_p0.stl` | 158 × 52 × 44 | PLA+ | Flat | 2 (config B only) | Passive rear arm carrying a TB3 wheel on a tip hub. Angle fixed by an M3 index pin; 35° matches the front arms at 30° down. |
+| Upper deck | `out/stl/deck_p0.stl` | 130 × 120 × 4 | PLA | Flat | 1 | On four 60 mm standoffs at (−64, ±32) and (+32, ±32); carries OpenCR, Pi adapter, RPLidar. |
 | Tolerance coupon | `out/stl/coupon_p0.stl` | 180 × 70 × 10.6 | PLA | Flat | 1 | **Print this first.** Three 608 seats (0 / −0.10 / −0.20), three 8 mm bores (+0.10 / +0.20 / +0.30), horn pattern, servo pocket. Set `PRESS_FIT` and `CLEAR_FIT` in params.py from the result. |
 
 ## Assembly check

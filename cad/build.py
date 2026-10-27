@@ -4,7 +4,7 @@ HERE = pathlib.Path(__file__).resolve().parent
 sys.path.insert(0, str(HERE))
 from build123d import *
 
-PARTS = ["arm_p0", "tip_hub_p0", "coupon_p0", "pitch_mount_p0", "chassis_p0", "skid_p0", "pi_adapter_p0"]
+PARTS = ["arm_p0", "tip_hub_p0", "coupon_p0", "pitch_mount_p0", "chassis_p0", "skid_p0", "pi_adapter_p0", "deck_p0"]
 OUT = HERE / "out"
 (OUT / "step").mkdir(parents=True, exist_ok=True)
 (OUT / "stl").mkdir(parents=True, exist_ok=True)

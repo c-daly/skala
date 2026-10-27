@@ -71,3 +71,8 @@ OPENCR_HOLE_D = 3.4
 SKID_LEN = 120.0          # pivot to tip axle
 SKID_ANGLES = (0, 20, 35, 50)    # indexed down-angles, degrees; 0 = flat stance, 35 matches front arms at 30° down
 SKID_INDEX_R = 22.0       # radius of the index pin holes from the pivot
+
+# ----------------------------------------------------------- P0 upper deck ---
+DECK_X = -16.0            # deck centre; standoffs land on grid holes at X = -64 and 32
+DECK_STANDOFF = 60.0      # deck underside at 66 mm: above the pitch mounts (top at 63) and the battery
+DECK_STANDOFF_XY = (48.0, 32.0)   # standoff offsets from deck centre; all four land on grid holes

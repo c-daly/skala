@@ -219,10 +219,11 @@ Before the full-size build, a ~1.5 kg rig made from TurtleBot3 parts on hand val
 
 **Layout**
 
-- Chassis: TB3 waffle plates or one printed PLA plate, ~200 × 150 mm. OpenCR, battery and Pi stacked as on the TurtleBot3.
+- Two configurations: **A**, the full design with four articulated flippers (needs four more XL430s and six more ICT-01 sets); **B**, an interim build from parts on hand with two front flippers and two passive, pin-indexed rear skids. Same chassis, deck and electronics; B upgrades to A by swapping the rear corners.
+- Chassis: one printed 200 × 152 × 6 mm PLA plate on the TB3 8 mm grid, battery strapped across its centre, and a 130 × 120 upper deck on 60 mm standoffs carrying OpenCR, Pi and RPLidar above the mounts.
 - Arms: two printed PLA arms, a TB3 wheel at each end, ICT-01 links around them. Link pitch **assumed 6 mm** from Robotis Japan's listing, unverified. Center distance follows from 80 links per track: (80 × 6 mm − π × 66 mm) / 2 ≈ 136 mm. With the 80 links on hand that is one arm; a two-arm rig needs two more ICT-01 sets. Confirm the pitch (lay 10 links flat, expect ~60 mm) before cutting the arm length.
 - Pitch actuator: one XL430 at the chassis, horn bolted to the arm root. Drive: one XL430 in the arm root driving the pivot-end wheel; the tip wheel idles on a 608 bearing.
-- Rear: two passive printed skid arms at a fixed angle, or two more driven arms once four more XL430s are added (~$200).
+- Rear: configuration A, two more pitch mounts and arms; configuration B, two passive printed skid arms at a pin-selected angle (0/20/35/50°).
 - Sensing: RPLidar A1 on the top plate for 2D mapping; it scans a horizontal plane and cannot see tread edges, so stair detection in prototype 0 comes from the OpenCR IMU pitch and servo current, not the LiDAR. That is the same signal set the full build will use as its fallback.
 - Reflex layer on OpenCR: pitch position limits, current trips, IMU tip-over cutoff, serial link to the Pi. This firmware is the first real `talos` deliverable and carries forward unchanged in concept.
 
@@ -236,7 +237,7 @@ Before the full-size build, a ~1.5 kg rig made from TurtleBot3 parts on hand val
 
 **What transfers to prototype 1:** pivot and arm-root geometry, the stance and climb sequence, the `talos` message schema and OpenCR firmware structure, and the LOGOS bridge. What does not: torque figures, track design, and the chassis.
 
-**P0 CAD as of 2026-10-25** (in `cad/` of the repo, build123d, `uv run cad/build.py`): arm, tip hub, pitch servo mount, tolerance coupon, chassis plate (200 × 152 × 6, 8 mm grid), Pi adapter, rear skid bracket + arm, and `assembly_p0.py` for pose/clearance checks. Flat pose is 81 mm tall; stance (arms 30° down, skids 35°) is 146 mm with all four wheels level. XL430 and TB3 wheel dimensions in `params.py` are from memory and marked VERIFY.
+**P0 CAD as of 2026-10-27** (in `cad/` of the repo, build123d, `uv run cad/build.py`): arm, tip hub, pitch servo mount, tolerance coupon, chassis plate, upper deck, Pi adapter, rear skid bracket (L/R) + arm, and `assembly_p0.py` for pose/clearance checks in either configuration (`--four-arms`). Stance (arms 30° down) is ~200 mm tall to the top of the LiDAR with all four wheels level. Build sequence: `docs/assembly/p0-assembly.md`. XL430 and TB3 wheel dimensions in `params.py` are from memory and marked VERIFY.
 
 ## Staging and upgrade path
 

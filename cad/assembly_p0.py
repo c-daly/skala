@@ -9,7 +9,7 @@ HERE = pathlib.Path(__file__).resolve().parent
 sys.path.insert(0, str(HERE))
 from build123d import *
 import params as P
-from parts import chassis_p0, pitch_mount_p0, arm_p0, tip_hub_p0, skid_p0
+from parts import chassis_p0, pitch_mount_p0, arm_p0, tip_hub_p0, skid_p0, deck_p0
 
 ARM_PITCH_DEG = float(sys.argv[1]) if len(sys.argv) > 1 else 0.0
 SKID_ANGLE = float(sys.argv[2]) if len(sys.argv) > 2 else P.SKID_ANGLES[0]
@@ -32,6 +32,18 @@ def build():
     parts.append(ch)
     top = P.CHASSIS_T
     half_w = P.CHASSIS_W / 2
+    # upper deck on standoffs, with placeholder OpenCR, Pi adapter and LiDAR
+    dz = top + P.DECK_STANDOFF
+    parts.append(deck_p0.build().translate((P.DECK_X, 0, dz)))
+    for sx in (-1, 1):
+        for sy in (-1, 1):
+            parts.append(Cylinder(radius=2.5, height=P.DECK_STANDOFF, align=(Align.CENTER, Align.CENTER, Align.MIN))
+                         .translate((P.DECK_X + sx * P.DECK_STANDOFF_XY[0], sy * P.DECK_STANDOFF_XY[1], top)))
+    parts.append(Box(105, 75, 12, align=(Align.CENTER, Align.CENTER, Align.MIN)).translate((P.DECK_X - 5, 0, dz + 4)))   # OpenCR
+    parts.append(Box(60, 40, 20, align=(Align.CENTER, Align.CENTER, Align.MIN)).translate((P.DECK_X + 40, 0, dz + 4)))   # Pi (vertical-ish stub)
+    parts.append(Cylinder(radius=35, height=40, align=(Align.CENTER, Align.CENTER, Align.MIN)).translate((P.DECK_X - 10, 0, dz + 16)))  # RPLidar A1
+    # battery placeholder under the deck, across the plate centre
+    parts.append(Box(35, 88, 26, align=(Align.CENTER, Align.CENTER, Align.MIN)).translate((0, 0, top)))
 
     for side in (-1, 1):
         # --- pitch mount: part frame Z = horn axis (outboard). Robot: outboard = side*Y.
