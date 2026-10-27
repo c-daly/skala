@@ -19,11 +19,11 @@ Only after step 5: print the rest, in this order — tip hubs (×4), pitch mount
 | Part | Qty | Print notes |
 | --- | --- | --- |
 | Chassis plate `chassis_p0` | 1 | Flat, 4 walls, 30 %. 200 × 152 × 6 mm. |
-| Pitch servo mount `pitch_mount_p0` | 2 | Back wall down, 5 walls, 40 %. Mirror not needed; the part is symmetric about its X axis. |
-| Flipper arm `arm_p0` | 2 | Inboard face down, rotated 45° on the bed (211 mm long). 5 walls, 40 %. PLA+. Supports only under the cable slot. Print one, mirror in the slicer for the other side — the cable slot and servo pocket are mirrored. |
+| Pitch servo mount `pitch_mount_p0` | 2 | Back wall down, 5 walls, 40 %. Two identical prints; the part is symmetric. |
+| Flipper arm `arm_p0` | 2 | Inboard face down, rotated 45° on the bed (211 mm long). 5 walls, 40 %. PLA+. Supports only under the cable slot. **Two identical prints** — the arm is symmetric about its long axis, so the right-hand arm is the same part turned over. |
 | Tip hub `tip_hub_p0` | 4 | Flange down, 6 walls, 100 %. Two for arms, two for skids. |
-| Skid bracket `skid_bracket_p0` | 2 | Foot down. Mirror one in the slicer. |
-| Skid arm `skid_arm_p0` | 2 | Flat. Mirror one in the slicer. PLA+. |
+| Skid bracket `skid_bracket_p0_L` / `_R` | 1 each | Foot down. The bracket is handed (foot inboard, index holes forward-and-up), so the build emits a left and a right STL. |
+| Skid arm `skid_arm_p0` | 2 | Flat. PLA+. Two identical prints; symmetric like the flipper arm. |
 | Pi adapter `pi_adapter_p0` | 1 | Flat, 3 walls. |
 
 | Hardware | Qty | Where |
@@ -81,7 +81,7 @@ Each mount is a box with the servo horn facing outboard (+Y on the left side, �
 
 ## 6. Flipper arms (×2)
 
-Build the left arm first, then the right as its mirror.
+Build the left arm first, then the right the same way; the parts are identical and the right arm is simply the same print turned over so its servo housing faces outboard.
 
 1. **Drive servo.** Drop the drive servo (ID 3 left, ID 4 right) into the housing on the arm's outboard face, horn facing outboard, cable toward the pivot-end slot. Route the cable through the slot and along the inboard face of the arm toward the pivot before seating the servo. Four M2 × 6 through the housing walls.
 2. **Drive wheel.** Bolt a TB3 wheel straight to the drive servo horn as on the TurtleBot3 (four Robotis horn screws). Spin it by hand; it should clear the housing by ≥ 1 mm all round.
@@ -91,7 +91,7 @@ Build the left arm first, then the right as its mirror.
 6. **Arm to pitch horn.** With the pitch servo at its "horizontal" reading and the arm held horizontal, offer the arm's pivot flange to the horn: the Ø8.4 hole over the horn boss, four M2 × 10 through the flange into the horn. Torque in a cross pattern.
 7. Rotate the arm by hand through its range (power off). The drive wheel sweeps a 63 mm radius about the pivot; it must clear the chassis edge, the pitch mount feet and the standoffs. If it clips a standoff, move that standoff one grid pitch inboard.
 
-Repeat for the right side, mirrored.
+Repeat for the right side.
 
 ## 7. Rear skids (×2)
 

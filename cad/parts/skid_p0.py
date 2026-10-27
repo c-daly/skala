@@ -84,7 +84,11 @@ def arm():
 
 
 def build():
-    return [bracket(), arm()]
+    """Bracket is handed (foot inboard, index arc forward-up): emit left and right.
+    The skid arm is symmetric about its own long axis, so one print serves both sides."""
+    left = bracket(); left.label = "skid_bracket_p0_L"
+    right = bracket().mirror(Plane.XY); right.label = "skid_bracket_p0_R"
+    return [left, right, arm()]
 
 
 if __name__ == "__main__":

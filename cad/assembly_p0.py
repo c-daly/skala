@@ -13,6 +13,8 @@ from parts import chassis_p0, pitch_mount_p0, arm_p0, tip_hub_p0, skid_p0
 
 ARM_PITCH_DEG = float(sys.argv[1]) if len(sys.argv) > 1 else 0.0
 SKID_ANGLE = float(sys.argv[2]) if len(sys.argv) > 2 else P.SKID_ANGLES[0]
+FOUR_ARMS = "--four-arms" in sys.argv   # rear = mirrored driven flippers instead of skids
+REAR_PITCH_DEG = float(sys.argv[3]) if len(sys.argv) > 3 and not sys.argv[3].startswith("-") else ARM_PITCH_DEG
 
 
 def wheel():
@@ -69,6 +71,32 @@ def build():
         w2 = w2.translate((P.PITCH_MOUNT_X + tipv.X, pivot_plane_y + side * wz, pivot_z + tipv.Z))
         parts.append(w2)
 
+        if FOUR_ARMS:
+            # --- rear flipper: same mount + arm, rotated 180° about Z so the arm points aft
+            pm2 = pitch_mount_p0.build().rotate(Axis.X, 90)
+            if side > 0:
+                pm2 = pm2.rotate(Axis.Z, 180)
+            pm2 = pm2.translate((P.SKID_X, side * (half_w - pitch_mount_p0.TOP), pivot_z))
+            parts.append(pm2)
+            sv2 = servo().rotate(Axis.X, 90)
+            if side > 0:
+                sv2 = sv2.rotate(Axis.Z, 180)
+            sv2 = sv2.translate((P.SKID_X, side * (half_w - pitch_mount_p0.TOP + pitch_mount_p0.BACK), pivot_z))
+            parts.append(sv2)
+            a2 = arm_p0.build().rotate(Axis.X, 90)
+            if side > 0:
+                a2 = a2.mirror(Plane.XZ)
+            a2 = a2.rotate(Axis.Z, 180)                 # point aft
+            a2 = a2.rotate(Axis.Y, -REAR_PITCH_DEG)     # tip-down for the rear arm
+            a2 = a2.translate((P.SKID_X, pivot_plane_y, pivot_z))
+            parts.append(a2)
+            for xoff in (P.DRIVE_X, P.TIP_X):
+                v = Vector(-xoff, 0, 0).rotate(Axis.Y, -REAR_PITCH_DEG)
+                w4 = wheel().rotate(Axis.X, -90 if side > 0 else 90)
+                w4 = w4.translate((P.SKID_X + v.X, pivot_plane_y + side * wz, pivot_z + v.Z))
+                parts.append(w4)
+            continue
+
         # --- rear skid bracket and arm
         br = skid_p0.bracket().rotate(Axis.X, 90)
         if side > 0:
@@ -95,12 +123,13 @@ def build():
 if __name__ == "__main__":
     asm = build()
     out = HERE / "out"
-    export_step(asm, str(out / "step" / f"assembly_p0_pitch{int(ARM_PITCH_DEG)}.step"))
+    tag = f"assembly_p0{'_4arm' if FOUR_ARMS else ''}_pitch{int(ARM_PITCH_DEG)}"
+    export_step(asm, str(out / "step" / f"{tag}.step"))
     for label, view in {"iso": (1, -1, 1), "side": (0, -1, 0), "top": (0, 0, 1)}.items():
         svg = ExportSVG(scale=1.6, margin=10)
         svg.add_layer("vis", fill_color=(230, 230, 225), line_color=(40, 40, 40), line_weight=0.5)
         vis, hid = asm.project_to_viewport(viewport_origin=tuple(v * 800 for v in view), viewport_up=(0, 0, 1))
         svg.add_shape(vis, layer="vis")
-        svg.write(str(out / "svg" / f"assembly_p0_pitch{int(ARM_PITCH_DEG)}_{label}.svg"))
+        svg.write(str(out / "svg" / f"{tag}_{label}.svg"))
     bb = asm.bounding_box().size
     print(f"assembly pitch {ARM_PITCH_DEG}: {bb.X:.0f} x {bb.Y:.0f} x {bb.Z:.0f} mm")

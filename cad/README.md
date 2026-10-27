@@ -19,15 +19,15 @@ STEP files import directly into Fusion 360, Onshape or FreeCAD. STL files slice 
 | Pitch servo mount | `out/stl/pitch_mount_p0.stl` | 63 × 63 × 38 | PLA | Back wall (Z=0) down | 1 per arm | 5 walls, 40 %. Foot slots on an 8 mm pitch for TB3 waffle plates. Horn face is the arm's pivot plane. |
 | Chassis plate | `out/stl/chassis_p0.stl` | 200 × 152 × 6 | PLA | Flat | 1 | 8 mm M3 grid throughout, battery strap slots, two lightening windows. 4 walls, 30 %. Pitch mounts at the front corners with horn faces flush to the side edges. |
 | Pi adapter | `out/stl/pi_adapter_p0.stl` | 76 × 66 × 3 | PLA | Flat | 1 | Pi 58 × 49 pattern (M2.5) to the 8 mm grid (M3); the Pi pattern does not land on the grid. |
-| Skid bracket | `out/stl/skid_bracket_p0.stl` | 56 × 60 × 24 | PLA | Foot down | 2 | Rear corners. 8 mm pivot axle, index holes at 0 / 20 / 35 / 50°. 5 walls, 40 %. |
+| Skid bracket | `out/stl/skid_bracket_p0_L.stl`, `_R.stl` | 56 × 60 × 24 | PLA | Foot down | 1 each | Rear corners; handed. 8 mm pivot axle, index holes at 0 / 20 / 35 / 50°. 5 walls, 40 %. |
 | Skid arm | `out/stl/skid_arm_p0.stl` | 148 × 32 × 44 | PLA+ | Flat | 2 | Passive rear arm carrying a TB3 wheel on a tip hub. Angle fixed by an M3 index pin; 35° matches the front arms at 30° down. |
 | Tolerance coupon | `out/stl/coupon_p0.stl` | 180 × 70 × 10.6 | PLA | Flat | 1 | **Print this first.** Three 608 seats (0 / −0.10 / −0.20), three 8 mm bores (+0.10 / +0.20 / +0.30), horn pattern, servo pocket. Set `PRESS_FIT` and `CLEAR_FIT` in params.py from the result. |
 
 ## Assembly check
 
-`uv run cad/assembly_p0.py <arm_pitch_deg> <skid_angle_deg>` places every part plus placeholder servos and wheels and
+`uv run cad/assembly_p0.py <arm_pitch_deg> <skid_angle_deg> [rear_pitch_deg] [--four-arms]` places every part plus placeholder servos and wheels and
 writes `out/step/assembly_p0_pitch<N>.step` and iso/side/top SVGs. Positive arm pitch is tip-down. Useful poses:
-`0 0` (flat, 81 mm tall) and `30 35` (stance, all four wheels level, 146 mm tall). Robot frame: X forward, Y left, Z up;
+`0 0` (flat, 81 mm tall) and `30 35` (stance, all four wheels level, 146 mm tall). `30 0 30 --four-arms` shows the four-flipper variant (rear skids replaced by a second pair of pitch mounts and arms). Robot frame: X forward, Y left, Z up;
 arm pivot planes are the chassis side edges at Y = ±76.
 
 ## Bought parts (prototype 0)
