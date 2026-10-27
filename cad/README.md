@@ -46,6 +46,8 @@ arm pivot planes are the chassis side edges at Y = ±76.
 
 ## How the arm goes together
 
+Summary only; the full build sequence, wiring and first-power-up checklist are in [`../docs/assembly/p0-assembly.md`](../docs/assembly/p0-assembly.md).
+
 - Pitch XL430 is mounted in the chassis; its horn bolts to the arm's pivot flange (four M2 on the horn PCD, centre boss hole 8.4 mm).
 - Drive XL430 drops into the housing on the outboard face from the outboard side, horn facing out; four M2 case screws through the housing walls. Cable exits through the slot on the pivot side.
 - A TB3 wheel bolts straight onto the drive servo horn, as on the TurtleBot3.

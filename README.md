@@ -5,7 +5,16 @@
 Mostly 3D printed (FlashForge Adventurer 5M Pro), controlled by a body layer (`talos`) that can run standalone or
 hand cognition off to LOGOS on a desktop.
 
-Design spec (living doc): https://claude.ai/artifact/DH7kdYLKpPLf4d8KyuJBgt
+## Start here
+
+- [Physical design spec](docs/design/physical-design-spec.md) — geometry, torque, materials, staging, open questions
+- [P0 assembly guide](docs/assembly/p0-assembly.md) — what to measure first, print order, build sequence, wiring, first power-up
+- [CAD and print manifest](cad/README.md) — parts, orientations, bought hardware
+- [Filament guide](docs/design/filament-guide-adventurer-5m-pro.md) — Adventurer 5M Pro settings for PLA, TPU, PETG, ASA, nylon-CF
+- [talos capability manifest](docs/design/talos-capability-manifest.md) — the body interface the firmware and Pi driver target
+- [Concept drawing](docs/concept/track_robot_concept.png)
+
+The editable originals of the spec and the talos note are Claude Docs artifacts; the copies under `docs/` are the versions of record for this repo.
 
 ## Layout
 
@@ -14,7 +23,9 @@ Design spec (living doc): https://claude.ai/artifact/DH7kdYLKpPLf4d8KyuJBgt
 | `cad/` | Parametric CAD (build123d). `params.py` is the single source of dimensions; `build.py` emits STEP/STL to `cad/out/`. See `cad/README.md` for the print manifest. |
 | `firmware/opencr_reflex/` | Reflex layer for the OpenCR 1.0: Dynamixel control, IMU, watchdog, serial protocol to the Pi. |
 | `software/talos/` | Body layer on the Raspberry Pi: drivers, behaviour primitives, the swappable cognition slot (gamepad / local state machine / LOGOS bridge). |
-| `docs/` | Concept drawings and notes. |
+| `docs/design/` | Design spec, filament guide, talos interface note. |
+| `docs/assembly/` | Build guides. |
+| `docs/concept/` | Concept drawings. |
 
 ## Stages
 
