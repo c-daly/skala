@@ -24,6 +24,7 @@ Two configurations share these parts: **A** (full design, four flippers) and **B
 | Skid bracket | `out/stl/skid_bracket_p0_L.stl`, `_R.stl` | 56 × 60 × 24 | PLA | Foot down | 1 each (config B only) | Rear corners; handed. 8 mm pivot axle, index holes at 0 / 20 / 35 / 50°. 5 walls, 40 %. |
 | Skid arm | `out/stl/skid_arm_p0.stl` | 158 × 52 × 44 | PLA+ | Flat | 2 (config B only) | Passive rear arm carrying a TB3 wheel on a tip hub. Angle fixed by an M3 index pin; 35° matches the front arms at 30° down. |
 | Upper deck | `out/stl/deck_p0.stl` | 130 × 120 × 4 | PLA | Flat | 1 | On four 60 mm standoffs at (−64, ±32) and (+32, ±32); carries OpenCR, Pi adapter, RPLidar. |
+| Camera mount | `out/stl/camera_mount_p0.stl` | 24 × 36 × 35 | PLA | Foot down | 1 | Pi Camera Module on a 10° down-tilt at the deck's front edge; two grid holes. |
 | Tolerance coupon | `out/stl/coupon_p0.stl` | 180 × 70 × 10.6 | PLA | Flat | 1 | **Print this first.** Three 608 seats (0 / −0.10 / −0.20), three 8 mm bores (+0.10 / +0.20 / +0.30), horn pattern, servo pocket. Set `PRESS_FIT` and `CLEAR_FIT` in params.py from the result. |
 
 ## Assembly check

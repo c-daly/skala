@@ -178,6 +178,7 @@ clock: { source: monotonic_ns, heartbeat_hz: 2 }
 frames:
   base:   { parent: null }
   lidar:  { parent: base, xyz: [0.0, 0.0, 0.12], rpy: [0, 0, 0] }
+  camera: { parent: base, xyz: [0.04, 0.0, 0.10], rpy: [0, 0.17, 0] }   # 10° down
 
 sensors:
   - { name: imu,            dtype: f32, shape: [9],   units: [m/s2, m/s2, m/s2, rad/s, rad/s, rad/s, rad, rad, rad], rate_hz: 50, frame: base, latency_ms: 5, tags: [imu, accel, gyro, rpy] }
@@ -187,6 +188,7 @@ sensors:
   - { name: drive_current,  dtype: f32, shape: [2],   units: mA,   rate_hz: 50, source: drive,  tags: [servo, current] }
   - { name: battery_v,      dtype: f32, shape: [1],   units: V,    rate_hz: 1,  tags: [power] }
   - { name: scan,           dtype: f32, shape: [360], units: m,    rate_hz: 8,  frame: lidar, latency_ms: 60, tags: [lidar, 2d, range] }
+  - { name: camera,         dtype: u8,  shape: [480, 640, 3], units: rgb, rate_hz: 15, frame: camera, latency_ms: 80, tags: [camera, rgb, forward] }
 
 actuators:
   - { name: pitch, command: position, units: deg, range: [-200, 200], rate_limit: 180, echo: pitch_pos, group: arms, shape: [2], tags: [flipper, front] }
@@ -229,7 +231,7 @@ Notes on choices:
 - `shape: [2]` on the actuators means prototype 0 has two driven arms; prototype 1 bumps it to 4 and `manifest_version` to 2, and nothing in talos or LOGOS changes.
 - `drive_velocity` is a behaviour, not an actuator, because it embeds track kinematics (v, ω → per-side rpm). The raw `drive` actuator is still exposed for babbling and learned control.
 - The RPLidar A1 appears only as a `scan` sensor; stair detection in P0 is the body's business inside `climb_step`, from IMU and current, and the agent sees it as `phase` events.
-- The camera is omitted until it exists; adding it is a `manifest_version` bump.
+- The camera is a fixed Pi Camera Module in P0; a tilt servo in P1 adds an actuator and bumps `manifest_version`.
 
 ## Open questions
 

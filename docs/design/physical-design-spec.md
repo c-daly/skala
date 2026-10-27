@@ -215,6 +215,7 @@ Before the full-size build, a ~1.5 kg rig made from TurtleBot3 parts on hand val
 | LiPo 11.1 V 1800 mAh (LB-012) + charger | 1 | Powers OpenCR and servos directly |
 | Raspberry Pi (several on hand) | 1 | Body layer: `talos`, LiDAR driver, link to desktop; use the newest available |
 | Slamtec RPLidar A1 | 1 | 2D 360° LiDAR, 12 m range, USB; mapping and localization for prototype 0 |
+| Raspberry Pi Camera Module (v2/v3) | 1 | Forward video on a 10° down-tilt mount at the deck's front edge; CSI to the Pi. Buy if not on hand. |
 | Printed TB3 structure | — | Plates reusable as the chassis |
 
 **Layout**
@@ -256,7 +257,7 @@ The build runs in three hardware stages, each with an exit test, and the softwar
 - **Tracks:** ICT-01 on TB3 wheels (P0) → printed TPU segments on printed sprockets, rubber-pad fallback (P1) → tuned grouser height and segment material from wear data (P1.x).
 - **Pitch actuators:** XL430 (P0) → XM540-class smart servo (P1) → brushless + cycloidal when torque or speed limits appear (P2).
 - **Structure:** reused TB3 plates (P0) → PLA box frame (P1) → PETG/ASA where creep or heat shows up (P1.x).
-- **Sensing:** RPLidar A1, IMU, servo current (P0) → camera added, same 2D LiDAR acceptable (P1) → Unitree L2 3D LiDAR for tread-edge detection and LOGOS perception streams (P2).
+- **Sensing:** RPLidar A1, IMU, servo current, fixed Pi Camera (P0) → tilt-servo camera, same 2D LiDAR acceptable (P1) → Unitree L2 3D LiDAR for tread-edge detection and LOGOS perception streams (P2).
 - **Compute:** Pi + OpenCR (P0) → Pi 5 + Arduino/Teensy motion controller (P1) → AI HAT or Jetson only if onboard perception is required in the fully autonomous configuration (P2).
 - **Power:** 3S 1800 mAh (P0) → 6S 5000–6000 mAh with 12 V and 5 V rails (P1) → larger pack and current-sensed rails for logging (P2).
 

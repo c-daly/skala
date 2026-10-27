@@ -501,7 +501,7 @@
 <circle cx='508.8' cy='457.2' r='5' fill='white' stroke='#1f2328' stroke-width='1.5'/>
 <circle cx='508.8' cy='239.6' r='5' fill='white' stroke='#1f2328' stroke-width='1.5'/>
 <text x='345.6' y='124.0' font-family='Helvetica, Arial, sans-serif' font-size='11' fill='#1f2328' text-anchor='middle' font-weight='normal'>upper deck 130 × 120 on 4 × 60 mm standoffs (dashed), above the mounts</text>
-<text x='345.6' y='246.4' font-family='Helvetica, Arial, sans-serif' font-size='11' fill='#6b7280' text-anchor='middle' font-weight='normal'>OpenCR + Pi adapter + RPLidar on the deck</text>
+<text x='345.6' y='246.4' font-family='Helvetica, Arial, sans-serif' font-size='11' fill='#6b7280' text-anchor='middle' font-weight='normal'>OpenCR + Pi adapter + RPLidar on the deck; camera at its front edge</text>
 <line x1='73.60000000000002' y1='674.8' x2='133.60000000000002' y2='674.8' stroke='#1f2328' stroke-width='2' marker-end='url(#arr)'/>
 <text x='139.60000000000002' y='678.8' font-family='Helvetica, Arial, sans-serif' font-size='12' fill='#1f2328'>X forward</text>
 <line x1='73.60000000000002' y1='674.8' x2='73.60000000000002' y2='634.8' stroke='#1f2328' stroke-width='2' marker-end='url(#arr)'/>
@@ -1007,7 +1007,7 @@
 <circle cx='508.8' cy='457.2' r='5' fill='white' stroke='#1f2328' stroke-width='1.5'/>
 <circle cx='508.8' cy='239.6' r='5' fill='white' stroke='#1f2328' stroke-width='1.5'/>
 <text x='345.6' y='124.0' font-family='Helvetica, Arial, sans-serif' font-size='11' fill='#1f2328' text-anchor='middle' font-weight='normal'>upper deck 130 × 120 on 4 × 60 mm standoffs (dashed), above the mounts</text>
-<text x='345.6' y='246.4' font-family='Helvetica, Arial, sans-serif' font-size='11' fill='#6b7280' text-anchor='middle' font-weight='normal'>OpenCR + Pi adapter + RPLidar on the deck</text>
+<text x='345.6' y='246.4' font-family='Helvetica, Arial, sans-serif' font-size='11' fill='#6b7280' text-anchor='middle' font-weight='normal'>OpenCR + Pi adapter + RPLidar on the deck; camera at its front edge</text>
 <line x1='73.60000000000002' y1='674.8' x2='133.60000000000002' y2='674.8' stroke='#1f2328' stroke-width='2' marker-end='url(#arr)'/>
 <text x='139.60000000000002' y='678.8' font-family='Helvetica, Arial, sans-serif' font-size='12' fill='#1f2328'>X forward</text>
 <line x1='73.60000000000002' y1='674.8' x2='73.60000000000002' y2='634.8' stroke='#1f2328' stroke-width='2' marker-end='url(#arr)'/>

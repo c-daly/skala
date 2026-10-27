@@ -77,6 +77,7 @@ figure_over_base(
         (455, 95, 160, 60, "RPLidar A1\non the deck, as high as possible", INK, "start"),
         (430, 265, 120, 330, "Battery (3S 1800 mAh)\nstrapped to the chassis under the deck", INK, "start"),
         (140, 200, 60, 120, "ICT-01 track on two TB3 wheels\n80 links per arm", INK, "start"),
+        (600, 180, 820, 150, "Pi Camera on a 10° tilt mount\nfront edge of the deck", INK, "start"),
     ],
     "Figure 1 — Prototype 0, configuration A (full design)", "Four identical articulated flippers. Pose: all arms 30° down (stance). Placeholder cylinders stand in for wheels, servos and boards.")
 
@@ -89,7 +90,7 @@ figure_over_base(
         (265, 175, 90, 100, "Skid bracket (L / R)\nbolts to the rear corner of the grid", ACC2, "start"),
         (175, 235, 60, 420, "Skid arm ×2, passive\nangle set by an M3 index pin:\n0 / 20 / 35 / 50°", ACC2, "start"),
         (65, 290, 60, 500, "Rear wheel on a tip hub\nfree-rolling, not driven", ACC2, "start"),
-        (560, 330, 820, 320, "Same chassis, deck, battery,\nOpenCR, Pi and LiDAR as A", INK, "start"),
+        (560, 330, 820, 320, "Same chassis, deck, battery, camera,\nOpenCR, Pi and LiDAR as A", INK, "start"),
     ],
     "Figure 2 — Prototype 0, configuration B (interim, parts on hand)", "Two driven flippers in front, two passive indexed skids behind. Pose: front arms 30° down, skids at 35°, all four wheels level.")
 
@@ -157,7 +158,7 @@ def layout_panel(config):
             X, Y = P2(-16 + sx * 48, sy * 32)
             g.append(f"<circle cx='{X:.1f}' cy='{Y:.1f}' r='5' fill='white' stroke='{INK}' stroke-width='1.5'/>")
     g.append(label(-16, 66, "upper deck 130 × 120 on 4 × 60 mm standoffs (dashed), above the mounts", 11, INK))
-    g.append(label(-16, 30, "OpenCR + Pi adapter + RPLidar on the deck", 11, MUTE))
+    g.append(label(-16, 30, "OpenCR + Pi adapter + RPLidar on the deck; camera at its front edge", 11, MUTE))
     # axes
     X0, Y0 = P2(-96, -96)
     g.append(f"<line x1='{X0}' y1='{Y0}' x2='{X0+60}' y2='{Y0}' stroke='{INK}' stroke-width='2' marker-end='url(#arr)'/>")
@@ -200,6 +201,8 @@ svg = ["<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1000 520' width='10
        box(290, 100, 180, 100, "OpenCR 1.0", "reflex firmware · IMU · TTL bus"),
        box(560, 100, 150, 60, "Raspberry Pi", "body layer (talos)"),
        box(800, 100, 150, 60, "RPLidar A1", "USB, 5 V 400 mA"),
+       box(560, 20, 150, 50, "Pi Camera Module", "CSI ribbon to the Pi"),
+       wire(635, 70, 635, 100, MUTE, "5 3"),
        wire(190, 150, 290, 150, "#b45309", lbl="11.1 V", lx=215, ly=142),
        wire(470, 130, 560, 130, MUTE, "5 3", "USB (serial)", 478, 122),
        wire(710, 130, 800, 130, MUTE, "5 3", "USB", 740, 122),
