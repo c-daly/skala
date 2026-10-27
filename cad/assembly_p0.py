@@ -42,7 +42,8 @@ def build():
     parts.append(Box(105, 75, 12, align=(Align.CENTER, Align.CENTER, Align.MIN)).translate((P.DECK_X - 5, 0, dz + 4)))   # OpenCR
     parts.append(Box(60, 40, 20, align=(Align.CENTER, Align.CENTER, Align.MIN)).translate((P.DECK_X + 40, 0, dz + 4)))   # Pi (vertical-ish stub)
     parts.append(Cylinder(radius=35, height=40, align=(Align.CENTER, Align.CENTER, Align.MIN)).translate((P.DECK_X - 10, 0, dz + 16)))  # RPLidar A1
-    parts.append(Box(14, 36, 34, align=(Align.CENTER, Align.CENTER, Align.MIN)).translate((P.DECK_X + 58, 0, dz + 4)))   # camera mount + Pi Camera, front edge of the deck
+    parts.append(Box(24, 56, 22, align=(Align.CENTER, Align.CENTER, Align.MIN)).translate((P.DECK_X + 54, 0, dz + 4)))   # pan base
+    parts.append(Box(44, 44, 51, align=(Align.CENTER, Align.CENTER, Align.MIN)).translate((P.DECK_X + 54, 0, dz + 26)))  # tilt yoke + camera
     # battery placeholder under the deck, across the plate centre
     parts.append(Box(35, 88, 26, align=(Align.CENTER, Align.CENTER, Align.MIN)).translate((0, 0, top)))
 

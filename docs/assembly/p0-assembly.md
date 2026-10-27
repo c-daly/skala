@@ -34,7 +34,7 @@ Only after step 5: print the rest, in this order — tip hubs, pitch mounts, **[
 | **Skid bracket / skid arm** [B] | A printed upright at each rear corner with an 8 mm pivot and four index holes, and a passive arm with a tip hub and wheel. The arm's angle is fixed by one M3 pin; 0 / 20 / 35 / 50°. | — | 2 + 2 |
 | **Upper deck** | 130 × 120 × 4 mm plate on four 60 mm standoffs, above the battery and the mount tops. Carries the OpenCR, the Pi (on its adapter) and the RPLidar A1. | 1 | 1 |
 | **Battery** | LB-012 3S 1800 mAh, strapped across the chassis centre under the deck. | 1 | 1 |
-| **Camera mount** | Small printed bracket at the front edge of the deck holding a Raspberry Pi Camera Module (v2 or v3) tilted 10° down, ribbon straight back to the Pi's CSI port. | 1 | 1 |
+| **Camera pan/tilt** | Three printed parts and two MG90S micro servos at the front edge of the deck: a pan base (servo shaft up), a tilt yoke on the pan horn, and a camera cradle between the yoke's uprights carrying a Raspberry Pi Camera Module. Pan ±90°, tilt −45° to +30°, driven from two OpenCR PWM pins. The ribbon goes to the Pi's CSI port. A fixed 10° mount (`camera_mount_p0`) is the no-servo fallback. | 1 | 1 |
 
 ![Figure 3 — flipper arm](figures/fig3-flipper-arm.png)
 
@@ -52,7 +52,10 @@ Only after step 5: print the rest, in this order — tip hubs, pitch mounts, **[
 | Skid arm `skid_arm_p0` | — | 2 | Flat. PLA+. Identical, symmetric. |
 | Upper deck `deck_p0` | 1 | 1 | Flat, 3 walls. |
 | Pi adapter `pi_adapter_p0` | 1 | 1 | Flat, 3 walls. |
-| Camera mount `camera_mount_p0` | 1 | 1 | Foot down, no supports (the 10° plate is self-supporting). |
+| Pan base `pan_base_p0` | 1 | 1 | Foot down. Servo pocket is through; flange recess on top. |
+| Tilt yoke `tilt_yoke_p0` | 1 | 1 | Plate down, uprights up; no supports. |
+| Camera cradle `camera_cradle_p0` | 1 | 1 | Lay the plate flat, discs up; a little support under the discs. |
+| Fixed camera mount `camera_mount_p0` | (1) | (1) | Fallback only, if you skip the pan/tilt. |
 | Tolerance coupon `coupon_p0` | 1 | 1 | First. |
 
 | Hardware | A | B | Where |
@@ -71,8 +74,11 @@ Only after step 5: print the rest, in this order — tip hubs, pitch mounts, **[
 | M2 × 10 (or Robotis horn screws) | 16 | 8 | Arm pivot flange → pitch horn, 4 each. |
 | M2 × 6 | 8 | 8 | Tip-hub flange → TB3 wheel. |
 | M2.5 × 6 + standoffs | 4 | 4 | Pi → adapter; RPLidar → deck. |
-| Raspberry Pi Camera Module v2 or v3 + 300 mm CSI ribbon | 1 | 1 | **Buy if not on hand** (~$25–35). A USB webcam on a zip tie is the fallback; the mount is for the Pi module. |
-| M2 × 6 | 4 | 4 | Camera board → mount. |
+| Raspberry Pi Camera Module v2 or v3 + 300 mm CSI ribbon | 1 | 1 | **Buy if not on hand** (~$25–35). |
+| MG90S micro servo (metal gear) with horns and screws | 2 | 2 | Pan and tilt. **Buy** (~$4 each). SG90 works but strips. |
+| M2 × 6 | 4 | 4 | Camera board → cradle. |
+| M3 × 16 + nylock + 2 washers | 1 | 1 | Cradle pivot through the left yoke upright. |
+| 3-pin servo extension leads, 300 mm | 2 | 2 | Pan/tilt servos → OpenCR PWM header. |
 | 25 mm hook-and-loop strap, ~400 mm | 1 | 1 | Battery. |
 | Dynamixel 3-pin TTL cables | 8 | 4 | 180 mm for pitch servos, 240 mm into the arms. |
 | Zip ties, 2.5 mm | ~30 | ~20 | Routing. |
@@ -139,8 +145,16 @@ Build one, then repeat; the parts are identical. A right-hand arm is the same pr
 
 1. Mount the OpenCR on M3 × 12 standoffs toward the rear of the deck and the Pi adapter (with the Pi) toward the front, both on the deck's grid. The RPLidar A1 sits on top on three M2.5 standoffs, as high as practical, so its scan plane clears the raised front arms.
 2. Fit the deck onto the four 60 mm standoffs with M3 × 8. Its underside is at 66 mm, above the pitch-mount tops (63 mm) and the battery.
-3. Fit the camera mount at the deck's front edge on two grid holes, lens on the centreline. Bolt the Pi Camera board to the tilted plate with four M2 × 6, lens through the window, ribbon pointing down and back. Connect the ribbon to the Pi's CSI port before the deck goes on (it is awkward afterwards); a Pi 5 needs the 22-pin-to-15-pin ribbon.
+3. **Camera pan/tilt** (Figure 7). Centre both MG90S servos with a servo tester or the OpenCR before fitting horns.
+   - Drop the pan servo into the pan base from the top, shaft up, lead out through the pocket; two M2 self-tap screws through the flange into the block. Bolt the base to the deck's front edge on two grid holes, shaft on the centreline.
+   - Fit a two-arm horn to the pan servo. Bolt the tilt yoke's plate to it (centre M2.5 screw plus the two pin holes) with the yoke's servo upright on the robot's right.
+   - Slide the tilt servo into the right upright from outside, shaft pointing inward; two M2 self-tap screws through the upright into the flange. Fit a two-arm horn on the inside.
+   - Bolt the Pi Camera board to the cradle with four M2 × 6, lens through the window, ribbon connector downward. Bolt the cradle's horn disc to the tilt horn; pass an M3 × 16 with a washer each side through the left upright into the cradle's pivot boss, nylock just snug so it turns freely.
+   - Set both servos to centre: the camera should look straight ahead and level. If not, pull the horn and re-index by a tooth.
+   - Connect the CSI ribbon to the Pi before the deck goes on (a Pi 5 needs the 22-to-15-pin ribbon). Leave a loose loop above the pan base so ±90° of pan does not strain it; route it down behind the yoke, away from the tilt servo.
 4. Feed the servo bus and the battery lead up through the deck's rear slot.
+
+![Figure 7 — camera pan/tilt](figures/fig7-camera-pan-tilt.png)
 
 ## 10. Wiring
 
@@ -158,14 +172,14 @@ OpenCR TTL → ID 2 → ID 1 → ID 3 → ID 4 → ID 6 → ID 5 → ID 7 → ID
 - Pitch-servo leads exit the back of each mount; tie them along the inside of the plate edge.
 - Drive-servo leads leave the arm through the pivot-side slot. Leave a **~120 mm service loop** at the pivot, coiled and tied to the *mount*, not the arm. This loop allows ±200° of pitch and is what limits rotation in P0; the firmware limit must match it.
 - USB: Pi → OpenCR (micro-USB) and Pi → RPLidar A1. Tie under the deck.
-- Camera: CSI ribbon from the mount to the Pi, one gentle bend, no twist; keep it away from the servo leads.
+- Camera: CSI ribbon from the cradle to the Pi with a loose loop above the pan base; no twist. Pan and tilt servos to two OpenCR PWM pins (e.g. D4 and D5 on the Arduino header) with 5 V and ground from the OpenCR's 5 V header; each MG90S can draw ~0.7 A at stall, so if the Pi also hangs off that rail, give the Pi its own buck.
 - Battery last: strap it, connector toward the deck slot, plug in. Nothing moves until the OpenCR enables torque.
 
 ## 11. First power-up checklist
 
 On blocks, wheels and arms free.
 
-1. Battery in, OpenCR on, Pi booted. All servos answer a ping at their IDs; `rpicam-hello` (or `libcamera-hello`) shows a picture; the RPLidar spins.
+1. Battery in, OpenCR on, Pi booted. All Dynamixels answer a ping at their IDs; `rpicam-hello` (or `libcamera-hello`) shows a picture; the RPLidar spins; pan and tilt go to centre when the firmware starts and sweep gently to their limits without the ribbon pulling.
 2. Torque **off**. Move each arm (and skid) by hand through its range; nothing binds, no lead pulls taut before ±200°.
 3. Load the reflex firmware with limits first: pitch ±200° about each horizontal offset, current trip at the step-3 limit, IMU tip-over at ±60°, 500 ms heartbeat timeout → hold pitch, zero drive.
 4. Torque on one servo at a time. Command each pitch servo ±10° and check direction: left and right are mirrored, so one side's positive is the other's negative. Fix signs in firmware, not by swapping cables.
@@ -181,7 +195,7 @@ On blocks, wheels and arms free.
 | Self-right | Limited by the ±200° cable loop | No |
 | Push with the rear on a step | Yes | No — front pull only, hence the small test stair |
 | See tread edges | No (2D LiDAR); climb runs on IMU + servo current | Same |
-| Camera | Pi Camera Module, fixed 10° down; no pan/tilt | Same |
+| Camera | Pi Camera Module on a two-servo pan/tilt: pan ±90°, tilt −45…+30° | Same |
 
 Moving from B to A later: remove the two skid brackets and arms, add two pitch mounts and two arms at the rear corners, four servos and two more track sets. Chassis, deck, electronics and firmware are unchanged apart from four more servo IDs.
 

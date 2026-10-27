@@ -17,6 +17,11 @@
 <text x='635.0' y='45.0' font-family='Helvetica, Arial, sans-serif' font-size='13' font-weight='bold' fill='#1f2328' text-anchor='middle'>Pi Camera Module</text>
 <text x='635.0' y='62.0' font-family='Helvetica, Arial, sans-serif' font-size='11' fill='#6b7280' text-anchor='middle'>CSI ribbon to the Pi</text>
 <line x1='635' y1='70' x2='635' y2='100' stroke='#6b7280' stroke-width='2' stroke-dasharray='5 3'/>
+<rect x='40' y='220' width='150' height='50' rx='6' fill='#f3f4f6' stroke='#1f2328' stroke-width='1.5'/>
+<text x='115.0' y='245.0' font-family='Helvetica, Arial, sans-serif' font-size='13' font-weight='bold' fill='#1f2328' text-anchor='middle'>Pan / tilt MG90S ×2</text>
+<text x='115.0' y='262.0' font-family='Helvetica, Arial, sans-serif' font-size='11' fill='#6b7280' text-anchor='middle'>OpenCR PWM D4, D5 + 5 V</text>
+<line x1='190' y1='245' x2='330' y2='245' stroke='#b45309' stroke-width='2'/>
+<line x1='330' y1='200' x2='330' y2='245' stroke='#b45309' stroke-width='2'/>
 <line x1='190' y1='150' x2='290' y2='150' stroke='#b45309' stroke-width='2'/><text x='215' y='142' font-family='Helvetica, Arial, sans-serif' font-size='11' fill='#b45309'>11.1 V</text>
 <line x1='470' y1='130' x2='560' y2='130' stroke='#6b7280' stroke-width='2' stroke-dasharray='5 3'/><text x='478' y='122' font-family='Helvetica, Arial, sans-serif' font-size='11' fill='#6b7280'>USB (serial)</text>
 <line x1='710' y1='130' x2='800' y2='130' stroke='#6b7280' stroke-width='2' stroke-dasharray='5 3'/><text x='740' y='122' font-family='Helvetica, Arial, sans-serif' font-size='11' fill='#6b7280'>USB</text>

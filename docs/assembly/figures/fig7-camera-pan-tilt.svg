@@ -1,0 +1,41 @@
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1000 560' width='1000' height='560'>
+<rect width='100%' height='100%' fill='white'/>
+<text x='20' y='30' font-family='Helvetica, Arial, sans-serif' font-size='20' font-weight='bold' fill='#1f2328'>Figure 7 — Camera pan/tilt head</text><text x='20' y='50' font-family='Helvetica, Arial, sans-serif' font-size='13' fill='#6b7280'>Two MG90S micro servos and three printed parts at the front edge of the upper deck. Left: side view, camera looking right. Right: front view.</text>
+<rect x='202' y='460' width='368' height='16' fill='#e5e7eb' stroke='#1f2328' stroke-width='1.5' opacity='1'/>
+<text x='202' y='476' font-family='Helvetica, Arial, sans-serif' font-size='11' fill='#6b7280'>upper deck (front edge to the right)</text>
+<rect x='218' y='444' width='224' height='16' fill='#fed7aa' stroke='#c2410c' stroke-width='1.5' opacity='1'/>
+<rect x='250' y='372' width='160' height='88' fill='#fed7aa' stroke='#c2410c' stroke-width='1.5' opacity='1'/>
+<rect x='308' y='362' width='91' height='90' fill='#d1d5db' stroke='#1f2328' stroke-width='1.5' stroke-dasharray='3 2' opacity='0.9'/>
+<line x1='330' y1='372' x2='330' y2='60' stroke='#1d4ed8' stroke-width='1' stroke-dasharray='6 3'/>
+<text x='336' y='76' font-family='Helvetica, Arial, sans-serif' font-size='11' fill='#1d4ed8'>pan axis (±90°)</text>
+<rect x='242' y='352' width='176' height='12' fill='#bfdbfe' stroke='#1d4ed8' stroke-width='1.5' opacity='1'/>
+<rect x='242' y='160' width='176' height='192' fill='#bfdbfe' stroke='#1d4ed8' stroke-width='1.5' opacity='0.35'/>
+<circle cx='330' cy='216' r='6' fill='white' stroke='#1f2328' stroke-width='2'/>
+<text x='342' y='208' font-family='Helvetica, Arial, sans-serif' font-size='11' fill='#1f2328'>tilt axis, through the board centre</text>
+<rect x='324' y='156' width='12' height='120' fill='#fef3c7' stroke='#b45309' stroke-width='1.5' opacity='1'/>
+<circle cx='342' cy='216' r='5' fill='#1f2328'/>
+<text x='350' y='220' font-family='Helvetica, Arial, sans-serif' font-size='11' fill='#1f2328'>lens</text>
+<path d='M 365 196 A 40 40 0 0 1 358 244' fill='none' stroke='#1d4ed8' stroke-width='1.5'/>
+<text x='378' y='246' font-family='Helvetica, Arial, sans-serif' font-size='11' fill='#1d4ed8'>tilt +30° up / −45° down</text>
+<text x='220' y='412' font-family='Helvetica, Arial, sans-serif' font-size='12' fill='#c2410c' font-weight='bold' text-anchor='end'>pan base</text>
+<text x='220' y='260' font-family='Helvetica, Arial, sans-serif' font-size='12' fill='#1d4ed8' font-weight='bold' text-anchor='end'>tilt yoke</text>
+<text x='220' y='180' font-family='Helvetica, Arial, sans-serif' font-size='12' fill='#b45309' font-weight='bold' text-anchor='end'>camera cradle</text>
+<line x1='224' y1='408' x2='250' y2='408' stroke='#c2410c' stroke-width='0.8'/>
+<line x1='224' y1='256' x2='242' y2='256' stroke='#1d4ed8' stroke-width='0.8'/>
+<line x1='224' y1='176' x2='324.0' y2='176' stroke='#b45309' stroke-width='0.8'/>
+<rect x='620' y='460' width='360' height='16' fill='#e5e7eb' stroke='#1f2328' stroke-width='1.5' opacity='1'/>
+<rect x='752' y='372' width='96' height='88' fill='#fed7aa' stroke='#c2410c' stroke-width='1.5' opacity='1'/>
+<rect x='712' y='352' width='176' height='12' fill='#bfdbfe' stroke='#1d4ed8' stroke-width='1.5' opacity='1'/>
+<rect x='712' y='160' width='16' height='192' fill='#bfdbfe' stroke='#1d4ed8' stroke-width='1.5' opacity='1'/>
+<rect x='872' y='160' width='16' height='192' fill='#bfdbfe' stroke='#1d4ed8' stroke-width='1.5' opacity='1'/>
+<rect x='872' y='192' width='48' height='48' fill='#d1d5db' stroke='#1f2328' stroke-width='1.5' stroke-dasharray='3 2' opacity='1'/>
+<text x='928' y='180' font-family='Helvetica, Arial, sans-serif' font-size='11' fill='#1f2328'>tilt MG90S,</text><text x='928' y='194' font-family='Helvetica, Arial, sans-serif' font-size='11' fill='#1f2328'>shaft inward</text>
+<circle cx='720' cy='216' r='5' fill='white' stroke='#1f2328' stroke-width='2'/>
+<text x='704' y='220' font-family='Helvetica, Arial, sans-serif' font-size='11' fill='#1f2328' text-anchor='end'>M3 pivot, washers both sides</text>
+<rect x='744' y='156' width='112' height='120' fill='#fef3c7' stroke='#b45309' stroke-width='1.5' opacity='1'/>
+<rect x='750' y='168' width='100' height='96' fill='#86efac' stroke='#166534' stroke-width='1.5' opacity='0.9'/>
+<circle cx='800' cy='216' r='7' fill='#1f2328'/>
+<text x='800' y='140' font-family='Helvetica, Arial, sans-serif' font-size='11' fill='#166534' text-anchor='middle'>Pi Camera board, 4 × M2, ribbon down</text>
+<text x='800' y='476' font-family='Helvetica, Arial, sans-serif' font-size='11' fill='#6b7280' text-anchor='middle'>front view: yoke uprights 36 mm apart inside; cradle 28 mm wide</text>
+<text x='40' y='540' font-family='Helvetica, Arial, sans-serif' font-size='12' fill='#6b7280'>Centre both servos before fitting horns. Pan servo lead and the CSI ribbon need a loose loop above the pan base. No feedback on MG90S: firmware reports the setpoint.</text>
+</svg>

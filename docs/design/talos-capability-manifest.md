@@ -178,7 +178,7 @@ clock: { source: monotonic_ns, heartbeat_hz: 2 }
 frames:
   base:   { parent: null }
   lidar:  { parent: base, xyz: [0.0, 0.0, 0.12], rpy: [0, 0, 0] }
-  camera: { parent: base, xyz: [0.04, 0.0, 0.10], rpy: [0, 0.17, 0] }   # 10° down
+  camera: { parent: base, xyz: [0.04, 0.0, 0.14], rpy: [0, 0, 0], moving: [cam_pan, cam_tilt] }   # pose follows the pan/tilt setpoints
 
 sensors:
   - { name: imu,            dtype: f32, shape: [9],   units: [m/s2, m/s2, m/s2, rad/s, rad/s, rad/s, rad, rad, rad], rate_hz: 50, frame: base, latency_ms: 5, tags: [imu, accel, gyro, rpy] }
@@ -189,10 +189,14 @@ sensors:
   - { name: battery_v,      dtype: f32, shape: [1],   units: V,    rate_hz: 1,  tags: [power] }
   - { name: scan,           dtype: f32, shape: [360], units: m,    rate_hz: 8,  frame: lidar, latency_ms: 60, tags: [lidar, 2d, range] }
   - { name: camera,         dtype: u8,  shape: [480, 640, 3], units: rgb, rate_hz: 15, frame: camera, latency_ms: 80, tags: [camera, rgb, forward] }
+  - { name: cam_pan_set,    dtype: f32, shape: [1],   units: deg,  rate_hz: 0,  source: cam_pan,  tags: [servo, echo, setpoint-only] }
+  - { name: cam_tilt_set,   dtype: f32, shape: [1],   units: deg,  rate_hz: 0,  source: cam_tilt, tags: [servo, echo, setpoint-only] }
 
 actuators:
   - { name: pitch, command: position, units: deg, range: [-200, 200], rate_limit: 180, echo: pitch_pos, group: arms, shape: [2], tags: [flipper, front] }
   - { name: drive, command: velocity, units: rpm, range: [-80, 80],   rate_limit: 400, echo: drive_vel, group: arms, shape: [2], tags: [track, front] }
+  - { name: cam_pan,  command: position, units: deg, range: [-90, 90], rate_limit: 180, echo: cam_pan_set,  tags: [camera, pan,  open-loop] }
+  - { name: cam_tilt, command: position, units: deg, range: [-45, 30], rate_limit: 180, echo: cam_tilt_set, tags: [camera, tilt, open-loop] }
 
 behaviours:
   - name: set_stance
@@ -231,7 +235,7 @@ Notes on choices:
 - `shape: [2]` on the actuators means prototype 0 has two driven arms; prototype 1 bumps it to 4 and `manifest_version` to 2, and nothing in talos or LOGOS changes.
 - `drive_velocity` is a behaviour, not an actuator, because it embeds track kinematics (v, ω → per-side rpm). The raw `drive` actuator is still exposed for babbling and learned control.
 - The RPLidar A1 appears only as a `scan` sensor; stair detection in P0 is the body's business inside `climb_step`, from IMU and current, and the agent sees it as `phase` events.
-- The camera is a fixed Pi Camera Module in P0; a tilt servo in P1 adds an actuator and bumps `manifest_version`.
+- The camera rides a two-servo pan/tilt. MG90S servos have no position feedback, so their `echo` sensors report the commanded setpoint, tagged `setpoint-only`; the agent should treat them as less trustworthy than a Dynamixel echo. The `camera` frame is declared as moving with those actuators.
 
 ## Open questions
 

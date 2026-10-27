@@ -77,7 +77,7 @@ figure_over_base(
         (455, 95, 160, 60, "RPLidar A1\non the deck, as high as possible", INK, "start"),
         (430, 265, 120, 330, "Battery (3S 1800 mAh)\nstrapped to the chassis under the deck", INK, "start"),
         (140, 200, 60, 120, "ICT-01 track on two TB3 wheels\n80 links per arm", INK, "start"),
-        (600, 180, 820, 150, "Pi Camera on a 10° tilt mount\nfront edge of the deck", INK, "start"),
+        (600, 170, 820, 140, "Pi Camera on a two-servo pan/tilt\nfront edge of the deck", INK, "start"),
     ],
     "Figure 1 — Prototype 0, configuration A (full design)", "Four identical articulated flippers. Pose: all arms 30° down (stance). Placeholder cylinders stand in for wheels, servos and boards.")
 
@@ -203,6 +203,8 @@ svg = ["<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1000 520' width='10
        box(800, 100, 150, 60, "RPLidar A1", "USB, 5 V 400 mA"),
        box(560, 20, 150, 50, "Pi Camera Module", "CSI ribbon to the Pi"),
        wire(635, 70, 635, 100, MUTE, "5 3"),
+       box(40, 220, 150, 50, "Pan / tilt MG90S ×2", "OpenCR PWM D4, D5 + 5 V"),
+       wire(190, 245, 330, 245, "#b45309"), wire(330, 200, 330, 245, "#b45309"),
        wire(190, 150, 290, 150, "#b45309", lbl="11.1 V", lx=215, ly=142),
        wire(470, 130, 560, 130, MUTE, "5 3", "USB (serial)", 478, 122),
        wire(710, 130, 800, 130, MUTE, "5 3", "USB", 740, 122),
@@ -261,3 +263,59 @@ svg.append(f"<text x='{tx+40:.1f}' y='{ty-33*K-10:.0f}' {FONT} font-size='12' fi
 svg.append(f"<text x='40' y='620' {FONT} font-size='12' fill='{MUTE}'>0° = flat pose. 35° matches the front flippers at 30° down so all four wheels sit level. Change the angle by moving one pin.</text>")
 svg.append("</svg>")
 write("fig6-skid", "\n".join(svg))
+
+# --------------------------------------------------------------------------- Fig 7: camera pan/tilt (drawn, side + front)
+svg = ["<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1000 560' width='1000' height='560'>",
+       "<rect width='100%' height='100%' fill='white'/>",
+       title("Figure 7 — Camera pan/tilt head", "Two MG90S micro servos and three printed parts at the front edge of the upper deck. Left: side view, camera looking right. Right: front view."),
+       ]
+# ---- side view (X right = forward, Z up), scale 4 px/mm, deck top at y=460
+K=4; X0=330; Y0=460
+def R(x,z,w,h,fill,stroke=INK,dash=None,op=1):
+    d=f" stroke-dasharray='{dash}'" if dash else ""
+    return f"<rect x='{X0+x*K:.0f}' y='{Y0-(z+h)*K:.0f}' width='{w*K:.0f}' height='{h*K:.0f}' fill='{fill}' stroke='{stroke}' stroke-width='1.5'{d} opacity='{op}'/>"
+svg.append(R(-32,-4,92,4,"#e5e7eb"))                        # deck
+svg.append(f"<text x='{X0-32*K}' y='{Y0+16}' {FONT} font-size='11' fill='{MUTE}'>upper deck (front edge to the right)</text>")
+svg.append(R(-28,0,56,4,"#fed7aa",ACC)); svg.append(R(-20,0,40,22,"#fed7aa",ACC))     # pan base
+svg.append(R(-5.5,2,22.8,22.5,"#d1d5db",INK,"3 2",0.9))                               # pan servo (hidden)
+svg.append(f"<line x1='{X0}' y1='{Y0-22*K}' x2='{X0}' y2='{Y0-100*K}' stroke='{ACC2}' stroke-width='1' stroke-dasharray='6 3'/>")
+svg.append(f"<text x='{X0+6}' y='{Y0-96*K}' {FONT} font-size='11' fill='{ACC2}'>pan axis (±90°)</text>")
+svg.append(R(-22,24,44,3,"#bfdbfe",ACC2))                                             # yoke plate on horn
+svg.append(R(-22,27,44,48,"#bfdbfe",ACC2,None,0.35))                                   # upright seen edge-on (transparent)
+svg.append(f"<circle cx='{X0}' cy='{Y0-(27+34)*K:.0f}' r='6' fill='white' stroke='{INK}' stroke-width='2'/>")
+svg.append(f"<text x='{X0+12}' y='{Y0-(27+34)*K-8:.0f}' {FONT} font-size='11' fill='{INK}'>tilt axis, through the board centre</text>")
+svg.append(R(-1.5,46,3,30,"#fef3c7","#b45309"))                                        # cradle plate (camera looks +X)
+svg.append(f"<circle cx='{X0+3*K}' cy='{Y0-61*K:.0f}' r='5' fill='{INK}'/>")
+svg.append(f"<text x='{X0+5*K}' y='{Y0-61*K+4:.0f}' {FONT} font-size='11' fill='{INK}'>lens</text>")
+# tilt arc
+import math
+cx, cy = X0, Y0-61*K
+svg.append(f"<path d='M {cx+40*math.cos(math.radians(30)):.0f} {cy-40*math.sin(math.radians(30)):.0f} A 40 40 0 0 1 {cx+40*math.cos(math.radians(-45)):.0f} {cy-40*math.sin(math.radians(-45)):.0f}' fill='none' stroke='{ACC2}' stroke-width='1.5'/>")
+svg.append(f"<text x='{cx+48}' y='{cy+30}' {FONT} font-size='11' fill='{ACC2}'>tilt +30° up / −45° down</text>")
+svg.append(f"<text x='{X0-110}' y='{Y0-12*K}' {FONT} font-size='12' fill='{ACC}' font-weight='bold' text-anchor='end'>pan base</text>")
+svg.append(f"<text x='{X0-110}' y='{Y0-50*K}' {FONT} font-size='12' fill='{ACC2}' font-weight='bold' text-anchor='end'>tilt yoke</text>")
+svg.append(f"<text x='{X0-110}' y='{Y0-70*K}' {FONT} font-size='12' fill='#b45309' font-weight='bold' text-anchor='end'>camera cradle</text>")
+svg.append(f"<line x1='{X0-106}' y1='{Y0-12*K-4}' x2='{X0-20*K}' y2='{Y0-12*K-4}' stroke='{ACC}' stroke-width='0.8'/>")
+svg.append(f"<line x1='{X0-106}' y1='{Y0-50*K-4}' x2='{X0-22*K}' y2='{Y0-50*K-4}' stroke='{ACC2}' stroke-width='0.8'/>")
+svg.append(f"<line x1='{X0-106}' y1='{Y0-70*K-4}' x2='{X0-1.5*K}' y2='{Y0-70*K-4}' stroke='#b45309' stroke-width='0.8'/>")
+# ---- front view (Y right, Z up) at X0f
+X0f=800
+def Rf(y,z,w,h,fill,stroke=INK,dash=None,op=1):
+    d=f" stroke-dasharray='{dash}'" if dash else ""
+    return f"<rect x='{X0f+y*K:.0f}' y='{Y0-(z+h)*K:.0f}' width='{w*K:.0f}' height='{h*K:.0f}' fill='{fill}' stroke='{stroke}' stroke-width='1.5'{d} opacity='{op}'/>"
+svg.append(Rf(-45,-4,90,4,"#e5e7eb"))
+svg.append(Rf(-12,0,24,22,"#fed7aa",ACC))
+svg.append(Rf(-22,24,44,3,"#bfdbfe",ACC2))
+svg.append(Rf(-22,27,4,48,"#bfdbfe",ACC2)); svg.append(Rf(18,27,4,48,"#bfdbfe",ACC2))
+svg.append(Rf(18,55,12,12,"#d1d5db",INK,"3 2"))                 # tilt servo outside right upright
+svg.append(f"<text x='{X0f+32*K}' y='{Y0-70*K}' {FONT} font-size='11' fill='{INK}'>tilt MG90S,</text><text x='{X0f+32*K}' y='{Y0-70*K+14}' {FONT} font-size='11' fill='{INK}'>shaft inward</text>")
+svg.append(f"<circle cx='{X0f-20*K}' cy='{Y0-61*K:.0f}' r='5' fill='white' stroke='{INK}' stroke-width='2'/>")
+svg.append(f"<text x='{X0f-24*K}' y='{Y0-61*K+4:.0f}' {FONT} font-size='11' fill='{INK}' text-anchor='end'>M3 pivot, washers both sides</text>")
+svg.append(Rf(-14,46,28,30,"#fef3c7","#b45309"))                 # cradle plate
+svg.append(Rf(-12.5,49,25,24,"#86efac","#166534",None,0.9))       # camera board
+svg.append(f"<circle cx='{X0f}' cy='{Y0-61*K:.0f}' r='7' fill='{INK}'/>")
+svg.append(f"<text x='{X0f}' y='{Y0-80*K}' {FONT} font-size='11' fill='#166534' text-anchor='middle'>Pi Camera board, 4 × M2, ribbon down</text>")
+svg.append(f"<text x='{X0f}' y='{Y0+16}' {FONT} font-size='11' fill='{MUTE}' text-anchor='middle'>front view: yoke uprights 36 mm apart inside; cradle 28 mm wide</text>")
+svg.append(f"<text x='40' y='540' {FONT} font-size='12' fill='{MUTE}'>Centre both servos before fitting horns. Pan servo lead and the CSI ribbon need a loose loop above the pan base. No feedback on MG90S: firmware reports the setpoint.</text>")
+svg.append("</svg>")
+write("fig7-camera-pan-tilt", "\n".join(svg))
