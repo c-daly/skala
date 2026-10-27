@@ -16,6 +16,15 @@ hand cognition off to LOGOS on a desktop.
 
 The editable originals of the spec and the talos note are Claude Docs artifacts; the copies under `docs/` are the versions of record for this repo.
 
+## Shared research
+
+[Cognition and Embodiment](../vault/20-areas/research/Cognition%20and%20Embodiment.md) is the shared research programme in the local workspace vault. Skala contributes the physical robot and enjoyable teaching and play activities. It tracks cross-project prerequisites, evidence, and decisions; detailed implementation and experiment records remain with their owning projects.
+
+**Audio memory handoff (2026-10-25):** [Cliste results and future capture experiments](docs/research/2026-10-25-audio-memory-handoff.md)
+record what works, what remains partial, timing/storage costs and the proposed
+bench-to-robot path. Skala is not built yet; these results do not imply physical
+audio qualification or Sophia integration.
+
 ## Layout
 
 | Path | What |
