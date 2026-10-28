@@ -73,6 +73,9 @@ SKID_ANGLES = (0, 20, 35, 50)    # indexed down-angles, degrees; 0 = flat stance
 SKID_INDEX_R = 22.0       # radius of the index pin holes from the pivot
 
 # ----------------------------------------------------------- P0 upper deck ---
-DECK_X = -16.0            # deck centre; standoffs land on grid holes at X = -64 and 32
+DECK_X = -28.0            # deck centre; standoffs land on grid holes at X = -80 and 24
+DECK_L, DECK_W = 164.0, 120.0   # long enough for OpenCR (75 along X, rotated) + Pi adapter (66 along X)
 DECK_STANDOFF = 60.0      # deck underside at 66 mm: above the pitch mounts (top at 63) and the battery
-DECK_STANDOFF_XY = (48.0, 32.0)   # standoff offsets from deck centre; all four land on grid holes
+DECK_STANDOFF_XY = (52.0, 32.0)   # standoff offsets from deck centre; all four land on grid holes
+LIDAR_STANDOFF = 40.0     # RPLidar A1 above the Pi on M2.5 standoffs; clears a Pi 5 active cooler
+CAM_X = 80.0              # camera pan/tilt head on the chassis plate, front centre, ahead of the deck

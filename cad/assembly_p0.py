@@ -39,11 +39,17 @@ def build():
         for sy in (-1, 1):
             parts.append(Cylinder(radius=2.5, height=P.DECK_STANDOFF, align=(Align.CENTER, Align.CENTER, Align.MIN))
                          .translate((P.DECK_X + sx * P.DECK_STANDOFF_XY[0], sy * P.DECK_STANDOFF_XY[1], top)))
-    parts.append(Box(105, 75, 12, align=(Align.CENTER, Align.CENTER, Align.MIN)).translate((P.DECK_X - 5, 0, dz + 4)))   # OpenCR
-    parts.append(Box(60, 40, 20, align=(Align.CENTER, Align.CENTER, Align.MIN)).translate((P.DECK_X + 40, 0, dz + 4)))   # Pi (vertical-ish stub)
-    parts.append(Cylinder(radius=35, height=40, align=(Align.CENTER, Align.CENTER, Align.MIN)).translate((P.DECK_X - 10, 0, dz + 16)))  # RPLidar A1
-    parts.append(Box(24, 56, 22, align=(Align.CENTER, Align.CENTER, Align.MIN)).translate((P.DECK_X + 54, 0, dz + 4)))   # pan base
-    parts.append(Box(44, 44, 51, align=(Align.CENTER, Align.CENTER, Align.MIN)).translate((P.DECK_X + 54, 0, dz + 26)))  # tilt yoke + camera
+    parts.append(Box(75, 105, 14, align=(Align.CENTER, Align.CENTER, Align.MIN)).translate((P.DECK_X - 42, 0, dz + 4)))    # OpenCR, long side across Y, with headers
+    parts.append(Box(66, 76, 30, align=(Align.CENTER, Align.CENTER, Align.MIN)).translate((P.DECK_X + 32, 0, dz + 4)))     # Pi adapter + Pi + cooler
+    for sx in (-1, 1):
+        for sy in (-1, 1):
+            parts.append(Cylinder(radius=2, height=P.LIDAR_STANDOFF, align=(Align.CENTER, Align.CENTER, Align.MIN))
+                         .translate((P.DECK_X + 32 + sx * 40, sy * 28, dz + 4)))
+    parts.append(Box(97, 70, 8, align=(Align.CENTER, Align.CENTER, Align.MIN)).translate((P.DECK_X + 32, 0, dz + 4 + P.LIDAR_STANDOFF)))   # RPLidar base
+    parts.append(Cylinder(radius=35, height=32, align=(Align.CENTER, Align.CENTER, Align.MIN)).translate((P.DECK_X + 32, 0, dz + 12 + P.LIDAR_STANDOFF)))  # RPLidar head
+    # camera pan/tilt head on the chassis plate, front centre, ahead of the deck
+    parts.append(Box(24, 56, 22, align=(Align.CENTER, Align.CENTER, Align.MIN)).translate((P.CAM_X, 0, top + 4)))      # pan base (rotated: foot across Y)
+    parts.append(Box(44, 44, 51, align=(Align.CENTER, Align.CENTER, Align.MIN)).translate((P.CAM_X, 0, top + 26)))     # tilt yoke + camera
     # battery placeholder under the deck, across the plate centre
     parts.append(Box(35, 88, 26, align=(Align.CENTER, Align.CENTER, Align.MIN)).translate((0, 0, top)))
 

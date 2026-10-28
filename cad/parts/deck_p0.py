@@ -1,7 +1,9 @@
-"""Prototype 0 upper deck: a 130 x 120 x 4 mm PLA plate on four 60 mm standoffs above the
-chassis, carrying the OpenCR, the Pi (via pi_adapter_p0) and the RPLidar A1. Same 8 mm M3
+"""Prototype 0 upper deck: a 164 x 120 x 4 mm PLA plate on four 60 mm standoffs above the
+chassis. OpenCR at the rear (long side across the robot), Pi adapter in front of it, and the
+RPLidar A1 on 40 mm M2.5 standoffs above the Pi. The camera head is NOT on the deck; it sits
+on the chassis plate ahead of the deck's front edge. Same 8 mm M3
 grid as the chassis so the standoffs land on chassis holes and the boards mount anywhere.
-Centred at X = -16; the standoffs sit at (±48, ±32) from the deck centre, which puts them on
+Centred at X = -28; the standoffs sit at (±52, ±32) from the deck centre, which puts them on
 chassis grid holes and clear of the pitch-mount feet. At 60 mm the deck clears the mount tops.
 """
 import sys, pathlib
@@ -9,7 +11,7 @@ sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[1]))
 from build123d import *
 import params as P
 
-L, W, T = 130.0, 120.0, 4.0
+L, W, T = P.DECK_L, P.DECK_W, 4.0
 
 
 def build():

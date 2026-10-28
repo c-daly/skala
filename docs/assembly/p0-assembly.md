@@ -32,9 +32,9 @@ Only after step 5: print the rest, in this order — tip hubs, pitch mounts, **[
 | **Flipper arm** | Tapered printed arm, 136 mm pivot-to-tip (**VERIFY** via link pitch), carrying its own drive XL430 in a housing at the root, a TB3 wheel on that servo's horn, and a second TB3 wheel on a free-spinning hub at the tip. The ICT-01 links loop around both wheels. | 4 | 2 |
 | **Tip hub** | Small printed hub with two 608 bearings that lets a TB3 wheel free-wheel on an 8 mm axle. | 4 | 4 (2 arms + 2 skids) |
 | **Skid bracket / skid arm** [B] | A printed upright at each rear corner with an 8 mm pivot and four index holes, and a passive arm with a tip hub and wheel. The arm's angle is fixed by one M3 pin; 0 / 20 / 35 / 50°. | — | 2 + 2 |
-| **Upper deck** | 130 × 120 × 4 mm plate on four 60 mm standoffs, above the battery and the mount tops. Carries the OpenCR, the Pi (on its adapter) and the RPLidar A1. | 1 | 1 |
+| **Upper deck** | 164 × 120 × 4 mm plate on four 60 mm standoffs, above the battery and the mount tops. OpenCR at the rear (long side across the robot), Pi on its adapter in front of it, RPLidar A1 on 40 mm standoffs above the Pi. | 1 | 1 |
 | **Battery** | LB-012 3S 1800 mAh, strapped across the chassis centre under the deck. | 1 | 1 |
-| **Camera pan/tilt** | Three printed parts and two MG90S micro servos at the front edge of the deck: a pan base (servo shaft up), a tilt yoke on the pan horn, and a camera cradle between the yoke's uprights carrying a Raspberry Pi Camera Module. Pan ±90°, tilt −45° to +30°, driven from two OpenCR PWM pins. The ribbon goes to the Pi's CSI port. A fixed 10° mount (`camera_mount_p0`) is the no-servo fallback. | 1 | 1 |
+| **Camera pan/tilt** | Three printed parts and two MG90S micro servos on the chassis plate at the front centre, ahead of the deck: a pan base (servo shaft up), a tilt yoke on the pan horn, and a camera cradle between the yoke's uprights carrying a Raspberry Pi Camera Module. Pan ±90°, tilt −45° to +30°, driven from two OpenCR PWM pins. The ribbon goes to the Pi's CSI port. A fixed 10° mount (`camera_mount_p0`) is the no-servo fallback. | 1 | 1 |
 
 ![Figure 3 — flipper arm](figures/fig3-flipper-arm.png)
 
@@ -70,10 +70,12 @@ Only after step 5: print the rest, in this order — tip hubs, pitch mounts, **[
 | M3 × 16 socket head + nylock | 4 | 6 | Tip-boss clamp screws; **[B]** + skid pivot clamps. |
 | M3 × 60 standoff (or 2 × 30 stacked) | 4 | 4 | Deck. |
 | M3 × 12 standoff M/F + M3 × 6 | 8 | 8 | OpenCR and Pi adapter on the deck. |
+| M2.5 × 40 standoff + M2.5 × 6 | 4 | 4 | RPLidar A1 above the Pi. |
+| USB power bank, 5 V 3 A (PD for a Pi 5), ~10 000 mAh | 1 | 1 | **Buy if not on hand.** Compute supply. |
 | M2 × 6 | 32 | 16 | XL430 case screws through housing/mount walls, 4 per servo. |
 | M2 × 10 (or Robotis horn screws) | 16 | 8 | Arm pivot flange → pitch horn, 4 each. |
 | M2 × 6 | 8 | 8 | Tip-hub flange → TB3 wheel. |
-| M2.5 × 6 + standoffs | 4 | 4 | Pi → adapter; RPLidar → deck. |
+| M2.5 × 6 | 4 | 4 | Pi → adapter. |
 | Raspberry Pi Camera Module v2 or v3 + 300 mm CSI ribbon | 1 | 1 | **Buy if not on hand** (~$25–35). |
 | MG90S micro servo (metal gear) with horns and screws | 2 | 2 | Pan and tilt. **Buy** (~$4 each). SG90 works but strips. |
 | M2 × 6 | 4 | 4 | Camera board → cradle. |
@@ -108,7 +110,7 @@ Result: a wheel that spins freely on a stub of rod. Make four.
 
 1. Deburr the grid holes both sides.
 2. Thread the battery strap through the two centre slots, buckle up. The battery lies across Y under the strap, between the slots. Do not fit it yet.
-3. Fit the four deck standoffs at grid holes (−64, ±32) and (+32, ±32) — see Figure 4. Do not fit the deck yet; the mounts and arms are easier with it off.
+3. Fit the four deck standoffs at grid holes (−80, ±32) and (+24, ±32) — see Figure 4. Do not fit the deck yet; the mounts and arms are easier with it off.
 
 ## 6. Pitch servo mounts (A: 4, B: 2)
 
@@ -143,24 +145,48 @@ Build one, then repeat; the parts are identical. A right-hand arm is the same pr
 
 ## 9. Upper deck and electronics
 
-1. Mount the OpenCR on M3 × 12 standoffs toward the rear of the deck and the Pi adapter (with the Pi) toward the front, both on the deck's grid. The RPLidar A1 sits on top on three M2.5 standoffs, as high as practical, so its scan plane clears the raised front arms.
-2. Fit the deck onto the four 60 mm standoffs with M3 × 8. Its underside is at 66 mm, above the pitch-mount tops (63 mm) and the battery.
-3. **Camera pan/tilt** (Figure 7). Centre both MG90S servos with a servo tester or the OpenCR before fitting horns.
-   - Drop the pan servo into the pan base from the top, shaft up, lead out through the pocket; two M2 self-tap screws through the flange into the block. Bolt the base to the deck's front edge on two grid holes, shaft on the centreline.
+1. **OpenCR** on M3 × 12 standoffs at the rear of the deck, long side across the robot (its 105 mm runs along Y, 75 mm along X). Headers face up; leave the USB and power connectors reachable from the rear.
+2. **Pi adapter with the Pi** in front of the OpenCR on the deck's grid, 66 mm along X. A Pi 5 with its active cooler is ~30 mm tall.
+3. **RPLidar A1** on four 40 mm M2.5 standoffs over the Pi, using the LiDAR's own base holes. The 40 mm clears the Pi's cooler with a 10 mm gap for its airflow; the scan plane ends up ~140 mm above the chassis, above the camera head and the deck. Nothing may sit under the LiDAR other than the Pi.
+4. Fit the deck onto the four 60 mm standoffs with M3 × 8. Its underside is at 66 mm, above the pitch-mount tops (63 mm) and the battery; its front edge is at X ≈ 54, clear of the camera head.
+5. **Camera pan/tilt** (Figure 7). Centre both MG90S servos with a servo tester or the OpenCR before fitting horns.
+   - Drop the pan servo into the pan base from the top, shaft up, lead out through the pocket; two M2 self-tap screws through the flange into the block. Bolt the base to the **chassis plate** at the front centre — foot across Y, grid holes (80, ±24) — in the free strip between the two front pitch mounts, ahead of the deck. The head's top is at ~83 mm, under the LiDAR's scan plane.
    - Fit a two-arm horn to the pan servo. Bolt the tilt yoke's plate to it (centre M2.5 screw plus the two pin holes) with the yoke's servo upright on the robot's right.
    - Slide the tilt servo into the right upright from outside, shaft pointing inward; two M2 self-tap screws through the upright into the flange. Fit a two-arm horn on the inside.
    - Bolt the Pi Camera board to the cradle with four M2 × 6, lens through the window, ribbon connector downward. Bolt the cradle's horn disc to the tilt horn; pass an M3 × 16 with a washer each side through the left upright into the cradle's pivot boss, nylock just snug so it turns freely.
    - Set both servos to centre: the camera should look straight ahead and level. If not, pull the horn and re-index by a tooth.
-   - Connect the CSI ribbon to the Pi before the deck goes on (a Pi 5 needs the 22-to-15-pin ribbon). Leave a loose loop above the pan base so ±90° of pan does not strain it; route it down behind the yoke, away from the tilt servo.
-4. Feed the servo bus and the battery lead up through the deck's rear slot.
+   - Connect the CSI ribbon to the Pi before the deck goes on (a Pi 5 needs the 22-to-15-pin ribbon; a 300 mm ribbon reaches). Leave a loose loop above the pan base so ±90° of pan does not strain it; route it up and back under the deck's front edge.
+6. Feed the servo bus and the battery lead up through the deck's rear slot.
 
 ![Figure 7 — camera pan/tilt](figures/fig7-camera-pan-tilt.png)
 
-## 10. Wiring
+## 10. Power budget
+
+The LB-012 is 11.1 V, 1800 mAh (≈20 Wh). That is enough for the motors alone; it is not enough to also run a Pi, LiDAR and camera for a useful session, and a stalling servo on the same pack will brown out the Pi. So P0 runs **two independent supplies**: the LiPo for the OpenCR and every servo, and a USB power bank for the Pi and everything hanging off it.
+
+| Load | Supply | Typical | Peak | Notes |
+| --- | --- | --- | --- | --- |
+| XL430-W250-T, each | LiPo via OpenCR bus | 0.2–0.5 A | 1.4 A stall | Pitch servos holding stance sit near the top of the typical range |
+| 4 servos (B) / 8 servos (A) | LiPo | ~1.5 A / ~3 A | 5.6 A / 11 A | Firmware current limits (60 % to start) cap the real peak |
+| OpenCR 1.0 | LiPo | 0.2 A | — | |
+| MG90S ×2 (pan/tilt) | OpenCR 5 V | 0.1 A | 1.4 A | Only stalls if the head is pushed |
+| Raspberry Pi 5 + cooler | Power bank | 1.2–2 A @ 5 V | 3 A | Pi 4: ~1 A typical |
+| RPLidar A1 | Pi USB | 0.45 A @ 5 V | 0.6 A | Motor + scanner |
+| Pi Camera | Pi CSI | 0.25 A @ 5 V | — | |
+
+**Runtime on the LiPo (motors only):** configuration B ≈ 1.7 A average → ~55–60 min of mixed driving; configuration A ≈ 3.2 A → ~30 min. Stair work pulls more; a second LB-012 or any 3S pack up to ~5000 mAh (≈380 g, still under the 2 kg rig limit) fits under the strap.
+
+**Power bank:** 5 V / 3 A output, 10 000 mAh (≈37 Wh at 5 V) gives the compute stack ~3 h. For a Pi 5 choose a USB-C PD bank that negotiates 5 V 3 A or better; for a Pi 4 any 3 A bank. It sits on the chassis beside the battery or on the deck, strapped.
+
+**Why not one battery:** the OpenCR's 5 V regulator can supply a Pi 4 but is marginal for a Pi 5, and every servo stall drags the rail; separate supplies also mean the Pi keeps logging when the e-stop or the firmware cuts motor power — the same split as the full-size design. If you do run single-battery, use a dedicated 5 V/5 A buck with a 1000 µF cap at the Pi, never the OpenCR's 5 V header.
+
+**OpenCR bus rating (VERIFY):** the OpenCR passes battery voltage straight to the Dynamixel ports; check its continuous current rating against configuration A's 11 A theoretical stall and keep per-servo current limits set so the sum stays below it. Bench development (firmware, servo tuning, pan/tilt) should run from a 12 V / 10 A supply on the OpenCR's DC jack, not the LiPo.
+
+## 11. Wiring
 
 ![Figure 5 — wiring](figures/fig5-wiring.png)
 
-Power: the LB-012 LiPo feeds the OpenCR's battery input directly. The OpenCR powers the Dynamixel bus from that. For the Pi, check whether the OpenCR's 5 V output can supply it under load (a Pi 4/5 wants up to 3 A); if not, run a separate 5 V buck from the battery to the Pi.
+Power: the LB-012 LiPo feeds the OpenCR's battery input and, through the OpenCR, the Dynamixel bus and the two MG90S. The Pi, LiDAR and camera run from the USB power bank (section 10). Nothing except the pan/tilt servos draws 5 V from the OpenCR.
 
 Dynamixel bus, one daisy chain, in this order to keep runs short:
 
@@ -172,10 +198,11 @@ OpenCR TTL → ID 2 → ID 1 → ID 3 → ID 4 → ID 6 → ID 5 → ID 7 → ID
 - Pitch-servo leads exit the back of each mount; tie them along the inside of the plate edge.
 - Drive-servo leads leave the arm through the pivot-side slot. Leave a **~120 mm service loop** at the pivot, coiled and tied to the *mount*, not the arm. This loop allows ±200° of pitch and is what limits rotation in P0; the firmware limit must match it.
 - USB: Pi → OpenCR (micro-USB) and Pi → RPLidar A1. Tie under the deck.
-- Camera: CSI ribbon from the cradle to the Pi with a loose loop above the pan base; no twist. Pan and tilt servos to two OpenCR PWM pins (e.g. D4 and D5 on the Arduino header) with 5 V and ground from the OpenCR's 5 V header; each MG90S can draw ~0.7 A at stall, so if the Pi also hangs off that rail, give the Pi its own buck.
-- Battery last: strap it, connector toward the deck slot, plug in. Nothing moves until the OpenCR enables torque.
+- Camera: CSI ribbon from the cradle up to the Pi with a loose loop above the pan base; no twist. Pan and tilt servos to two OpenCR PWM pins (e.g. D4 and D5 on the Arduino header) with 5 V and ground from the OpenCR's 5 V header.
+- Grounds: tie the power bank's negative to the OpenCR ground once (through the USB serial cable is enough) so the PWM and serial references agree.
+- Batteries last: power bank first (Pi boots), then the LiPo (OpenCR boots with torque off). Nothing moves until the firmware enables torque.
 
-## 11. First power-up checklist
+## 12. First power-up checklist
 
 On blocks, wheels and arms free.
 
@@ -188,7 +215,7 @@ On blocks, wheels and arms free.
 7. On the floor: 1 m forward at 0.2 m/s, turn in place, stop. Currents well under the trip, nothing loosened.
 8. Then the first test stair (100 × 150 mm book step) under the scripted sequence — that sequence belongs to the firmware/body-layer work, not this guide.
 
-## 12. What P0 cannot do, by configuration
+## 13. What P0 cannot do, by configuration
 
 | | A | B |
 | --- | --- | --- |

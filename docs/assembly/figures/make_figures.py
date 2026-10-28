@@ -73,11 +73,11 @@ figure_over_base(
         (480, 300, 300, 560, "Drive servo in the arm housing\nTB3 wheel bolts to its horn", ACC, "start"),
         (610, 575, 700, 620, "Tip wheel on tip hub\n2 × 608 on an 8 mm axle", ACC, "start"),
         (575, 335, 820, 330, "Chassis plate\n200 × 152 × 6, 8 mm grid", INK, "start"),
-        (530, 200, 790, 250, "Upper deck, 60 mm standoffs\nOpenCR + Pi under the LiDAR", INK, "start"),
-        (455, 95, 160, 60, "RPLidar A1\non the deck, as high as possible", INK, "start"),
-        (430, 265, 120, 330, "Battery (3S 1800 mAh)\nstrapped to the chassis under the deck", INK, "start"),
+        (430, 205, 790, 250, "Upper deck, 60 mm standoffs\nOpenCR rear, Pi adapter front", INK, "start"),
+        (500, 60, 160, 60, "RPLidar A1\non 40 mm standoffs above the Pi", INK, "start"),
+        (440, 300, 120, 360, "Battery (3S 1800 mAh)\nstrapped to the chassis under the deck", INK, "start"),
         (140, 200, 60, 120, "ICT-01 track on two TB3 wheels\n80 links per arm", INK, "start"),
-        (600, 170, 820, 140, "Pi Camera on a two-servo pan/tilt\nfront edge of the deck", INK, "start"),
+        (600, 240, 820, 150, "Camera pan/tilt head\non the chassis plate, ahead of the deck", INK, "start"),
     ],
     "Figure 1 — Prototype 0, configuration A (full design)", "Four identical articulated flippers. Pose: all arms 30° down (stance). Placeholder cylinders stand in for wheels, servos and boards.")
 
@@ -91,6 +91,8 @@ figure_over_base(
         (175, 235, 60, 420, "Skid arm ×2, passive\nangle set by an M3 index pin:\n0 / 20 / 35 / 50°", ACC2, "start"),
         (65, 290, 60, 500, "Rear wheel on a tip hub\nfree-rolling, not driven", ACC2, "start"),
         (560, 330, 820, 320, "Same chassis, deck, battery, camera,\nOpenCR, Pi and LiDAR as A", INK, "start"),
+        (500, 60, 160, 60, "RPLidar A1 above the Pi", INK, "start"),
+        (600, 240, 820, 150, "Camera head on the chassis, ahead of the deck", INK, "start"),
     ],
     "Figure 2 — Prototype 0, configuration B (interim, parts on hand)", "Two driven flippers in front, two passive indexed skids behind. Pose: front arms 30° down, skids at 35°, all four wheels level.")
 
@@ -152,13 +154,19 @@ def layout_panel(config):
     for x in (-30, 30):
         g.append(rect(x - 2, -30, x + 2, 30, fill="white", stroke="#b45309", stroke_width=1))
     # deck outline (dashed) and standoffs
-    g.append(rect(-16 - 65, -60, -16 + 65, 60, fill="none", stroke=INK, stroke_width=1.5, stroke_dasharray="6 4"))
+    g.append(rect(-28 - 82, -60, -28 + 82, 60, fill="none", stroke=INK, stroke_width=1.5, stroke_dasharray="6 4"))
+    g.append(rect(-28 - 42 - 37.5, -52.5, -28 - 42 + 37.5, 52.5, fill="none", stroke=MUTE, stroke_width=1, stroke_dasharray="3 3"))
+    g.append(label(-70, -2, "OpenCR", 11, MUTE))
+    g.append(rect(-28 + 32 - 33, -38, -28 + 32 + 33, 38, fill="none", stroke=MUTE, stroke_width=1, stroke_dasharray="3 3"))
+    g.append(label(4, -2, "Pi + LiDAR above", 11, MUTE))
+    g.append(rect(80 - 12, -28, 80 + 12, 28, fill="#fef9c3", stroke="#854d0e", stroke_width=1.5))
+    g.append(label(80, 32, "camera head", 10, "#854d0e", weight="bold"))
     for sx in (-1, 1):
         for sy in (-1, 1):
-            X, Y = P2(-16 + sx * 48, sy * 32)
+            X, Y = P2(-28 + sx * 52, sy * 32)
             g.append(f"<circle cx='{X:.1f}' cy='{Y:.1f}' r='5' fill='white' stroke='{INK}' stroke-width='1.5'/>")
-    g.append(label(-16, 66, "upper deck 130 × 120 on 4 × 60 mm standoffs (dashed), above the mounts", 11, INK))
-    g.append(label(-16, 30, "OpenCR + Pi adapter + RPLidar on the deck; camera at its front edge", 11, MUTE))
+    g.append(label(-28, 66, "upper deck 164 × 120 on 4 × 60 mm standoffs (dashed), above the mounts", 11, INK))
+    
     # axes
     X0, Y0 = P2(-96, -96)
     g.append(f"<line x1='{X0}' y1='{Y0}' x2='{X0+60}' y2='{Y0}' stroke='{INK}' stroke-width='2' marker-end='url(#arr)'/>")
@@ -194,32 +202,36 @@ def wire(x1, y1, x2, y2, color=INK, dash=None, lbl=None, lx=None, ly=None):
         s += f"<text x='{lx}' y='{ly}' {FONT} font-size='11' fill='{color}'>{lbl}</text>"
     return s
 
-svg = ["<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1000 520' width='1000' height='520'>",
+svg = ["<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1000 620' width='1000' height='620'>",
        "<rect width='100%' height='100%' fill='white'/>",
-       title("Figure 5 — Wiring schematic", "Solid = power, blue = Dynamixel TTL bus (one daisy chain), grey dashed = USB data. Servo IDs 5–8 exist only in configuration A."),
-       box(40, 120, 150, 60, "LiPo 3S 1800 mAh", "LB-012, XT60"),
-       box(290, 100, 180, 100, "OpenCR 1.0", "reflex firmware · IMU · TTL bus"),
-       box(560, 100, 150, 60, "Raspberry Pi", "body layer (talos)"),
-       box(800, 100, 150, 60, "RPLidar A1", "USB, 5 V 400 mA"),
-       box(560, 20, 150, 50, "Pi Camera Module", "CSI ribbon to the Pi"),
-       wire(635, 70, 635, 100, MUTE, "5 3"),
-       box(40, 220, 150, 50, "Pan / tilt MG90S ×2", "OpenCR PWM D4, D5 + 5 V"),
-       wire(190, 245, 330, 245, "#b45309"), wire(330, 200, 330, 245, "#b45309"),
-       wire(190, 150, 290, 150, "#b45309", lbl="11.1 V", lx=215, ly=142),
-       wire(470, 130, 560, 130, MUTE, "5 3", "USB (serial)", 478, 122),
-       wire(710, 130, 800, 130, MUTE, "5 3", "USB", 740, 122),
-       wire(470, 170, 560, 170, "#b45309", lbl="5 V (OpenCR 5 V header, or a separate buck — see text)", lx=478, ly=190),
+       title("Figure 5 — Wiring schematic", "Orange = motor power, green = compute power, blue = Dynamixel TTL bus, grey dashed = USB data. Servo IDs 5–8 exist only in configuration A."),
+       # row 1
+       box(560, 80, 150, 50, "USB power bank 5 V 3 A", "compute only (recommended)", "#ecfdf5", "#047857"),
+       box(790, 80, 160, 50, "Pi Camera Module", "CSI ribbon to the Pi"),
+       # row 2
+       box(40, 170, 150, 60, "LiPo 3S 1800 mAh", "LB-012 — motors only"),
+       box(290, 150, 180, 100, "OpenCR 1.0", "reflex firmware · IMU · TTL bus"),
+       box(560, 170, 150, 60, "Raspberry Pi", "body layer (talos)"),
+       box(790, 170, 160, 60, "RPLidar A1", "USB, 5 V 400 mA"),
+       wire(635, 130, 635, 170, "#047857"),
+       wire(870, 130, 870, 170, MUTE, "5 3"),
+       wire(190, 200, 290, 200, "#b45309", lbl="11.1 V", lx=215, ly=192),
+       wire(470, 180, 560, 180, MUTE, "5 3", "USB (serial)", 478, 172),
+       wire(710, 200, 790, 200, MUTE, "5 3", "USB", 735, 192),
+       wire(470, 225, 560, 225, "#b45309", "6 4", lbl="5 V from OpenCR only if no power bank (brown-out risk)", lx=478, ly=262),
+       # row 3: pan/tilt off the OpenCR PWM + 5 V
+       box(40, 300, 170, 50, "Pan / tilt MG90S ×2", "OpenCR PWM D4, D5 + 5 V"),
+       wire(300, 250, 300, 325, "#b45309"), wire(300, 325, 210, 325, "#b45309"),
        # bus chain
-       box(80, 300, 120, 56, "ID 2", "right pitch"), box(240, 300, 120, 56, "ID 1", "left pitch"),
-       box(400, 300, 120, 56, "ID 3", "left drive", "#fff7ed", ACC), box(560, 300, 120, 56, "ID 4", "right drive", "#fff7ed", ACC),
-       box(720, 300, 120, 56, "ID 5–8", "rear arms, config A only", "#eff6ff", ACC2),
-       wire(380, 200, 380, 250, ACC2), wire(380, 250, 140, 250, ACC2), wire(140, 250, 140, 300, ACC2, lbl="TTL out", lx=150, ly=245),
-       wire(200, 328, 240, 328, ACC2), wire(360, 328, 400, 328, ACC2), wire(520, 328, 560, 328, ACC2), wire(680, 328, 720, 328, ACC2, "6 4"),
-       f"<text x='400' y='400' {FONT} font-size='12' fill='{MUTE}'>Drive-servo leads (IDs 3, 4, and 7, 8 in A) leave the arm through the pivot-side cable slot.</text>",
-       f"<text x='400' y='418' {FONT} font-size='12' fill='{MUTE}'>Leave a ~120 mm service loop tied to the mount, not the arm: it allows ±200° of pitch and limits rotation in P0.</text>",
-       f"<text x='400' y='436' {FONT} font-size='12' fill='{MUTE}'>Firmware pitch limits must match the loop. Pitch-servo leads exit the back of each mount along the plate edge.</text>",
-       f"<text x='40' y='480' {FONT} font-size='12' fill='{INK}' font-weight='bold'>Power-up order:</text>",
-       f"<text x='150' y='480' {FONT} font-size='12' fill='{INK}'>battery → OpenCR boots with torque off → Pi boots → ping all IDs → limits loaded → torque on one servo at a time.</text>",
+       wire(400, 250, 400, 355, ACC2), wire(400, 355, 140, 355, ACC2), wire(140, 355, 140, 400, ACC2, lbl="TTL out", lx=150, ly=350),
+       box(80, 400, 120, 56, "ID 2", "right pitch"), box(240, 400, 120, 56, "ID 1", "left pitch"),
+       box(400, 400, 120, 56, "ID 3", "left drive", "#fff7ed", ACC), box(560, 400, 120, 56, "ID 4", "right drive", "#fff7ed", ACC),
+       box(720, 400, 120, 56, "ID 5–8", "rear arms, config A only", "#eff6ff", ACC2),
+       wire(200, 428, 240, 428, ACC2), wire(360, 428, 400, 428, ACC2), wire(520, 428, 560, 428, ACC2), wire(680, 428, 720, 428, ACC2, "6 4"),
+       f"<text x='40' y='500' {FONT} font-size='12' fill='{MUTE}'>Drive-servo leads (IDs 3, 4, and 7, 8 in A) leave the arm through the pivot-side cable slot. Leave a ~120 mm service loop tied to the mount, not the arm:</text>",
+       f"<text x='40' y='518' {FONT} font-size='12' fill='{MUTE}'>it allows ±200° of pitch and limits rotation in P0; the firmware pitch limits must match it. Pitch-servo leads exit the back of each mount along the plate edge.</text>",
+       f"<text x='40' y='560' {FONT} font-size='12' fill='{INK}' font-weight='bold'>Power-up order:</text>",
+       f"<text x='150' y='560' {FONT} font-size='12' fill='{INK}'>power bank → Pi boots → LiPo → OpenCR boots with torque off → ping all IDs → limits loaded → torque on one servo at a time.</text>",
        "</svg>"]
 write("fig5-wiring", "\n".join(svg))
 
@@ -267,7 +279,7 @@ write("fig6-skid", "\n".join(svg))
 # --------------------------------------------------------------------------- Fig 7: camera pan/tilt (drawn, side + front)
 svg = ["<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1000 560' width='1000' height='560'>",
        "<rect width='100%' height='100%' fill='white'/>",
-       title("Figure 7 — Camera pan/tilt head", "Two MG90S micro servos and three printed parts at the front edge of the upper deck. Left: side view, camera looking right. Right: front view."),
+       title("Figure 7 — Camera pan/tilt head", "Two MG90S micro servos and three printed parts on the chassis plate at the front centre, ahead of the deck. Left: side view, camera looking right. Right: front view."),
        ]
 # ---- side view (X right = forward, Z up), scale 4 px/mm, deck top at y=460
 K=4; X0=330; Y0=460
@@ -275,7 +287,7 @@ def R(x,z,w,h,fill,stroke=INK,dash=None,op=1):
     d=f" stroke-dasharray='{dash}'" if dash else ""
     return f"<rect x='{X0+x*K:.0f}' y='{Y0-(z+h)*K:.0f}' width='{w*K:.0f}' height='{h*K:.0f}' fill='{fill}' stroke='{stroke}' stroke-width='1.5'{d} opacity='{op}'/>"
 svg.append(R(-32,-4,92,4,"#e5e7eb"))                        # deck
-svg.append(f"<text x='{X0-32*K}' y='{Y0+16}' {FONT} font-size='11' fill='{MUTE}'>upper deck (front edge to the right)</text>")
+svg.append(f"<text x='{X0-32*K}' y='{Y0+16}' {FONT} font-size='11' fill='{MUTE}'>chassis plate (front to the right)</text>")
 svg.append(R(-28,0,56,4,"#fed7aa",ACC)); svg.append(R(-20,0,40,22,"#fed7aa",ACC))     # pan base
 svg.append(R(-5.5,2,22.8,22.5,"#d1d5db",INK,"3 2",0.9))                               # pan servo (hidden)
 svg.append(f"<line x1='{X0}' y1='{Y0-22*K}' x2='{X0}' y2='{Y0-100*K}' stroke='{ACC2}' stroke-width='1' stroke-dasharray='6 3'/>")

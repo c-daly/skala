@@ -23,8 +23,8 @@ Two configurations share these parts: **A** (full design, four flippers) and **B
 | Pi adapter | `out/stl/pi_adapter_p0.stl` | 76 × 66 × 3 | PLA | Flat | 1 | Pi 58 × 49 pattern (M2.5) to the 8 mm grid (M3); the Pi pattern does not land on the grid. |
 | Skid bracket | `out/stl/skid_bracket_p0_L.stl`, `_R.stl` | 56 × 60 × 24 | PLA | Foot down | 1 each (config B only) | Rear corners; handed. 8 mm pivot axle, index holes at 0 / 20 / 35 / 50°. 5 walls, 40 %. |
 | Skid arm | `out/stl/skid_arm_p0.stl` | 158 × 52 × 44 | PLA+ | Flat | 2 (config B only) | Passive rear arm carrying a TB3 wheel on a tip hub. Angle fixed by an M3 index pin; 35° matches the front arms at 30° down. |
-| Upper deck | `out/stl/deck_p0.stl` | 130 × 120 × 4 | PLA | Flat | 1 | On four 60 mm standoffs at (−64, ±32) and (+32, ±32); carries OpenCR, Pi adapter, RPLidar. |
-| Camera pan base | `out/stl/pan_base_p0.stl` | 56 × 24 × 22 | PLA | Foot down | 1 | MG90S pan servo, shaft up; two grid holes at the deck's front edge. |
+| Upper deck | `out/stl/deck_p0.stl` | 164 × 120 × 4 | PLA | Flat | 1 | On four 60 mm standoffs at (−80, ±32) and (+24, ±32); OpenCR rear, Pi adapter front, RPLidar on 40 mm standoffs above the Pi. |
+| Camera pan base | `out/stl/pan_base_p0.stl` | 56 × 24 × 22 | PLA | Foot down | 1 | MG90S pan servo, shaft up; on the chassis plate at (80, ±24), ahead of the deck. |
 | Camera tilt yoke | `out/stl/tilt_yoke_p0.stl` | 44 × 44 × 51 | PLA | Plate down | 1 | On the pan horn; tilt MG90S in the right upright, M3 pivot in the left. |
 | Camera cradle | `out/stl/camera_cradle_p0.stl` | 28 × 22 × 30 | PLA | Plate flat | 1 | Pi Camera board; horn disc one side, pivot boss the other. |
 | Fixed camera mount | `out/stl/camera_mount_p0.stl` | 28 × 36 × 35 | PLA | Foot down | (1) | Fallback: fixed 10° down-tilt, no servos. |
