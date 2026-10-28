@@ -302,8 +302,9 @@
 <circle cx='753.6' cy='194.0' r='1.2' fill='#c7cbd1'/>
 <circle cx='753.6' cy='160.4' r='1.2' fill='#c7cbd1'/>
 <circle cx='753.6' cy='126.8' r='1.2' fill='#c7cbd1'/>
-<rect x='144.6' y='278.0' width='42.0' height='168.0' fill='white' stroke='#1f2328' stroke-width='1'/>
-<text x='165.6' y='479.6' font-family='Helvetica, Arial, sans-serif' font-size='9' fill='#6b7280' text-anchor='middle' font-weight='normal'>cable slot</text>
+<rect x='262.2' y='278.0' width='42.0' height='168.0' fill='white' stroke='#1f2328' stroke-width='1'/>
+<text x='283.2' y='471.2' font-family='Helvetica, Arial, sans-serif' font-size='9' fill='#6b7280' text-anchor='middle' font-weight='normal'>cable slot x = -64</text>
+<text x='283.2' y='252.8' font-family='Helvetica, Arial, sans-serif' font-size='8.5' fill='#6b7280' text-anchor='middle' font-weight='normal'>under the adapter's window</text>
 <circle cx='216.0' cy='496.4' r='4.5' fill='white' stroke='#1f2328' stroke-width='2'/><text x='216.0' y='510.4' font-family='Helvetica, Arial, sans-serif' font-size='9.5' fill='#1f2328' text-anchor='middle'>to chassis (-80, -32)</text>
 <circle cx='216.0' cy='227.6' r='4.5' fill='white' stroke='#1f2328' stroke-width='2'/><text x='216.0' y='218.6' font-family='Helvetica, Arial, sans-serif' font-size='9.5' fill='#1f2328' text-anchor='middle'>to chassis (-80, +32)</text>
 <circle cx='652.8' cy='496.4' r='4.5' fill='white' stroke='#1f2328' stroke-width='2'/><text x='652.8' y='510.4' font-family='Helvetica, Arial, sans-serif' font-size='9.5' fill='#1f2328' text-anchor='middle'>to chassis (24, -32)</text>
@@ -318,19 +319,19 @@
 <circle cx='115.2' cy='227.6' r='4.5' fill='white' stroke='#3730a3' stroke-width='2'/><text x='115.2' y='218.6' font-family='Helvetica, Arial, sans-serif' font-size='9.5' fill='#3730a3' text-anchor='middle'>(-104, +32)</text>
 <circle cx='451.2' cy='496.4' r='4.5' fill='white' stroke='#3730a3' stroke-width='2'/><text x='451.2' y='510.4' font-family='Helvetica, Arial, sans-serif' font-size='9.5' fill='#3730a3' text-anchor='middle'>(-24, -32)</text>
 <circle cx='451.2' cy='227.6' r='4.5' fill='white' stroke='#3730a3' stroke-width='2'/><text x='451.2' y='218.6' font-family='Helvetica, Arial, sans-serif' font-size='9.5' fill='#3730a3' text-anchor='middle'>(-24, +32)</text>
-<rect x='459.6' y='223.4' width='319.2' height='277.2' fill='#dcfce7' stroke='#166534' stroke-width='1.5'/>
-<rect x='480.6' y='240.2' width='277.2' height='243.6' fill='none' stroke='#166534' stroke-width='1' stroke-dasharray='3 3'/>
+<rect x='468.0' y='202.4' width='302.4' height='319.2' fill='#dcfce7' stroke='#166534' stroke-width='1.5'/>
+<rect x='440.7' y='244.4' width='357.0' height='235.2' fill='none' stroke='#166534' stroke-width='1' stroke-dasharray='3 3'/>
 <text x='619.2' y='353.6' font-family='Helvetica, Arial, sans-serif' font-size='12' fill='#166534' text-anchor='middle' font-weight='bold'>Raspberry Pi</text>
-<text x='619.2' y='404.0' font-family='Helvetica, Arial, sans-serif' font-size='9.5' fill='#166534' text-anchor='middle' font-weight='normal'>on pi_adapter_p0 (76 × 66)</text>
-<text x='619.2' y='446.0' font-family='Helvetica, Arial, sans-serif' font-size='9.5' fill='#166534' text-anchor='middle' font-weight='normal'>ports toward the right side</text>
-<circle cx='484.8' cy='462.8' r='4.5' fill='white' stroke='#166534' stroke-width='2'/><text x='484.8' y='476.8' font-family='Helvetica, Arial, sans-serif' font-size='9.5' fill='#166534' text-anchor='middle'>(-16, -24)</text>
-<circle cx='484.8' cy='261.2' r='4.5' fill='white' stroke='#166534' stroke-width='2'/><text x='484.8' y='252.2' font-family='Helvetica, Arial, sans-serif' font-size='9.5' fill='#166534' text-anchor='middle'>(-16, +24)</text>
-<circle cx='753.6' cy='462.8' r='4.5' fill='white' stroke='#166534' stroke-width='2'/><text x='753.6' y='476.8' font-family='Helvetica, Arial, sans-serif' font-size='9.5' fill='#166534' text-anchor='middle'>(48, -24)</text>
-<circle cx='753.6' cy='261.2' r='4.5' fill='white' stroke='#166534' stroke-width='2'/><text x='753.6' y='252.2' font-family='Helvetica, Arial, sans-serif' font-size='9.5' fill='#166534' text-anchor='middle'>(48, +24)</text>
+<text x='619.2' y='404.0' font-family='Helvetica, Arial, sans-serif' font-size='9.5' fill='#166534' text-anchor='middle' font-weight='normal'>on pi_adapter_p0 (72 × 76)</text>
+<text x='619.2' y='446.0' font-family='Helvetica, Arial, sans-serif' font-size='9.5' fill='#166534' text-anchor='middle' font-weight='normal'>board 85 × 56, USB/Ethernet end forward</text>
+<circle cx='518.4' cy='496.4' r='4.5' fill='white' stroke='#166534' stroke-width='2'/><text x='518.4' y='510.4' font-family='Helvetica, Arial, sans-serif' font-size='9.5' fill='#166534' text-anchor='middle'>(-8, -32)</text>
+<circle cx='518.4' cy='227.6' r='4.5' fill='white' stroke='#166534' stroke-width='2'/><text x='518.4' y='218.6' font-family='Helvetica, Arial, sans-serif' font-size='9.5' fill='#166534' text-anchor='middle'>(-8, +32)</text>
+<circle cx='720.0' cy='496.4' r='4.5' fill='white' stroke='#166534' stroke-width='2'/><text x='720.0' y='510.4' font-family='Helvetica, Arial, sans-serif' font-size='9.5' fill='#166534' text-anchor='middle'>(40, -32)</text>
+<circle cx='720.0' cy='227.6' r='4.5' fill='white' stroke='#166534' stroke-width='2'/><text x='720.0' y='218.6' font-family='Helvetica, Arial, sans-serif' font-size='9.5' fill='#166534' text-anchor='middle'>(40, +32)</text>
 <rect x='409.2' y='206.6' width='420.0' height='310.8' fill='none' stroke='#854d0e' stroke-width='1.5' stroke-dasharray='8 4'/>
 <text x='619.2' y='177.2' font-family='Helvetica, Arial, sans-serif' font-size='9.5' fill='#854d0e' text-anchor='middle' font-weight='normal'>LiDAR adapter 100 × 74 above, on 40 mm standoffs at the same four holes</text>
 <defs><marker id='arr2' markerWidth='8' markerHeight='8' refX='6' refY='4' orient='auto'><path d='M0,0 L8,4 L0,8 z' fill='#1f2328'/></marker></defs>
 <line x1='132.0' y1='656.0' x2='192.0' y2='656.0' stroke='#1f2328' stroke-width='2' marker-end='url(#arr2)'/>
 <text x='198.0' y='660.0' font-family='Helvetica, Arial, sans-serif' font-size='12' fill='#1f2328'>X forward</text>
-<text x='434.4' y='689.6' font-family='Helvetica, Arial, sans-serif' font-size='10.5' fill='#6b7280' text-anchor='middle' font-weight='normal'>deck grid holes: x = −104…48, y = −56…56 (robot frame); deck centre x = −28; front edge x = 54, clear of the camera head at x = 80</text>
+<text x='434.4' y='689.6' font-family='Helvetica, Arial, sans-serif' font-size='10.5' fill='#6b7280' text-anchor='middle' font-weight='normal'>deck grid holes: x = −104…48, y = −56…56 (robot frame); deck centre x = −28; front edge x = 54, 2.8 mm clear of the camera head's pan sweep (head at x = 88)</text>
 </svg>

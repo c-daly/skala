@@ -212,7 +212,7 @@ Before the full-size build, a ~1.5 kg rig made from TurtleBot3 parts on hand val
 | TB3 Wheel/Tire ISW-01 | 8 | Sprocket at each arm end; the ICT-01 links clip onto the wheel |
 | TB3 Caterpillar ICT-01 | 80 links | One track of 80 links at the assumed 6 mm pitch; a second track needs two more sets |
 | OpenCR 1.0 | 1 | Reflex layer: Dynamixel bus, IMU, Arduino-compatible firmware |
-| LiPo 11.1 V 1800 mAh (LB-012) + charger | 1 | Powers OpenCR and servos only; compute runs from a USB power bank |
+| LiPo 11.1 V 1800 mAh (LB-012) + charger | 1 (+1) | One powers OpenCR and servos; a second one, through a 5 V / 5 A buck, powers the compute stack |
 | Raspberry Pi (several on hand) | 1 | Body layer: `talos`, LiDAR driver, link to desktop; use the newest available |
 | Slamtec RPLidar A1 | 1 | 2D 360° LiDAR, 12 m range, USB; mapping and localization for prototype 0 |
 | Raspberry Pi Camera Module (v2/v3) + 2 × MG90S | 1 + 2 | Forward video on a printed two-servo pan/tilt (±90° / −45…+30°) at the deck's front edge; CSI to the Pi, servos on OpenCR PWM. Buy if not on hand. |
@@ -222,9 +222,9 @@ Before the full-size build, a ~1.5 kg rig made from TurtleBot3 parts on hand val
 
 - Two configurations: **A**, the full design with four articulated flippers (needs four more XL430s and six more ICT-01 sets); **B**, an interim build from parts on hand with two front flippers and two passive, pin-indexed rear skids. Same chassis, deck and electronics; B upgrades to A by swapping the rear corners.
 - Chassis: one printed 200 × 152 × 6 mm PLA plate on the TB3 8 mm grid, battery strapped across its centre, camera pan/tilt head at the front centre, and a 164 × 120 upper deck on 60 mm standoffs above the mounts carrying the OpenCR (rear), the Pi (front) and the RPLidar A1 on 40 mm standoffs above the Pi.
-- Power: two supplies — the 3S 1800 mAh LiPo for OpenCR and servos (≈55 min in B, ≈30 min in A), and a 5 V/3 A USB power bank for the Pi, LiDAR and camera — so servo stalls cannot brown out the Pi. Budget in `docs/assembly/p0-assembly.md` §10.
+- Power: two supplies — one 3S 1800 mAh LiPo for OpenCR and servos (≈55 min in B, ≈30 min in A), and a second LB-012 through a 5 V/5 A buck for the Pi, LiDAR and camera (≈2 h) — so servo stalls cannot brown out the Pi. There is no room on P0 for a 10 000 mAh power bank. Budget in `docs/assembly/p0-assembly.md` §10.
 - Arms: two printed PLA arms, a TB3 wheel at each end, ICT-01 links around them. Link pitch **assumed 6 mm** from Robotis Japan's listing, unverified. Center distance follows from 80 links per track: (80 × 6 mm − π × 66 mm) / 2 ≈ 136 mm. With the 80 links on hand that is one arm; a two-arm rig needs two more ICT-01 sets. Confirm the pitch (lay 10 links flat, expect ~60 mm) before cutting the arm length.
-- Pitch actuator: one XL430 at the chassis, horn bolted to the arm root. Drive: one XL430 in the arm root driving the pivot-end wheel; the tip wheel idles on a 608 bearing.
+- Pitch actuator: one XL430 at the chassis, horn bolted to the arm root through a 6 mm printed spacer (the horn is flush with the case). Drive: one XL430 in the arm root driving the pivot-end wheel; the tip wheel idles on two 626 bearings on an M6 bolt.
 - Rear: configuration A, two more pitch mounts and arms; configuration B, two passive printed skid arms at a pin-selected angle (0/20/35/50°).
 - Sensing: RPLidar A1 on the top plate for 2D mapping; it scans a horizontal plane and cannot see tread edges, so stair detection in prototype 0 comes from the OpenCR IMU pitch and servo current, not the LiDAR. That is the same signal set the full build will use as its fallback.
 - Reflex layer on OpenCR: pitch position limits, current trips, IMU tip-over cutoff, serial link to the Pi. This firmware is the first real `talos` deliverable and carries forward unchanged in concept.
@@ -260,7 +260,7 @@ The build runs in three hardware stages, each with an exit test, and the softwar
 - **Structure:** reused TB3 plates (P0) → PLA box frame (P1) → PETG/ASA where creep or heat shows up (P1.x).
 - **Sensing:** RPLidar A1, IMU, servo current, Pi Camera on micro-servo pan/tilt (P0) → same camera head, same 2D LiDAR acceptable (P1) → Unitree L2 3D LiDAR for tread-edge detection and LOGOS perception streams (P2).
 - **Compute:** Pi + OpenCR (P0) → Pi 5 + Arduino/Teensy motion controller (P1) → AI HAT or Jetson only if onboard perception is required in the fully autonomous configuration (P2).
-- **Power:** 3S 1800 mAh for motors + USB power bank for compute (P0) → 6S 5000–6000 mAh with 12 V and 5 V rails (P1) → larger pack and current-sensed rails for logging (P2).
+- **Power:** 3S 1800 mAh for motors + a second 3S 1800 mAh with a 5 V buck for compute (P0) → 6S 5000–6000 mAh with 12 V and 5 V rails (P1) → larger pack and current-sensed rails for logging (P2).
 
 **What is deliberately not planned:** weatherproofing, outdoor terrain beyond gravel, payload beyond 1.5 kg, and any speed target above 0.5 m/s. Those are new projects, not stages of this one.
 

@@ -1,9 +1,13 @@
 <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1000 620' width='1000' height='620'>
 <rect width='100%' height='100%' fill='white'/>
-<text x='20' y='30' font-family='Helvetica, Arial, sans-serif' font-size='20' font-weight='bold' fill='#1f2328'>Figure 5 — Wiring schematic</text><text x='20' y='50' font-family='Helvetica, Arial, sans-serif' font-size='13' fill='#6b7280'>Orange = motor power, green = compute power, blue = Dynamixel TTL bus, grey dashed = USB data. Servo IDs 5–8 exist only in configuration A.</text>
-<rect x='560' y='80' width='150' height='50' rx='6' fill='#ecfdf5' stroke='#047857' stroke-width='1.5'/>
-<text x='635.0' y='105.0' font-family='Helvetica, Arial, sans-serif' font-size='13' font-weight='bold' fill='#1f2328' text-anchor='middle'>USB power bank 5 V 3 A</text>
-<text x='635.0' y='122.0' font-family='Helvetica, Arial, sans-serif' font-size='11' fill='#6b7280' text-anchor='middle'>compute only (recommended)</text>
+<text x='20' y='30' font-family='Helvetica, Arial, sans-serif' font-size='20' font-weight='bold' fill='#1f2328'>Figure 5 — Wiring schematic</text><text x='20' y='50' font-family='Helvetica, Arial, sans-serif' font-size='13' fill='#6b7280'>Orange = motor power, green = compute power (its own LiPo + buck; a power bank in the same 88 × 58 × 50 bay is the alternative), blue = Dynamixel TTL bus, grey dashed = USB. IDs 5–8 only in configuration A.</text>
+<rect x='430' y='70' width='130' height='56' rx='6' fill='#ecfdf5' stroke='#047857' stroke-width='1.5'/>
+<text x='495.0' y='98.0' font-family='Helvetica, Arial, sans-serif' font-size='13' font-weight='bold' fill='#1f2328' text-anchor='middle'>Compute LiPo</text>
+<text x='495.0' y='115.0' font-family='Helvetica, Arial, sans-serif' font-size='11' fill='#6b7280' text-anchor='middle'>2nd LB-012, rear bay</text>
+<rect x='590' y='70' width='120' height='56' rx='6' fill='#ecfdf5' stroke='#047857' stroke-width='1.5'/>
+<text x='650.0' y='98.0' font-family='Helvetica, Arial, sans-serif' font-size='13' font-weight='bold' fill='#1f2328' text-anchor='middle'>5 V / 5 A buck</text>
+<text x='650.0' y='115.0' font-family='Helvetica, Arial, sans-serif' font-size='11' fill='#6b7280' text-anchor='middle'>under the deck, rear</text>
+<line x1='560' y1='98' x2='590' y2='98' stroke='#047857' stroke-width='2'/><text x='556' y='90' font-family='Helvetica, Arial, sans-serif' font-size='11' fill='#047857'>11.1 V</text>
 <rect x='790' y='80' width='160' height='50' rx='6' fill='#f3f4f6' stroke='#1f2328' stroke-width='1.5'/>
 <text x='870.0' y='105.0' font-family='Helvetica, Arial, sans-serif' font-size='13' font-weight='bold' fill='#1f2328' text-anchor='middle'>Pi Camera Module</text>
 <text x='870.0' y='122.0' font-family='Helvetica, Arial, sans-serif' font-size='11' fill='#6b7280' text-anchor='middle'>CSI ribbon to the Pi</text>
@@ -19,12 +23,12 @@
 <rect x='790' y='170' width='160' height='60' rx='6' fill='#f3f4f6' stroke='#1f2328' stroke-width='1.5'/>
 <text x='870.0' y='200.0' font-family='Helvetica, Arial, sans-serif' font-size='13' font-weight='bold' fill='#1f2328' text-anchor='middle'>RPLidar A1</text>
 <text x='870.0' y='217.0' font-family='Helvetica, Arial, sans-serif' font-size='11' fill='#6b7280' text-anchor='middle'>USB, 5 V 400 mA</text>
-<line x1='635' y1='130' x2='635' y2='170' stroke='#047857' stroke-width='2'/>
+<line x1='650' y1='126' x2='650' y2='170' stroke='#047857' stroke-width='2'/><text x='656' y='150' font-family='Helvetica, Arial, sans-serif' font-size='11' fill='#047857'>5 V USB-C</text>
 <line x1='870' y1='130' x2='870' y2='170' stroke='#6b7280' stroke-width='2' stroke-dasharray='5 3'/>
 <line x1='190' y1='200' x2='290' y2='200' stroke='#b45309' stroke-width='2'/><text x='215' y='192' font-family='Helvetica, Arial, sans-serif' font-size='11' fill='#b45309'>11.1 V</text>
 <line x1='470' y1='180' x2='560' y2='180' stroke='#6b7280' stroke-width='2' stroke-dasharray='5 3'/><text x='478' y='172' font-family='Helvetica, Arial, sans-serif' font-size='11' fill='#6b7280'>USB (serial)</text>
 <line x1='710' y1='200' x2='790' y2='200' stroke='#6b7280' stroke-width='2' stroke-dasharray='5 3'/><text x='735' y='192' font-family='Helvetica, Arial, sans-serif' font-size='11' fill='#6b7280'>USB</text>
-<line x1='470' y1='225' x2='560' y2='225' stroke='#b45309' stroke-width='2' stroke-dasharray='6 4'/><text x='478' y='262' font-family='Helvetica, Arial, sans-serif' font-size='11' fill='#b45309'>5 V from OpenCR only if no power bank (brown-out risk)</text>
+<line x1='470' y1='225' x2='560' y2='225' stroke='#b45309' stroke-width='2' stroke-dasharray='6 4'/><text x='478' y='262' font-family='Helvetica, Arial, sans-serif' font-size='11' fill='#b45309'>never power the Pi from the OpenCR 5 V (brown-out on stalls)</text>
 <rect x='40' y='300' width='170' height='50' rx='6' fill='#f3f4f6' stroke='#1f2328' stroke-width='1.5'/>
 <text x='125.0' y='325.0' font-family='Helvetica, Arial, sans-serif' font-size='13' font-weight='bold' fill='#1f2328' text-anchor='middle'>Pan / tilt MG90S ×2</text>
 <text x='125.0' y='342.0' font-family='Helvetica, Arial, sans-serif' font-size='11' fill='#6b7280' text-anchor='middle'>OpenCR PWM D4, D5 + 5 V</text>
@@ -52,8 +56,8 @@
 <line x1='360' y1='428' x2='400' y2='428' stroke='#1d4ed8' stroke-width='2'/>
 <line x1='520' y1='428' x2='560' y2='428' stroke='#1d4ed8' stroke-width='2'/>
 <line x1='680' y1='428' x2='720' y2='428' stroke='#1d4ed8' stroke-width='2' stroke-dasharray='6 4'/>
-<text x='40' y='500' font-family='Helvetica, Arial, sans-serif' font-size='12' fill='#6b7280'>Drive-servo leads (IDs 3, 4, and 7, 8 in A) leave the arm through the pivot-side cable slot. Leave a ~120 mm service loop tied to the mount, not the arm:</text>
-<text x='40' y='518' font-family='Helvetica, Arial, sans-serif' font-size='12' fill='#6b7280'>it allows ±200° of pitch and limits rotation in P0; the firmware pitch limits must match it. Pitch-servo leads exit the back of each mount along the plate edge.</text>
+<text x='40' y='500' font-family='Helvetica, Arial, sans-serif' font-size='12' fill='#6b7280'>Drive-servo leads (IDs 3, 4, and 7, 8 in A) leave the arm through the Ø8 hole beside the pivot and run out along the 6 mm spacer gap. Leave a ~120 mm service loop tied to the mount, not the arm:</text>
+<text x='40' y='518' font-family='Helvetica, Arial, sans-serif' font-size='12' fill='#6b7280'>the loop allows ±150° of pitch; the firmware limits must match it and the arm-to-arm rule (both ≤ 90° up at once). Pitch-servo leads leave the open top of each mount, under the deck edge.</text>
 <text x='40' y='560' font-family='Helvetica, Arial, sans-serif' font-size='12' fill='#1f2328' font-weight='bold'>Power-up order:</text>
-<text x='150' y='560' font-family='Helvetica, Arial, sans-serif' font-size='12' fill='#1f2328'>power bank → Pi boots → LiPo → OpenCR boots with torque off → ping all IDs → limits loaded → torque on one servo at a time.</text>
+<text x='150' y='560' font-family='Helvetica, Arial, sans-serif' font-size='12' fill='#1f2328'>compute LiPo (buck) → Pi boots → motor LiPo → OpenCR boots with torque off → ping all IDs → limits loaded → torque on one servo at a time.</text>
 </svg>

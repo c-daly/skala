@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='utf-8'?>
+<svg width="77.799999mm" height="77.799999mm" viewBox="-17.681818 -17.681818 35.363636 35.363636" version="1.1" xmlns="http://www.w3.org/2000/svg">
+  <g transform="scale(1,-1)" stroke-linecap="round">
+    <g fill="rgb(234,234,230)" stroke="rgb(39,39,39)" stroke-width="0.2727272727272727" id="vis">
+      <circle cx="0.0" cy="0.0" r="13.0" />
+      <circle cx="-0.0" cy="-8.0" r="1.2" />
+      <circle cx="-8.0" cy="0.0" r="1.2" />
+      <circle cx="0.0" cy="0.0" r="4.7" />
+      <circle cx="8.0" cy="0.0" r="1.2" />
+      <circle cx="0.0" cy="8.0" r="1.2" />
+    </g>
+    <g fill="none" stroke="rgb(160,160,160)" stroke-width="0.13636363636363635" id="hid" stroke-dasharray="1.636364 0.409091">
+      <circle cx="0.0" cy="0.0" r="13.0" />
+      <circle cx="0.0" cy="0.0" r="10.0" />
+      <circle cx="-0.0" cy="-8.0" r="1.2" />
+      <circle cx="-8.0" cy="0.0" r="1.2" />
+      <circle cx="0.0" cy="0.0" r="4.7" />
+      <circle cx="8.0" cy="0.0" r="1.2" />
+      <circle cx="0.0" cy="8.0" r="1.2" />
+      <circle cx="0.0" cy="0.0" r="10.0" />
+    </g>
+  </g>
+</svg>

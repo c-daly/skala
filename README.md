@@ -9,7 +9,7 @@ hand cognition off to LOGOS on a desktop.
 
 - [Physical design spec](docs/design/physical-design-spec.md) — geometry, torque, materials, staging, open questions
 - [P0 assembly guide](docs/assembly/p0-assembly.md) — what to measure first, print order, build sequence, wiring, first power-up
-- [CAD and print manifest](cad/README.md) — parts, orientations, bought hardware
+- [CAD and print manifest](cad/README.md) — parts, orientations, bought hardware; `uv run cad/check_p0.py` is the design check (interference, hole alignment, clearances, mass and tip-back)
 - [Filament guide](docs/design/filament-guide-adventurer-5m-pro.md) — Adventurer 5M Pro settings for PLA, TPU, PETG, ASA, nylon-CF
 - [talos capability manifest](docs/design/talos-capability-manifest.md) — the body interface the firmware and Pi driver target
 - [Concept drawing](docs/concept/track_robot_concept.png)

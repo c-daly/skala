@@ -10,9 +10,11 @@ BED = 220.0               # Adventurer 5M Pro usable bed, each axis
 MAX_PART = 210.0          # design limit per part dimension
 
 # ------------------------------------------------------- DYNAMIXEL XL430 -----
-# Measured from Robotis's XL430 STEP model (2026-10-28). Frame of the model: W across the body,
-# L along the body, D along the output (horn) axis. The output axis is NOT centred on the body:
-# it sits XL430_HORN_OFF from the horn-end face. Connectors are on the back end face.
+# Measured from Robotis's XL430 STEP model (2026-10-28) and the product page's parts list.
+# Frame of the model: W across the body, L along the body, D along the output (horn) axis.
+# The output axis is NOT centred on the body: it sits XL430_HORN_OFF from the horn-end face.
+# Connectors are on the back end face. In the model the horn face is FLUSH with the case face
+# (nothing stands proud), so anything bolted to the horn must be spaced off the case.
 XL430_W = 28.5            # across the body (the two faces with the case screw holes)
 XL430_H = 46.5            # body length, horn end to back (connector) end
 XL430_D = 34.0            # depth along the output axis, horn face to idler face
@@ -20,17 +22,25 @@ XL430_HORN_OFF = 11.25    # output axis from the horn-end face along the length
 XL430_HORN_D = 20.8       # horn disc diameter
 XL430_HORN_PCD = 16.0     # horn screw pitch-circle diameter                  VERIFY (not in model)
 XL430_HORN_N = 4          # horn screws
-XL430_HORN_SCREW = 2.0    # M2 horn screws; clearance hole = +0.4            VERIFY
-XL430_HORN_BOSS_D = 8.0   # horn centre boss diameter                         VERIFY
-XL430_SIDE_SCREW = 2.0    # M2 taps in the W faces (Ø2.1 in the model)
+XL430_HORN_SCREW = 2.0    # M2 horn screws (Robotis supplies M2x5; the arm needs M2x12)
+XL430_HORN_BOSS_D = 9.0   # clearance hole in the spacer/arm for whatever is at the horn centre (the
+                          # model shows a Ø9 recess, not a boss)                    VERIFY
+XL430_SIDE_SCREW = 2.6    # M2.6x5 SELF-TAPPING screws (supplied) into Ø2.1 holes in the W faces
+XL430_SIDE_CLEAR = 2.9    # clearance hole for them in a printed wall
+XL430_SIDE_WALL = 2.0     # wall thickness left under the screw head (Robotis frames are 2 mm) so an
+                          # M2.6x5 gets 3 mm of engagement; thicker walls are counterbored to this
+XL430_SIDE_CBORE = 6.0    # counterbore diameter for the pan head
 XL430_SIDE_HOLES_L = (4.0, 28.0)   # along the length, measured from the output axis toward the back
 XL430_SIDE_HOLES_D = (-6.0, 6.0)   # across the depth, from mid-depth (= 11 and 23 mm below the horn face)
-XL430_BACK_HOLES = ((-8.0, -6.0), (-8.0, 6.0), (8.0, -6.0), (8.0, 6.0))   # M2 taps in the back face (W, D)
+XL430_BACK_HOLES = ((-8.0, -6.0), (-8.0, 6.0), (8.0, -6.0), (8.0, 6.0))   # M2.6 taps in the back face (W, D)
 XL430_CLEAR = 0.3         # pocket clearance per side
+HORN_RELIEF = 1.0         # printed faces around a horn stop this far short of the horn face
+XL430_MASS = 57.0         # g
 
 # ------------------------------------------------------------ TB3 wheel ------
 TB3_WHEEL_D = 66.0        # outer diameter with tyre                     VERIFY (with ICT-01 fitted)
 TB3_WHEEL_W = 22.0        # width                                        VERIFY
+TB3_WHEEL_SCREW = 2.0     # wheel -> horn screws: Robotis supplies PHS M2x4
 
 # ------------------------------------------------------- ICT-01 track --------
 ICT01_PITCH = 6.0         # link pitch                                   ASSUMED (Robotis JP listing)
@@ -48,21 +58,36 @@ ROOT_H = 60.0             # plate height at root  (Y extent)
 TIP_H = 30.0              # plate height at tip
 PIVOT_FLANGE_R = 16.0
 TIP_BOSS_R = 12.0
-TIP_AXLE_D = 8.0          # steel axle for 608 bearings
+PIVOT_FLOOR_T = 3.0       # plate thickness left under the horn-screw heads (counterbored from outboard)
+PIVOT_CBORE_D = 4.5       # counterbore for M2 socket heads
+# Pivot spacer: a printed disc between the horn and the arm. It keeps the arm clear of the servo
+# case and the mount (the horn is flush with the case) and opens a gap the drive-servo lead can
+# live in as the arm turns. Ø20 x 1 step sits on the horn only; Ø26 x 5 above it.
+SPACER_T = 6.0
+SPACER_D = 26.0
+SPACER_STEP_D = 20.0
+SPACER_STEP_T = 1.0
+PIVOT_SCREW_LEN = 12      # M2 x 12: 3 (arm floor) + 6 (spacer) + 3 into the horn
+# Tip idler: an M6 x 50 partially threaded hex bolt (ISO 4014, 32 mm plain shank) is the axle.
+# Hex head captive in the hub flange, nylock on the arm's inboard face; two 626 bearings in the hub.
+TIP_AXLE_D = 6.0
+TIP_BOLT = "M6 x 50 hex, partially threaded (ISO 4014)"
 TIP_SLOT = 8.0            # tension adjustment travel along X
-HUB_TOTAL = 21.0          # tip hub length (flange 4 + body 17), see tip_hub_p0
-TIP_BOSS_H = PLATE_T + 34.0 - HUB_TOTAL - 2.0   # 21: boss stops 2 mm short of the hub so the hub can sit at the wheel plane
-SHAFT_COLLAR_W = 8.0      # 8 mm bore set-screw collar on the outboard end of each tip axle
+HUB_FLANGE_T = 5.0        # hub flange; hex-head pocket 4.5 deep in it
+HUB_SPACER_T = 3.0        # printed spacers between the bearings and between hub and boss
+HUB_TOTAL = HUB_FLANGE_T + 6.0 + HUB_SPACER_T + 6.0    # 20: see tip_hub_p0
+TIP_BOSS_H = PLATE_T + 34.0 - HUB_TOTAL - HUB_SPACER_T  # 21: boss + spacer + hub = wheel plane
 SERVO_WALL = 5.0          # wall around the drive servo pocket
-CABLE_HOLE_X = 0.0        # drive-servo lead through the arm plate, beside the pivot flange
-CABLE_HOLE_Y = 22.0
+CABLE_HOLE_X = 0.0        # drive-servo lead through the arm plate, beside the pivot flange (both sides,
+CABLE_HOLE_Y = 22.0       # so the symmetric print serves left and right)
 CABLE_HOLE_D = 8.0
+TIE_HOLE_D = 3.2          # zip-tie holes through the housing side walls
 HOLE_R_LIGHTEN = 9.0      # lightening holes
 
 # ----------------------------------------------------------- bearings --------
+B626 = dict(od=19.0, id=6.0, w=6.0)
 B608 = dict(od=22.0, id=8.0, w=7.0)
 B6001 = dict(od=28.0, id=12.0, w=8.0)
-B625 = dict(od=16.0, id=5.0, w=5.0)
 PRESS_FIT = -0.10         # bore offset for bearing seats in PLA (test coupon first)
 CLEAR_FIT = +0.20         # bore offset for running clearance on shafts
 
@@ -81,16 +106,18 @@ OPENCR_HOLE_D = 3.4
 
 # ----------------------------------------------------------- P0 skid arm -----
 SKID_LEN = 120.0          # pivot to tip axle
+SKID_BRACKET_T = 11.0     # bracket upright; bracket 11 + spacer 6 + arm 8 = 25 under an M6 x 35 bolt
 SKID_ANGLES = (0, 20, 35, 50)    # indexed down-angles, degrees; 0 = flat stance, 35 matches front arms at 30° down
 SKID_INDEX_R = 22.0       # radius of the index pin holes from the pivot
 
 # ----------------------------------------------------------- P0 upper deck ---
 DECK_X = -28.0            # deck centre; standoffs land on grid holes at X = -80 and 24
+DECK_SLOT_X = -64.0       # cable slot, under the OpenCR adapter's window
 DECK_L, DECK_W = 164.0, 120.0   # long enough for OpenCR (75 along X, rotated) + Pi adapter (66 along X)
 DECK_STANDOFF = 60.0      # deck underside at 66 mm: above the pitch mounts (top at 63) and the battery
 DECK_STANDOFF_XY = (52.0, 32.0)   # standoff offsets from deck centre; all four land on grid holes
 LIDAR_STANDOFF = 40.0     # RPLidar A1 above the Pi on M2.5 standoffs; clears a Pi 5 active cooler
-CAM_X = 80.0              # camera pan/tilt head on the chassis plate, front centre, ahead of the deck
+CAM_X = 88.0              # camera pan/tilt head on the chassis plate, front centre; the yoke's pan sweep (r = 31) must stay ahead of the deck edge at x = 54
 
 # ------------------------------------------------- P0 placement (robot frame, mm) -------------
 # Everything below lands on an 8 mm grid hole of the chassis (x = -96..96, y = -72..72) or of the
@@ -100,17 +127,46 @@ PLACE = {
     "pitch_mount_rear":   dict(center=(-60, 0),  holes=[(-32, 48), (-32, 64), (-88, 48), (-88, 64)]),  # config A only
     "skid_bracket":       dict(center=(-60, 0),  holes=[(-80, 56), (-80, 64), (-40, 56), (-40, 64)]),  # config B only
     "deck_standoffs":     dict(holes=[(-80, -32), (-80, 32), (24, -32), (24, 32)]),
-    "camera_base":        dict(center=(80, 0),   holes=[(80, -24), (80, 24)]),
-    "battery_slots":      dict(x=(-30, 30)),
+    "camera_base":        dict(center=(88, 0),   holes=[(88, -24), (88, 24)]),
+    "battery_slots":      dict(x=(-30, 30)),                                                        # LiPo across Y at x = 0
+    "compute_bay":        dict(x=(-107, -19), y=(-29, 29), z_max=50, strap_slots=[(-63, -22), (-63, 22)]),   # second LB-012 + buck, along X at the rear; overhangs the plate's rear edge by 7 mm, under the deck
+
     # on the deck (robot frame)
     "opencr_adapter":     dict(center=(-64, 0),  holes=[(-104, -32), (-104, 32), (-24, -32), (-24, 32)]),
-    "pi_adapter":         dict(center=(16, 0),   holes=[(-16, -24), (-16, 24), (48, -24), (48, 24)]),
+    "pi_adapter":         dict(center=(16, 0),   holes=[(-8, -32), (-8, 32), (40, -32), (40, 32)]),
     "lidar_adapter":      dict(center=(16, 0),   holes="same as pi_adapter, on 40 mm standoffs"),
 }
 # vertical stack (mm above chassis plate top face at z = 6)
 STACK = {
-    "chassis_top": 0, "pivot_axis": 17.55, "pitch_mount_top": 53, "battery_top": 26, "deck_underside": 60, "deck_top": 64,
+    "chassis_top": 0, "pivot_axis": 17.55, "pitch_mount_top": 53, "battery_top": 26, "compute_bay_top": 50, "deck_underside": 60, "deck_top": 64,
     "board_standoff": 12, "opencr_top": 64 + 12 + 3 + 14, "pi_adapter_top": 64 + 12 + 3,
     "pi_cooler_top": 64 + 12 + 3 + 30, "lidar_adapter_top": 64 + 12 + 3 + 40 + 3,
     "lidar_scan_plane": 64 + 12 + 3 + 40 + 3 + 27, "camera_head_top": 4 + 22 + 3 + 48,
+    "wheel_plane_from_plate_edge": 6 + 44,   # spacer 6 + arm 44
+}
+
+# ----------------------------------------------------------- masses (g, estimates; VERIFY by weighing) ---
+# position = (x, z) in robot frame, z above the chassis top. Used by check_p0.py for the CoG and tip-back numbers.
+MASS = {
+    "chassis_p0":      dict(g=110, pos=(0, -3)),
+    "deck_p0":         dict(g=50,  pos=(-28, 62)),
+    "pitch_mount_p0":  dict(g=40,  pos=(60, 20), per="pitch"),
+    "arm_p0":          dict(g=90,  pos=(60 + 90, 17.55), per="arm"),      # arm centroid ~90 mm out; moves with pitch
+    "drive_servo":     dict(g=57,  pos=(60 + 46, 17.55), per="arm"),
+    "pitch_servo":     dict(g=57,  pos=(60, 20), per="pitch"),
+    "wheels+links":    dict(g=150, pos=(60 + 114, 17.55), per="arm"),     # 2 wheels (~35 g) + 80 links (~80 g)
+    "tip_hub+bolt":    dict(g=30,  pos=(60 + 182, 17.55), per="arm"),
+    "spacer+screws":   dict(g=10,  pos=(60, 17.55), per="arm"),
+    "lipo_lb012":      dict(g=106, pos=(0, 13)),
+    "compute_lipo":    dict(g=106, pos=(-63, 13)),
+    "buck":            dict(g=10,  pos=(-64, 58)),
+    "opencr":          dict(g=60,  pos=(-64, 82)),
+    "opencr_adapter":  dict(g=20,  pos=(-64, 77)),
+    "pi5+cooler":      dict(g=85,  pos=(16, 90)),
+    "pi_adapter":      dict(g=12,  pos=(16, 77)),
+    "lidar_a1":        dict(g=170, pos=(16, 140)),
+    "lidar_adapter":   dict(g=20,  pos=(16, 120)),
+    "standoffs+bolts": dict(g=80,  pos=(-20, 40)),
+    "camera_head":     dict(g=55,  pos=(88, 45)),
+    "cables":          dict(g=60,  pos=(-20, 40)),
 }

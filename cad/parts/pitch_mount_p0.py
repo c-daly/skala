@@ -12,7 +12,10 @@ pivot only ~17.5 mm above the plate, which is what gives the flat pose its groun
 
 Frame: X across the mount, Y up (pivot axis at y = 0), Z along the output axis with the back
 wall outer face at Z = 0 and the horn face at Z = TOP. The servo drops in from +Z (outboard),
-horn toward +Z, and is held by four M2 screws through the X walls into its case taps.
+horn toward +Z, and is held by four M2.6 x 5 self-tapping screws (supplied with the servo) through
+the X walls into its case taps; the walls are counterbored so 2 mm of wall sits under each head.
+The printed body stops HORN_RELIEF short of the horn face: the horn is flush with the case, so the
+servo stands 1 mm proud of the mount and nothing printed can touch the arm's spacer.
 """
 import sys, pathlib
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[1]))
@@ -30,7 +33,8 @@ PW = P.XL430_W + 2 * CL                      # pocket across (X)
 Y_LO = -(P.XL430_HORN_OFF + CL)              # pocket bottom (horn end) relative to the axis
 Y_HI = (P.XL430_H - P.XL430_HORN_OFF) + CL   # pocket top (back end), open
 OUT_W = PW + 2 * WALL
-TOP = BACK + P.XL430_D                       # horn face
+TOP = BACK + P.XL430_D                       # horn face (servo), 1 mm proud of the printed body
+BODY_Z = TOP - P.HORN_RELIEF                 # printed body depth
 PIVOT_ABOVE_PLATE = -Y_LO + FLOOR            # 17.55: output axis height above the chassis top
 BOTTOM = Y_LO - FLOOR                        # mount underside (sits on the plate)
 HEIGHT = Y_HI - BOTTOM                       # 53.1 overall
@@ -39,8 +43,8 @@ HEIGHT = Y_HI - BOTTOM                       # 53.1 overall
 def build():
     with BuildPart() as m:
         # body block, open at the top (back end of the servo) and on +Z
-        with Locations((0, (Y_HI + BOTTOM) / 2, TOP / 2)):
-            Box(OUT_W, HEIGHT, TOP)
+        with Locations((0, (Y_HI + BOTTOM) / 2, BODY_Z / 2)):
+            Box(OUT_W, HEIGHT, BODY_Z)
         with Locations((0, (Y_HI + Y_LO) / 2 + 1, BACK + (P.XL430_D + 1) / 2)):
             Box(PW, (Y_HI - Y_LO) + 2, P.XL430_D + 1, mode=Mode.SUBTRACT)
         # M2 case screws through the X walls into the servo's side taps:
@@ -49,11 +53,15 @@ def build():
             for dd in P.XL430_SIDE_HOLES_D:
                 z = TOP - P.XL430_D / 2 + dd
                 with Locations(Location((0, ly, z), (0, 90, 0))):
-                    Cylinder(radius=(P.XL430_SIDE_SCREW + 0.2) / 2, height=OUT_W + 2, mode=Mode.SUBTRACT)
+                    Cylinder(radius=P.XL430_SIDE_CLEAR / 2, height=OUT_W + 2, mode=Mode.SUBTRACT)
+                depth = WALL - P.XL430_SIDE_WALL
+                for sx in (-1, 1):
+                    with Locations(Location((sx * (OUT_W / 2 - depth / 2 + 0.5), ly, z), (0, 90, 0))):
+                        Cylinder(radius=P.XL430_SIDE_CBORE / 2, height=depth + 1, mode=Mode.SUBTRACT)
         # foot flange: the floor extended sideways, full depth in Z
         foot_len = OUT_W + 2 * FOOT_W
-        with Locations((0, BOTTOM + FLOOR / 2, TOP / 2)):
-            Box(foot_len, FLOOR, TOP)
+        with Locations((0, BOTTOM + FLOOR / 2, BODY_Z / 2)):
+            Box(foot_len, FLOOR, BODY_Z)
         # gussets from foot to walls
         for sx in (-1, 1):
             with BuildSketch(Plane.XY):
@@ -63,12 +71,12 @@ def build():
                     y0 = BOTTOM + FLOOR
                     Polyline((x0, y0), (x1, y0), (x0, y0 + FOOT_W), close=True)
                 make_face()
-            extrude(amount=TOP)
+            extrude(amount=BODY_Z)
         # slotted M3 holes in the foot: two per side; slots run along Z to land on the plate grid
         fy = BOTTOM + FLOOR / 2
         for sx in (-1, 1):
             fx = sx * (OUT_W / 2 + FOOT_W / 2 + 1)
-            for z in (TOP * 0.3, TOP * 0.7):
+            for z in (TOP - 28.0, TOP - 12.0):      # land on plate grid rows 28 and 12 mm in from the edge (y = 48, 64)
                 with Locations((fx, fy, z)):
                     Box(3.4, FLOOR + 2, GRID / 2, mode=Mode.SUBTRACT)
                 for dz in (-GRID / 4, GRID / 4):

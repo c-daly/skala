@@ -1,6 +1,6 @@
 <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1000 640' width='1000' height='640'>
 <rect width='100%' height='100%' fill='white'/>
-<text x='20' y='30' font-family='Helvetica, Arial, sans-serif' font-size='20' font-weight='bold' fill='#1f2328'>Figure 6 — Rear skid (configuration B), side view from outboard</text><text x='20' y='50' font-family='Helvetica, Arial, sans-serif' font-size='13' fill='#6b7280'>Passive arm on an 8 mm pivot; angle fixed by one M3 pin through the arm and one of four bracket holes. 1 mm = 3 px. Rear of the robot is to the left.</text>
+<text x='20' y='30' font-family='Helvetica, Arial, sans-serif' font-size='20' font-weight='bold' fill='#1f2328'>Figure 6 — Rear skid (configuration B), side view from outboard</text><text x='20' y='50' font-family='Helvetica, Arial, sans-serif' font-size='13' fill='#6b7280'>Passive arm on an M6 pivot bolt with the same 6 mm spacer as the flippers; angle fixed by one M3 pin through the arm and one of four bracket holes. 1 mm = 3 px. Rear is to the left.</text>
 <rect x='340' y='312' width='560' height='18' fill='#f3f4f6' stroke='#1f2328' stroke-width='1.5'/>
 <text x='910' y='326' font-family='Helvetica, Arial, sans-serif' font-size='12' fill='#6b7280'>chassis plate</text>
 <rect x='476' y='132' width='168' height='180' fill='#bfdbfe' stroke='#1d4ed8' stroke-width='1.5' opacity='0.9'/>
@@ -20,8 +20,8 @@
 <line x1='560' y1='270' x2='265.1' y2='476.5' stroke='#1f2328' stroke-width='22' stroke-linecap='round' opacity='0.85'/>
 <line x1='560' y1='270' x2='265.1' y2='476.5' stroke='#e5e7eb' stroke-width='14' stroke-linecap='round'/>
 <circle cx='560' cy='270' r='10' fill='white' stroke='#1f2328' stroke-width='2'/>
-<text x='710' y='286' font-family='Helvetica, Arial, sans-serif' font-size='11' fill='#1f2328'>8 mm pivot axle through the bracket,</text>
-<text x='710' y='301' font-family='Helvetica, Arial, sans-serif' font-size='11' fill='#1f2328'>clamped in the arm by an M3 × 16</text>
+<text x='710' y='286' font-family='Helvetica, Arial, sans-serif' font-size='11' fill='#1f2328'>M6 × 35 bolt from inboard: bracket (11) → spacer (6) → arm (8),</text>
+<text x='710' y='301' font-family='Helvetica, Arial, sans-serif' font-size='11' fill='#1f2328'>washer + nylock outboard; the pin, not the bolt, sets the angle</text>
 <line x1='570' y1='272' x2='706' y2='282' stroke='#1f2328' stroke-width='0.8'/>
 <circle cx='614.1' cy='232.1' r='7' fill='#c2410c' />
 <text x='530' y='102' font-family='Helvetica, Arial, sans-serif' font-size='12' fill='#c2410c' font-weight='bold' text-anchor='end'>index pin (M3) in the 35° hole</text>
@@ -30,6 +30,6 @@
 <circle cx='265.1' cy='476.5' r='99' fill='#f3f4f6' stroke='#1f2328' stroke-width='2'/>
 <circle cx='265.1' cy='476.5' r='10' fill='white' stroke='#1f2328' stroke-width='2'/>
 <text x='265.1' y='593' font-family='Helvetica, Arial, sans-serif' font-size='12' fill='#1f2328' text-anchor='middle'>TB3 wheel (Ø66) on a tip hub, free-rolling</text>
-<text x='305.1' y='367' font-family='Helvetica, Arial, sans-serif' font-size='12' fill='#1f2328'>skid arm, 120 mm pivot to tip; same tip boss and clamp as the flipper arm</text>
+<text x='305.1' y='367' font-family='Helvetica, Arial, sans-serif' font-size='12' fill='#1f2328'>skid arm, 120 mm pivot to tip; same tip boss, bolt and hub as the flipper arm</text>
 <text x='40' y='620' font-family='Helvetica, Arial, sans-serif' font-size='12' fill='#6b7280'>0° = flat pose. 35° matches the front flippers at 30° down so all four wheels sit level. Change the angle by moving one pin.</text>
 </svg>

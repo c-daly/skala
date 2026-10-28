@@ -24,9 +24,10 @@ def build():
                for i in range(nx) for j in range(ny)]
         with Locations(*pts):
             Cylinder(radius=P.GRID_HOLE / 2, height=T * 3, mode=Mode.SUBTRACT)
-        # cable pass-through near the rear edge for the servo bus and battery lead
+        # cable pass-through for the servo bus, battery and buck leads: under the OpenCR adapter's
+        # central window (robot x = DECK_SLOT_X), not under its plate
         with BuildSketch(Plane.XY):
-            with Locations((-L / 2 + 18, 0)):
+            with Locations((P.DECK_SLOT_X - P.DECK_X, 0)):
                 SlotCenterToCenter(40, 10, rotation=90)
         extrude(amount=T * 3, both=True, mode=Mode.SUBTRACT)
     part = d.part

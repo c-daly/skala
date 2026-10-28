@@ -7,7 +7,7 @@ with standoffs mounts anywhere. Dedicated features:
   - rear skid-bracket positions at the two rear corners
   - Pi and OpenCR mount on the grid with standoffs; the Pi needs the small adapter plate
     (pi_adapter_p0) because its 58 x 49 pattern does not land on an 8 mm grid
-  - two battery strap slots across the centre
+  - two battery strap slots across the centre (LiPo across Y) and two at the rear (compute battery along X)
   - lightening cutouts between the mounting zones
 
 Frame: robot X forward, Y left, Z up. Plate top face at Z=CHASSIS_T, bottom at Z=0.
@@ -43,6 +43,14 @@ def build():
             with BuildSketch(Plane.XY):
                 with Locations((x, 0)):
                     SlotCenterToCenter(60, 4, rotation=90)
+            extrude(amount=T * 3, both=True, mode=Mode.SUBTRACT)
+
+        # compute-bay strap slots: the second LB-012 (or a power bank in the same envelope) lies
+        # along X at the rear; two 30 x 4 slots along X either side of it
+        for (sx, sy) in P.PLACE["compute_bay"]["strap_slots"]:
+            with BuildSketch(Plane.XY):
+                with Locations((sx, sy)):
+                    SlotCenterToCenter(30, 4, rotation=0)
             extrude(amount=T * 3, both=True, mode=Mode.SUBTRACT)
 
         # lightening: two cutouts between the strap slots and the side rows, keeping 3 grid rows at edges

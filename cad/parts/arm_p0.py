@@ -3,16 +3,20 @@
 Coordinate frame (arm at zero pitch):
   X  along the arm, pivot at X=0, tip toward +X
   Y  "up" in the plane of the track
-  Z  outboard: Z=0 is the inboard face that bolts to the pitch servo horn,
-     the drive servo sits on the outboard face, wheels and track further out.
+  Z  outboard: Z=0 is the inboard face. A 6 mm printed spacer (pivot_spacer_p0) sits between
+     this face and the pitch servo horn; the drive servo sits on the outboard face, wheels and
+     track further out.
 
 Layout:
-  pitch XL430 (in chassis)  -> horn bolted to pivot flange at X=0, Z=0
-  drive XL430 (in arm)      -> housed at X=DRIVE_X, horn facing +Z, TB3 wheel on horn
-  tip wheel                 -> TB3 wheel on a printed 608-bearing hub that free-wheels on a fixed
-                               8 mm steel axle; the axle is clamped in a split boss 21 mm tall so the
-                               hub (21 mm) sits outboard of it with the wheel at the drive-wheel plane
-Prints flat on the inboard face (Z=0 down) so layer lines run along the arm.
+  pitch XL430 (in chassis)  -> horn -> 6 mm spacer -> pivot flange at X=0 (M2 x 12 from outboard,
+                               heads in counterbores so 3 mm of plate is under them)
+  drive XL430 (in arm)      -> lies along the arm at X=DRIVE_X, horn toward +Z, back (connector)
+                               end toward the pivot; housing open at that end and 1 mm short of
+                               the horn face so the wheel never rubs it
+  tip wheel                 -> TB3 wheel on a printed 626-bearing hub on an M6 bolt; the bolt is
+                               clamped through the tip boss slot by a nylock on the inboard face
+Prints flat on the inboard face (Z=0 down) so layer lines run along the arm. Symmetric about
+its long axis: one print serves both sides (cable hole and tie holes exist on both sides).
 """
 import sys, pathlib
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[1]))
@@ -20,7 +24,13 @@ sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[1]))
 from build123d import *
 import params as P
 
-WHEEL_Z = P.PLATE_T + P.XL430_D          # Z of the drive horn face = inner face of both wheels
+WHEEL_Z = P.PLATE_T + P.XL430_D          # 44: Z of the drive horn face = inner face of both wheels
+HOUSING_TOP = WHEEL_Z - P.HORN_RELIEF    # 43: housing walls stop 1 mm short of the horn face
+CL = P.XL430_CLEAR
+X_BACK = P.DRIVE_X - (P.XL430_H - P.XL430_HORN_OFF) - CL     # pocket end toward the pivot (open)
+X_HORN = P.DRIVE_X + P.XL430_HORN_OFF + CL                    # pocket end toward the tip
+PW = P.XL430_W + 2 * CL                                       # pocket across (Y)
+OUTER_W = PW + 2 * P.SERVO_WALL
 
 
 def arm_plate():
@@ -44,41 +54,42 @@ def arm_plate():
 
 
 def drive_servo_housing():
-    """Block on the outboard face holding the drive XL430, horn axis along Z, open outboard.
+    """Three-sided housing on the outboard face holding the drive XL430, horn axis along Z.
 
-    The servo body lies ALONG the arm (its 46.5 mm length along X), with the horn end toward the
-    tip and the back end — where the two 3-pin connectors are — toward the pivot. The output axis
-    is 11.25 mm from the horn end, so the pocket runs from DRIVE_X−35.55 to DRIVE_X+11.55.
-    The pivot-side end of the housing is open: the connectors face the pivot and the leads drop
-    straight through a Ø8 hole in the arm plate at (0, 22) to the inboard side. Four M2 screws go
-    through the Y walls into the case taps at +4 / +28 from the axis (toward the back) and at
-    ±6 mm about mid-depth (11 and 23 mm below the horn face).
+    The servo body lies ALONG the arm (46.5 mm length along X), horn end toward the tip and the
+    back end — the two 3-pin connectors — toward the pivot. The output axis is 11.25 mm from the
+    horn end, so the pocket runs from DRIVE_X−35.55 to DRIVE_X+11.55. The pivot end is open: the
+    connectors face the pivot and the lead drops through the Ø8 hole in the plate at (0, ±22).
+    Four M2.6 x 5 self-tapping screws (supplied with the servo) go through the side walls into
+    the case taps at +4 / +28 from the axis and ±6 about mid-depth; the walls are counterbored
+    so 2 mm of wall is under each head, as on Robotis's own frames.
     """
-    cl = P.XL430_CLEAR
-    x_back = P.DRIVE_X - (P.XL430_H - P.XL430_HORN_OFF) - cl     # pocket end toward the pivot
-    x_horn = P.DRIVE_X + P.XL430_HORN_OFF + cl                    # pocket end toward the tip
-    pw = P.XL430_W + 2 * cl                                       # pocket across (Y)
-    outer_w = pw + 2 * P.SERVO_WALL
-    z0, z1 = P.PLATE_T, P.PLATE_T + P.XL430_D                     # pocket floor / horn face
+    z0 = P.PLATE_T
     with BuildPart() as hs:
-        # outer block: wall on the tip end only; pivot end left open for the connectors
-        with Locations(((x_back + x_horn + P.SERVO_WALL) / 2, 0, (z0 + z1) / 2)):
-            Box(x_horn - x_back + P.SERVO_WALL, outer_w, P.XL430_D)
-        with Locations(((x_back + x_horn) / 2 - 1, 0, (z0 + z1) / 2 + 0.5)):
-            Box(x_horn - x_back + 2, pw, P.XL430_D + 1, mode=Mode.SUBTRACT)
-        # M2 case screws through both Y walls into the servo's side taps
+        with Locations(((X_BACK + X_HORN + P.SERVO_WALL) / 2, 0, (z0 + HOUSING_TOP) / 2)):
+            Box(X_HORN - X_BACK + P.SERVO_WALL, OUTER_W, HOUSING_TOP - z0)
+        with Locations(((X_BACK + X_HORN) / 2 - 1, 0, (z0 + HOUSING_TOP) / 2 + 1)):
+            Box(X_HORN - X_BACK + 2, PW, HOUSING_TOP - z0 + 2, mode=Mode.SUBTRACT)
         for lx in P.XL430_SIDE_HOLES_L:
             for dd in P.XL430_SIDE_HOLES_D:
-                x = P.DRIVE_X - lx                 # toward the back = toward the pivot
-                z = z1 - P.XL430_D / 2 + dd
+                x = P.DRIVE_X - lx
+                z = WHEEL_Z - P.XL430_D / 2 + dd
                 with Locations(Location((x, 0, z), (90, 0, 0))):
-                    Cylinder(radius=(P.XL430_SIDE_SCREW + 0.2) / 2,
-                             height=outer_w + 2, mode=Mode.SUBTRACT)
+                    Cylinder(radius=P.XL430_SIDE_CLEAR / 2, height=OUTER_W + 2, mode=Mode.SUBTRACT)
+                for sy in (-1, 1):   # counterbores from outside, leaving XL430_SIDE_WALL of wall
+                    depth = P.SERVO_WALL - P.XL430_SIDE_WALL
+                    with Locations(Location((x, sy * (OUTER_W / 2 - depth / 2 + 0.5), z), (90, 0, 0))):
+                        Cylinder(radius=P.XL430_SIDE_CBORE / 2, height=depth + 1, mode=Mode.SUBTRACT)
+        # zip-tie holes through both side walls near the open end, for dressing the lead
+        for x in (X_BACK + 6, X_BACK + 16):
+            with Locations(Location((x, 0, HOUSING_TOP - 4), (90, 0, 0))):
+                Cylinder(radius=P.TIE_HOLE_D / 2, height=OUTER_W + 2, mode=Mode.SUBTRACT)
     return hs.part
 
 
 def tip_boss():
-    """Boss carrying the 8 mm tip axle up to wheel height, with a tension slot and clamp screw."""
+    """Boss carrying the M6 tip bolt, with an 8 mm tension slot. The bolt is clamped by its nut
+    on the inboard face, so the boss needs no split or clamp screw."""
     with BuildPart() as tb:
         with Locations((P.TIP_X, 0, 0)):
             Cylinder(radius=P.TIP_BOSS_R, height=P.TIP_BOSS_H,
@@ -87,12 +98,11 @@ def tip_boss():
             with Locations((P.TIP_X, 0)):
                 SlotCenterToCenter(P.TIP_SLOT, P.TIP_AXLE_D + P.CLEAR_FIT)
         extrude(amount=P.TIP_BOSS_H + 1, mode=Mode.SUBTRACT)
-        # split from the slot to the boss surface on the +X side so the clamp screw can pinch the axle
-        with Locations((P.TIP_X + P.TIP_SLOT / 2 + P.TIP_BOSS_R / 2, 0, P.TIP_BOSS_H / 2)):
-            Box(P.TIP_BOSS_R, 1.2, P.TIP_BOSS_H + 2, mode=Mode.SUBTRACT)
-        # M3 clamp screw across the split, mid-height of the boss
-        with Locations(Location((P.TIP_X + P.TIP_SLOT / 2 + 5, 0, P.TIP_BOSS_H / 2), (90, 0, 0))):
-            Cylinder(radius=3.4 / 2, height=P.TIP_BOSS_R * 2 + 2, mode=Mode.SUBTRACT)
+        # washer seat on the inboard face: a shallow slot so the M6 washer + nylock sit flat
+        with BuildSketch(Plane.XY):
+            with Locations((P.TIP_X, 0)):
+                SlotCenterToCenter(P.TIP_SLOT, 13.0)
+        extrude(amount=0.6, mode=Mode.SUBTRACT)
     return tb.part
 
 
@@ -103,13 +113,17 @@ def pivot_and_lightening(part):
             Cylinder(radius=(P.XL430_HORN_BOSS_D + 0.4) / 2, height=P.PLATE_T * 3, mode=Mode.SUBTRACT)
             with PolarLocations(P.XL430_HORN_PCD / 2, P.XL430_HORN_N):
                 Cylinder(radius=(P.XL430_HORN_SCREW + 0.4) / 2, height=P.PLATE_T * 3, mode=Mode.SUBTRACT)
-        # drive-servo lead: Ø8 through the plate beside the pivot flange, inside the root radius
-        with Locations((P.CABLE_HOLE_X, P.CABLE_HOLE_Y, 0)):
-            Cylinder(radius=P.CABLE_HOLE_D / 2, height=P.PLATE_T * 3, mode=Mode.SUBTRACT)
+                # counterbore from the outboard face, leaving PIVOT_FLOOR_T of plate under the head
+                with Locations((0, 0, P.PIVOT_FLOOR_T)):
+                    Cylinder(radius=P.PIVOT_CBORE_D / 2, height=P.PLATE_T, align=(Align.CENTER, Align.CENTER, Align.MIN), mode=Mode.SUBTRACT)
+        # drive-servo lead: Ø8 through the plate beside the pivot flange, both sides
+        for sy in (-1, 1):
+            with Locations((P.CABLE_HOLE_X, sy * P.CABLE_HOLE_Y, 0)):
+                Cylinder(radius=P.CABLE_HOLE_D / 2, height=P.PLATE_T * 3, mode=Mode.SUBTRACT)
         # lightening holes between the servo housing and the tip boss, shrinking toward the tip
-        for i, x in enumerate((P.DRIVE_X + 46, P.DRIVE_X + 74, P.DRIVE_X + 102)):
+        for x, r in ((P.DRIVE_X + 46, 9.0), (P.DRIVE_X + 74, 7.0), (P.DRIVE_X + 100, 5.0)):
             with Locations((x, 0, 0)):
-                Cylinder(radius=P.HOLE_R_LIGHTEN - 2 * i, height=P.PLATE_T * 3, mode=Mode.SUBTRACT)
+                Cylinder(radius=r, height=P.PLATE_T * 3, mode=Mode.SUBTRACT)
     return pf.part
 
 
