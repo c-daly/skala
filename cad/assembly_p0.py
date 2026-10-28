@@ -39,14 +39,19 @@ def build():
         for sy in (-1, 1):
             parts.append(Cylinder(radius=2.5, height=P.DECK_STANDOFF, align=(Align.CENTER, Align.CENTER, Align.MIN))
                          .translate((P.DECK_X + sx * P.DECK_STANDOFF_XY[0], sy * P.DECK_STANDOFF_XY[1], top)))
-    parts.append(Box(75, 105, 14, align=(Align.CENTER, Align.CENTER, Align.MIN)).translate((P.DECK_X - 42, 0, dz + 4)))    # OpenCR, long side across Y, with headers
-    parts.append(Box(66, 76, 30, align=(Align.CENTER, Align.CENTER, Align.MIN)).translate((P.DECK_X + 32, 0, dz + 4)))     # Pi adapter + Pi + cooler
+    ocx = P.PLACE['opencr_adapter']['center'][0]; pix = P.PLACE['pi_adapter']['center'][0]
+    parts.append(Box(84, 112, 3, align=(Align.CENTER, Align.CENTER, Align.MIN)).translate((ocx, 0, dz + 4 + 12)))   # OpenCR adapter on 12 mm standoffs
+    parts.append(Box(75, 105, 14, align=(Align.CENTER, Align.CENTER, Align.MIN)).translate((ocx, 0, dz + 4 + 15)))   # OpenCR with headers
+    parts.append(Box(76, 66, 3, align=(Align.CENTER, Align.CENTER, Align.MIN)).translate((pix, 0, dz + 4 + 12)))     # Pi adapter
+    parts.append(Box(66, 58, 30, align=(Align.CENTER, Align.CENTER, Align.MIN)).translate((pix, 0, dz + 4 + 15)))    # Pi + cooler
     for sx in (-1, 1):
         for sy in (-1, 1):
             parts.append(Cylinder(radius=2, height=P.LIDAR_STANDOFF, align=(Align.CENTER, Align.CENTER, Align.MIN))
-                         .translate((P.DECK_X + 32 + sx * 40, sy * 28, dz + 4)))
-    parts.append(Box(97, 70, 8, align=(Align.CENTER, Align.CENTER, Align.MIN)).translate((P.DECK_X + 32, 0, dz + 4 + P.LIDAR_STANDOFF)))   # RPLidar base
-    parts.append(Cylinder(radius=35, height=32, align=(Align.CENTER, Align.CENTER, Align.MIN)).translate((P.DECK_X + 32, 0, dz + 12 + P.LIDAR_STANDOFF)))  # RPLidar head
+                         .translate((pix + sx * 32, sy * 24, dz + 4 + 15)))
+    lz = dz + 4 + 15 + P.LIDAR_STANDOFF
+    parts.append(Box(100, 74, 3, align=(Align.CENTER, Align.CENTER, Align.MIN)).translate((pix, 0, lz)))              # LiDAR adapter
+    parts.append(Box(97, 70, 8, align=(Align.CENTER, Align.CENTER, Align.MIN)).translate((pix, 0, lz + 3)))           # RPLidar base
+    parts.append(Cylinder(radius=35, height=32, align=(Align.CENTER, Align.CENTER, Align.MIN)).translate((pix, 0, lz + 11)))  # RPLidar head
     # camera pan/tilt head on the chassis plate, front centre, ahead of the deck
     parts.append(Box(24, 56, 22, align=(Align.CENTER, Align.CENTER, Align.MIN)).translate((P.CAM_X, 0, top + 4)))      # pan base (rotated: foot across Y)
     parts.append(Box(44, 44, 51, align=(Align.CENTER, Align.CENTER, Align.MIN)).translate((P.CAM_X, 0, top + 26)))     # tilt yoke + camera

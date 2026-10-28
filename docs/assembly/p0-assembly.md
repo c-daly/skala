@@ -7,7 +7,7 @@ How the TurtleBot3-scale rig goes together. It is written for two configurations
 
 Everything shared between them is written once; the places where B differs are marked **[B]**. Parts are from `cad/` (printed) and the hardware tables below. Dimensions marked **VERIFY** are assumptions in `cad/params.py` that must be checked with calipers before the dependent step.
 
-Robot frame throughout: **X forward, Y left, Z up.** Arm pivot planes are the chassis side edges (Y = ±76 mm). "Inboard" means toward the chassis centreline.
+Robot frame throughout: **X forward, Y left, Z up**, origin at the centre of the chassis plate's top face. Arm pivot planes are the chassis side edges (Y = ±76 mm). "Inboard" means toward the chassis centreline. Every mounting position below is a named grid hole in `cad/params.py` (`PLACE`) and is drawn to scale in Figures 4, 8, 9 and 10; nothing is left to be judged by eye.
 
 ![Figure 1 — configuration A](figures/fig1-overview-config-a.png)
 
@@ -32,13 +32,18 @@ Only after step 5: print the rest, in this order — tip hubs, pitch mounts, **[
 | **Flipper arm** | Tapered printed arm, 136 mm pivot-to-tip (**VERIFY** via link pitch), carrying its own drive XL430 in a housing at the root, a TB3 wheel on that servo's horn, and a second TB3 wheel on a free-spinning hub at the tip. The ICT-01 links loop around both wheels. | 4 | 2 |
 | **Tip hub** | Small printed hub with two 608 bearings that lets a TB3 wheel free-wheel on an 8 mm axle. | 4 | 4 (2 arms + 2 skids) |
 | **Skid bracket / skid arm** [B] | A printed upright at each rear corner with an 8 mm pivot and four index holes, and a passive arm with a tip hub and wheel. The arm's angle is fixed by one M3 pin; 0 / 20 / 35 / 50°. | — | 2 + 2 |
-| **Upper deck** | 164 × 120 × 4 mm plate on four 60 mm standoffs, above the battery and the mount tops. OpenCR at the rear (long side across the robot), Pi on its adapter in front of it, RPLidar A1 on 40 mm standoffs above the Pi. | 1 | 1 |
+| **Upper deck** | 164 × 120 × 4 mm plate on four 60 mm standoffs, above the battery and the mount tops. Carries the two board adapters. | 1 | 1 |
+| **OpenCR adapter** | 84 × 112 × 3 plate: OpenCR holes (**VERIFY**, slotted) to deck grid holes at (−104, ±32) and (−24, ±32). OpenCR sits long-side-across at the rear. | 1 | 1 |
+| **Pi adapter** | 76 × 66 × 3 plate: Pi 58 × 49 holes to deck grid holes at (−16, ±24) and (48, ±24). The same four holes carry the LiDAR standoffs. | 1 | 1 |
+| **LiDAR adapter** | 100 × 74 × 3 plate on four 40 mm standoffs stacked on the Pi adapter's holes; RPLidar A1 base holes (**VERIFY**, slotted). | 1 | 1 |
 | **Battery** | LB-012 3S 1800 mAh, strapped across the chassis centre under the deck. | 1 | 1 |
 | **Camera pan/tilt** | Three printed parts and two MG90S micro servos on the chassis plate at the front centre, ahead of the deck: a pan base (servo shaft up), a tilt yoke on the pan horn, and a camera cradle between the yoke's uprights carrying a Raspberry Pi Camera Module. Pan ±90°, tilt −45° to +30°, driven from two OpenCR PWM pins. The ribbon goes to the Pi's CSI port. A fixed 10° mount (`camera_mount_p0`) is the no-servo fallback. | 1 | 1 |
 
 ![Figure 3 — flipper arm](figures/fig3-flipper-arm.png)
 
-![Figure 4 — chassis layout](figures/fig4-chassis-layout.png)
+![Figure 10 — pivot stack-up](figures/fig10-pivot-stackup.png)
+
+![Figure 4 — chassis placement](figures/fig4-chassis-layout.png)
 
 ## 2. Printed parts and hardware
 
@@ -52,6 +57,8 @@ Only after step 5: print the rest, in this order — tip hubs, pitch mounts, **[
 | Skid arm `skid_arm_p0` | — | 2 | Flat. PLA+. Identical, symmetric. |
 | Upper deck `deck_p0` | 1 | 1 | Flat, 3 walls. |
 | Pi adapter `pi_adapter_p0` | 1 | 1 | Flat, 3 walls. |
+| OpenCR adapter `opencr_adapter_p0` | 1 | 1 | Flat, 3 walls. |
+| LiDAR adapter `lidar_adapter_p0` | 1 | 1 | Flat, 3 walls. |
 | Pan base `pan_base_p0` | 1 | 1 | Foot down. Servo pocket is through; flange recess on top. |
 | Tilt yoke `tilt_yoke_p0` | 1 | 1 | Plate down, uprights up; no supports. |
 | Camera cradle `camera_cradle_p0` | 1 | 1 | Lay the plate flat, discs up; a little support under the discs. |
@@ -69,8 +76,9 @@ Only after step 5: print the rest, in this order — tip hubs, pitch mounts, **[
 | M3 × 8 socket head + nylock | ~30 | ~30 | Mount feet, skid brackets, index pins, deck standoff bases, spares. |
 | M3 × 16 socket head + nylock | 4 | 6 | Tip-boss clamp screws; **[B]** + skid pivot clamps. |
 | M3 × 60 standoff (or 2 × 30 stacked) | 4 | 4 | Deck. |
-| M3 × 12 standoff M/F + M3 × 6 | 8 | 8 | OpenCR and Pi adapter on the deck. |
-| M2.5 × 40 standoff + M2.5 × 6 | 4 | 4 | RPLidar A1 above the Pi. |
+| M3 × 12 standoff M/F + M3 × 6 | 8 | 8 | OpenCR adapter and Pi adapter on the deck. |
+| M3 × 40 standoff M/F | 4 | 4 | LiDAR adapter, threaded onto the Pi adapter's standoff screws. |
+| M3 × 6 / M2.5 × 6 | 8 | 8 | OpenCR → its adapter (M3); RPLidar → its adapter (M2.5, VERIFY). |
 | USB power bank, 5 V 3 A (PD for a Pi 5), ~10 000 mAh | 1 | 1 | **Buy if not on hand.** Compute supply. |
 | M2 × 6 | 32 | 16 | XL430 case screws through housing/mount walls, 4 per servo. |
 | M2 × 10 (or Robotis horn screws) | 16 | 8 | Arm pivot flange → pitch horn, 4 each. |
@@ -108,9 +116,20 @@ Result: a wheel that spins freely on a stub of rod. Make four.
 
 ## 5. Chassis plate and battery
 
+Everything that touches the chassis plate, and the grid hole it uses (Figure 4):
+
+| Part | Position (x, y), mm | Holes | Fastener |
+| --- | --- | --- | --- |
+| Front pitch mounts (both configs) | pivot axis x = +60, horn face on the plate edge y = ±76 | (32, ±48) (32, ±64) (88, ±48) (88, ±64) | M3 × 8 + nylock through the foot slots |
+| Rear pitch mounts [A] | pivot axis x = −60 | (−32, ±48) (−32, ±64) (−88, ±48) (−88, ±64) | same |
+| Skid brackets [B] | pivot axis x = −60 | (−80, ±56) (−80, ±64) (−40, ±56) (−40, ±64) | M3 × 8 + nylock |
+| Deck standoffs, 60 mm | — | (−80, ±32) (24, ±32) | M3 × 8 from below |
+| Camera pan base | shaft at (80, 0), foot across Y | (80, ±24) | M3 × 8 + nylock |
+| Battery strap | across y through the slots | slots at x = ±30 | 25 mm strap |
+
 1. Deburr the grid holes both sides.
 2. Thread the battery strap through the two centre slots, buckle up. The battery lies across Y under the strap, between the slots. Do not fit it yet.
-3. Fit the four deck standoffs at grid holes (−80, ±32) and (+24, ±32) — see Figure 4. Do not fit the deck yet; the mounts and arms are easier with it off.
+3. Fit the four 60 mm deck standoffs from below at (−80, ±32) and (24, ±32). Do not fit the deck yet; the mounts and arms are easier with it off.
 
 ## 6. Pitch servo mounts (A: 4, B: 2)
 
@@ -118,7 +137,7 @@ Each mount is a box with the servo horn facing outboard and slotted feet that bo
 
 1. Drop a pitch servo into the mount from the open horn face, cable end toward the cable slot in the back wall. Route the lead out through that slot before seating the servo.
 2. Four M2 × 6 through the mount's X-facing walls into the servo case holes.
-3. Place the mount on the chassis top face so its **horn face is flush with the plate's side edge** and the horn axis is at X = +60 (front). **A:** rear mounts the same at X = −60, rotated 180° so their cable slots face forward. Feet span four grid holes; M3 × 8 through the slots, nylocks underneath, finger-tight.
+3. Place the mount on the chassis top face so its **horn face is flush with the plate's side edge** and the horn axis is at x = +60. Its foot slots sit over grid holes (32, ±48), (32, ±64), (88, ±48), (88, ±64) — the slots give ±2 mm along Y to bring the horn face flush. **A:** rear mounts the same at x = −60 over (−32…−88, ±48/±64), rotated 180° so their cable slots face forward. M3 × 8 through the slots, nylocks underneath, finger-tight. Figure 10 shows the stack from the plate edge outward.
 4. Sight along each pair of horns: left and right must be coaxial. Adjust in the slots, then torque.
 
 ## 7. Flipper arms (A: 4, B: 2)
@@ -128,7 +147,7 @@ Build one, then repeat; the parts are identical. A right-hand arm is the same pr
 1. **Drive servo.** Drop it into the housing on the arm's outboard face, horn out, cable toward the pivot-end slot. Route the lead through the slot before seating. Four M2 × 6 through the housing walls.
 2. **Drive wheel.** TB3 wheel straight onto the drive horn (Robotis horn screws). Spin; ≥ 1 mm clearance to the housing all round.
 3. **Tip axle.** 70 mm rod through the tip-boss slot, protruding outboard by the hub length plus 2 mm. M3 × 16 clamp across the slot, loose.
-4. **Tip wheel.** Hub-and-wheel onto the axle, flange outboard, inner bearing ~1 mm off the boss. Measure from the arm's inboard face to each wheel's inner face and match them, then tighten the clamp.
+4. **Tip wheel.** Hub-and-wheel onto the axle, flange outboard, inner bearing ~1 mm off the boss. Both wheels' inner faces must be **47 mm from the chassis plate edge** (3 mm horn + 10 mm arm plate + 34 mm housing/boss — Figure 10); measure from the arm's inboard face (44 mm) and match the tip wheel to the drive wheel, then tighten the clamp.
 5. **Track.** Loop the ICT-01 links around both wheels. 80 links at 6 mm pitch close at a 136 mm centre distance; the slot gives ±4 mm. Lower run should deflect ~5 mm under a thumb. Tighten the clamp.
 6. **Arm to pitch horn.** Pitch servo at its "horizontal" reading, arm held horizontal: Ø8.4 flange hole over the horn boss, four M2 × 10 into the horn, torqued in a cross.
 7. Rotate the arm by hand (power off). The drive wheel sweeps a 63 mm radius about the pivot; it must clear the plate edge, the mount feet and the deck standoffs. If a standoff is clipped, move it one grid pitch inboard.
@@ -137,20 +156,34 @@ Build one, then repeat; the parts are identical. A right-hand arm is the same pr
 
 ![Figure 6 — rear skid](figures/fig6-skid.png)
 
-1. Bolt a skid bracket (L on the left, R on the right) to the rear corner of the plate: foot on the grid, upright at the plate edge, pivot axis at X = −60. Four M3 × 8.
+1. Bolt a skid bracket (L on the left, R on the right) to the rear corner of the plate: upright at the plate edge, pivot axis at x = −60, foot holes over (−80, ±56), (−80, ±64), (−40, ±56), (−40, ±64). Four M3 × 8.
 2. 30 mm rod through the bracket's pivot hole; it should turn freely.
 3. Skid arm onto the outboard end of the rod, pointing aft, clamped with its M3 across the pivot slot. Line the arm's index hole up with one of the bracket's holes — start with **35°** — and drop an M3 × 8 through both as the pin, nylock loose.
-4. Tip axle, hub and wheel as in 7.3–7.4, matching the wheel plane to the front wheels: 44 mm from the plate edge to the wheel's inner face.
+4. Tip axle, hub and wheel as in 7.3–7.4, matching the wheel plane to the front wheels: 47 mm from the plate edge to the wheel's inner face (Figure 10).
 5. 0° is the flat pose; 35° puts all four wheels level with the front arms at 30° down (`cad/assembly_p0.py 30 35`).
 
 ## 9. Upper deck and electronics
 
-1. **OpenCR** on M3 × 12 standoffs at the rear of the deck, long side across the robot (its 105 mm runs along Y, 75 mm along X). Headers face up; leave the USB and power connectors reachable from the rear.
-2. **Pi adapter with the Pi** in front of the OpenCR on the deck's grid, 66 mm along X. A Pi 5 with its active cooler is ~30 mm tall.
-3. **RPLidar A1** on four 40 mm M2.5 standoffs over the Pi, using the LiDAR's own base holes. The 40 mm clears the Pi's cooler with a 10 mm gap for its airflow; the scan plane ends up ~140 mm above the chassis, above the camera head and the deck. Nothing may sit under the LiDAR other than the Pi.
-4. Fit the deck onto the four 60 mm standoffs with M3 × 8. Its underside is at 66 mm, above the pitch-mount tops (63 mm) and the battery; its front edge is at X ≈ 54, clear of the camera head.
+![Figure 8 — deck placement](figures/fig8-deck-layout.png)
+
+![Figure 9 — vertical stack-up](figures/fig9-stack-up.png)
+
+Everything on the deck, and the deck-grid hole it uses (robot coordinates; the deck's grid runs x = −104…48, y = −56…56):
+
+| Part | Centre (x, y) | Holes | Height above chassis top |
+| --- | --- | --- | --- |
+| Deck plate 164 × 120 | (−28, 0) | to chassis standoffs at (−80, ±32), (24, ±32) | underside 60, top 64 |
+| OpenCR adapter + OpenCR | (−64, 0), board long side along Y | (−104, ±32), (−24, ±32) on M3 × 12 standoffs | adapter 76–79, headers to ~93 |
+| Pi adapter + Pi | (16, 0) | (−16, ±24), (48, ±24) on M3 × 12 standoffs | adapter 76–79, cooler top ~109 |
+| LiDAR adapter + RPLidar A1 | (16, 0) | same four holes, M3 × 40 standoffs threaded onto the Pi adapter screws | adapter 119–122, scan plane ≈149 |
+| Camera pan/tilt head | (80, 0) on the **chassis**, not the deck | (80, ±24) | top 77 |
+
+1. **Bolt the deck down first**: M3 × 8 through the deck into the four 60 mm standoffs at (−80, ±32) and (24, ±32). Two of those screw heads end up under the adapters, which is fine because the adapters sit 12 mm higher — but it means the deck cannot be removed without lifting the adapters.
+2. **OpenCR adapter** on four M3 × 12 standoffs at (−104, ±32) and (−24, ±32); OpenCR onto the adapter's slotted holes with M3 × 6, long side across the robot, USB and power connectors toward the rear, headers up.
+3. **Pi adapter** on four M3 × 12 standoffs at (−16, ±24) and (48, ±24); Pi onto it with M2.5 × 6, ports toward the right side. Do not use M3 × 6 on top of these standoffs — the LiDAR standoffs go there instead.
+4. **LiDAR adapter** on four M3 × 40 M/F standoffs threaded onto the Pi adapter's four standoffs; RPLidar A1 onto the adapter's slotted holes with its own M2.5 screws, cable toward the rear through the adapter's centre hole. The 40 mm clears a Pi 5 cooler (30 mm) with airflow; the scan plane at ≈149 mm is above the camera head (77) and the LiDAR's rotating head has a clear 360° view — the raised flipper tips are the only thing that can enter it.
 5. **Camera pan/tilt** (Figure 7). Centre both MG90S servos with a servo tester or the OpenCR before fitting horns.
-   - Drop the pan servo into the pan base from the top, shaft up, lead out through the pocket; two M2 self-tap screws through the flange into the block. Bolt the base to the **chassis plate** at the front centre — foot across Y, grid holes (80, ±24) — in the free strip between the two front pitch mounts, ahead of the deck. The head's top is at ~83 mm, under the LiDAR's scan plane.
+   - Drop the pan servo into the pan base from the top, shaft up, lead out through the pocket; two M2 self-tap screws through the flange into the block. Bolt the base to the **chassis plate** at the front centre — foot across Y, grid holes (80, ±24) — in the free strip between the two front pitch mounts, ahead of the deck's front edge (x = 54). The head's top is at 77 mm, under the LiDAR's scan plane.
    - Fit a two-arm horn to the pan servo. Bolt the tilt yoke's plate to it (centre M2.5 screw plus the two pin holes) with the yoke's servo upright on the robot's right.
    - Slide the tilt servo into the right upright from outside, shaft pointing inward; two M2 self-tap screws through the upright into the flange. Fit a two-arm horn on the inside.
    - Bolt the Pi Camera board to the cradle with four M2 × 6, lens through the window, ribbon connector downward. Bolt the cradle's horn disc to the tilt horn; pass an M3 × 16 with a washer each side through the left upright into the cradle's pivot boss, nylock just snug so it turns freely.
@@ -232,4 +265,4 @@ Moving from B to A later: remove the two skid brackets and arms, add two pitch m
 - Print settings: [`../design/filament-guide-adventurer-5m-pro.md`](../design/filament-guide-adventurer-5m-pro.md)
 - CAD and print manifest: [`../../cad/README.md`](../../cad/README.md)
 - Body interface the firmware and Pi driver target: [`../design/talos-capability-manifest.md`](../design/talos-capability-manifest.md)
-- Figures are generated by [`figures/make_figures.py`](figures/make_figures.py) from the CAD views; regenerate after any geometry change.
+- Figures are generated by [`figures/make_figures.py`](figures/make_figures.py) from the CAD views and from `PLACE`/`STACK` in `cad/params.py`; regenerate after any geometry or placement change.

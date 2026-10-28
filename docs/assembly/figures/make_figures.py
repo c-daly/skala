@@ -13,6 +13,8 @@ import cairosvg
 
 HERE = pathlib.Path(__file__).resolve().parent
 ROOT = HERE.parents[2]
+sys.path.insert(0, str(ROOT / 'cad'))
+import params as PR
 SVG_IN = ROOT / "cad" / "out" / "svg"
 FONT = "font-family='Helvetica, Arial, sans-serif'"
 INK, ACC, ACC2, MUTE = "#1f2328", "#c2410c", "#1d4ed8", "#6b7280"
@@ -110,9 +112,9 @@ figure_over_base(
     ],
     "Figure 3 — Flipper arm `arm_p0`", "Frame: X along the arm from the pivot, Z outboard. The part is symmetric about its long axis: one print serves left and right.")
 
-# --------------------------------------------------------------------------- Fig 4: chassis layout (drawn)
-S = 3.4  # px per mm
-ox, oy = 60 + 100 * S, 90 + 76 * S   # origin of robot frame in panel coords (X right, Y up → screen -y)
+# --------------------------------------------------------------------------- Fig 4: chassis plan, dimensioned (from params.PLACE)
+S = 3.4
+ox, oy = 70 + 100 * S, 110 + 76 * S
 def P2(x, y): return (ox + x * S, oy - y * S)
 def rect(x0, y0, x1, y1, **kw):
     (a, b), (c, d) = P2(x0, y1), P2(x1, y0)
@@ -121,72 +123,214 @@ def rect(x0, y0, x1, y1, **kw):
 def label(x, y, t, size=12, color=INK, anchor="middle", weight="normal"):
     X, Y = P2(x, y)
     return f"<text x='{X:.1f}' y='{Y:.1f}' {FONT} font-size='{size}' fill='{color}' text-anchor='{anchor}' font-weight='{weight}'>{t}</text>"
+def hole(x, y, color, note=None, dx=6, dy=-6, anchor="start"):
+    X, Y = P2(x, y)
+    s = f"<circle cx='{X:.1f}' cy='{Y:.1f}' r='4.5' fill='white' stroke='{color}' stroke-width='2'/>"
+    if note:
+        s += f"<text x='{X+dx:.1f}' y='{Y+dy:.1f}' {FONT} font-size='9.5' fill='{color}' text-anchor='{anchor}'>{note}</text>"
+    return s
 
-def layout_panel(config):
+def chassis_panel(config):
     g = [rect(-100, -76, 100, 76, fill="#f3f4f6", stroke=INK, stroke_width=2, rx=8)]
-    # grid dots
     for i in range(25):
         for j in range(19):
-            X, Y = P2(-100 + 4 + i * 8, -76 + 4 + j * 8)
+            X, Y = P2(-96 + i * 8, -72 + j * 8)
             g.append(f"<circle cx='{X:.1f}' cy='{Y:.1f}' r='1' fill='#c7cbd1'/>")
-    # front pitch mounts: foot 69 x 38 at x=60, both edges
-    for sy in (-1, 1):
+    # front pitch mounts (both), rear mounts (A) or skid brackets (B)
+    def mount(cx, sy, holes, name):
         y0, y1 = (38, 76) if sy > 0 else (-76, -38)
-        g.append(rect(60 - 34.5, y0, 60 + 34.5, y1, fill="#fed7aa", stroke=ACC, stroke_width=1.5))
-        g.append(label(60, sy * 57 - 4, "pitch mount", 11, ACC, weight="bold"))
-        X, Y = P2(60, sy * 76); g.append(f"<circle cx='{X:.1f}' cy='{Y:.1f}' r='4' fill='{ACC}'/>")
+        g.append(rect(cx - 34.5, y0, cx + 34.5, y1, fill="#fed7aa", stroke=ACC, stroke_width=1.5))
+        g.append(label(cx, sy * 57 - 4, name, 10.5, ACC, weight="bold"))
+        for (hx, hy) in holes:
+            g.append(hole(hx, sy * hy, ACC, f"({hx}, {sy*hy:+d})", dx=0, dy=(12 if sy < 0 else -8), anchor="middle"))
+        X, Y = P2(cx, sy * 76); g.append(f"<circle cx='{X:.1f}' cy='{Y:.1f}' r='4' fill='{ACC}'/>")
+    pf = PR.PLACE["pitch_mount_front"]
+    for sy in (-1, 1):
+        mount(60, sy, pf["holes"], "pitch mount")
     if config == "A":
+        pr = PR.PLACE["pitch_mount_rear"]
         for sy in (-1, 1):
-            y0, y1 = (38, 76) if sy > 0 else (-76, -38)
-            g.append(rect(-60 - 34.5, y0, -60 + 34.5, y1, fill="#fed7aa", stroke=ACC, stroke_width=1.5))
-            g.append(label(-60, sy * 57 - 4, "pitch mount", 11, ACC, weight="bold"))
-            X, Y = P2(-60, sy * 76); g.append(f"<circle cx='{X:.1f}' cy='{Y:.1f}' r='4' fill='{ACC}'/>")
+            mount(-60, sy, pr["holes"], "pitch mount")
     else:
+        sk = PR.PLACE["skid_bracket"]
         for sy in (-1, 1):
             y0, y1 = (52, 76) if sy > 0 else (-76, -52)
             g.append(rect(-60 - 28, y0, -60 + 28, y1, fill="#bfdbfe", stroke=ACC2, stroke_width=1.5))
-            g.append(label(-60, sy * 64 - 4, "skid bracket", 11, ACC2, weight="bold"))
+            g.append(label(-60, sy * 66 - 4, "skid bracket", 10.5, ACC2, weight="bold"))
+            for (hx, hy) in sk["holes"]:
+                up = (hy == 64) if sy > 0 else (hy == 56)
+                g.append(hole(hx, sy * hy, ACC2, f"({hx}, {sy*hy:+d})", dx=0, dy=(-8 if up else 13), anchor="middle"))
             X, Y = P2(-60, sy * 76); g.append(f"<circle cx='{X:.1f}' cy='{Y:.1f}' r='4' fill='{ACC2}'/>")
-    # battery across the centre under the deck
+    # battery + strap slots
     g.append(rect(-17.5, -44, 17.5, 44, fill="#fef3c7", stroke="#b45309", stroke_width=1.5))
-    g.append(label(0, -2, "battery", 11, "#b45309", weight="bold"))
-    g.append(label(0, -16, "under strap", 10, "#b45309"))
-    for x in (-30, 30):
+    g.append(label(0, -2, "battery 35 × 88", 10, "#b45309", weight="bold"))
+    for x in PR.PLACE["battery_slots"]["x"]:
         g.append(rect(x - 2, -30, x + 2, 30, fill="white", stroke="#b45309", stroke_width=1))
-    # deck outline (dashed) and standoffs
-    g.append(rect(-28 - 82, -60, -28 + 82, 60, fill="none", stroke=INK, stroke_width=1.5, stroke_dasharray="6 4"))
-    g.append(rect(-28 - 42 - 37.5, -52.5, -28 - 42 + 37.5, 52.5, fill="none", stroke=MUTE, stroke_width=1, stroke_dasharray="3 3"))
-    g.append(label(-70, -2, "OpenCR", 11, MUTE))
-    g.append(rect(-28 + 32 - 33, -38, -28 + 32 + 33, 38, fill="none", stroke=MUTE, stroke_width=1, stroke_dasharray="3 3"))
-    g.append(label(4, -2, "Pi + LiDAR above", 11, MUTE))
+        g.append(label(x, -36, f"slot x={x}", 9, "#b45309"))
+    # deck outline + standoffs
+    g.append(rect(PR.DECK_X - PR.DECK_L / 2, -PR.DECK_W / 2, PR.DECK_X + PR.DECK_L / 2, PR.DECK_W / 2, fill="none", stroke=INK, stroke_width=1.5, stroke_dasharray="6 4"))
+    for (hx, hy) in PR.PLACE["deck_standoffs"]["holes"]:
+        g.append(hole(hx, hy, INK, f"deck standoff ({hx}, {hy:+d})", dx=0, dy=(14 if hy < 0 else -9), anchor="middle"))
+    # camera base
+    cb = PR.PLACE["camera_base"]
     g.append(rect(80 - 12, -28, 80 + 12, 28, fill="#fef9c3", stroke="#854d0e", stroke_width=1.5))
-    g.append(label(80, 32, "camera head", 10, "#854d0e", weight="bold"))
-    for sx in (-1, 1):
-        for sy in (-1, 1):
-            X, Y = P2(-28 + sx * 52, sy * 32)
-            g.append(f"<circle cx='{X:.1f}' cy='{Y:.1f}' r='5' fill='white' stroke='{INK}' stroke-width='1.5'/>")
-    g.append(label(-28, 66, "upper deck 164 × 120 on 4 × 60 mm standoffs (dashed), above the mounts", 11, INK))
-    
-    # axes
+    g.append(label(80, 34, "camera base", 10, "#854d0e", weight="bold"))
+    for (hx, hy) in cb["holes"]:
+        g.append(hole(hx, hy, "#854d0e", f"({hx}, {hy:+d})", dx=8, dy=4))
+    g.append(label(20, -82, f"dashed: deck outline {PR.DECK_L:.0f} × {PR.DECK_W:.0f} centred at x = {PR.DECK_X:.0f}, 60 mm above the plate", 10.5, MUTE))
+    # axes + grid note
     X0, Y0 = P2(-96, -96)
     g.append(f"<line x1='{X0}' y1='{Y0}' x2='{X0+60}' y2='{Y0}' stroke='{INK}' stroke-width='2' marker-end='url(#arr)'/>")
     g.append(f"<text x='{X0+66}' y='{Y0+4}' {FONT} font-size='12' fill='{INK}'>X forward</text>")
     g.append(f"<line x1='{X0}' y1='{Y0}' x2='{X0}' y2='{Y0-40}' stroke='{INK}' stroke-width='2' marker-end='url(#arr)'/>")
     g.append(f"<text x='{X0-8}' y='{Y0-46}' {FONT} font-size='12' fill='{INK}' text-anchor='end'>Y left</text>")
-    g.append(label(20, -88, "arm pivot axes at X = ±60; pivot planes are the plate edges (Y = ±76)", 11, MUTE))
+    g.append(label(20, -94, "all holes are 8 mm grid positions (x = −96…96, y = −72…72), M3; coordinates in mm from the plate centre", 10.5, MUTE))
     return "\n".join(g)
 
-W4 = 60 + 200 * S + 60
-svg = [f"<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 {2*W4} 800' width='{2*W4}' height='800'>",
+W4 = 70 + 200 * S + 70
+svg = [f"<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 {2*W4} 840' width='{2*W4}' height='840'>",
        "<defs><marker id='arr' markerWidth='8' markerHeight='8' refX='6' refY='4' orient='auto'><path d='M0,0 L8,4 L0,8 z' fill='#1f2328'/></marker></defs>",
        "<rect width='100%' height='100%' fill='white'/>",
-       title("Figure 4 — Chassis layout, top view (1 mm = 3.4 px)", "Left: configuration A. Right: configuration B. Everything mounts on the 8 mm M3 grid; the deck is a second plate above the battery and the mounts."),
-       f"<g transform='translate(0,0)'>{layout_panel('A')}</g>",
-       f"<text x='{ox}' y='78' {FONT} font-size='15' font-weight='bold' fill='{INK}' text-anchor='middle'>A — four flippers</text>",
-       f"<g transform='translate({W4},0)'>{layout_panel('B')}</g>",
-       f"<text x='{ox+W4}' y='78' {FONT} font-size='15' font-weight='bold' fill='{INK}' text-anchor='middle'>B — two flippers + skids</text>",
+       title("Figure 4 — Chassis plate placement, top view (1 mm = 3.4 px)", "Every part that bolts to the chassis, with the grid hole it uses. Left: configuration A. Right: configuration B. Pivot axes at x = ±60 on the plate edges."),
+       f"<g>{chassis_panel('A')}</g>",
+       f"<text x='{ox}' y='95' {FONT} font-size='15' font-weight='bold' fill='{INK}' text-anchor='middle'>A — four flippers</text>",
+       f"<g transform='translate({W4},0)'>{chassis_panel('B')}</g>",
+       f"<text x='{ox+W4}' y='95' {FONT} font-size='15' font-weight='bold' fill='{INK}' text-anchor='middle'>B — two flippers + skids</text>",
        "</svg>"]
 write("fig4-chassis-layout", "\n".join(svg))
+
+# --------------------------------------------------------------------------- Fig 8: deck plan, dimensioned
+S = 4.2
+ox, oy = 90 + (PR.DECK_L / 2 - PR.DECK_X) * S, 110 + (PR.DECK_W / 2) * S
+svg = [f"<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1000 700' width='1000' height='700'>",
+       "<rect width='100%' height='100%' fill='white'/>",
+       title("Figure 8 — Upper deck placement, top view (1 mm = 4.2 px, robot coordinates)", "What sits on the deck and which deck-grid holes each adapter uses. The LiDAR adapter stacks on the Pi adapter's four holes via 40 mm standoffs.")]
+svg.append(rect(PR.DECK_X - PR.DECK_L / 2, -PR.DECK_W / 2, PR.DECK_X + PR.DECK_L / 2, PR.DECK_W / 2, fill="#f3f4f6", stroke=INK, stroke_width=2, rx=6))
+for x in range(-104, 49, 8):
+    for y in range(-56, 57, 8):
+        X, Y = P2(x, y); svg.append(f"<circle cx='{X:.1f}' cy='{Y:.1f}' r='1.2' fill='#c7cbd1'/>")
+# cable slot
+svg.append(rect(PR.DECK_X - PR.DECK_L / 2 + 13, -20, PR.DECK_X - PR.DECK_L / 2 + 23, 20, fill="white", stroke=INK, stroke_width=1))
+svg.append(label(PR.DECK_X - PR.DECK_L / 2 + 18, -28, "cable slot", 9, MUTE))
+# standoff holes to chassis
+for (hx, hy) in PR.PLACE["deck_standoffs"]["holes"]:
+    svg.append(hole(hx, hy, INK, f"to chassis ({hx}, {hy:+d})", dx=0, dy=(14 if hy < 0 else -9), anchor="middle"))
+# OpenCR adapter + board
+oc = PR.PLACE["opencr_adapter"]; ocx = oc["center"][0]
+svg.append(rect(ocx - 42, -56, ocx + 42, 56, fill="#e0e7ff", stroke="#3730a3", stroke_width=1.5))
+svg.append(rect(ocx - 37.5, -52.5, ocx + 37.5, 52.5, fill="none", stroke="#3730a3", stroke_width=1, stroke_dasharray="3 3"))
+svg.append(label(ocx, 2, "OpenCR 1.0", 12, "#3730a3", weight="bold"))
+svg.append(label(ocx, -10, "on opencr_adapter_p0 (84 × 112)", 9.5, "#3730a3"))
+svg.append(label(ocx, -20, "board 75 × 105, long side across Y", 9.5, "#3730a3"))
+svg.append(label(ocx, -30, "USB + power toward the rear", 9.5, "#3730a3"))
+for (hx, hy) in oc["holes"]:
+    svg.append(hole(hx, hy, "#3730a3", f"({hx}, {hy:+d})", dx=0, dy=(14 if hy < 0 else -9), anchor="middle"))
+# Pi adapter + Pi + LiDAR footprint
+pa = PR.PLACE["pi_adapter"]; pix = pa["center"][0]
+svg.append(rect(pix - 38, -33, pix + 38, 33, fill="#dcfce7", stroke="#166534", stroke_width=1.5))
+svg.append(rect(pix - 33, -29, pix + 33, 29, fill="none", stroke="#166534", stroke_width=1, stroke_dasharray="3 3"))
+svg.append(label(pix, 2, "Raspberry Pi", 12, "#166534", weight="bold"))
+svg.append(label(pix, -10, "on pi_adapter_p0 (76 × 66)", 9.5, "#166534"))
+svg.append(label(pix, -20, "ports toward the right side", 9.5, "#166534"))
+for (hx, hy) in pa["holes"]:
+    svg.append(hole(hx, hy, "#166534", f"({hx}, {hy:+d})", dx=0, dy=(14 if hy < 0 else -9), anchor="middle"))
+svg.append(rect(pix - 50, -37, pix + 50, 37, fill="none", stroke="#854d0e", stroke_width=1.5, stroke_dasharray="8 4"))
+svg.append(label(pix, 44, "LiDAR adapter 100 × 74 above, on 40 mm standoffs at the same four holes", 9.5, "#854d0e"))
+X0, Y0 = P2(-100, -70)
+svg.append(f"<defs><marker id='arr2' markerWidth='8' markerHeight='8' refX='6' refY='4' orient='auto'><path d='M0,0 L8,4 L0,8 z' fill='#1f2328'/></marker></defs>")
+svg.append(f"<line x1='{X0}' y1='{Y0}' x2='{X0+60}' y2='{Y0}' stroke='{INK}' stroke-width='2' marker-end='url(#arr2)'/>")
+svg.append(f"<text x='{X0+66}' y='{Y0+4}' {FONT} font-size='12' fill='{INK}'>X forward</text>")
+svg.append(label(-28, -78, "deck grid holes: x = −104…48, y = −56…56 (robot frame); deck centre x = −28; front edge x = 54, clear of the camera head at x = 80", 10.5, MUTE))
+svg.append("</svg>")
+write("fig8-deck-layout", "\n".join(svg))
+
+# --------------------------------------------------------------------------- Fig 9: side elevation stack-up (drawn to scale)
+K = 2.6; XB = 160; ZB = 560       # px per mm, origin (x=-120 mm, z=0) at (XB, ZB)
+def E(x, z): return (XB + (x + 120) * K, ZB - z * K)
+def eb(x0, z0, x1, z1, fill, stroke=INK, dash=None, op=1):
+    (a, b), (c, d) = E(x0, z1), E(x1, z0)
+    dd = f" stroke-dasharray='{dash}'" if dash else ""
+    return f"<rect x='{a:.1f}' y='{b:.1f}' width='{c-a:.1f}' height='{d-b:.1f}' fill='{fill}' stroke='{stroke}' stroke-width='1.3'{dd} opacity='{op}'/>"
+def dim(z, text, x=132, color=INK):
+    X, Y = E(x, z)
+    return f"<line x1='{E(-120,z)[0]}' y1='{Y:.1f}' x2='{X:.1f}' y2='{Y:.1f}' stroke='{color}' stroke-width='0.6' stroke-dasharray='2 4'/><text x='{X+4:.1f}' y='{Y+4:.1f}' {FONT} font-size='10.5' fill='{color}'>{text}</text>"
+ST = PR.STACK
+svg = ["<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1000 660' width='1000' height='660'>",
+       "<rect width='100%' height='100%' fill='white'/>",
+       title("Figure 9 — Vertical stack-up, side view from the left (1 mm = 2.6 px)", "Heights are above the chassis plate's top face. Front is to the right. Flippers omitted; their pivot is at the plate edge, 0 mm."),
+       eb(-100, -6, 100, 0, "#e5e7eb"),                                                   # chassis plate
+       eb(-17.5, 0, 17.5, ST["battery_top"], "#fef3c7", "#b45309"),                     # battery
+       # camera head on the chassis (drawn first; the near-side pitch mount is translucent over it)
+       eb(80 - 12, 0, 80 + 12, 26, "#fef9c3", "#854d0e"),
+       eb(80 - 22, 26, 80 + 22, 29, "#bfdbfe", ACC2),
+       eb(80 - 22, 29, 80 - 18, ST["camera_head_top"], "#bfdbfe", ACC2),
+       eb(80 - 1.5, 48, 80 + 1.5, 78, "#fef3c7", "#b45309"),
+       eb(26, 0, 94, ST["pitch_mount_top"], "#fed7aa", ACC, None, 0.45),                 # front mount (near side, translucent)
+       eb(-94, 0, -26, ST["pitch_mount_top"], "#fed7aa", ACC, None, 0.45),               # rear mount / skid zone
+       ]
+for x in (-80, 24):
+    svg.append(eb(x - 2.5, 0, x + 2.5, ST["deck_underside"], "#9ca3af"))                 # deck standoffs
+svg.append(eb(PR.DECK_X - PR.DECK_L / 2, ST["deck_underside"], PR.DECK_X + PR.DECK_L / 2, ST["deck_top"], "#f3f4f6"))
+ocx = PR.PLACE["opencr_adapter"]["center"][0]; pix = PR.PLACE["pi_adapter"]["center"][0]
+for x in (ocx - 40, ocx + 40, pix - 32, pix + 32):
+    svg.append(eb(x - 2, ST["deck_top"], x + 2, ST["deck_top"] + 12, "#9ca3af"))        # board standoffs
+svg.append(eb(ocx - 42, ST["deck_top"] + 12, ocx + 42, ST["deck_top"] + 15, "#e0e7ff", "#3730a3"))
+svg.append(eb(ocx - 37.5, ST["deck_top"] + 15, ocx + 37.5, ST["opencr_top"], "#c7d2fe", "#3730a3"))
+svg.append(eb(pix - 38, ST["deck_top"] + 12, pix + 38, ST["pi_adapter_top"], "#dcfce7", "#166534"))
+svg.append(eb(pix - 33, ST["pi_adapter_top"], pix + 33, ST["pi_cooler_top"], "#bbf7d0", "#166534"))
+for x in (pix - 32, pix + 32):
+    svg.append(eb(x - 2, ST["pi_adapter_top"], x + 2, ST["pi_adapter_top"] + 40, "#9ca3af"))
+svg.append(eb(pix - 50, ST["pi_adapter_top"] + 40, pix + 50, ST["lidar_adapter_top"], "#fef9c3", "#854d0e"))
+svg.append(eb(pix - 48, ST["lidar_adapter_top"], pix + 48, ST["lidar_adapter_top"] + 8, "#d1d5db"))
+svg.append(eb(pix - 35, ST["lidar_adapter_top"] + 8, pix + 35, ST["lidar_adapter_top"] + 40, "#d1d5db"))
+sp = ST["lidar_scan_plane"]
+svg.append(f"<line x1='{E(-120,sp)[0]}' y1='{E(0,sp)[1]:.1f}' x2='{E(130,sp)[0]}' y2='{E(0,sp)[1]:.1f}' stroke='{ACC}' stroke-width='1.2' stroke-dasharray='8 4'/>")
+# dimensions
+for z, t in ((0, "0 — chassis top"), (ST["battery_top"], f"{ST['battery_top']} battery top"), (ST["pitch_mount_top"], f"{ST['pitch_mount_top']} pitch-mount top"),
+             (ST["deck_underside"], f"{ST['deck_underside']} deck underside"), (ST["opencr_top"], f"{ST['opencr_top']} OpenCR headers"),
+             (ST["camera_head_top"], f"{ST['camera_head_top']} camera head top"), (ST["pi_cooler_top"], f"{ST['pi_cooler_top']} Pi cooler top"),
+             (ST["lidar_adapter_top"], f"{ST['lidar_adapter_top']} LiDAR base"), (sp, f"≈{sp} LiDAR scan plane")):
+    svg.append(dim(z, t, color=(ACC if "scan" in t else INK)))
+for x, t, anc in ((ocx, "OpenCR", "middle"), (pix, "Pi + LiDAR", "start"), (80, "camera", "middle"), (0, "battery", "end")):
+    X, Y = E(x, -14); svg.append(f"<text x='{X:.1f}' y='{Y:.1f}' {FONT} font-size='10.5' fill='{MUTE}' text-anchor='{anc}'>x = {x} {t}</text>")
+svg.append(f"<text x='40' y='625' {FONT} font-size='12' fill='{MUTE}'>Clearances: deck underside 60 over the 57 mm mount tops · LiDAR adapter 40 over the Pi adapter for a 30 mm cooler ·</text>")
+svg.append(f"<text x='40' y='643' {FONT} font-size='12' fill='{MUTE}'>camera head top {ST['camera_head_top']} under the ≈{sp} scan plane and ahead of the deck's front edge (x = 54) · bolt the deck down before fitting the adapters (two deck screws sit under them).</text>")
+svg.append("</svg>")
+write("fig9-stack-up", "\n".join(svg))
+
+# --------------------------------------------------------------------------- Fig 10: pivot-axis stack-up (section along the arm pivot, looking from the front)
+K = 4.5; YB = 330; ZB = 300          # y is outboard to the right, from the plate edge
+def A(y, z): return (YB + y * K, ZB - z * K)
+def ab(y0, z0, y1, z1, fill, stroke=INK, dash=None):
+    (a, b), (c, d) = A(y0, z1), A(y1, z0)
+    dd = f" stroke-dasharray='{dash}'" if dash else ""
+    return f"<rect x='{a:.1f}' y='{b:.1f}' width='{c-a:.1f}' height='{d-b:.1f}' fill='{fill}' stroke='{stroke}' stroke-width='1.3'{dd}/>"
+WZ = PR.PLATE_T + PR.XL430_D      # 44: wheel inner face from the plate edge
+svg = ["<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1000 520' width='1000' height='520'>",
+       "<rect width='100%' height='100%' fill='white'/>",
+       title("Figure 10 — Flipper stack-up along the pivot axis (1 mm = 4.5 px)", "Section through the pivot, viewed from the front. Distances outboard from the chassis plate edge (= the pitch horn face). Same at the tip end and on the skids."),
+       ab(-38, -20, 0, 20, "#fed7aa", ACC),                                   # pitch mount box (inboard of the edge)
+       f"<text x='{A(-19,24)[0]:.0f}' y='{A(-19,24)[1]:.0f}' {FONT} font-size='11' fill='{ACC}' text-anchor='middle'>pitch mount + XL430</text>",
+       ab(-34, -12, -4, 12, "#d1d5db", INK, "3 2"),
+       ab(0, -10, 3, 10, "#9ca3af"),                                           # horn
+       f"<text x='{A(1.5,13)[0]:.0f}' y='{A(1.5,13)[1]-4:.0f}' {FONT} font-size='10' fill='{INK}' text-anchor='middle'>horn 3</text>",
+       ab(3, -30, 3 + PR.PLATE_T, 30, "#fde68a", "#92400e"),                   # arm plate
+       f"<text x='{A(8,34)[0]:.0f}' y='{A(8,34)[1]:.0f}' {FONT} font-size='10' fill='#92400e' text-anchor='middle'>arm plate {PR.PLATE_T:.0f}</text>",
+       ab(3 + PR.PLATE_T, -24, 3 + PR.PLATE_T + PR.XL430_D, 24, "#fde68a", "#92400e"),   # housing / boss
+       f"<text x='{A(3+PR.PLATE_T+PR.XL430_D/2,28)[0]:.0f}' y='{A(0,28)[1]:.0f}' {FONT} font-size='10' fill='#92400e' text-anchor='middle'>drive housing / tip boss {PR.XL430_D:.0f}</text>",
+       ab(3 + WZ, -33, 3 + WZ + PR.TB3_WHEEL_W, 33, "#e5e7eb", INK),            # wheel
+       f"<text x='{A(3+WZ+PR.TB3_WHEEL_W/2,37)[0]:.0f}' y='{A(0,37)[1]:.0f}' {FONT} font-size='10' fill='{INK}' text-anchor='middle'>TB3 wheel {PR.TB3_WHEEL_W:.0f}</text>",
+       ab(3 + WZ - 4, -3, 3 + WZ + PR.TB3_WHEEL_W + 4, 3, "#9ca3af"),          # axle / horn
+       ]
+# dimension line
+for y, t in ((0, "0 plate edge"), (3, "3"), (3 + PR.PLATE_T, f"{3+PR.PLATE_T:.0f}"), (3 + WZ, f"{3+WZ:.0f} wheel inner face"), (3 + WZ + PR.TB3_WHEEL_W, f"{3+WZ+PR.TB3_WHEEL_W:.0f} wheel outer face")):
+    X, Y = A(y, 44)
+    svg.append(f"<line x1='{X:.1f}' y1='{A(0,36)[1]:.1f}' x2='{X:.1f}' y2='{Y:.1f}' stroke='{INK}' stroke-width='0.8'/>")
+    svg.append(f"<text x='{X:.1f}' y='{Y-6:.1f}' {FONT} font-size='10' fill='{INK}' text-anchor='{'end' if y > 40 else 'middle'}'>{t}</text>")
+svg.append(f"<text x='40' y='470' {FONT} font-size='12' fill='{MUTE}'>Match both wheels of an arm, and the skid wheels, to the same {3+WZ:.0f} mm inner-face distance; the tip axle slides in its slot to set it. Track width on the chassis is 152 + 2 × ({3+WZ+PR.TB3_WHEEL_W:.0f}) ≈ {152+2*(3+WZ+PR.TB3_WHEEL_W):.0f} mm overall.</text>")
+svg.append(f"<text x='40' y='490' {FONT} font-size='12' fill='{MUTE}'>Drive wheel: bolted straight to the drive servo horn, which protrudes from the housing's outboard face. Tip wheel: on the tip hub (2 × 608) over the 8 mm axle clamped in the boss.</text>")
+svg.append("</svg>")
+write("fig10-pivot-stackup", "\n".join(svg))
 
 # --------------------------------------------------------------------------- Fig 5: wiring (drawn)
 def box(x, y, w, h, t, sub=None, fill="#f3f4f6", stroke=INK):

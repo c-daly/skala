@@ -20,8 +20,10 @@ Two configurations share these parts: **A** (full design, four flippers) and **B
 | Tip wheel hub | `out/stl/tip_hub_p0.stl` | 30 × 30 × 21 | PLA | Wheel face (flange) down | 4 (2 arms + 2 skids) | 6 walls, 100 % infill. Bearing seats at −0.10 mm; adjust from the coupon. |
 | Pitch servo mount | `out/stl/pitch_mount_p0.stl` | 69 × 63 × 38 | PLA | Back wall (Z=0) down | 1 per flipper (4 in config A, 2 in B) | 5 walls, 40 %. Foot slots on an 8 mm pitch for TB3 waffle plates. Horn face is the arm's pivot plane. |
 | Chassis plate | `out/stl/chassis_p0.stl` | 200 × 152 × 6 | PLA | Flat | 1 | 8 mm M3 grid throughout, battery strap slots, two lightening windows. 4 walls, 30 %. Pitch mounts at the front corners with horn faces flush to the side edges. |
-| Pi adapter | `out/stl/pi_adapter_p0.stl` | 76 × 66 × 3 | PLA | Flat | 1 | Pi 58 × 49 pattern (M2.5) to the 8 mm grid (M3); the Pi pattern does not land on the grid. |
-| Skid bracket | `out/stl/skid_bracket_p0_L.stl`, `_R.stl` | 56 × 60 × 24 | PLA | Foot down | 1 each (config B only) | Rear corners; handed. 8 mm pivot axle, index holes at 0 / 20 / 35 / 50°. 5 walls, 40 %. |
+| Pi adapter | `out/stl/pi_adapter_p0.stl` | 76 × 66 × 3 | PLA | Flat | 1 | Pi 58 × 49 pattern (M2.5) to grid holes at 64 × 48 (M3); the LiDAR standoffs stack on the same holes. |
+| OpenCR adapter | `out/stl/opencr_adapter_p0.stl` | 84 × 112 × 3 | PLA | Flat | 1 | OpenCR holes (VERIFY, slotted) to grid holes at 80 × 64. |
+| LiDAR adapter | `out/stl/lidar_adapter_p0.stl` | 100 × 74 × 3 | PLA | Flat | 1 | RPLidar A1 base holes (VERIFY, slotted) to the Pi adapter's 64 × 48 holes via 40 mm standoffs. |
+| Skid bracket | `out/stl/skid_bracket_p0_L.stl`, `_R.stl` | 56 × 60 × 24 | PLA | Foot down | 1 each (config B only) | Rear corners; handed; foot holes at x = −80 / −40. 8 mm pivot axle, index holes at 0 / 20 / 35 / 50°. 5 walls, 40 %. |
 | Skid arm | `out/stl/skid_arm_p0.stl` | 158 × 52 × 44 | PLA+ | Flat | 2 (config B only) | Passive rear arm carrying a TB3 wheel on a tip hub. Angle fixed by an M3 index pin; 35° matches the front arms at 30° down. |
 | Upper deck | `out/stl/deck_p0.stl` | 164 × 120 × 4 | PLA | Flat | 1 | On four 60 mm standoffs at (−80, ±32) and (+24, ±32); OpenCR rear, Pi adapter front, RPLidar on 40 mm standoffs above the Pi. |
 | Camera pan base | `out/stl/pan_base_p0.stl` | 56 × 24 × 22 | PLA | Foot down | 1 | MG90S pan servo, shaft up; on the chassis plate at (80, ±24), ahead of the deck. |
@@ -29,6 +31,10 @@ Two configurations share these parts: **A** (full design, four flippers) and **B
 | Camera cradle | `out/stl/camera_cradle_p0.stl` | 28 × 22 × 30 | PLA | Plate flat | 1 | Pi Camera board; horn disc one side, pivot boss the other. |
 | Fixed camera mount | `out/stl/camera_mount_p0.stl` | 28 × 36 × 35 | PLA | Foot down | (1) | Fallback: fixed 10° down-tilt, no servos. |
 | Tolerance coupon | `out/stl/coupon_p0.stl` | 180 × 70 × 10.6 | PLA | Flat | 1 | **Print this first.** Three 608 seats (0 / −0.10 / −0.20), three 8 mm bores (+0.10 / +0.20 / +0.30), horn pattern, servo pocket. Set `PRESS_FIT` and `CLEAR_FIT` in params.py from the result. |
+
+## Placement
+
+`params.PLACE` and `params.STACK` are the single source for where every part sits (grid hole coordinates and heights). The assembly guide's Figures 4, 8, 9 and 10 are generated from them.
 
 ## Assembly check
 

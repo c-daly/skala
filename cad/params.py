@@ -79,3 +79,26 @@ DECK_STANDOFF = 60.0      # deck underside at 66 mm: above the pitch mounts (top
 DECK_STANDOFF_XY = (52.0, 32.0)   # standoff offsets from deck centre; all four land on grid holes
 LIDAR_STANDOFF = 40.0     # RPLidar A1 above the Pi on M2.5 standoffs; clears a Pi 5 active cooler
 CAM_X = 80.0              # camera pan/tilt head on the chassis plate, front centre, ahead of the deck
+
+# ------------------------------------------------- P0 placement (robot frame, mm) -------------
+# Everything below lands on an 8 mm grid hole of the chassis (x = -96..96, y = -72..72) or of the
+# deck (x = -104..48, y = -56..56). The assembly guide's placement figures are generated from these.
+PLACE = {
+    "pitch_mount_front":  dict(center=(60, 0),   holes=[(32, 48), (32, 64), (88, 48), (88, 64)]),     # mirrored in y
+    "pitch_mount_rear":   dict(center=(-60, 0),  holes=[(-32, 48), (-32, 64), (-88, 48), (-88, 64)]),  # config A only
+    "skid_bracket":       dict(center=(-60, 0),  holes=[(-80, 56), (-80, 64), (-40, 56), (-40, 64)]),  # config B only
+    "deck_standoffs":     dict(holes=[(-80, -32), (-80, 32), (24, -32), (24, 32)]),
+    "camera_base":        dict(center=(80, 0),   holes=[(80, -24), (80, 24)]),
+    "battery_slots":      dict(x=(-30, 30)),
+    # on the deck (robot frame)
+    "opencr_adapter":     dict(center=(-64, 0),  holes=[(-104, -32), (-104, 32), (-24, -32), (-24, 32)]),
+    "pi_adapter":         dict(center=(16, 0),   holes=[(-16, -24), (-16, 24), (48, -24), (48, 24)]),
+    "lidar_adapter":      dict(center=(16, 0),   holes="same as pi_adapter, on 40 mm standoffs"),
+}
+# vertical stack (mm above chassis plate top face at z = 6)
+STACK = {
+    "chassis_top": 0, "pitch_mount_top": 57, "battery_top": 26, "deck_underside": 60, "deck_top": 64,
+    "board_standoff": 12, "opencr_top": 64 + 12 + 3 + 14, "pi_adapter_top": 64 + 12 + 3,
+    "pi_cooler_top": 64 + 12 + 3 + 30, "lidar_adapter_top": 64 + 12 + 3 + 40 + 3,
+    "lidar_scan_plane": 64 + 12 + 3 + 40 + 3 + 27, "camera_head_top": 4 + 22 + 3 + 48,
+}

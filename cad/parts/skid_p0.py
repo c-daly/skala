@@ -37,7 +37,7 @@ def bracket():
         # foot holes: 4 x M3 on the grid, two rows
         for sx in (-1, 1):
             for z in (-P.GRID * 0.5, -P.GRID * 1.5):
-                with Locations(Location((sx * P.GRID * 3, -PIVOT_Y - FOOT_T / 2, z + BR_T / 2), (90, 0, 0))):
+                with Locations(Location((sx * 20.0, -PIVOT_Y - FOOT_T / 2, z + BR_T / 2), (90, 0, 0))):   # X = -80 / -40 on the grid
                     Cylinder(radius=P.GRID_HOLE / 2, height=FOOT_T + 2, mode=Mode.SUBTRACT)
         # pivot axle hole (clearance; axle is clamped in the arm, bracket is the bearing surface)
         Cylinder(radius=(P.TIP_AXLE_D + P.CLEAR_FIT) / 2, height=BR_T * 3, mode=Mode.SUBTRACT)

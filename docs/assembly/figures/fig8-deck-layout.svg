@@ -1,0 +1,336 @@
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1000 700' width='1000' height='700'>
+<rect width='100%' height='100%' fill='white'/>
+<text x='20' y='30' font-family='Helvetica, Arial, sans-serif' font-size='20' font-weight='bold' fill='#1f2328'>Figure 8 — Upper deck placement, top view (1 mm = 4.2 px, robot coordinates)</text><text x='20' y='50' font-family='Helvetica, Arial, sans-serif' font-size='13' fill='#6b7280'>What sits on the deck and which deck-grid holes each adapter uses. The LiDAR adapter stacks on the Pi adapter's four holes via 40 mm standoffs.</text>
+<rect x='90.0' y='110.0' width='688.8' height='504.0' fill='#f3f4f6' stroke='#1f2328' stroke-width='2' rx='6'/>
+<circle cx='115.2' cy='597.2' r='1.2' fill='#c7cbd1'/>
+<circle cx='115.2' cy='563.6' r='1.2' fill='#c7cbd1'/>
+<circle cx='115.2' cy='530.0' r='1.2' fill='#c7cbd1'/>
+<circle cx='115.2' cy='496.4' r='1.2' fill='#c7cbd1'/>
+<circle cx='115.2' cy='462.8' r='1.2' fill='#c7cbd1'/>
+<circle cx='115.2' cy='429.2' r='1.2' fill='#c7cbd1'/>
+<circle cx='115.2' cy='395.6' r='1.2' fill='#c7cbd1'/>
+<circle cx='115.2' cy='362.0' r='1.2' fill='#c7cbd1'/>
+<circle cx='115.2' cy='328.4' r='1.2' fill='#c7cbd1'/>
+<circle cx='115.2' cy='294.8' r='1.2' fill='#c7cbd1'/>
+<circle cx='115.2' cy='261.2' r='1.2' fill='#c7cbd1'/>
+<circle cx='115.2' cy='227.6' r='1.2' fill='#c7cbd1'/>
+<circle cx='115.2' cy='194.0' r='1.2' fill='#c7cbd1'/>
+<circle cx='115.2' cy='160.4' r='1.2' fill='#c7cbd1'/>
+<circle cx='115.2' cy='126.8' r='1.2' fill='#c7cbd1'/>
+<circle cx='148.8' cy='597.2' r='1.2' fill='#c7cbd1'/>
+<circle cx='148.8' cy='563.6' r='1.2' fill='#c7cbd1'/>
+<circle cx='148.8' cy='530.0' r='1.2' fill='#c7cbd1'/>
+<circle cx='148.8' cy='496.4' r='1.2' fill='#c7cbd1'/>
+<circle cx='148.8' cy='462.8' r='1.2' fill='#c7cbd1'/>
+<circle cx='148.8' cy='429.2' r='1.2' fill='#c7cbd1'/>
+<circle cx='148.8' cy='395.6' r='1.2' fill='#c7cbd1'/>
+<circle cx='148.8' cy='362.0' r='1.2' fill='#c7cbd1'/>
+<circle cx='148.8' cy='328.4' r='1.2' fill='#c7cbd1'/>
+<circle cx='148.8' cy='294.8' r='1.2' fill='#c7cbd1'/>
+<circle cx='148.8' cy='261.2' r='1.2' fill='#c7cbd1'/>
+<circle cx='148.8' cy='227.6' r='1.2' fill='#c7cbd1'/>
+<circle cx='148.8' cy='194.0' r='1.2' fill='#c7cbd1'/>
+<circle cx='148.8' cy='160.4' r='1.2' fill='#c7cbd1'/>
+<circle cx='148.8' cy='126.8' r='1.2' fill='#c7cbd1'/>
+<circle cx='182.4' cy='597.2' r='1.2' fill='#c7cbd1'/>
+<circle cx='182.4' cy='563.6' r='1.2' fill='#c7cbd1'/>
+<circle cx='182.4' cy='530.0' r='1.2' fill='#c7cbd1'/>
+<circle cx='182.4' cy='496.4' r='1.2' fill='#c7cbd1'/>
+<circle cx='182.4' cy='462.8' r='1.2' fill='#c7cbd1'/>
+<circle cx='182.4' cy='429.2' r='1.2' fill='#c7cbd1'/>
+<circle cx='182.4' cy='395.6' r='1.2' fill='#c7cbd1'/>
+<circle cx='182.4' cy='362.0' r='1.2' fill='#c7cbd1'/>
+<circle cx='182.4' cy='328.4' r='1.2' fill='#c7cbd1'/>
+<circle cx='182.4' cy='294.8' r='1.2' fill='#c7cbd1'/>
+<circle cx='182.4' cy='261.2' r='1.2' fill='#c7cbd1'/>
+<circle cx='182.4' cy='227.6' r='1.2' fill='#c7cbd1'/>
+<circle cx='182.4' cy='194.0' r='1.2' fill='#c7cbd1'/>
+<circle cx='182.4' cy='160.4' r='1.2' fill='#c7cbd1'/>
+<circle cx='182.4' cy='126.8' r='1.2' fill='#c7cbd1'/>
+<circle cx='216.0' cy='597.2' r='1.2' fill='#c7cbd1'/>
+<circle cx='216.0' cy='563.6' r='1.2' fill='#c7cbd1'/>
+<circle cx='216.0' cy='530.0' r='1.2' fill='#c7cbd1'/>
+<circle cx='216.0' cy='496.4' r='1.2' fill='#c7cbd1'/>
+<circle cx='216.0' cy='462.8' r='1.2' fill='#c7cbd1'/>
+<circle cx='216.0' cy='429.2' r='1.2' fill='#c7cbd1'/>
+<circle cx='216.0' cy='395.6' r='1.2' fill='#c7cbd1'/>
+<circle cx='216.0' cy='362.0' r='1.2' fill='#c7cbd1'/>
+<circle cx='216.0' cy='328.4' r='1.2' fill='#c7cbd1'/>
+<circle cx='216.0' cy='294.8' r='1.2' fill='#c7cbd1'/>
+<circle cx='216.0' cy='261.2' r='1.2' fill='#c7cbd1'/>
+<circle cx='216.0' cy='227.6' r='1.2' fill='#c7cbd1'/>
+<circle cx='216.0' cy='194.0' r='1.2' fill='#c7cbd1'/>
+<circle cx='216.0' cy='160.4' r='1.2' fill='#c7cbd1'/>
+<circle cx='216.0' cy='126.8' r='1.2' fill='#c7cbd1'/>
+<circle cx='249.6' cy='597.2' r='1.2' fill='#c7cbd1'/>
+<circle cx='249.6' cy='563.6' r='1.2' fill='#c7cbd1'/>
+<circle cx='249.6' cy='530.0' r='1.2' fill='#c7cbd1'/>
+<circle cx='249.6' cy='496.4' r='1.2' fill='#c7cbd1'/>
+<circle cx='249.6' cy='462.8' r='1.2' fill='#c7cbd1'/>
+<circle cx='249.6' cy='429.2' r='1.2' fill='#c7cbd1'/>
+<circle cx='249.6' cy='395.6' r='1.2' fill='#c7cbd1'/>
+<circle cx='249.6' cy='362.0' r='1.2' fill='#c7cbd1'/>
+<circle cx='249.6' cy='328.4' r='1.2' fill='#c7cbd1'/>
+<circle cx='249.6' cy='294.8' r='1.2' fill='#c7cbd1'/>
+<circle cx='249.6' cy='261.2' r='1.2' fill='#c7cbd1'/>
+<circle cx='249.6' cy='227.6' r='1.2' fill='#c7cbd1'/>
+<circle cx='249.6' cy='194.0' r='1.2' fill='#c7cbd1'/>
+<circle cx='249.6' cy='160.4' r='1.2' fill='#c7cbd1'/>
+<circle cx='249.6' cy='126.8' r='1.2' fill='#c7cbd1'/>
+<circle cx='283.2' cy='597.2' r='1.2' fill='#c7cbd1'/>
+<circle cx='283.2' cy='563.6' r='1.2' fill='#c7cbd1'/>
+<circle cx='283.2' cy='530.0' r='1.2' fill='#c7cbd1'/>
+<circle cx='283.2' cy='496.4' r='1.2' fill='#c7cbd1'/>
+<circle cx='283.2' cy='462.8' r='1.2' fill='#c7cbd1'/>
+<circle cx='283.2' cy='429.2' r='1.2' fill='#c7cbd1'/>
+<circle cx='283.2' cy='395.6' r='1.2' fill='#c7cbd1'/>
+<circle cx='283.2' cy='362.0' r='1.2' fill='#c7cbd1'/>
+<circle cx='283.2' cy='328.4' r='1.2' fill='#c7cbd1'/>
+<circle cx='283.2' cy='294.8' r='1.2' fill='#c7cbd1'/>
+<circle cx='283.2' cy='261.2' r='1.2' fill='#c7cbd1'/>
+<circle cx='283.2' cy='227.6' r='1.2' fill='#c7cbd1'/>
+<circle cx='283.2' cy='194.0' r='1.2' fill='#c7cbd1'/>
+<circle cx='283.2' cy='160.4' r='1.2' fill='#c7cbd1'/>
+<circle cx='283.2' cy='126.8' r='1.2' fill='#c7cbd1'/>
+<circle cx='316.8' cy='597.2' r='1.2' fill='#c7cbd1'/>
+<circle cx='316.8' cy='563.6' r='1.2' fill='#c7cbd1'/>
+<circle cx='316.8' cy='530.0' r='1.2' fill='#c7cbd1'/>
+<circle cx='316.8' cy='496.4' r='1.2' fill='#c7cbd1'/>
+<circle cx='316.8' cy='462.8' r='1.2' fill='#c7cbd1'/>
+<circle cx='316.8' cy='429.2' r='1.2' fill='#c7cbd1'/>
+<circle cx='316.8' cy='395.6' r='1.2' fill='#c7cbd1'/>
+<circle cx='316.8' cy='362.0' r='1.2' fill='#c7cbd1'/>
+<circle cx='316.8' cy='328.4' r='1.2' fill='#c7cbd1'/>
+<circle cx='316.8' cy='294.8' r='1.2' fill='#c7cbd1'/>
+<circle cx='316.8' cy='261.2' r='1.2' fill='#c7cbd1'/>
+<circle cx='316.8' cy='227.6' r='1.2' fill='#c7cbd1'/>
+<circle cx='316.8' cy='194.0' r='1.2' fill='#c7cbd1'/>
+<circle cx='316.8' cy='160.4' r='1.2' fill='#c7cbd1'/>
+<circle cx='316.8' cy='126.8' r='1.2' fill='#c7cbd1'/>
+<circle cx='350.4' cy='597.2' r='1.2' fill='#c7cbd1'/>
+<circle cx='350.4' cy='563.6' r='1.2' fill='#c7cbd1'/>
+<circle cx='350.4' cy='530.0' r='1.2' fill='#c7cbd1'/>
+<circle cx='350.4' cy='496.4' r='1.2' fill='#c7cbd1'/>
+<circle cx='350.4' cy='462.8' r='1.2' fill='#c7cbd1'/>
+<circle cx='350.4' cy='429.2' r='1.2' fill='#c7cbd1'/>
+<circle cx='350.4' cy='395.6' r='1.2' fill='#c7cbd1'/>
+<circle cx='350.4' cy='362.0' r='1.2' fill='#c7cbd1'/>
+<circle cx='350.4' cy='328.4' r='1.2' fill='#c7cbd1'/>
+<circle cx='350.4' cy='294.8' r='1.2' fill='#c7cbd1'/>
+<circle cx='350.4' cy='261.2' r='1.2' fill='#c7cbd1'/>
+<circle cx='350.4' cy='227.6' r='1.2' fill='#c7cbd1'/>
+<circle cx='350.4' cy='194.0' r='1.2' fill='#c7cbd1'/>
+<circle cx='350.4' cy='160.4' r='1.2' fill='#c7cbd1'/>
+<circle cx='350.4' cy='126.8' r='1.2' fill='#c7cbd1'/>
+<circle cx='384.0' cy='597.2' r='1.2' fill='#c7cbd1'/>
+<circle cx='384.0' cy='563.6' r='1.2' fill='#c7cbd1'/>
+<circle cx='384.0' cy='530.0' r='1.2' fill='#c7cbd1'/>
+<circle cx='384.0' cy='496.4' r='1.2' fill='#c7cbd1'/>
+<circle cx='384.0' cy='462.8' r='1.2' fill='#c7cbd1'/>
+<circle cx='384.0' cy='429.2' r='1.2' fill='#c7cbd1'/>
+<circle cx='384.0' cy='395.6' r='1.2' fill='#c7cbd1'/>
+<circle cx='384.0' cy='362.0' r='1.2' fill='#c7cbd1'/>
+<circle cx='384.0' cy='328.4' r='1.2' fill='#c7cbd1'/>
+<circle cx='384.0' cy='294.8' r='1.2' fill='#c7cbd1'/>
+<circle cx='384.0' cy='261.2' r='1.2' fill='#c7cbd1'/>
+<circle cx='384.0' cy='227.6' r='1.2' fill='#c7cbd1'/>
+<circle cx='384.0' cy='194.0' r='1.2' fill='#c7cbd1'/>
+<circle cx='384.0' cy='160.4' r='1.2' fill='#c7cbd1'/>
+<circle cx='384.0' cy='126.8' r='1.2' fill='#c7cbd1'/>
+<circle cx='417.6' cy='597.2' r='1.2' fill='#c7cbd1'/>
+<circle cx='417.6' cy='563.6' r='1.2' fill='#c7cbd1'/>
+<circle cx='417.6' cy='530.0' r='1.2' fill='#c7cbd1'/>
+<circle cx='417.6' cy='496.4' r='1.2' fill='#c7cbd1'/>
+<circle cx='417.6' cy='462.8' r='1.2' fill='#c7cbd1'/>
+<circle cx='417.6' cy='429.2' r='1.2' fill='#c7cbd1'/>
+<circle cx='417.6' cy='395.6' r='1.2' fill='#c7cbd1'/>
+<circle cx='417.6' cy='362.0' r='1.2' fill='#c7cbd1'/>
+<circle cx='417.6' cy='328.4' r='1.2' fill='#c7cbd1'/>
+<circle cx='417.6' cy='294.8' r='1.2' fill='#c7cbd1'/>
+<circle cx='417.6' cy='261.2' r='1.2' fill='#c7cbd1'/>
+<circle cx='417.6' cy='227.6' r='1.2' fill='#c7cbd1'/>
+<circle cx='417.6' cy='194.0' r='1.2' fill='#c7cbd1'/>
+<circle cx='417.6' cy='160.4' r='1.2' fill='#c7cbd1'/>
+<circle cx='417.6' cy='126.8' r='1.2' fill='#c7cbd1'/>
+<circle cx='451.2' cy='597.2' r='1.2' fill='#c7cbd1'/>
+<circle cx='451.2' cy='563.6' r='1.2' fill='#c7cbd1'/>
+<circle cx='451.2' cy='530.0' r='1.2' fill='#c7cbd1'/>
+<circle cx='451.2' cy='496.4' r='1.2' fill='#c7cbd1'/>
+<circle cx='451.2' cy='462.8' r='1.2' fill='#c7cbd1'/>
+<circle cx='451.2' cy='429.2' r='1.2' fill='#c7cbd1'/>
+<circle cx='451.2' cy='395.6' r='1.2' fill='#c7cbd1'/>
+<circle cx='451.2' cy='362.0' r='1.2' fill='#c7cbd1'/>
+<circle cx='451.2' cy='328.4' r='1.2' fill='#c7cbd1'/>
+<circle cx='451.2' cy='294.8' r='1.2' fill='#c7cbd1'/>
+<circle cx='451.2' cy='261.2' r='1.2' fill='#c7cbd1'/>
+<circle cx='451.2' cy='227.6' r='1.2' fill='#c7cbd1'/>
+<circle cx='451.2' cy='194.0' r='1.2' fill='#c7cbd1'/>
+<circle cx='451.2' cy='160.4' r='1.2' fill='#c7cbd1'/>
+<circle cx='451.2' cy='126.8' r='1.2' fill='#c7cbd1'/>
+<circle cx='484.8' cy='597.2' r='1.2' fill='#c7cbd1'/>
+<circle cx='484.8' cy='563.6' r='1.2' fill='#c7cbd1'/>
+<circle cx='484.8' cy='530.0' r='1.2' fill='#c7cbd1'/>
+<circle cx='484.8' cy='496.4' r='1.2' fill='#c7cbd1'/>
+<circle cx='484.8' cy='462.8' r='1.2' fill='#c7cbd1'/>
+<circle cx='484.8' cy='429.2' r='1.2' fill='#c7cbd1'/>
+<circle cx='484.8' cy='395.6' r='1.2' fill='#c7cbd1'/>
+<circle cx='484.8' cy='362.0' r='1.2' fill='#c7cbd1'/>
+<circle cx='484.8' cy='328.4' r='1.2' fill='#c7cbd1'/>
+<circle cx='484.8' cy='294.8' r='1.2' fill='#c7cbd1'/>
+<circle cx='484.8' cy='261.2' r='1.2' fill='#c7cbd1'/>
+<circle cx='484.8' cy='227.6' r='1.2' fill='#c7cbd1'/>
+<circle cx='484.8' cy='194.0' r='1.2' fill='#c7cbd1'/>
+<circle cx='484.8' cy='160.4' r='1.2' fill='#c7cbd1'/>
+<circle cx='484.8' cy='126.8' r='1.2' fill='#c7cbd1'/>
+<circle cx='518.4' cy='597.2' r='1.2' fill='#c7cbd1'/>
+<circle cx='518.4' cy='563.6' r='1.2' fill='#c7cbd1'/>
+<circle cx='518.4' cy='530.0' r='1.2' fill='#c7cbd1'/>
+<circle cx='518.4' cy='496.4' r='1.2' fill='#c7cbd1'/>
+<circle cx='518.4' cy='462.8' r='1.2' fill='#c7cbd1'/>
+<circle cx='518.4' cy='429.2' r='1.2' fill='#c7cbd1'/>
+<circle cx='518.4' cy='395.6' r='1.2' fill='#c7cbd1'/>
+<circle cx='518.4' cy='362.0' r='1.2' fill='#c7cbd1'/>
+<circle cx='518.4' cy='328.4' r='1.2' fill='#c7cbd1'/>
+<circle cx='518.4' cy='294.8' r='1.2' fill='#c7cbd1'/>
+<circle cx='518.4' cy='261.2' r='1.2' fill='#c7cbd1'/>
+<circle cx='518.4' cy='227.6' r='1.2' fill='#c7cbd1'/>
+<circle cx='518.4' cy='194.0' r='1.2' fill='#c7cbd1'/>
+<circle cx='518.4' cy='160.4' r='1.2' fill='#c7cbd1'/>
+<circle cx='518.4' cy='126.8' r='1.2' fill='#c7cbd1'/>
+<circle cx='552.0' cy='597.2' r='1.2' fill='#c7cbd1'/>
+<circle cx='552.0' cy='563.6' r='1.2' fill='#c7cbd1'/>
+<circle cx='552.0' cy='530.0' r='1.2' fill='#c7cbd1'/>
+<circle cx='552.0' cy='496.4' r='1.2' fill='#c7cbd1'/>
+<circle cx='552.0' cy='462.8' r='1.2' fill='#c7cbd1'/>
+<circle cx='552.0' cy='429.2' r='1.2' fill='#c7cbd1'/>
+<circle cx='552.0' cy='395.6' r='1.2' fill='#c7cbd1'/>
+<circle cx='552.0' cy='362.0' r='1.2' fill='#c7cbd1'/>
+<circle cx='552.0' cy='328.4' r='1.2' fill='#c7cbd1'/>
+<circle cx='552.0' cy='294.8' r='1.2' fill='#c7cbd1'/>
+<circle cx='552.0' cy='261.2' r='1.2' fill='#c7cbd1'/>
+<circle cx='552.0' cy='227.6' r='1.2' fill='#c7cbd1'/>
+<circle cx='552.0' cy='194.0' r='1.2' fill='#c7cbd1'/>
+<circle cx='552.0' cy='160.4' r='1.2' fill='#c7cbd1'/>
+<circle cx='552.0' cy='126.8' r='1.2' fill='#c7cbd1'/>
+<circle cx='585.6' cy='597.2' r='1.2' fill='#c7cbd1'/>
+<circle cx='585.6' cy='563.6' r='1.2' fill='#c7cbd1'/>
+<circle cx='585.6' cy='530.0' r='1.2' fill='#c7cbd1'/>
+<circle cx='585.6' cy='496.4' r='1.2' fill='#c7cbd1'/>
+<circle cx='585.6' cy='462.8' r='1.2' fill='#c7cbd1'/>
+<circle cx='585.6' cy='429.2' r='1.2' fill='#c7cbd1'/>
+<circle cx='585.6' cy='395.6' r='1.2' fill='#c7cbd1'/>
+<circle cx='585.6' cy='362.0' r='1.2' fill='#c7cbd1'/>
+<circle cx='585.6' cy='328.4' r='1.2' fill='#c7cbd1'/>
+<circle cx='585.6' cy='294.8' r='1.2' fill='#c7cbd1'/>
+<circle cx='585.6' cy='261.2' r='1.2' fill='#c7cbd1'/>
+<circle cx='585.6' cy='227.6' r='1.2' fill='#c7cbd1'/>
+<circle cx='585.6' cy='194.0' r='1.2' fill='#c7cbd1'/>
+<circle cx='585.6' cy='160.4' r='1.2' fill='#c7cbd1'/>
+<circle cx='585.6' cy='126.8' r='1.2' fill='#c7cbd1'/>
+<circle cx='619.2' cy='597.2' r='1.2' fill='#c7cbd1'/>
+<circle cx='619.2' cy='563.6' r='1.2' fill='#c7cbd1'/>
+<circle cx='619.2' cy='530.0' r='1.2' fill='#c7cbd1'/>
+<circle cx='619.2' cy='496.4' r='1.2' fill='#c7cbd1'/>
+<circle cx='619.2' cy='462.8' r='1.2' fill='#c7cbd1'/>
+<circle cx='619.2' cy='429.2' r='1.2' fill='#c7cbd1'/>
+<circle cx='619.2' cy='395.6' r='1.2' fill='#c7cbd1'/>
+<circle cx='619.2' cy='362.0' r='1.2' fill='#c7cbd1'/>
+<circle cx='619.2' cy='328.4' r='1.2' fill='#c7cbd1'/>
+<circle cx='619.2' cy='294.8' r='1.2' fill='#c7cbd1'/>
+<circle cx='619.2' cy='261.2' r='1.2' fill='#c7cbd1'/>
+<circle cx='619.2' cy='227.6' r='1.2' fill='#c7cbd1'/>
+<circle cx='619.2' cy='194.0' r='1.2' fill='#c7cbd1'/>
+<circle cx='619.2' cy='160.4' r='1.2' fill='#c7cbd1'/>
+<circle cx='619.2' cy='126.8' r='1.2' fill='#c7cbd1'/>
+<circle cx='652.8' cy='597.2' r='1.2' fill='#c7cbd1'/>
+<circle cx='652.8' cy='563.6' r='1.2' fill='#c7cbd1'/>
+<circle cx='652.8' cy='530.0' r='1.2' fill='#c7cbd1'/>
+<circle cx='652.8' cy='496.4' r='1.2' fill='#c7cbd1'/>
+<circle cx='652.8' cy='462.8' r='1.2' fill='#c7cbd1'/>
+<circle cx='652.8' cy='429.2' r='1.2' fill='#c7cbd1'/>
+<circle cx='652.8' cy='395.6' r='1.2' fill='#c7cbd1'/>
+<circle cx='652.8' cy='362.0' r='1.2' fill='#c7cbd1'/>
+<circle cx='652.8' cy='328.4' r='1.2' fill='#c7cbd1'/>
+<circle cx='652.8' cy='294.8' r='1.2' fill='#c7cbd1'/>
+<circle cx='652.8' cy='261.2' r='1.2' fill='#c7cbd1'/>
+<circle cx='652.8' cy='227.6' r='1.2' fill='#c7cbd1'/>
+<circle cx='652.8' cy='194.0' r='1.2' fill='#c7cbd1'/>
+<circle cx='652.8' cy='160.4' r='1.2' fill='#c7cbd1'/>
+<circle cx='652.8' cy='126.8' r='1.2' fill='#c7cbd1'/>
+<circle cx='686.4' cy='597.2' r='1.2' fill='#c7cbd1'/>
+<circle cx='686.4' cy='563.6' r='1.2' fill='#c7cbd1'/>
+<circle cx='686.4' cy='530.0' r='1.2' fill='#c7cbd1'/>
+<circle cx='686.4' cy='496.4' r='1.2' fill='#c7cbd1'/>
+<circle cx='686.4' cy='462.8' r='1.2' fill='#c7cbd1'/>
+<circle cx='686.4' cy='429.2' r='1.2' fill='#c7cbd1'/>
+<circle cx='686.4' cy='395.6' r='1.2' fill='#c7cbd1'/>
+<circle cx='686.4' cy='362.0' r='1.2' fill='#c7cbd1'/>
+<circle cx='686.4' cy='328.4' r='1.2' fill='#c7cbd1'/>
+<circle cx='686.4' cy='294.8' r='1.2' fill='#c7cbd1'/>
+<circle cx='686.4' cy='261.2' r='1.2' fill='#c7cbd1'/>
+<circle cx='686.4' cy='227.6' r='1.2' fill='#c7cbd1'/>
+<circle cx='686.4' cy='194.0' r='1.2' fill='#c7cbd1'/>
+<circle cx='686.4' cy='160.4' r='1.2' fill='#c7cbd1'/>
+<circle cx='686.4' cy='126.8' r='1.2' fill='#c7cbd1'/>
+<circle cx='720.0' cy='597.2' r='1.2' fill='#c7cbd1'/>
+<circle cx='720.0' cy='563.6' r='1.2' fill='#c7cbd1'/>
+<circle cx='720.0' cy='530.0' r='1.2' fill='#c7cbd1'/>
+<circle cx='720.0' cy='496.4' r='1.2' fill='#c7cbd1'/>
+<circle cx='720.0' cy='462.8' r='1.2' fill='#c7cbd1'/>
+<circle cx='720.0' cy='429.2' r='1.2' fill='#c7cbd1'/>
+<circle cx='720.0' cy='395.6' r='1.2' fill='#c7cbd1'/>
+<circle cx='720.0' cy='362.0' r='1.2' fill='#c7cbd1'/>
+<circle cx='720.0' cy='328.4' r='1.2' fill='#c7cbd1'/>
+<circle cx='720.0' cy='294.8' r='1.2' fill='#c7cbd1'/>
+<circle cx='720.0' cy='261.2' r='1.2' fill='#c7cbd1'/>
+<circle cx='720.0' cy='227.6' r='1.2' fill='#c7cbd1'/>
+<circle cx='720.0' cy='194.0' r='1.2' fill='#c7cbd1'/>
+<circle cx='720.0' cy='160.4' r='1.2' fill='#c7cbd1'/>
+<circle cx='720.0' cy='126.8' r='1.2' fill='#c7cbd1'/>
+<circle cx='753.6' cy='597.2' r='1.2' fill='#c7cbd1'/>
+<circle cx='753.6' cy='563.6' r='1.2' fill='#c7cbd1'/>
+<circle cx='753.6' cy='530.0' r='1.2' fill='#c7cbd1'/>
+<circle cx='753.6' cy='496.4' r='1.2' fill='#c7cbd1'/>
+<circle cx='753.6' cy='462.8' r='1.2' fill='#c7cbd1'/>
+<circle cx='753.6' cy='429.2' r='1.2' fill='#c7cbd1'/>
+<circle cx='753.6' cy='395.6' r='1.2' fill='#c7cbd1'/>
+<circle cx='753.6' cy='362.0' r='1.2' fill='#c7cbd1'/>
+<circle cx='753.6' cy='328.4' r='1.2' fill='#c7cbd1'/>
+<circle cx='753.6' cy='294.8' r='1.2' fill='#c7cbd1'/>
+<circle cx='753.6' cy='261.2' r='1.2' fill='#c7cbd1'/>
+<circle cx='753.6' cy='227.6' r='1.2' fill='#c7cbd1'/>
+<circle cx='753.6' cy='194.0' r='1.2' fill='#c7cbd1'/>
+<circle cx='753.6' cy='160.4' r='1.2' fill='#c7cbd1'/>
+<circle cx='753.6' cy='126.8' r='1.2' fill='#c7cbd1'/>
+<rect x='144.6' y='278.0' width='42.0' height='168.0' fill='white' stroke='#1f2328' stroke-width='1'/>
+<text x='165.6' y='479.6' font-family='Helvetica, Arial, sans-serif' font-size='9' fill='#6b7280' text-anchor='middle' font-weight='normal'>cable slot</text>
+<circle cx='216.0' cy='496.4' r='4.5' fill='white' stroke='#1f2328' stroke-width='2'/><text x='216.0' y='510.4' font-family='Helvetica, Arial, sans-serif' font-size='9.5' fill='#1f2328' text-anchor='middle'>to chassis (-80, -32)</text>
+<circle cx='216.0' cy='227.6' r='4.5' fill='white' stroke='#1f2328' stroke-width='2'/><text x='216.0' y='218.6' font-family='Helvetica, Arial, sans-serif' font-size='9.5' fill='#1f2328' text-anchor='middle'>to chassis (-80, +32)</text>
+<circle cx='652.8' cy='496.4' r='4.5' fill='white' stroke='#1f2328' stroke-width='2'/><text x='652.8' y='510.4' font-family='Helvetica, Arial, sans-serif' font-size='9.5' fill='#1f2328' text-anchor='middle'>to chassis (24, -32)</text>
+<circle cx='652.8' cy='227.6' r='4.5' fill='white' stroke='#1f2328' stroke-width='2'/><text x='652.8' y='218.6' font-family='Helvetica, Arial, sans-serif' font-size='9.5' fill='#1f2328' text-anchor='middle'>to chassis (24, +32)</text>
+<rect x='106.8' y='126.8' width='352.8' height='470.4' fill='#e0e7ff' stroke='#3730a3' stroke-width='1.5'/>
+<rect x='125.7' y='141.5' width='315.0' height='441.0' fill='none' stroke='#3730a3' stroke-width='1' stroke-dasharray='3 3'/>
+<text x='283.2' y='353.6' font-family='Helvetica, Arial, sans-serif' font-size='12' fill='#3730a3' text-anchor='middle' font-weight='bold'>OpenCR 1.0</text>
+<text x='283.2' y='404.0' font-family='Helvetica, Arial, sans-serif' font-size='9.5' fill='#3730a3' text-anchor='middle' font-weight='normal'>on opencr_adapter_p0 (84 × 112)</text>
+<text x='283.2' y='446.0' font-family='Helvetica, Arial, sans-serif' font-size='9.5' fill='#3730a3' text-anchor='middle' font-weight='normal'>board 75 × 105, long side across Y</text>
+<text x='283.2' y='488.0' font-family='Helvetica, Arial, sans-serif' font-size='9.5' fill='#3730a3' text-anchor='middle' font-weight='normal'>USB + power toward the rear</text>
+<circle cx='115.2' cy='496.4' r='4.5' fill='white' stroke='#3730a3' stroke-width='2'/><text x='115.2' y='510.4' font-family='Helvetica, Arial, sans-serif' font-size='9.5' fill='#3730a3' text-anchor='middle'>(-104, -32)</text>
+<circle cx='115.2' cy='227.6' r='4.5' fill='white' stroke='#3730a3' stroke-width='2'/><text x='115.2' y='218.6' font-family='Helvetica, Arial, sans-serif' font-size='9.5' fill='#3730a3' text-anchor='middle'>(-104, +32)</text>
+<circle cx='451.2' cy='496.4' r='4.5' fill='white' stroke='#3730a3' stroke-width='2'/><text x='451.2' y='510.4' font-family='Helvetica, Arial, sans-serif' font-size='9.5' fill='#3730a3' text-anchor='middle'>(-24, -32)</text>
+<circle cx='451.2' cy='227.6' r='4.5' fill='white' stroke='#3730a3' stroke-width='2'/><text x='451.2' y='218.6' font-family='Helvetica, Arial, sans-serif' font-size='9.5' fill='#3730a3' text-anchor='middle'>(-24, +32)</text>
+<rect x='459.6' y='223.4' width='319.2' height='277.2' fill='#dcfce7' stroke='#166534' stroke-width='1.5'/>
+<rect x='480.6' y='240.2' width='277.2' height='243.6' fill='none' stroke='#166534' stroke-width='1' stroke-dasharray='3 3'/>
+<text x='619.2' y='353.6' font-family='Helvetica, Arial, sans-serif' font-size='12' fill='#166534' text-anchor='middle' font-weight='bold'>Raspberry Pi</text>
+<text x='619.2' y='404.0' font-family='Helvetica, Arial, sans-serif' font-size='9.5' fill='#166534' text-anchor='middle' font-weight='normal'>on pi_adapter_p0 (76 × 66)</text>
+<text x='619.2' y='446.0' font-family='Helvetica, Arial, sans-serif' font-size='9.5' fill='#166534' text-anchor='middle' font-weight='normal'>ports toward the right side</text>
+<circle cx='484.8' cy='462.8' r='4.5' fill='white' stroke='#166534' stroke-width='2'/><text x='484.8' y='476.8' font-family='Helvetica, Arial, sans-serif' font-size='9.5' fill='#166534' text-anchor='middle'>(-16, -24)</text>
+<circle cx='484.8' cy='261.2' r='4.5' fill='white' stroke='#166534' stroke-width='2'/><text x='484.8' y='252.2' font-family='Helvetica, Arial, sans-serif' font-size='9.5' fill='#166534' text-anchor='middle'>(-16, +24)</text>
+<circle cx='753.6' cy='462.8' r='4.5' fill='white' stroke='#166534' stroke-width='2'/><text x='753.6' y='476.8' font-family='Helvetica, Arial, sans-serif' font-size='9.5' fill='#166534' text-anchor='middle'>(48, -24)</text>
+<circle cx='753.6' cy='261.2' r='4.5' fill='white' stroke='#166534' stroke-width='2'/><text x='753.6' y='252.2' font-family='Helvetica, Arial, sans-serif' font-size='9.5' fill='#166534' text-anchor='middle'>(48, +24)</text>
+<rect x='409.2' y='206.6' width='420.0' height='310.8' fill='none' stroke='#854d0e' stroke-width='1.5' stroke-dasharray='8 4'/>
+<text x='619.2' y='177.2' font-family='Helvetica, Arial, sans-serif' font-size='9.5' fill='#854d0e' text-anchor='middle' font-weight='normal'>LiDAR adapter 100 × 74 above, on 40 mm standoffs at the same four holes</text>
+<defs><marker id='arr2' markerWidth='8' markerHeight='8' refX='6' refY='4' orient='auto'><path d='M0,0 L8,4 L0,8 z' fill='#1f2328'/></marker></defs>
+<line x1='132.0' y1='656.0' x2='192.0' y2='656.0' stroke='#1f2328' stroke-width='2' marker-end='url(#arr2)'/>
+<text x='198.0' y='660.0' font-family='Helvetica, Arial, sans-serif' font-size='12' fill='#1f2328'>X forward</text>
+<text x='434.4' y='689.6' font-family='Helvetica, Arial, sans-serif' font-size='10.5' fill='#6b7280' text-anchor='middle' font-weight='normal'>deck grid holes: x = −104…48, y = −56…56 (robot frame); deck centre x = −28; front edge x = 54, clear of the camera head at x = 80</text>
+</svg>
