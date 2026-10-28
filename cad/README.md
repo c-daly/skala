@@ -47,7 +47,8 @@ arm pivot planes are the chassis side edges at Y = ±76.
 
 | Item | Qty | Notes |
 | --- | --- | --- |
-| 8 mm steel rod, ~70 mm | 4 | Tip axles (front arms and skids). Cut from 300 mm stock. |
+| 8 mm steel rod, ~75 mm | 4 | Tip axles (front arms and skids). Cut from 300 mm stock. |
+| 8 mm shaft collars + M8 washers | 4 + 4 | Retain the tip hubs. |
 | 8 mm steel rod, ~30 mm | 2 | Skid pivot axles. |
 | 608-2RS bearing | 8 | Two per tip hub. |
 | M3 × 8 socket head + nut | ~30 | Grid mounting, clamp screws, index pins. |
@@ -64,7 +65,7 @@ Summary only; the full build sequence, wiring and first-power-up checklist are i
 - Pitch XL430 is mounted in the chassis; its horn bolts to the arm's pivot flange (four M2 on the horn PCD, centre boss hole 8.4 mm).
 - Drive XL430 drops into the housing on the outboard face from the outboard side, horn facing out; four M2 case screws through the housing walls. Cable exits through the slot on the pivot side.
 - A TB3 wheel bolts straight onto the drive servo horn, as on the TurtleBot3.
-- Tip: 8 mm steel axle through the slotted boss, clamped by one M3 across the slot. Two 608 bearings in the hub; hub flange bolts to the second TB3 wheel on the horn pattern.
+- Tip: 8 mm steel axle (fixed) through the 21 mm slotted, split boss, clamped by one M3. Washer, then the tip hub (two 608 bearings) with its flange outboard carrying the second TB3 wheel, then a shaft collar. The wheel idles on the fixed axle.
 - Track: 80 ICT-01 links around both wheels. The 8 mm tension slot gives ±4 mm on a 136 mm centre distance.
 - Clearance: the drive wheel sweeps a 63 mm radius around the pivot; keep the chassis side plate clear of that circle.
 

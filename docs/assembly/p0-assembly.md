@@ -70,11 +70,13 @@ Only after step 5: print the rest, in this order — tip hubs, pitch mounts, **[
 | DYNAMIXEL XL430-W250-T | 8 | 4 | 1 pitch + 1 drive per flipper. **Buy 4 for A.** |
 | TB3 Wheel/Tire ISW-01 | 8 | 8 | Two per arm or skid. On hand. |
 | ROBOTIS ICT-01 links | 320 (8 sets) | 160 (4 sets) | 80 per track at 6 mm pitch. **On hand: 80 (2 sets).** Buy 6 sets for A, 2 for B. |
-| 8 mm steel rod, 70 mm | 4 | 4 | Tip axles. Cut from 300 mm stock, deburr. |
+| 8 mm steel rod, 75 mm | 4 | 4 | Tip axles. Cut from 300 mm stock, deburr. |
 | 8 mm steel rod, 30 mm | — | 2 | Skid pivot axles. |
 | 608-2RS bearing | 8 | 8 | Two per tip hub. |
 | M3 × 8 socket head + nylock | ~30 | ~30 | Mount feet, skid brackets, index pins, deck standoff bases, spares. |
 | M3 × 16 socket head + nylock | 4 | 6 | Tip-boss clamp screws; **[B]** + skid pivot clamps. |
+| 8 mm bore shaft collar, set-screw type | 4 | 4 | Outboard end of each tip axle (arms and skids). |
+| M8 flat washer | 4 | 4 | Between tip boss and hub. |
 | M3 × 60 standoff (or 2 × 30 stacked) | 4 | 4 | Deck. |
 | M3 × 12 standoff M/F + M3 × 6 | 8 | 8 | OpenCR adapter and Pi adapter on the deck. |
 | M3 × 40 standoff M/F | 4 | 4 | LiDAR adapter, threaded onto the Pi adapter's standoff screws. |
@@ -107,10 +109,14 @@ Do this with each XL430 alone on the U2D2 or OpenCR bus so ID conflicts cannot h
 
 ## 4. Tip hubs (4)
 
+![Figure 11 — arm section](figures/fig11-arm-section.png)
+
+The tip wheel is an idler. Nothing drives it: a short 8 mm steel axle is clamped in the arm's tip boss and stays still, and the hub turns on that axle on two 608 bearings. The TB3 wheel bolts to the hub's flange using the same four-hole pattern it would use on a servo horn, so the wheel and its ICT-01 links free-wheel while the drive wheel at the other end of the arm does the work.
+
 1. Press one 608 into the seat behind the flange, outer race only, square, until it bottoms on the centre web.
 2. Press the second 608 into the rear seat.
 3. Check the 8 mm rod slides through both inner races touching nothing else.
-4. Bolt a TB3 wheel to the flange: Ø8 centring boss into the wheel's centre hole, four M2 × 6 on the horn pattern.
+4. Bolt a TB3 wheel to the flange: Ø8 centring boss into the wheel's centre hole, four M2 × 6 on the horn pattern. The flange faces outboard (toward the wheel); the hub body sits inboard of the wheel.
 
 Result: a wheel that spins freely on a stub of rod. Make four.
 
@@ -146,8 +152,8 @@ Build one, then repeat; the parts are identical. A right-hand arm is the same pr
 
 1. **Drive servo.** Drop it into the housing on the arm's outboard face, horn out, cable toward the pivot-end slot. Route the lead through the slot before seating. Four M2 × 6 through the housing walls.
 2. **Drive wheel.** TB3 wheel straight onto the drive horn (Robotis horn screws). Spin; ≥ 1 mm clearance to the housing all round.
-3. **Tip axle.** 70 mm rod through the tip-boss slot, protruding outboard by the hub length plus 2 mm. M3 × 16 clamp across the slot, loose.
-4. **Tip wheel.** Hub-and-wheel onto the axle, flange outboard, inner bearing ~1 mm off the boss. Both wheels' inner faces must be **47 mm from the chassis plate edge** (3 mm horn + 10 mm arm plate + 34 mm housing/boss — Figure 10); measure from the arm's inboard face (44 mm) and match the tip wheel to the drive wheel, then tighten the clamp.
+3. **Tip axle.** 75 mm rod through the tip-boss slot (the boss is 21 mm tall), flush with the arm's inboard face, protruding outboard ~54 mm. M3 × 16 clamp across the boss's split, loose.
+4. **Tip wheel.** Onto the axle in this order: M8 washer, hub-and-wheel (flange and wheel outboard, hub body against the washer), then an 8 mm shaft collar on the outboard end. Both wheels' inner faces must be **47 mm from the chassis plate edge** (3 mm horn + 10 mm arm plate + 34 mm housing — Figure 10), i.e. 44 mm from the arm's inboard face. Slide the hub along the axle until its wheel matches the drive wheel's plane, then tighten the collar's set screw and the boss clamp. Figure 11 shows the whole arm in section.
 5. **Track.** Loop the ICT-01 links around both wheels. 80 links at 6 mm pitch close at a 136 mm centre distance; the slot gives ±4 mm. Lower run should deflect ~5 mm under a thumb. Tighten the clamp.
 6. **Arm to pitch horn.** Pitch servo at its "horizontal" reading, arm held horizontal: Ø8.4 flange hole over the horn boss, four M2 × 10 into the horn, torqued in a cross.
 7. Rotate the arm by hand (power off). The drive wheel sweeps a 63 mm radius about the pivot; it must clear the plate edge, the mount feet and the deck standoffs. If a standoff is clipped, move it one grid pitch inboard.
@@ -159,7 +165,7 @@ Build one, then repeat; the parts are identical. A right-hand arm is the same pr
 1. Bolt a skid bracket (L on the left, R on the right) to the rear corner of the plate: upright at the plate edge, pivot axis at x = −60, foot holes over (−80, ±56), (−80, ±64), (−40, ±56), (−40, ±64). Four M3 × 8.
 2. 30 mm rod through the bracket's pivot hole; it should turn freely.
 3. Skid arm onto the outboard end of the rod, pointing aft, clamped with its M3 across the pivot slot. Line the arm's index hole up with one of the bracket's holes — start with **35°** — and drop an M3 × 8 through both as the pin, nylock loose.
-4. Tip axle, hub and wheel as in 7.3–7.4, matching the wheel plane to the front wheels: 47 mm from the plate edge to the wheel's inner face (Figure 10).
+4. Tip axle, washer, hub, wheel and collar exactly as in 7.3–7.4, matching the wheel plane to the front wheels: 47 mm from the plate edge to the wheel's inner face (Figures 10 and 11).
 5. 0° is the flat pose; 35° puts all four wheels level with the front arms at 30° down (`cad/assembly_p0.py 30 35`).
 
 ## 9. Upper deck and electronics

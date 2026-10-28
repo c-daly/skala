@@ -44,6 +44,9 @@ PIVOT_FLANGE_R = 16.0
 TIP_BOSS_R = 12.0
 TIP_AXLE_D = 8.0          # steel axle for 608 bearings
 TIP_SLOT = 8.0            # tension adjustment travel along X
+HUB_TOTAL = 21.0          # tip hub length (flange 4 + body 17), see tip_hub_p0
+TIP_BOSS_H = PLATE_T + 34.0 - HUB_TOTAL - 2.0   # 21: boss stops 2 mm short of the hub so the hub can sit at the wheel plane
+SHAFT_COLLAR_W = 8.0      # 8 mm bore set-screw collar on the outboard end of each tip axle
 SERVO_WALL = 5.0          # wall around the drive servo pocket
 HOLE_R_LIGHTEN = 9.0      # lightening holes
 

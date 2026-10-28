@@ -9,7 +9,9 @@ Coordinate frame (arm at zero pitch):
 Layout:
   pitch XL430 (in chassis)  -> horn bolted to pivot flange at X=0, Z=0
   drive XL430 (in arm)      -> housed at X=DRIVE_X, horn facing +Z, TB3 wheel on horn
-  tip wheel                 -> TB3 wheel on a printed 608-bearing hub, steel axle in a slot
+  tip wheel                 -> TB3 wheel on a printed 608-bearing hub that free-wheels on a fixed
+                               8 mm steel axle; the axle is clamped in a split boss 21 mm tall so the
+                               hub (21 mm) sits outboard of it with the wheel at the drive-wheel plane
 Prints flat on the inboard face (Z=0 down) so layer lines run along the arm.
 """
 import sys, pathlib
@@ -67,14 +69,17 @@ def tip_boss():
     """Boss carrying the 8 mm tip axle up to wheel height, with a tension slot and clamp screw."""
     with BuildPart() as tb:
         with Locations((P.TIP_X, 0, 0)):
-            Cylinder(radius=P.TIP_BOSS_R, height=WHEEL_Z,
+            Cylinder(radius=P.TIP_BOSS_R, height=P.TIP_BOSS_H,
                      align=(Align.CENTER, Align.CENTER, Align.MIN))
         with BuildSketch(Plane.XY):
             with Locations((P.TIP_X, 0)):
                 SlotCenterToCenter(P.TIP_SLOT, P.TIP_AXLE_D + P.CLEAR_FIT)
-        extrude(amount=WHEEL_Z + 1, mode=Mode.SUBTRACT)
-        # M3 clamp screw across the slot near the top of the boss
-        with Locations(Location((P.TIP_X, 0, WHEEL_Z - 6), (90, 0, 0))):
+        extrude(amount=P.TIP_BOSS_H + 1, mode=Mode.SUBTRACT)
+        # split from the slot to the boss surface on the +X side so the clamp screw can pinch the axle
+        with Locations((P.TIP_X + P.TIP_SLOT / 2 + P.TIP_BOSS_R / 2, 0, P.TIP_BOSS_H / 2)):
+            Box(P.TIP_BOSS_R, 1.2, P.TIP_BOSS_H + 2, mode=Mode.SUBTRACT)
+        # M3 clamp screw across the split, mid-height of the boss
+        with Locations(Location((P.TIP_X + P.TIP_SLOT / 2 + 5, 0, P.TIP_BOSS_H / 2), (90, 0, 0))):
             Cylinder(radius=3.4 / 2, height=P.TIP_BOSS_R * 2 + 2, mode=Mode.SUBTRACT)
     return tb.part
 

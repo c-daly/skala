@@ -71,12 +71,14 @@ def arm():
             Cylinder(radius=P.GRID_HOLE / 2, height=ARM_T * 3, mode=Mode.SUBTRACT)
         # tip boss up to wheel plane, with 8 mm slot and clamp screw (same as the drive arm)
         with Locations((P.SKID_LEN, 0, 0)):
-            Cylinder(radius=TIP_BOSS_R, height=WHEEL_Z, align=(Align.CENTER, Align.CENTER, Align.MIN))
+            Cylinder(radius=TIP_BOSS_R, height=P.TIP_BOSS_H, align=(Align.CENTER, Align.CENTER, Align.MIN))
         with BuildSketch(Plane.XY):
             with Locations((P.SKID_LEN, 0)):
                 SlotCenterToCenter(P.TIP_SLOT, P.TIP_AXLE_D + P.CLEAR_FIT)
-        extrude(amount=WHEEL_Z + 1, mode=Mode.SUBTRACT)
-        with Locations(Location((P.SKID_LEN, 0, WHEEL_Z - 6), (90, 0, 0))):
+        extrude(amount=P.TIP_BOSS_H + 1, mode=Mode.SUBTRACT)
+        with Locations((P.SKID_LEN + P.TIP_SLOT / 2 + TIP_BOSS_R / 2, 0, P.TIP_BOSS_H / 2)):
+            Box(TIP_BOSS_R, 1.2, P.TIP_BOSS_H + 2, mode=Mode.SUBTRACT)                 # clamp split
+        with Locations(Location((P.SKID_LEN + P.TIP_SLOT / 2 + 5, 0, P.TIP_BOSS_H / 2), (90, 0, 0))):
             Cylinder(radius=3.4 / 2, height=TIP_BOSS_R * 2 + 2, mode=Mode.SUBTRACT)
     part = a.part
     part.label = "skid_arm_p0"

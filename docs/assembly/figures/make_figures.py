@@ -475,3 +475,55 @@ svg.append(f"<text x='{X0f}' y='{Y0+16}' {FONT} font-size='11' fill='{MUTE}' tex
 svg.append(f"<text x='40' y='540' {FONT} font-size='12' fill='{MUTE}'>Centre both servos before fitting horns. Pan servo lead and the CSI ribbon need a loose loop above the pan base. No feedback on MG90S: firmware reports the setpoint.</text>")
 svg.append("</svg>")
 write("fig7-camera-pan-tilt", "\n".join(svg))
+
+# --------------------------------------------------------------------------- Fig 11: arm mechanism, section along the arm (X along arm, Z outboard)
+K = 3.1; XA = 70; ZA = 400                       # origin (x=-30, z=0) → (XA, ZA); z up the page = outboard
+def M(x, z): return (XA + (x + 30) * K, ZA - z * K)
+def mb(x0, z0, x1, z1, fill, stroke=INK, dash=None, op=1):
+    (a, b), (c, d) = M(x0, z1), M(x1, z0)
+    dd = f" stroke-dasharray='{dash}'" if dash else ""
+    return f"<rect x='{a:.1f}' y='{b:.1f}' width='{c-a:.1f}' height='{d-b:.1f}' fill='{fill}' stroke='{stroke}' stroke-width='1.3'{dd} opacity='{op}'/>"
+def mt(x, z, t, color=INK, size=11, anchor="start", weight="normal"):
+    X, Y = M(x, z); return f"<text x='{X:.1f}' y='{Y:.1f}' {FONT} font-size='{size}' fill='{color}' text-anchor='{anchor}' font-weight='{weight}'>{t}</text>"
+PT, HD, WZ = PR.PLATE_T, PR.XL430_D, PR.PLATE_T + PR.XL430_D     # 10, 34, 44
+TX, DX = PR.TIP_X, PR.DRIVE_X
+BH = PR.TIP_BOSS_H
+svg = ["<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1000 600' width='1000' height='600'>",
+       "<rect width='100%' height='100%' fill='white'/>",
+       title("Figure 11 — How the flipper arm works: section along the arm (1 mm = 3.1 px)", "Cut through the arm's centreline, looking from above. Up the page is outboard. Same tip arrangement on the skid arms."),
+       # pitch servo (in the chassis mount) and its horn, inboard of the arm
+       mb(-24, -30, 24, -6, "#fed7aa", ACC, None, 0.7), mt(28, -20, "pitch XL430 in its chassis mount (horn axis = arm pivot)", ACC, 10),
+       mb(-10, -3, 10, 0, "#9ca3af"), mt(28, -8, "horn → 4 × M2 into the arm flange", INK, 10),
+       # arm plate and housing
+       mb(-30, 0, TX + 12, PT, "#fde68a", "#92400e"),
+       mb(DX - 20, PT, DX + 20, WZ, "#fde68a", "#92400e"),
+       mt(-28, PT + 3, "arm plate 10", "#92400e", 10),
+       # drive servo in the housing, horn out, wheel on horn
+       mb(DX - 14, PT + 1, DX + 14, WZ - 1, "#d1d5db", INK, "3 2"), mt(DX - 13, PT + 14, "drive XL430", INK, 10),
+       mb(DX - 10, WZ, DX + 10, WZ + 3, "#9ca3af"), mt(DX + 22, WZ + 1, "horn", INK, 10),
+       mb(DX - 33, WZ + 3, DX + 33, WZ + 3 + PR.TB3_WHEEL_W, "#e5e7eb"), mt(DX - 33, WZ + 3 + PR.TB3_WHEEL_W + 4, "TB3 wheel bolted to the horn (drive sprocket)", INK, 10),
+       # tip: boss, axle, washer, hub, wheel, collar
+       mb(TX - 12, 0, TX + 12, BH, "#fde68a", "#92400e"), mt(TX - 60, BH + 4, f"tip boss {BH:.0f} tall, split + M3 clamp", "#92400e", 10, "end"),
+       mb(TX - 4, -2, TX + 4, WZ + 3 + PR.TB3_WHEEL_W + 10, "#6b7280"),                     # axle
+       mt(TX - 16, -6, "8 mm steel axle, fixed (does not turn)", INK, 10, "end"),
+       mb(TX - 8, BH + 1, TX + 8, BH + 2, "#374151"), mt(TX - 17, BH + 3, "M8 washer", INK, 9, "end"),
+       mb(TX - 15, BH + 2, TX + 15, BH + 2 + 17, "#c7d2fe", "#3730a3"),                       # hub body
+       mb(TX - 11, BH + 3, TX - 4, BH + 10, "#9ca3af"), mb(TX + 4, BH + 3, TX + 11, BH + 10, "#9ca3af"),       # bearing 1
+       mb(TX - 11, BH + 12, TX - 4, BH + 19, "#9ca3af"), mb(TX + 4, BH + 12, TX + 11, BH + 19, "#9ca3af"),     # bearing 2
+       mb(TX - 15, BH + 19, TX + 15, BH + 23, "#c7d2fe", "#3730a3"),                           # flange
+       mt(TX - 18, BH + 11, "tip hub: 2 × 608 pressed in, inner races on the axle", "#3730a3", 10, "end"),
+       mt(TX - 18, BH + 22, "hub flange → 4 × M2 into the wheel", "#3730a3", 10, "end"),
+       mb(TX - 33, BH + 23, TX + 33, BH + 23 + PR.TB3_WHEEL_W, "#e5e7eb"),
+       mt(TX - 36, BH + 23 + 12, "TB3 wheel, free-wheeling (idler)", INK, 10, "end"),
+       mb(TX - 7, BH + 23 + PR.TB3_WHEEL_W + 1, TX + 7, BH + 23 + PR.TB3_WHEEL_W + 1 + PR.SHAFT_COLLAR_W, "#374151"),
+       mt(TX - 10, BH + 23 + PR.TB3_WHEEL_W + 7, "8 mm shaft collar (set screw) — stops the hub walking off", INK, 10, "end"),
+       ]
+# wheel plane line
+yz = WZ + 3
+X0, Y0 = M(-30, yz); X1, _ = M(TX + 40, yz)
+svg.append(f"<line x1='{X0}' y1='{Y0:.1f}' x2='{X1}' y2='{Y0:.1f}' stroke='{ACC}' stroke-width='1' stroke-dasharray='6 4'/>")
+svg.append(mt(-30, yz + 3, f"wheel plane: {yz:.0f} from the arm's inboard face (47 from the plate edge)", ACC, 10))
+svg.append(f"<text x='40' y='560' {FONT} font-size='12' fill='{MUTE}'>Tip assembly order: axle through the boss slot → washer → hub (flange outboard) → wheel onto the flange → collar. Slide the hub to match the drive wheel's plane, then tighten clamp and collar.</text>")
+svg.append(f"<text x='40' y='580' {FONT} font-size='12' fill='{MUTE}'>The boss slot lets the axle move ±4 mm along the arm for track tension. The split in the boss lets the M3 pinch the axle; without it a PLA cylinder would not grip.</text>")
+svg.append("</svg>")
+write("fig11-arm-section", "\n".join(svg))
