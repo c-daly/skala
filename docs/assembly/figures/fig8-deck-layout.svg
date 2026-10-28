@@ -329,7 +329,7 @@
 <circle cx='720.0' cy='496.4' r='4.5' fill='white' stroke='#166534' stroke-width='2'/><text x='720.0' y='510.4' font-family='Helvetica, Arial, sans-serif' font-size='9.5' fill='#166534' text-anchor='middle'>(40, -32)</text>
 <circle cx='720.0' cy='227.6' r='4.5' fill='white' stroke='#166534' stroke-width='2'/><text x='720.0' y='218.6' font-family='Helvetica, Arial, sans-serif' font-size='9.5' fill='#166534' text-anchor='middle'>(40, +32)</text>
 <rect x='409.2' y='206.6' width='420.0' height='310.8' fill='none' stroke='#854d0e' stroke-width='1.5' stroke-dasharray='8 4'/>
-<text x='619.2' y='177.2' font-family='Helvetica, Arial, sans-serif' font-size='9.5' fill='#854d0e' text-anchor='middle' font-weight='normal'>LiDAR adapter 100 × 74 above, on 40 mm standoffs at the same four holes</text>
+<text x='619.2' y='177.2' font-family='Helvetica, Arial, sans-serif' font-size='9.5' fill='#854d0e' text-anchor='middle' font-weight='normal'>LiDAR adapter 100 × 74 above, on 40 mm standoffs at the same four holes; LiDAR axis at x = 20, its holes at (48, ±28) and (−22, ±20)</text>
 <defs><marker id='arr2' markerWidth='8' markerHeight='8' refX='6' refY='4' orient='auto'><path d='M0,0 L8,4 L0,8 z' fill='#1f2328'/></marker></defs>
 <line x1='132.0' y1='656.0' x2='192.0' y2='656.0' stroke='#1f2328' stroke-width='2' marker-end='url(#arr2)'/>
 <text x='198.0' y='660.0' font-family='Helvetica, Arial, sans-serif' font-size='12' fill='#1f2328'>X forward</text>

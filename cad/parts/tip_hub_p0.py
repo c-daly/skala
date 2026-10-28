@@ -1,14 +1,16 @@
 """Tip wheel hub: adapts a TB3 wheel (servo-horn bolt pattern) to free-wheel on two 626 bearings
-over an M6 bolt that is clamped in the arm's tip boss.
+over an M6 socket-head cap screw that is clamped in the arm's tip boss.
 
 Z=0 is the wheel face (outboard). Layout along +Z (toward the arm):
-  0 .. 5    flange, Ø30: four M2 holes on the horn pattern (the wheel's own PHS M2x4 screws thread
-            into them) and a hex pocket for the bolt's head, open to the bearing bore so the head
-            bears on the first bearing's inner race
-  5 .. 20   Ø19 bearing bore, open from the back: bearing, 3 mm printed spacer on the inner races,
-            bearing. Both bearings press in from the back; there is no web, so nothing is trapped.
+  0 .. 6.5  flange, Ø30: four M2 holes on the horn pattern (the wheel's own PHS M2x4 screws thread
+            into them) and a Ø10.4 pocket for the bolt's head, open to the bearing bore so the head
+            bears on the first bearing's inner race. A Ø6.5 hole through the flange face lines up
+            with the wheel's Ø7 centre bore, so a 5 mm hex key reaches the head with the wheel on.
+  6.5 .. 21.5  Ø19 bearing bore, open from the back: bearing, 3 mm printed spacer on the inner
+            races, bearing. Both bearings press in from the back; there is no web, so nothing is
+            trapped.
 
-Stack on the bolt, wheel face outward: hex head (in the pocket) · 626 · spacer · 626 · spacer ·
+Stack on the bolt, wheel face outward: socket head (in the pocket) · 626 · spacer · 626 · spacer ·
 arm tip boss (slot) · washer · M6 nylock. hub_spacer_p0 is the printed Ø9.5 x Ø6.3 x 3 ring.
 """
 import sys, pathlib
@@ -17,10 +19,9 @@ from build123d import *
 import params as P
 
 FLANGE_D = P.XL430_HORN_D + 9.2      # 30 mm
-FLANGE_T = P.HUB_FLANGE_T            # 5
-HEX_AF = 10.0                        # M6 hex head across flats (ISO 4014: 10)
-HEX_POCKET_AF = HEX_AF + 0.4
-HEX_H = 4.0                          # head height; pocket 4.5 so the head sits 0.5 below the face
+FLANGE_T = P.HUB_FLANGE_T            # 6.5
+HEAD_POCKET_D = P.TIP_BOLT_HEAD_D + 0.4   # 10.4 for the Ø10 socket head
+HEAD_POCKET_H = P.TIP_BOLT_HEAD_H         # 6: the head sits 0.5 below the flange face
 HUB_OD = P.B626["od"] + 2 * 4.0      # 27 mm
 BORE_LEN = 2 * P.B626["w"] + P.HUB_SPACER_T   # 15 mm
 TOTAL = FLANGE_T + BORE_LEN          # 20 = P.HUB_TOTAL
@@ -36,12 +37,10 @@ def hub():
         # bearing bore from the back, right up to the flange
         with Locations((0, 0, FLANGE_T)):
             Cylinder(radius=seat_r, height=BORE_LEN + 1, align=(Align.CENTER, Align.CENTER, Align.MIN), mode=Mode.SUBTRACT)
-        # hex pocket for the bolt head, from the back of the flange (the head goes in before the
-        # bearings); rotated 15° so its corners miss the wheel screw holes
-        with BuildSketch(Plane.XY.offset(FLANGE_T - 4.5)):
-            RegularPolygon(radius=HEX_POCKET_AF / 2, side_count=6, major_radius=False, rotation=15)
-        extrude(amount=4.5 + 1, mode=Mode.SUBTRACT)
-        # hex-key access from the wheel side so the head can be held while the nut is tightened
+        # pocket for the bolt head, from the back of the flange (the head goes in before the bearings)
+        with Locations((0, 0, FLANGE_T - HEAD_POCKET_H)):
+            Cylinder(radius=HEAD_POCKET_D / 2, height=HEAD_POCKET_H + 1, align=(Align.CENTER, Align.CENTER, Align.MIN), mode=Mode.SUBTRACT)
+        # hex-key access from the wheel side (through the wheel's Ø7 centre bore)
         Cylinder(radius=6.5 / 2, height=TOTAL * 3, mode=Mode.SUBTRACT)
         # wheel screws on the horn pattern: Ø1.7 for the wheel's PHS M2x4 to thread into
         with PolarLocations(P.XL430_HORN_PCD / 2, P.XL430_HORN_N):

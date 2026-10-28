@@ -2,7 +2,7 @@
 
 One 10 mm plate with:
   - 626 bearing bores at nominal, -0.10, -0.20 (press fit candidates)
-  - 6 mm bolt bores at +0.20, +0.30, +0.40 (clearance candidates) and a 10 mm hex pocket
+  - 6 mm bolt bores at +0.20, +0.30, +0.40 (clearance candidates) and a Ø10.4 socket-head pocket
   - an M2.6 self-tap test: Ø2.9 through a 2 mm web (the counterbored wall thickness)
   - XL430 horn screw pattern (4 x M2 on the horn PCD) and horn boss hole, to check the
     pivot flange against a real horn
@@ -41,11 +41,9 @@ def build():
         ph = P.XL430_H + 2 * P.XL430_CLEAR
         with Locations((155, 35, T)):
             Box(pw, ph, 12, mode=Mode.SUBTRACT)
-        # hex pocket for the M6 bolt head (10 AF + 0.4), 4.5 deep, beside the horn pattern
-        with BuildSketch(Plane.XY.offset(T - 4.5)):
-            with Locations((135, 50)):
-                RegularPolygon(radius=10.4 / 2, side_count=6, major_radius=False)
-        extrude(amount=5, mode=Mode.SUBTRACT)
+        # pocket for the M6 socket head (Ø10 + 0.4), 6 deep, beside the horn pattern
+        with Locations((135, 50, T - 6)):
+            Cylinder(radius=10.4 / 2, height=7, align=(Align.CENTER, Align.CENTER, Align.MIN), mode=Mode.SUBTRACT)
         # M2.6 self-tap test: Ø2.9 through holes with a Ø6 counterbore leaving a 2 mm web
         for i in range(3):
             with Locations((84 + i * 8, 18, 0)):

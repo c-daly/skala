@@ -1,8 +1,11 @@
 """All dimensions for the track robot CAD, in millimetres.
 
-Values marked VERIFY are taken from memory or a single listing and must be
-checked against a datasheet or a caliper before printing anything that mates
-to them.
+Every dimension that mates to a bought part is traced to its maker's model, drawing or listing
+in the comment beside it (Robotis XL430 STEP and parts list; the TB3 wheel mesh from Robotis's
+TurtleBot3 URDF; the OpenCR board STEP from ROBOTIS-GIT/OpenCR-Hardware; Slamtec's RPLidar A1
+datasheet; Robotis Japan's ICT-01 listing; the TowerPro MG90S datasheet). What remains to be
+measured is the print fit (PRESS_FIT / CLEAR_FIT, from the coupon) and the closed-track centre
+distance, which the tip slot absorbs.
 """
 
 # ---------------------------------------------------------------- printer ----
@@ -20,11 +23,11 @@ XL430_H = 46.5            # body length, horn end to back (connector) end
 XL430_D = 34.0            # depth along the output axis, horn face to idler face
 XL430_HORN_OFF = 11.25    # output axis from the horn-end face along the length
 XL430_HORN_D = 20.8       # horn disc diameter
-XL430_HORN_PCD = 16.0     # horn screw pitch-circle diameter                  VERIFY (not in model)
+XL430_HORN_PCD = 16.0     # horn screw PCD: confirmed by the TB3 wheel mesh (ROBOTIS turtlebot3 URDF), 4 x Ø2.1 at r = 8.00
 XL430_HORN_N = 4          # horn screws
 XL430_HORN_SCREW = 2.0    # M2 horn screws (Robotis supplies M2x5; the arm needs M2x12)
-XL430_HORN_BOSS_D = 9.0   # clearance hole in the spacer/arm for whatever is at the horn centre (the
-                          # model shows a Ø9 recess, not a boss)                    VERIFY
+XL430_HORN_BOSS_D = 9.0   # clearance hole in the spacer/arm at the horn centre: the model shows a Ø9 recess
+                          # there (no boss), and the TB3 wheel that bolts to the same horn has a Ø7 centre bore
 XL430_SIDE_SCREW = 2.6    # M2.6x5 SELF-TAPPING screws (supplied) into Ø2.1 holes in the W faces
 XL430_SIDE_CLEAR = 2.9    # clearance hole for them in a printed wall
 XL430_SIDE_WALL = 2.0     # wall thickness left under the screw head (Robotis frames are 2 mm) so an
@@ -38,13 +41,19 @@ HORN_RELIEF = 1.0         # printed faces around a horn stop this far short of t
 XL430_MASS = 57.0         # g
 
 # ------------------------------------------------------------ TB3 wheel ------
-TB3_WHEEL_D = 66.0        # outer diameter with tyre                     VERIFY (with ICT-01 fitted)
-TB3_WHEEL_W = 22.0        # width                                        VERIFY
+# From ROBOTIS's own wheel mesh (turtlebot3_description/meshes/wheels/left_tire.stl): Ø66.0 x 18.2 wide,
+# Ø7 centre bore, four Ø2.1 horn holes at PCD 16, hub plate 2 mm thick. Robotis's TurtleBot3 Tank
+# firmware keeps WHEEL_RADIUS = 0.033 with the ICT-01 caterpillar fitted, so 66 is the effective
+# rolling diameter with the links too.
+TB3_WHEEL_D = 66.0        # effective outer diameter, tyre or caterpillar
+TB3_WHEEL_W = 18.2        # width (links may stand a little proud of this)
+TB3_WHEEL_BORE = 7.0      # centre bore: a 5 mm hex key reaches the tip bolt's socket head through it
 TB3_WHEEL_SCREW = 2.0     # wheel -> horn screws: Robotis supplies PHS M2x4
 
 # ------------------------------------------------------- ICT-01 track --------
-ICT01_PITCH = 6.0         # link pitch                                   ASSUMED (Robotis JP listing)
-ICT01_LINKS = 80          # links on hand, one track
+ICT01_PITCH = 6.0         # link pitch, per ROBOTIS Japan's listing (ピッチ 6 mm)
+ICT01_LINKS = 80          # links per track: two 40-piece packs, as on the TurtleBot3 Tank (one pack = 240 mm would not
+                          # even clear two 66 mm wheels). The ±4 mm tension slot absorbs the link-thickness uncertainty.
 TRACK_LEN = ICT01_PITCH * ICT01_LINKS
 import math
 ARM_CENTER_DIST = (TRACK_LEN - math.pi * TB3_WHEEL_D) / 2.0   # ~136.3 mm
@@ -68,15 +77,18 @@ SPACER_D = 26.0
 SPACER_STEP_D = 20.0
 SPACER_STEP_T = 1.0
 PIVOT_SCREW_LEN = 12      # M2 x 12: 3 (arm floor) + 6 (spacer) + 3 into the horn
-# Tip idler: an M6 x 50 partially threaded hex bolt (ISO 4014, 32 mm plain shank) is the axle.
-# Hex head captive in the hub flange, nylock on the arm's inboard face; two 626 bearings in the hub.
+# Tip idler: an M6 x 50 partially threaded socket-head cap screw (ISO 4762, 26 mm plain shank) is the
+# axle. Its head sits in a pocket in the hub flange where a 5 mm hex key reaches it through the
+# wheel's Ø7 centre bore; nylock on the arm's inboard face; two 626 bearings in the hub.
 TIP_AXLE_D = 6.0
-TIP_BOLT = "M6 x 50 hex, partially threaded (ISO 4014)"
+TIP_BOLT = "M6 x 50 socket head cap, partially threaded (ISO 4762)"
+TIP_BOLT_HEAD_D = 10.0
+TIP_BOLT_HEAD_H = 6.0
 TIP_SLOT = 8.0            # tension adjustment travel along X
-HUB_FLANGE_T = 5.0        # hub flange; hex-head pocket 4.5 deep in it
+HUB_FLANGE_T = 6.5        # hub flange; head pocket 6 deep in it
 HUB_SPACER_T = 3.0        # printed spacers between the bearings and between hub and boss
-HUB_TOTAL = HUB_FLANGE_T + 6.0 + HUB_SPACER_T + 6.0    # 20: see tip_hub_p0
-TIP_BOSS_H = PLATE_T + 34.0 - HUB_TOTAL - HUB_SPACER_T  # 21: boss + spacer + hub = wheel plane
+HUB_TOTAL = HUB_FLANGE_T + 6.0 + HUB_SPACER_T + 6.0    # 21.5: see tip_hub_p0
+TIP_BOSS_H = PLATE_T + 34.0 - HUB_TOTAL - HUB_SPACER_T  # 19.5: boss + spacer + hub = wheel plane
 SERVO_WALL = 5.0          # wall around the drive servo pocket
 CABLE_HOLE_X = 0.0        # drive-servo lead through the arm plate, beside the pivot flange (both sides,
 CABLE_HOLE_Y = 22.0       # so the symmetric print serves left and right)
@@ -101,8 +113,21 @@ PITCH_MOUNT_X = 60.0      # pitch servo axis X (front arms)
 SKID_X = -60.0            # rear skid pivot X
 PI5_HOLES = (58.0, 49.0)  # Raspberry Pi mounting pattern, M2.5
 PI5_HOLE_D = 2.7
-OPENCR_HOLES = (85.0, 65.0)   # OpenCR 1.0 mounting pattern                 VERIFY
+OPENCR_HOLES = (66.0, 96.0)   # OpenCR 1.0 mounting pattern, from ROBOTIS-GIT/OpenCR-Hardware Layout/OpenCR_REVH.step:
+                              # Ø4 holes at (±33, ±48) on the 75 x 105 board, i.e. 66 across the short side, 96 along the long side
 OPENCR_HOLE_D = 3.4
+OPENCR_BOARD = (75.0, 105.0)
+# RPLidar A1M8, from Slamtec's datasheet drawing (Fig. 5-2) and the TurtleBot4 mesh: base 96.74 x 70.28,
+# 51 tall, scan window centred ~45 above the base underside. Four M2.5 holes about the rotation axis:
+# front pair (±28, +28), rear pair (±20, -42) with +x toward the wide front of the base. 170 g.
+RPLIDAR_HOLES = ((28.0, 28.0), (28.0, -28.0), (-42.0, 20.0), (-42.0, -20.0))   # (along, across) from the axis
+RPLIDAR_HOLE_D = 2.7
+RPLIDAR_L, RPLIDAR_W, RPLIDAR_H = 96.74, 70.28, 51.0
+RPLIDAR_AXIS_FROM_FRONT = 35.14
+RPLIDAR_SCAN_Z = 45.0         # scan plane above the base underside
+RPLIDAR_AXIS_X = 20.0         # robot x of the rotation axis (adapter centre + 4, so its holes clear the adapter's standoffs)
+# LB-012 LiPo: 88 x 35 x 26 mm, 106 g, 5C (9 A), per the Robotis / Génération Robotics listing
+LB012 = (88.0, 35.0, 26.0)
 
 # ----------------------------------------------------------- P0 skid arm -----
 SKID_LEN = 120.0          # pivot to tip axle
@@ -134,18 +159,18 @@ PLACE = {
     # on the deck (robot frame)
     "opencr_adapter":     dict(center=(-64, 0),  holes=[(-104, -32), (-104, 32), (-24, -32), (-24, 32)]),
     "pi_adapter":         dict(center=(16, 0),   holes=[(-8, -32), (-8, 32), (40, -32), (40, 32)]),
-    "lidar_adapter":      dict(center=(16, 0),   holes="same as pi_adapter, on 40 mm standoffs"),
+    "lidar_adapter":      dict(center=(16, 0),   holes="same as pi_adapter, on 40 mm standoffs", lidar_axis=(20, 0), lidar_holes=[(48, 28), (48, -28), (-22, 20), (-22, -20)]),
 }
 # vertical stack (mm above chassis plate top face at z = 6)
 STACK = {
     "chassis_top": 0, "pivot_axis": 17.55, "pitch_mount_top": 53, "battery_top": 26, "compute_bay_top": 50, "deck_underside": 60, "deck_top": 64,
     "board_standoff": 12, "opencr_top": 64 + 12 + 3 + 14, "pi_adapter_top": 64 + 12 + 3,
     "pi_cooler_top": 64 + 12 + 3 + 30, "lidar_adapter_top": 64 + 12 + 3 + 40 + 3,
-    "lidar_scan_plane": 64 + 12 + 3 + 40 + 3 + 27, "camera_head_top": 4 + 22 + 3 + 48,
+    "lidar_scan_plane": 64 + 12 + 3 + 40 + 3 + 45, "lidar_top": 64 + 12 + 3 + 40 + 3 + 51, "camera_head_top": 4 + 22 + 3 + 48,
     "wheel_plane_from_plate_edge": 6 + 44,   # spacer 6 + arm 44
 }
 
-# ----------------------------------------------------------- masses (g, estimates; VERIFY by weighing) ---
+# ----------------------------------------------------------- masses (g; printed parts estimated, bought parts from their listings; weigh and update) ---
 # position = (x, z) in robot frame, z above the chassis top. Used by check_p0.py for the CoG and tip-back numbers.
 MASS = {
     "chassis_p0":      dict(g=110, pos=(0, -3)),
@@ -164,7 +189,7 @@ MASS = {
     "opencr_adapter":  dict(g=20,  pos=(-64, 77)),
     "pi5+cooler":      dict(g=85,  pos=(16, 90)),
     "pi_adapter":      dict(g=12,  pos=(16, 77)),
-    "lidar_a1":        dict(g=170, pos=(16, 140)),
+    "lidar_a1":        dict(g=170, pos=(20, 145)),
     "lidar_adapter":   dict(g=20,  pos=(16, 120)),
     "standoffs+bolts": dict(g=80,  pos=(-20, 40)),
     "camera_head":     dict(g=55,  pos=(88, 45)),

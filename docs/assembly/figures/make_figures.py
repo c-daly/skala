@@ -247,7 +247,7 @@ svg.append(label(pix, -20, "board 85 × 56, USB/Ethernet end forward", 9.5, "#16
 for (hx, hy) in pa["holes"]:
     svg.append(hole(hx, hy, "#166534", f"({hx}, {hy:+d})", dx=0, dy=(14 if hy < 0 else -9), anchor="middle"))
 svg.append(rect(pix - 50, -37, pix + 50, 37, fill="none", stroke="#854d0e", stroke_width=1.5, stroke_dasharray="8 4"))
-svg.append(label(pix, 44, "LiDAR adapter 100 × 74 above, on 40 mm standoffs at the same four holes", 9.5, "#854d0e"))
+svg.append(label(pix, 44, "LiDAR adapter 100 × 74 above, on 40 mm standoffs at the same four holes; LiDAR axis at x = 20, its holes at (48, ±28) and (−22, ±20)", 9.5, "#854d0e"))
 X0, Y0 = P2(-100, -70)
 svg.append(f"<defs><marker id='arr2' markerWidth='8' markerHeight='8' refX='6' refY='4' orient='auto'><path d='M0,0 L8,4 L0,8 z' fill='#1f2328'/></marker></defs>")
 svg.append(f"<line x1='{X0}' y1='{Y0}' x2='{X0+60}' y2='{Y0}' stroke='{INK}' stroke-width='2' marker-end='url(#arr2)'/>")
@@ -295,8 +295,9 @@ svg.append(eb(pix - 42.5, ST["pi_adapter_top"], pix + 42.5, ST["pi_cooler_top"],
 for x in (pix - 24, pix + 24):
     svg.append(eb(x - 2, ST["pi_adapter_top"], x + 2, ST["pi_adapter_top"] + 40, "#9ca3af"))
 svg.append(eb(pix - 50, ST["pi_adapter_top"] + 40, pix + 50, ST["lidar_adapter_top"], "#fef9c3", "#854d0e"))
-svg.append(eb(pix - 48, ST["lidar_adapter_top"], pix + 48, ST["lidar_adapter_top"] + 8, "#d1d5db"))
-svg.append(eb(pix - 35, ST["lidar_adapter_top"] + 8, pix + 35, ST["lidar_adapter_top"] + 40, "#d1d5db"))
+lax = PR.RPLIDAR_AXIS_X
+svg.append(eb(lax + PR.RPLIDAR_AXIS_FROM_FRONT - PR.RPLIDAR_L, ST["lidar_adapter_top"], lax + PR.RPLIDAR_AXIS_FROM_FRONT, ST["lidar_adapter_top"] + 12, "#d1d5db"))
+svg.append(eb(lax - 35, ST["lidar_adapter_top"] + 12, lax + 35, ST["lidar_top"], "#d1d5db"))
 sp = ST["lidar_scan_plane"]
 svg.append(f"<line x1='{E(-120,sp)[0]}' y1='{E(0,sp)[1]:.1f}' x2='{E(130,sp)[0]}' y2='{E(0,sp)[1]:.1f}' stroke='{ACC}' stroke-width='1.2' stroke-dasharray='8 4'/>")
 # dimensions
@@ -549,7 +550,7 @@ svg = ["<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1040 620' width='10
        # tip: boss, bolt, spacers, hub (flange with hex pocket outboard), wheel
        mb(TX - 12, 0, TX + 12, BH, "#fde68a", "#92400e"), mt(TX - 60, BH - 8, f"tip boss {BH:.0f} tall, 8 mm slot", "#92400e", 10, "end"),
        mb(TX - 3, -8, TX + 3, WZ - FL + 1, "#6b7280"),                                    # bolt shank
-       mb(TX - 5, WZ - FL + 0.5, TX + 5, WZ - 0.5, "#374151"),                              # hex head in the flange pocket
+       mb(TX - 5, WZ - FL + 0.5, TX + 5, WZ - 0.5, "#374151"),                              # socket head in the flange pocket
        mb(TX - 6.5, -8, TX + 6.5, -3, "#374151"), mb(TX - 8, -3, TX + 8, -1.6, "#9ca3af"),  # nylock + washer, inboard
        mt(TX + 10, -6, "M6 nylock + washer, inboard face", INK, 9),
        mb(TX - 4.75, BH, TX + 4.75, BH + HS, "#c7d2fe", "#3730a3"),                        # spacer boss→hub
@@ -560,7 +561,7 @@ svg = ["<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1040 620' width='10
        mb(TX - 15, BH + HS + 15, TX + 15, WZ, "#c7d2fe", "#3730a3"),                        # flange
        mt(TX + 18, BH + HS + 2, "printed spacers 3 (Ø9.5) on the inner races", "#3730a3", 9),
        mt(TX + 18, BH + HS + 11, "tip hub: 2 × 626 pressed in from the back", "#3730a3", 10),
-       mt(TX + 18, WZ - 2, "flange: hex pocket holds the bolt head", "#3730a3", 9),
+       mt(TX + 18, WZ - 2, "flange: bolt head in a pocket, key access through the wheel", "#3730a3", 9),
        mb(TX - 33, WZ, TX + 33, WZ + PR.TB3_WHEEL_W, "#e5e7eb"),
        mt(TX + 36, WZ + 12, "TB3 wheel, free-wheeling (idler)", INK, 10),
        ]
@@ -575,7 +576,7 @@ yz = WZ
 X0, Y0 = M(-30, yz); X1, _ = M(TX + 40, yz)
 svg.append(f"<line x1='{X0}' y1='{Y0:.1f}' x2='{X1}' y2='{Y0:.1f}' stroke='{ACC}' stroke-width='1' stroke-dasharray='6 4'/>")
 svg.append(mt(-30, yz + 3, f"wheel plane: {yz:.0f} from the arm's inboard face ({yz+SP:.0f} from the plate edge)", ACC, 10))
-svg.append(f"<text x='40' y='585' {FONT} font-size='12' fill='{MUTE}'>Tip order on the M6 x 50 bolt, head first: hub (head in its pocket, bearings and spacer inside) → spacer → boss slot → washer → nylock. Hold the head with a 10 mm spanner while tightening.</text>")
+svg.append(f"<text x='40' y='585' {FONT} font-size='12' fill='{MUTE}'>Tip order on the M6 x 50 socket-head bolt, head first: hub (head in its pocket, bearings and spacer inside) → spacer → boss slot → washer → nylock. Hold the head with a 5 mm key through the wheel bore.</text>")
 svg.append(f"<text x='40' y='603' {FONT} font-size='12' fill='{MUTE}'>The boss slot lets the bolt move ±4 mm along the arm for track tension; the nylock clamps it. No clamp screw, collar or cut rod any more.</text>")
 svg.append("</svg>")
 write("fig11-arm-section", "\n".join(svg))

@@ -219,7 +219,7 @@ def mass_and_tipback():
         belly = -P.CHASSIS_T - ground_z            # chassis underside above the wheel-bottom line
         print(f"            flat-pose belly clearance {belly:.1f} mm; in the 30° stance the body rises {P.TIP_X*math.sin(math.radians(30)):.0f} mm")
         # heights
-        print(f"            overall height flat ≈ {P.STACK['lidar_adapter_top'] + 40 - ground_z:.0f} mm to the LiDAR top; "
+        print(f"            overall height flat ≈ {P.STACK['lidar_top'] - ground_z:.0f} mm to the LiDAR top; "
               f"track width ≈ {P.CHASSIS_W + 2 * (P.STACK['wheel_plane_from_plate_edge'] + P.TB3_WHEEL_W):.0f} mm")
 
 

@@ -97,8 +97,11 @@ def build(named=False):
         add("board_standoff", Cylinder(radius=2.5, height=12, align=(Align.CENTER, Align.CENTER, Align.MIN)).translate((x, y, dz + 4)))
     lz = dz + 4 + 15 + P.LIDAR_STANDOFF
     add("lidar_adapter", lidar_adapter_p0.build().translate((pix, 0, lz)))
-    add("rplidar_base", Box(97, 70, 8, align=(Align.CENTER, Align.CENTER, Align.MIN)).translate((pix, 0, lz + 3)))
-    add("rplidar_head", Cylinder(radius=35, height=32, align=(Align.CENTER, Align.CENTER, Align.MIN)).translate((pix, 0, lz + 11)))
+    # RPLidar A1: base 96.74 x 70.28 with the axis 35.14 from its front edge, 51 tall overall
+    lx0 = P.RPLIDAR_AXIS_X + P.RPLIDAR_AXIS_FROM_FRONT - P.RPLIDAR_L / 2
+    add("rplidar_base", Box(P.RPLIDAR_L, P.RPLIDAR_W, 12, align=(Align.CENTER, Align.CENTER, Align.MIN)).translate((lx0, 0, lz + 3)))
+    add("rplidar_head", Cylinder(radius=35, height=P.RPLIDAR_H - 12, align=(Align.CENTER, Align.CENTER, Align.MIN)).translate((P.RPLIDAR_AXIS_X, 0, lz + 3 + 12)))
+    # the four M2.5 standoffs under its base (25 mm hex, supplied with the kit) are inside the 12 mm base envelope
     # camera head on the chassis plate: pan base foot across Y, yoke above it (shown unrotated)
     pb, yoke, cradle = camera_pan_tilt_p0.build()
     add("pan_base", pb.rotate(Axis.Z, 90).translate((P.CAM_X, 0, TOP)))

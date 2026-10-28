@@ -5,7 +5,7 @@ How the TurtleBot3-scale rig goes together. It is written for two configurations
 - **Configuration A — the full design.** Four identical articulated flippers, each with a pitch servo in a chassis-side mount and a drive servo in the arm. This is what the spec, the concept drawing and every later stage assume. It needs four XL430s and two ICT-01 track sets beyond what is on hand.
 - **Configuration B — interim, parts on hand.** Two articulated flippers in front, two passive wheeled skids behind at a fixed, pin-selected angle. Nothing to buy. It proves the pivot, the arm, the firmware and the climb sequence; it cannot push with the rear or self-right.
 
-Everything shared between them is written once; the places where B differs are marked **[B]**. Parts are from `cad/` (printed) and the hardware tables below. Dimensions marked **VERIFY** are assumptions in `cad/params.py` that must be checked with calipers before the dependent step.
+Everything shared between them is written once; the places where B differs are marked **[B]**. Parts are from `cad/` (printed) and the hardware tables below. Every dimension that mates to a bought part is traced to the maker's drawing or model in `cad/params.py`; the only measurements left to you are the print-fit coupon and closing a track (section 0).
 
 Robot frame throughout: **X forward, Y left, Z up**, origin at the centre of the chassis plate's top face. The pitch horn faces are the chassis side edges (Y = ±76 mm); the arms sit 6 mm outboard of them on printed spacers. "Inboard" means toward the chassis centreline. Every mounting position below is a named grid hole in `cad/params.py` (`PLACE`) and is drawn to scale in Figures 4, 8, 9 and 10; nothing is left to be judged by eye.
 
@@ -15,14 +15,12 @@ Robot frame throughout: **X forward, Y left, Z up**, origin at the centre of the
 
 ## 0. Before printing anything
 
-1. Measure the **ICT-01 link pitch**: lay 10 links flat, hinge to hinge, and divide by 10. `params.py` assumes 6.0 mm. If it differs, change `ICT01_PITCH`, rebuild, and the arm length and tip-slot position move with it.
-2. Measure the **TB3 wheel outer diameter with ICT-01 links fitted** and the wheel width. Assumed 66 × 22 mm.
-3. The **XL430-W250** dimensions in `params.py` are taken from Robotis's STEP model and parts list (28.5 × 46.5 × 34 mm body; output axis 11.25 mm from the horn end; four case holes in each wide face at 4 and 28 mm from the axis toward the back, 6 mm either side of mid-depth, for the supplied **M2.6 × 5 self-tapping** screws; connectors on the back end; horn **flush** with the case face; horn screws M2). Still **verify on a servo**: the horn screw PCD (assumed 16, 4 × M2) and whatever is at the horn centre (the model shows a Ø9 recess; the spacer and arm have a Ø9.4 clearance hole). If the PCD is off, the pivot spacer, the arm flange, the tip hub and the coupon change.
-4. Look at a **TB3 wheel's centre**: the tip bolt's hex head sits inside the hub flange under the wheel. If the wheel's hub is open at the centre you can hold the head with a socket through it; if it is closed, hold the head before fitting the wheel (the procedure in section 7 assumes this).
-5. Check the OpenCR 1.0 mounting-hole pattern (assumed 85 × 65 mm) against the OpenCR adapter's slots (±2 mm). If it is further off, change `PX, PY` in `opencr_adapter_p0.py`.
-6. Print the **tolerance coupon** (`coupon_p0`). Press a 626 into each of the three seats; the one that needs a firm thumb push but no mallet is your `PRESS_FIT`. Slide an M6 bolt through the three bores; the one that slides freely without wobble is `CLEAR_FIT`. Drive one of the servo's M2.6 self-tappers into the three counterbored test holes — it should bite firmly through the 2 mm web. Drop an M6 hex head into the hex pocket: it should enter by hand and not turn. Try an XL430 in the pocket and a horn on the pattern. Put the numbers in `params.py`, rebuild, and run `uv run cad/check_p0.py` — it rebuilds the whole assembly at six poses and reports any interference or off-grid hole.
+Almost every dimension this design depends on comes from the manufacturers' own files, not from measurement: the XL430 body, taps, horn and connectors from Robotis's STEP; the TB3 wheel (Ø66 × 18.2, Ø7 bore, four Ø2.1 horn holes at PCD 16) from the wheel mesh in Robotis's own TurtleBot3 URDF; the OpenCR hole pattern (66 × 96, Ø4) from the board STEP in `ROBOTIS-GIT/OpenCR-Hardware`; the RPLidar A1 holes and heights from Slamtec's datasheet drawing; the ICT-01 pitch (6 mm, 40 per pack, two packs per track) from Robotis Japan's listing and the TurtleBot3 Tank. The sources are quoted in `cad/params.py` next to each number. Two things are still yours to check, because they are properties of *your* printer and *your* track rather than of the parts:
 
-Only after step 6: print the rest, in this order — hub spacers and pivot spacers, tip hubs, pitch mounts, **[B]** skid brackets and arms, deck and adapters, camera parts, chassis plate, flipper arms. Arms last because they are the longest print and the most likely to change.
+1. **Print the tolerance coupon** (`coupon_p0`) — fits in PLA depend on the printer and filament. Press a 626 into each of the three seats; the one that needs a firm thumb push but no mallet is your `PRESS_FIT`. Slide an M6 bolt through the three bores; the one that slides freely without wobble is `CLEAR_FIT`. Drive one of the servo's M2.6 self-tappers into the three counterbored test holes — it should bite firmly through the 2 mm web. Drop the M6 socket head into the Ø10.4 pocket: it should enter by hand. Try an XL430 in the pocket and the spacer on a horn. Put the numbers in `params.py`, rebuild, and run `uv run cad/check_p0.py` — it rebuilds the whole assembly at six poses and reports any interference or off-grid hole.
+2. **Close one track on a pair of wheels** before printing the arms, if you can borrow two wheels: 80 links at 6 mm pitch should close at a 136 mm centre distance, which is the figure Robotis's own Tank uses (its firmware keeps the 33 mm wheel radius with the caterpillar on). The tip slot gives ±4 mm. If your loop closes outside that, change `ICT01_PITCH` or `TB3_WHEEL_D` and rebuild; everything downstream moves with them.
+
+Then print in this order — hub spacers and pivot spacers, tip hubs, pitch mounts, **[B]** skid brackets and arms, deck and adapters, camera parts, chassis plate, flipper arms. Arms last because they are the longest print and the most likely to change.
 
 ## 1. What you are building
 
@@ -30,14 +28,14 @@ Only after step 6: print the rest, in this order — hub spacers and pivot space
 | --- | --- | --- | --- |
 | **Chassis plate** | 200 × 152 × 6 mm printed plate with an 8 mm M3 hole grid (the TurtleBot3 pitch). Everything bolts to it. | 1 | 1 |
 | **Pitch servo mount** | A printed box holding one XL430 standing on its horn end, horn facing outboard; bolts to the plate's corner so the horn face is flush with the plate edge. The arm bolts to that horn through a 6 mm printed spacer. | 4 | 2 |
-| **Flipper arm** | Tapered printed arm, 182 mm pivot-to-tip (drive axis 46 + 136 mm wheel centres, **VERIFY** via link pitch), carrying its own drive XL430 in a housing at the root, a TB3 wheel on that servo's horn, and a second TB3 wheel on a free-spinning hub at the tip. The ICT-01 links loop around both wheels. | 4 | 2 |
+| **Flipper arm** | Tapered printed arm, 182 mm pivot-to-tip (drive axis 46 + 136 mm wheel centres), carrying its own drive XL430 in a housing at the root, a TB3 wheel on that servo's horn, and a second TB3 wheel on a free-spinning hub at the tip. The ICT-01 links loop around both wheels. | 4 | 2 |
 | **Pivot spacer** | Ø26 × 6 printed disc between the pitch horn and the arm (and between skid bracket and skid arm). The horn is flush with the servo case, so this is what keeps the arm clear of the case and the mount — and the drive-servo lead runs out through the gap it creates. | 4 | 4 (2 arms + 2 skids) |
-| **Tip hub** | Printed hub with two 626 bearings on an M6 × 50 hex bolt; the bolt's head is captive in the hub flange and its nylock on the arm's inboard face clamps it in the tip boss slot. The TB3 wheel screws to the flange. Two printed Ø9.5 × 3 spacers per hub. | 4 | 4 (2 arms + 2 skids) |
+| **Tip hub** | Printed hub with two 626 bearings on an M6 × 50 socket-head bolt; the head sits in a pocket in the hub flange, reachable with a 5 mm hex key through the wheel's Ø7 centre bore, and the nylock on the arm's inboard face clamps it in the tip boss slot. The TB3 wheel screws to the flange. Two printed Ø9.5 × 3 spacers per hub. | 4 | 4 (2 arms + 2 skids) |
 | **Skid bracket / skid arm** [B] | A printed upright at each rear corner with an 8 mm pivot and four index holes, and a passive arm with a tip hub and wheel. The arm's angle is fixed by one M3 pin; 0 / 20 / 35 / 50°. | — | 2 + 2 |
 | **Upper deck** | 164 × 120 × 4 mm plate on four 60 mm standoffs, above the battery and the mount tops. Carries the two board adapters. | 1 | 1 |
-| **OpenCR adapter** | 84 × 112 × 3 plate: OpenCR holes (**VERIFY**, slotted) to deck grid holes at (−104, ±32) and (−24, ±32). OpenCR sits long-side-across at the rear. | 1 | 1 |
+| **OpenCR adapter** | 84 × 112 × 3 plate: the OpenCR's 66 × 96 holes to deck grid holes at (−104, ±32) and (−24, ±32). OpenCR sits long-side-across at the rear. | 1 | 1 |
 | **Pi adapter** | 72 × 76 × 3 plate: Pi 58 × 49 holes to deck grid holes at (−8, ±32) and (40, ±32). The same four holes carry the LiDAR standoffs. | 1 | 1 |
-| **LiDAR adapter** | 100 × 74 × 3 plate on four 40 mm standoffs stacked on the Pi adapter's holes; RPLidar A1 base holes (**VERIFY**, slotted). | 1 | 1 |
+| **LiDAR adapter** | 100 × 74 × 3 plate on four 40 mm standoffs stacked on the Pi adapter's holes; the RPLidar A1's four M2.5 holes (front pair 56 apart, rear pair 40 apart, 70 between rows) with the LiDAR's axis at x = 20. | 1 | 1 |
 | **Batteries** | Motor LiPo: LB-012 3S 1800 mAh across the chassis centre under the deck. Compute LiPo: a second LB-012 along X in the rear bay (x = −107…−19, |y| ≤ 29, 50 mm tall) feeding a 5 V / 5 A buck for the Pi. A power bank that fits that envelope can replace the second LiPo + buck; a 10 000 mAh bank does not fit anywhere on P0. | 2 | 2 |
 | **Camera pan/tilt** | Three printed parts and two MG90S micro servos on the chassis plate at the front centre (x = 88), ahead of the deck: a pan base (servo shaft up), a tilt yoke on the pan horn, and a camera cradle between the yoke's uprights carrying a Raspberry Pi Camera Module. Pan ±90°, tilt −45° to +30°, driven from two OpenCR PWM pins. The ribbon goes to the Pi's CSI port. A fixed 10° mount (`camera_mount_p0`) is the no-servo fallback. | 1 | 1 |
 
@@ -74,7 +72,7 @@ Only after step 6: print the rest, in this order — hub spacers and pivot space
 | DYNAMIXEL XL430-W250-T | 8 | 4 | 1 pitch + 1 drive per flipper. **Buy 4 for A.** |
 | TB3 Wheel/Tire ISW-01 | 8 | 8 | Two per arm or skid. On hand. |
 | ROBOTIS ICT-01 links | 320 (8 sets) | 160 (4 sets) | 80 per track at 6 mm pitch. **On hand: 80 (2 sets).** Buy 6 sets for A, 2 for B. |
-| M6 × 50 hex bolt, partially threaded (ISO 4014, 8.8) | 4 | 4 | Tip axles. The 32 mm plain shank carries the bearings. |
+| M6 × 50 socket-head cap screw, partially threaded (ISO 4762, 8.8) | 4 | 4 | Tip axles. The 26 mm plain shank carries the bearings; 5 mm hex key. |
 | M6 × 35 hex bolt | — | 2 | Skid pivots. |
 | M6 nylock + M6 washer | 4 | 6 | Tip bolts (**[B]** + skid pivots). |
 | 626-2RS bearing (6 × 19 × 6) | 8 | 8 | Two per tip hub. |
@@ -83,7 +81,7 @@ Only after step 6: print the rest, in this order — hub spacers and pivot space
 | M3 × 60 standoff (or 2 × 30 stacked) | 4 | 4 | Deck. |
 | M3 × 12 standoff M/F + M3 × 6 | 8 | 8 | OpenCR adapter and Pi adapter on the deck. |
 | M3 × 40 standoff M/F | 4 | 4 | LiDAR adapter, threaded onto the Pi adapter's standoff screws. |
-| M3 × 6 / M2.5 × 6 | 8 | 8 | OpenCR → its adapter (M3); RPLidar → its adapter (M2.5, VERIFY). |
+| M3 × 6 / M2.5 × 6 | 8 | 8 | OpenCR → its adapter (M3); RPLidar → its adapter (M2.5, into the LiDAR's own hex standoffs). |
 | Second LB-012 (or any 3S pack ≤ 88 × 35 × 50) | 1 | 1 | **Buy.** Compute supply, rear bay. |
 | 5 V / 5 A buck converter (e.g. Pololu D24V50F5 or a 5 A UBEC) + USB-C pigtail | 1 | 1 | **Buy.** Under the deck beside the rear slot, zip-tied. |
 | 25 mm hook-and-loop strap, ~350 mm | 1 | 1 | Compute battery. |
@@ -118,7 +116,7 @@ Do this with each XL430 alone on the U2D2 or OpenCR bus so ID conflicts cannot h
 
 The tip wheel is an idler. Nothing drives it: an M6 bolt is clamped in the arm's tip boss and stays still, and the hub turns on that bolt on two 626 bearings. The TB3 wheel screws to the hub's flange using the same four-hole pattern it uses on a servo horn, so the wheel and its ICT-01 links free-wheel while the drive wheel at the other end of the arm does the work.
 
-1. Drop the M6 × 50 bolt into the hub from the back, head first: the hex head seats in the hex pocket behind the flange and cannot turn. (A 6.5 mm hole through the flange lets you see it and, if the wheel's centre is open, reach it with a socket.)
+1. Drop the M6 × 50 bolt into the hub from the back, head first: the head seats in the Ø10.4 pocket behind the flange. A 6.5 mm hole through the flange face lines up with the wheel's Ø7 centre bore, so a 5 mm hex key reaches the head with the wheel fitted.
 2. Over the bolt, press the first 626 into the bore from the back, outer race only, square, until it sits against the flange. Then one printed spacer (it sits on the inner race), then the second 626 flush with the back of the hub.
 3. Spin the hub on the bolt: free, no wobble. The bolt's plain shank should run through both bearings with the thread starting just past the second one.
 4. Screw a TB3 wheel to the flange with four of its own PHS M2 × 4 (they thread into the Ø1.7 holes). The flange faces outboard (toward the wheel); the hub body sits inboard of the wheel.
@@ -161,7 +159,7 @@ Build one, then repeat; the parts are identical. A right-hand arm is the same pr
 2. **Drive servo.** It lies *along* the arm: horn end toward the tip, back end (connectors) toward the pivot, which is the open end of the housing. Drop it in from outboard, horn out; its output axis is 46 mm from the pivot and the housing only fits it one way round. Four of its **M2.6 × 5 self-tapping** screws through the counterbored holes in the housing's side walls (at 18 and 42 mm from the pivot, 11 and 23 mm below the horn face). Plug the lead in through the open end, drop it through the **Ø8 hole in the arm plate beside the pivot flange** (the one at 0, +22 — the other is for the mirrored arm), and out along the spacer gap, upward, over the top of the mount. Zip-tie the slack to the housing's tie holes.
 3. **Drive wheel.** TB3 wheel straight onto the drive horn with its PHS M2 × 4 screws. The horn stands 1 mm proud of the housing walls; spin the wheel and check it touches nothing.
 4. **Tip wheel.** The hub-and-wheel from section 4 brings its own bolt. Onto the bolt, inboard of the hub: one printed spacer, then through the tip-boss slot (the boss is 21 mm tall), then an M6 washer and nylock on the arm's inboard face, loose. Both wheels' inner faces must be **50 mm from the chassis plate edge** (6 spacer + 10 plate + 34 housing — Figure 10), i.e. 44 mm from the arm's inboard face; the hub stack (3 + 20) puts it there by itself. Figure 11 shows the whole arm in section.
-5. **Track.** Loop the ICT-01 links around both wheels. 80 links at 6 mm pitch close at a 136 mm centre distance; the slot gives ±4 mm. Slide the bolt in the slot until the lower run deflects ~5 mm under a thumb, then tighten the nylock while holding the hex head (10 mm socket through the wheel centre if it is open; otherwise fit the wheel after tightening).
+5. **Track.** Loop the ICT-01 links around both wheels. 80 links at 6 mm pitch close at a 136 mm centre distance; the slot gives ±4 mm. Slide the bolt in the slot until the lower run deflects ~5 mm under a thumb, then tighten the nylock while holding the head with a 5 mm hex key through the wheel's centre bore.
 6. Rotate the arm by hand (power off). The drive wheel sweeps a 79 mm radius and the tip wheel 215 mm about the pivot, entirely outboard of the plate edge. In configuration A the front and rear arms on a side share a plane: see the limits in section 11 before powering up.
 
 ## 8. Rear skids [B only]
@@ -187,13 +185,13 @@ Everything on the deck, and the deck-grid hole it uses (robot coordinates; the d
 | Deck plate 164 × 120 | (−28, 0) | to chassis standoffs at (−80, ±32), (24, ±32) | underside 60, top 64 |
 | OpenCR adapter + OpenCR | (−64, 0), board long side along Y | (−104, ±32), (−24, ±32) on M3 × 12 standoffs | adapter 76–79, headers to ~93 |
 | Pi adapter + Pi | (16, 0) | (−8, ±32), (40, ±32) on M3 × 12 standoffs | adapter 76–79, cooler top ~109 |
-| LiDAR adapter + RPLidar A1 | (16, 0) | same four holes, M3 × 40 standoffs threaded onto the Pi adapter screws | adapter 119–122, scan plane ≈149 |
+| LiDAR adapter + RPLidar A1 | adapter (16, 0); LiDAR axis (20, 0), wide end forward | adapter on the same four holes via M3 × 40 standoffs; LiDAR on its holes at (48, ±28) and (−22, ±20) | adapter 119–122, scan plane ≈167, top 173 |
 | Camera pan/tilt head | (88, 0) on the **chassis**, not the deck | (88, ±24) | top 77; pan sweep stops 2.8 mm short of the deck edge |
 
 1. **Bolt the deck down first**: M3 × 8 through the deck into the four 60 mm standoffs at (−80, ±32) and (24, ±32). Two of those screw heads end up under the adapters, which is fine because the adapters sit 12 mm higher — but it means the deck cannot be removed without lifting the adapters.
 2. **OpenCR adapter** on four M3 × 12 standoffs at (−104, ±32) and (−24, ±32); OpenCR onto the adapter's slotted holes with M3 × 6, long side across the robot, USB and power connectors toward the rear, headers up.
 3. **Pi adapter** on four M3 × 12 standoffs at (−8, ±32) and (40, ±32); Pi onto it with M2.5 × 6 and its own 11 mm standoffs, long side along X, USB/Ethernet end **forward** (it overhangs the deck's front edge by 4 mm, above the camera head). Do not use M3 × 6 on top of the four adapter standoffs — the LiDAR standoffs go there instead.
-4. **LiDAR adapter** on four M3 × 40 M/F standoffs threaded onto the Pi adapter's four standoffs; RPLidar A1 onto the adapter's slotted holes with its own M2.5 screws, cable toward the rear through the adapter's centre hole. The 40 mm clears a Pi 5 cooler (30 mm) with airflow; the scan plane at ≈149 mm is above the camera head (77) and the LiDAR's rotating head has a clear 360° view — the raised flipper tips are the only thing that can enter it.
+4. **LiDAR adapter** on four M3 × 40 M/F standoffs threaded onto the Pi adapter's four standoffs; RPLidar A1 onto the adapter's four holes with M2.5 × 6 into the LiDAR's own hex standoffs, wide end of the base forward, motor/connector end aft; its leads go down through the slot behind the rear holes to the USB adapter board, which zip-ties to a LiDAR standoff. The 40 mm clears a Pi 5 cooler (30 mm) with airflow; the scan plane at ≈167 mm is above the camera head (77) and the LiDAR's rotating head has a clear 360° view — the raised flipper tips are the only thing that can enter it.
 5. **Camera pan/tilt** (Figure 7). Centre both MG90S servos with a servo tester or the OpenCR before fitting horns.
    - Drop the pan servo into the pan base from the top, shaft up, lead out through the pocket; two M2 self-tap screws through the flange into the block. Bolt the base to the **chassis plate** at the front centre — foot across Y, grid holes (88, ±24) — between the two front pitch mounts, flush with the plate's front edge. The yoke's corners sweep a 31 mm radius when it pans; at x = 88 that stops 2.8 mm short of the deck's front edge (x = 54). The head's top is at 77 mm, under the LiDAR's scan plane and 2 mm under the Pi board's forward overhang.
    - Fit a two-arm horn to the pan servo. Bolt the tilt yoke's plate to it (centre M2.5 screw plus the two pin holes) with the yoke's servo upright on the robot's right.
@@ -224,9 +222,9 @@ The LB-012 is 11.1 V, 1800 mAh (≈20 Wh). That is enough for the motors alone; 
 
 **Compute supply:** the second LB-012 (≈20 Wh) through a 5 V / 5 A buck gives the Pi 5 + LiDAR + camera (~8–10 W) about **2 h**; with a Pi 4, ~3 h. Set the buck to 5.1 V. Use a buck rated 5 A continuous with ≥ 90 % efficiency (Pololu D24V50F5, or a 5 A "UBEC"); add a 470–1000 µF low-ESR capacitor at its output if the Pi reports under-voltage. Switch: the LB-012's own connector — unplug to power down the Pi *after* a clean shutdown.
 
-**Why not one battery:** the OpenCR's 5 V regulator can supply a Pi 4 but is marginal for a Pi 5, and every servo stall drags the rail; separate supplies also mean the Pi keeps logging when the e-stop or the firmware cuts motor power — the same split as the full-size design. If you do run single-battery, feed the buck from the motor LiPo with a 1000 µF cap at the Pi, never from the OpenCR's 5 V header.
+**Why not one battery:** the OpenCR's 5 V output is rated 4 A, which would run a Pi 5 without USB loads, but every servo stall drags the shared battery rail; separate supplies also mean the Pi keeps logging when the e-stop or the firmware cuts motor power — the same split as the full-size design. If you do run single-battery, feed the buck from the motor LiPo with a 1000 µF cap at the Pi, never from the OpenCR's 5 V header.
 
-**OpenCR bus rating (VERIFY):** the OpenCR passes battery voltage straight to the Dynamixel ports; check its continuous current rating against configuration A's 11 A theoretical stall and keep per-servo current limits set so the sum stays below it. Bench development (firmware, servo tuning, pan/tilt) should run from a 12 V / 10 A supply on the OpenCR's DC jack, not the LiPo.
+**OpenCR limits (from its e-manual):** input fuse 10 A; 12 V output 4.5 A max; 5 V output 4 A max; 55 W total on the regulated outputs. The Dynamixel ports pass battery voltage through that 10 A fuse, so configuration A's 11 A theoretical stall *must* be kept below it with per-servo current limits (eight at 60 % = 6.7 A worst case); the LB-012's own 5C rating is 9 A. Bench development (firmware, servo tuning, pan/tilt) should run from the 12 V / 4.5 A SMPS on the OpenCR's DC jack, not the LiPo.
 
 ## 11. Wiring
 
@@ -281,7 +279,7 @@ Numbers from `uv run cad/check_p0.py` (mass estimates in `params.MASS`; weigh th
 | --- | --- | --- |
 | Mass | ≈ 2.7 kg | ≈ 2.1 kg |
 | Centre of gravity | x ≈ 0, 48 mm above the ground (flat) | x ≈ +31, 52 mm above the ground (flat) |
-| Height, flat / 30° stance | 177 / ≈ 268 mm to the LiDAR top | same |
+| Height, flat / 30° stance | 188 / ≈ 279 mm to the LiDAR top | same |
 | Belly clearance, flat / 30° stance | 9 / ≈ 100 mm | same |
 | Static tip-back (body pitch at which the CoG passes the rear contact) | 79° | 75° |
 | Stair slope for comparison | 32° (178 × 280), 34° (100 × 150 test step) | same |

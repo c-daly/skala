@@ -10,14 +10,15 @@ Three printed parts, bottom to top:
                      servo horn, the other turns on the M3 pivot. The tilt axis passes through
                      the board centre so the lens tilts in place.
 
-MG90S dimensions below are typical and marked VERIFY in params.py. Frames: X forward, Z up.
+MG90S dimensions below are the TowerPro datasheet values; clones vary by a few tenths, which the
+0.3 mm pocket clearance and the 2.5 mm flange recess absorb. Frames: X forward, Z up.
 """
 import sys, pathlib
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[1]))
 from build123d import *
 import params as P
 
-# ---- MG90S (VERIFY) ------------------------------------------------------------------
+# ---- MG90S (TowerPro datasheet) --------------------------------------------------------
 SV_L, SV_W, SV_H = 22.8, 12.2, 22.5      # body length, width, height to top of case
 SV_FLANGE_L, SV_FLANGE_T = 32.5, 2.5    # mounting flange span and thickness
 SV_FLANGE_Z = 16.5                      # flange underside above body bottom
@@ -66,7 +67,7 @@ def pan_base():
 def tilt_yoke():
     with BuildPart() as y:
         Box(IN_W + 2 * UP_T, 44, YOKE_T, align=(Align.CENTER, Align.CENTER, Align.MIN))
-        # pan horn: centre screw + two pin holes for a 2-arm horn (VERIFY horn pattern)
+        # pan horn: centre screw + two pin holes for the supplied 2-arm horn; drill the pin holes to the horn you have
         Cylinder(radius=(SV_HORN_SCREW + 0.4) / 2, height=20, mode=Mode.SUBTRACT)
         with Locations((0, -7, 0), (0, 7, 0)):
             Cylinder(radius=1.0, height=20, mode=Mode.SUBTRACT)
