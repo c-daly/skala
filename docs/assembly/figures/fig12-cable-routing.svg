@@ -1,0 +1,139 @@
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1000 1360' width='1000' height='1360'>
+<rect width='100%' height='100%' fill='white'/>
+<text x='20' y='30' font-family='Helvetica, Arial, sans-serif' font-size='20' font-weight='bold' fill='#1f2328'>Figure 12 — Where the wires go (1 mm = 4 px)</text><text x='20' y='50' font-family='Helvetica, Arial, sans-serif' font-size='13' fill='#6b7280'>XL430: two connector windows in the back END face, one SIDE window in each narrow face against the idler surface. Every printed wall over a side window is cut away.</text>
+<text x='40.0' y='88.0' font-family='Helvetica, Arial, sans-serif' font-size='13' fill='#1f2328' text-anchor='start' font-weight='bold'>A — arm root seen from outboard (horn face of the drive servo toward you)</text>
+<circle cx='170.0' cy='300.0' r='120.0' fill='#fde68a' stroke='#92400e' stroke-width='1.3'/>
+<rect x='170.0' y='180.0' width='320.0' height='240.0' rx='0' fill='#fde68a' stroke='#92400e' stroke-width='1.3' opacity='1'/>
+<line x1='170.0' y1='182.4' x2='170.0' y2='417.6' stroke='#fde68a' stroke-width='4'/>
+<circle cx='202.0' cy='300.0' r='9.0' fill='white' stroke='#92400e' stroke-width='1'/>
+<circle cx='138.0' cy='300.0' r='9.0' fill='white' stroke='#92400e' stroke-width='1'/>
+<circle cx='170.0' cy='268.0' r='9.0' fill='white' stroke='#92400e' stroke-width='1'/>
+<circle cx='170.0' cy='332.0' r='9.0' fill='white' stroke='#92400e' stroke-width='1'/>
+<circle cx='170.0' cy='300.0' r='18.8' fill='white' stroke='#92400e' stroke-width='1'/>
+<circle cx='170.0' cy='388.0' r='16.0' fill='white' stroke='#1d4ed8' stroke-width='1.5'/>
+<rect x='226.0' y='368.0' width='64.0' height='32.0' rx='16.0' fill='white' stroke='#c2410c' stroke-width='1.3' opacity='1.5'/>
+<circle cx='170.0' cy='212.0' r='16.0' fill='white' stroke='#1d4ed8' stroke-width='1.5'/>
+<rect x='226.0' y='200.0' width='64.0' height='32.0' rx='16.0' fill='white' stroke='#c2410c' stroke-width='1.3' opacity='1.5'/>
+<rect x='211.8' y='358.2' width='208.4' height='20.0' rx='0' fill='#d6d3d1' stroke='#57534e' stroke-width='1.3' opacity='1'/>
+<rect x='214.0' y='358.2' width='112.0' height='20.0' rx='0' fill='white' stroke='#57534e' stroke-width='1.3' stroke-dasharray='4 3' opacity='1'/>
+<rect x='211.8' y='221.8' width='208.4' height='20.0' rx='0' fill='#d6d3d1' stroke='#57534e' stroke-width='1.3' opacity='1'/>
+<rect x='214.0' y='221.8' width='112.0' height='20.0' rx='0' fill='white' stroke='#57534e' stroke-width='1.3' stroke-dasharray='4 3' opacity='1'/>
+<rect x='400.2' y='221.8' width='20.0' height='156.4' rx='0' fill='#d6d3d1' stroke='#57534e' stroke-width='1.3' opacity='1'/>
+<rect x='213.0' y='243.0' width='186.0' height='114.0' rx='0' fill='#e5e7eb' stroke='#1f2328' stroke-width='1.3' opacity='0.9'/>
+<circle cx='354.0' cy='300.0' r='41.6' fill='#9ca3af' stroke='#1f2328' stroke-width='1'/>
+<text x='354.0' y='304.8' font-family='Helvetica, Arial, sans-serif' font-size='10' fill='#1f2328' text-anchor='middle' font-weight='normal'>horn</text>
+<rect x='211.0' y='327.0' width='10.0' height='10.0' rx='0' fill='#1f2937' stroke='#1f2937' stroke-width='1.3' opacity='1'/>
+<rect x='218.0' y='351.0' width='104.0' height='6.0' rx='0' fill='#1f2937' stroke='#1f2937' stroke-width='1.3' opacity='1'/>
+<rect x='211.0' y='263.0' width='10.0' height='10.0' rx='0' fill='#1f2937' stroke='#1f2937' stroke-width='1.3' opacity='1'/>
+<rect x='218.0' y='243.0' width='104.0' height='6.0' rx='0' fill='#1f2937' stroke='#1f2937' stroke-width='1.3' opacity='1'/>
+<path d='M 282 243 L 282 216 L 258 216' fill='none' stroke='#c2410c' stroke-width='3.5'/>
+<circle cx='258' cy='216' r='6' fill='#c2410c'/>
+<path d='M 213 332 C 173 332 178 348 170 388' fill='none' stroke='#1d4ed8' stroke-width='3.5' stroke-dasharray='7 4'/>
+<circle cx='170' cy='388' r='6' fill='#1d4ed8'/>
+<circle cx='213.0' cy='268.0' r='3.5' fill='#1f2328'/>
+<line x1='213.0' y1='268.0' x2='560' y2='150' stroke='#1f2328' stroke-width='1.1'/>
+<text x='564.0' y='154.0' font-family='Helvetica, Arial, sans-serif' font-size='12' fill='#1f2328' text-anchor='start' font-weight='bold'>Connector windows (end face)</text>
+<text x='564.0' y='168.0' font-family='Helvetica, Arial, sans-serif' font-size='11' fill='#6b7280' text-anchor='start' font-weight='normal'>two, 7.5 × 2.5, at ±8; the plugs go in</text>
+<text x='564.0' y='182.0' font-family='Helvetica, Arial, sans-serif' font-size='11' fill='#6b7280' text-anchor='start' font-weight='normal'>along the servo toward the tip</text>
+<circle cx='270.0' cy='243.0' r='3.5' fill='#1f2328'/>
+<line x1='270.0' y1='243.0' x2='560' y2='215' stroke='#1f2328' stroke-width='1.1'/>
+<text x='564.0' y='219.0' font-family='Helvetica, Arial, sans-serif' font-size='12' fill='#1f2328' text-anchor='start' font-weight='bold'>Side window (narrow face)</text>
+<text x='564.0' y='233.0' font-family='Helvetica, Arial, sans-serif' font-size='11' fill='#6b7280' text-anchor='start' font-weight='normal'>8–34 mm from the axis, against the plate;</text>
+<text x='564.0' y='247.0' font-family='Helvetica, Arial, sans-serif' font-size='11' fill='#6b7280' text-anchor='start' font-weight='normal'>the wire comes out of the case here</text>
+<circle cx='314.0' cy='232.0' r='3.5' fill='#1f2328'/>
+<line x1='314.0' y1='232.0' x2='560' y2='280' stroke='#1f2328' stroke-width='1.1'/>
+<text x='564.0' y='284.0' font-family='Helvetica, Arial, sans-serif' font-size='12' fill='#1f2328' text-anchor='start' font-weight='bold'>Housing wall cut away</text>
+<text x='564.0' y='298.0' font-family='Helvetica, Arial, sans-serif' font-size='11' fill='#6b7280' text-anchor='start' font-weight='normal'>x 11–35, 7 mm up from the plate,</text>
+<text x='564.0' y='312.0' font-family='Helvetica, Arial, sans-serif' font-size='11' fill='#6b7280' text-anchor='start' font-weight='normal'>both sides — so the side window is open</text>
+<circle cx='258.0' cy='216.0' r='3.5' fill='#c2410c'/>
+<line x1='258.0' y1='216.0' x2='560' y2='345' stroke='#c2410c' stroke-width='1.1'/>
+<text x='564.0' y='349.0' font-family='Helvetica, Arial, sans-serif' font-size='12' fill='#c2410c' text-anchor='start' font-weight='bold'>● Side route (use this)</text>
+<text x='564.0' y='363.0' font-family='Helvetica, Arial, sans-serif' font-size='11' fill='#6b7280' text-anchor='start' font-weight='normal'>out of the side window, through the cut,</text>
+<text x='564.0' y='377.0' font-family='Helvetica, Arial, sans-serif' font-size='11' fill='#6b7280' text-anchor='start' font-weight='normal'>down the slot at (22, ±21), out on the inboard face</text>
+<circle cx='170.0' cy='388.0' r='3.5' fill='#1d4ed8'/>
+<line x1='170.0' y1='388.0' x2='560' y2='410' stroke='#1d4ed8' stroke-width='1.1'/>
+<text x='564.0' y='414.0' font-family='Helvetica, Arial, sans-serif' font-size='12' fill='#1d4ed8' text-anchor='start' font-weight='bold'>● End route (alternative)</text>
+<text x='564.0' y='428.0' font-family='Helvetica, Arial, sans-serif' font-size='11' fill='#6b7280' text-anchor='start' font-weight='normal'>out of the end window, down the Ø8 hole</text>
+<text x='564.0' y='442.0' font-family='Helvetica, Arial, sans-serif' font-size='11' fill='#6b7280' text-anchor='start' font-weight='normal'>at (0, ±22); keeps clear of the pivot screws</text>
+<circle cx='138.0' cy='300.0' r='3.5' fill='#92400e'/>
+<line x1='138.0' y1='300.0' x2='560' y2='475' stroke='#92400e' stroke-width='1.1'/>
+<text x='564.0' y='479.0' font-family='Helvetica, Arial, sans-serif' font-size='12' fill='#92400e' text-anchor='start' font-weight='bold'>Pivot flange</text>
+<text x='564.0' y='493.0' font-family='Helvetica, Arial, sans-serif' font-size='11' fill='#6b7280' text-anchor='start' font-weight='normal'>four counterbored M2 × 12 — fit these</text>
+<text x='564.0' y='507.0' font-family='Helvetica, Arial, sans-serif' font-size='11' fill='#6b7280' text-anchor='start' font-weight='normal'>before the servo, the plugs cover two of them</text>
+<text x='40.0' y='660.0' font-family='Helvetica, Arial, sans-serif' font-size='13' fill='#1f2328' text-anchor='start' font-weight='bold'>B — the same corner in section, from the front (up = outboard)</text>
+<rect x='50.0' y='870.0' width='440.0' height='24.0' rx='0' fill='#c7d2fe' stroke='#3730a3' stroke-width='1.3' opacity='0.35'/>
+<rect x='50.0' y='830.0' width='440.0' height='40.0' rx='0' fill='#fde68a' stroke='#92400e' stroke-width='1.3' opacity='1'/>
+<rect x='211.8' y='698.0' width='208.4' height='132.0' rx='0' fill='#d6d3d1' stroke='#57534e' stroke-width='1.3' opacity='0.5'/>
+<rect x='214.0' y='802.0' width='112.0' height='28.0' rx='0' fill='white' stroke='#57534e' stroke-width='1.3' stroke-dasharray='4 3' opacity='1'/>
+<rect x='213.0' y='694.0' width='186.0' height='136.0' rx='0' fill='#e5e7eb' stroke='#1f2328' stroke-width='1.3' opacity='1'/>
+<circle cx='354.0' cy='694.0' r='3' fill='#1f2328'/>
+<rect x='218.0' y='806.0' width='104.0' height='24.0' rx='0' fill='#1f2937' stroke='#1f2937' stroke-width='1.3' opacity='1'/>
+<rect x='211.0' y='746.0' width='10.0' height='30.0' rx='0' fill='#1f2937' stroke='#1f2937' stroke-width='1.3' opacity='1'/>
+<rect x='226.0' y='830.0' width='64.0' height='40.0' rx='0' fill='white' stroke='#c2410c' stroke-width='1.3' opacity='1.5'/>
+<rect x='154.0' y='830.0' width='32.0' height='40.0' rx='0' fill='white' stroke='#1d4ed8' stroke-width='1.3' opacity='1.5'/>
+<path d='M 282 822 L 258 832 L 258 882 L 82 882' fill='none' stroke='#c2410c' stroke-width='3.5'/>
+<path d='M 213 762 C 173 762 170 918 170 882 L 82 882' fill='none' stroke='#1d4ed8' stroke-width='3.5' stroke-dasharray='7 4'/>
+<circle cx='215.8' cy='762.0' r='3.5' fill='#1f2328'/>
+<line x1='215.8' y1='762.0' x2='560' y2='730' stroke='#1f2328' stroke-width='1.1'/>
+<text x='564.0' y='734.0' font-family='Helvetica, Arial, sans-serif' font-size='12' fill='#1f2328' text-anchor='start' font-weight='bold'>Plug seats ~9 mm inside the end</text>
+<text x='564.0' y='748.0' font-family='Helvetica, Arial, sans-serif' font-size='11' fill='#6b7280' text-anchor='start' font-weight='normal'>only ~2 mm stands proud of the end face</text>
+<circle cx='270.0' cy='818.0' r='3.5' fill='#1f2328'/>
+<line x1='270.0' y1='818.0' x2='560' y2='785' stroke='#1f2328' stroke-width='1.1'/>
+<text x='564.0' y='789.0' font-family='Helvetica, Arial, sans-serif' font-size='12' fill='#1f2328' text-anchor='start' font-weight='bold'>Side window: 6 mm tall, right on the plate</text>
+<text x='564.0' y='803.0' font-family='Helvetica, Arial, sans-serif' font-size='11' fill='#6b7280' text-anchor='start' font-weight='normal'>the wall cut in front of it is 7 mm tall</text>
+<circle cx='374.0' cy='694.0' r='3.5' fill='#1f2328'/>
+<line x1='374.0' y1='694.0' x2='560' y2='840' stroke='#1f2328' stroke-width='1.1'/>
+<text x='564.0' y='844.0' font-family='Helvetica, Arial, sans-serif' font-size='12' fill='#1f2328' text-anchor='start' font-weight='bold'>Horn face at 44, walls stop at 43</text>
+<text x='564.0' y='858.0' font-family='Helvetica, Arial, sans-serif' font-size='11' fill='#6b7280' text-anchor='start' font-weight='normal'>so the wheel never touches the housing</text>
+<circle cx='410.0' cy='882.0' r='3.5' fill='#3730a3'/>
+<line x1='410.0' y1='882.0' x2='560' y2='895' stroke='#3730a3' stroke-width='1.1'/>
+<text x='564.0' y='899.0' font-family='Helvetica, Arial, sans-serif' font-size='12' fill='#3730a3' text-anchor='start' font-weight='bold'>6 mm spacer gap under the arm</text>
+<text x='564.0' y='913.0' font-family='Helvetica, Arial, sans-serif' font-size='11' fill='#6b7280' text-anchor='start' font-weight='normal'>both routes end here; the lead runs out along</text>
+<text x='564.0' y='927.0' font-family='Helvetica, Arial, sans-serif' font-size='11' fill='#6b7280' text-anchor='start' font-weight='normal'>the gap, over the mount top, to the pitch servo</text>
+<text x='40.0' y='960.0' font-family='Helvetica, Arial, sans-serif' font-size='13' fill='#1f2328' text-anchor='start' font-weight='bold'>C — a pitch mount from above: servo on its horn end, back end (connectors) up; its side windows face the X walls, which are cut away there</text>
+<rect x='221.8' y='1102.0' width='156.4' height='148.0' rx='0' fill='#fed7aa' stroke='#c2410c' stroke-width='1.3' opacity='1'/>
+<rect x='241.8' y='1098.0' width='116.4' height='136.0' rx='0' fill='white' stroke='#c2410c' stroke-width='1.3' opacity='1'/>
+<rect x='221.8' y='1206.0' width='20.0' height='28.0' rx='0' fill='white' stroke='#c2410c' stroke-width='1.3' stroke-dasharray='4 3' opacity='1'/>
+<rect x='358.2' y='1206.0' width='20.0' height='28.0' rx='0' fill='white' stroke='#c2410c' stroke-width='1.3' stroke-dasharray='4 3' opacity='1'/>
+<rect x='243.0' y='1098.0' width='114.0' height='134.8' rx='0' fill='#e5e7eb' stroke='#1f2328' stroke-width='1.3' opacity='0.95'/>
+<rect x='263.0' y='1148.8' width='10.0' height='30.0' rx='0' fill='#1f2937' stroke='#1f2937' stroke-width='1.3' opacity='1'/>
+<circle cx='268.0' cy='1188.8' r='5.2' fill='white' stroke='#1f2328' stroke-width='0.8'/>
+<circle cx='268.0' cy='1140.8' r='5.2' fill='white' stroke='#1f2328' stroke-width='0.8'/>
+<rect x='327.0' y='1148.8' width='10.0' height='30.0' rx='0' fill='#1f2937' stroke='#1f2937' stroke-width='1.3' opacity='1'/>
+<circle cx='332.0' cy='1188.8' r='5.2' fill='white' stroke='#1f2328' stroke-width='0.8'/>
+<circle cx='332.0' cy='1140.8' r='5.2' fill='white' stroke='#1f2328' stroke-width='0.8'/>
+<rect x='243.0' y='1208.8' width='114.0' height='24.0' rx='0' fill='none' stroke='#1f2328' stroke-width='1.3' stroke-dasharray='3 2' opacity='1'/>
+<line x1='20' y1='1098' x2='580' y2='1098' stroke='#1f2328' stroke-width='2'/>
+<line x1='20' y1='1162' x2='580' y2='1162' stroke='#6b7280' stroke-width='1.2' stroke-dasharray='8 4'/>
+<path d='M 268 1165 L 268 1220' fill='none' stroke='#c2410c' stroke-width='3.5' stroke-dasharray='5 3'/>
+<path d='M 268 1220 L 166 1220' fill='none' stroke='#c2410c' stroke-width='3.5'/>
+<path d='M 332 1165 L 332 1220' fill='none' stroke='#c2410c' stroke-width='3.5' stroke-dasharray='5 3'/>
+<path d='M 332 1220 L 434 1220' fill='none' stroke='#c2410c' stroke-width='3.5'/>
+<text x='157.8' y='1214.0' font-family='Helvetica, Arial, sans-serif' font-size='11' fill='#c2410c' text-anchor='end' font-weight='bold'>aft → OpenCR</text>
+<text x='442.2' y='1214.0' font-family='Helvetica, Arial, sans-serif' font-size='11' fill='#c2410c' text-anchor='start' font-weight='bold'>forward → up over the mount → spacer gap → drive servo</text>
+<circle cx='332.0' cy='1164.8' r='3.5' fill='#1f2328'/>
+<line x1='332.0' y1='1164.8' x2='560' y2='1000' stroke='#1f2328' stroke-width='1.1'/>
+<text x='564.0' y='1004.0' font-family='Helvetica, Arial, sans-serif' font-size='12' fill='#1f2328' text-anchor='start' font-weight='bold'>Connector windows in the end face</text>
+<text x='564.0' y='1018.0' font-family='Helvetica, Arial, sans-serif' font-size='11' fill='#6b7280' text-anchor='start' font-weight='normal'>7.5 × 2.5 at x = ±8; plug from above,</text>
+<text x='564.0' y='1032.0' font-family='Helvetica, Arial, sans-serif' font-size='11' fill='#6b7280' text-anchor='start' font-weight='normal'>before the deck goes on (deck is 7 mm up)</text>
+<circle cx='300.0' cy='1226.0' r='3.5' fill='#1f2328'/>
+<line x1='300.0' y1='1226.0' x2='560' y2='1060' stroke='#1f2328' stroke-width='1.1'/>
+<text x='564.0' y='1064.0' font-family='Helvetica, Arial, sans-serif' font-size='12' fill='#1f2328' text-anchor='start' font-weight='bold'>Side windows, hidden against the back wall</text>
+<text x='564.0' y='1078.0' font-family='Helvetica, Arial, sans-serif' font-size='11' fill='#6b7280' text-anchor='start' font-weight='normal'>the wire goes down the hollow back and</text>
+<text x='564.0' y='1092.0' font-family='Helvetica, Arial, sans-serif' font-size='11' fill='#6b7280' text-anchor='start' font-weight='normal'>out here, fore or aft, 25–52 mm above the plate</text>
+<circle cx='368.2' cy='1218.0' r='3.5' fill='#c2410c'/>
+<line x1='368.2' y1='1218.0' x2='560' y2='1120' stroke='#c2410c' stroke-width='1.1'/>
+<text x='564.0' y='1124.0' font-family='Helvetica, Arial, sans-serif' font-size='12' fill='#c2410c' text-anchor='start' font-weight='bold'>X-wall cut-outs</text>
+<text x='564.0' y='1138.0' font-family='Helvetica, Arial, sans-serif' font-size='11' fill='#6b7280' text-anchor='start' font-weight='normal'>7 mm deep from the back wall, 26 mm tall;</text>
+<text x='564.0' y='1152.0' font-family='Helvetica, Arial, sans-serif' font-size='11' fill='#6b7280' text-anchor='start' font-weight='normal'>both walls (either way round)</text>
+<circle cx='460.0' cy='1098.0' r='3.5' fill='#1f2328'/>
+<line x1='460.0' y1='1098.0' x2='560' y2='1180' stroke='#1f2328' stroke-width='1.1'/>
+<text x='564.0' y='1184.0' font-family='Helvetica, Arial, sans-serif' font-size='12' fill='#1f2328' text-anchor='start' font-weight='bold'>Plate edge y = 76 = horn face</text>
+<text x='564.0' y='1198.0' font-family='Helvetica, Arial, sans-serif' font-size='11' fill='#6b7280' text-anchor='start' font-weight='normal'>the arm's spacer sits on the horn here</text>
+<circle cx='140.0' cy='1162.0' r='3.5' fill='#6b7280'/>
+<line x1='140.0' y1='1162.0' x2='560' y2='1225' stroke='#6b7280' stroke-width='1.1'/>
+<text x='564.0' y='1229.0' font-family='Helvetica, Arial, sans-serif' font-size='12' fill='#6b7280' text-anchor='start' font-weight='bold'>Deck edge y = 60</text>
+<text x='564.0' y='1243.0' font-family='Helvetica, Arial, sans-serif' font-size='11' fill='#6b7280' text-anchor='start' font-weight='normal'>the deck covers the inboard half of the mount</text>
+<text x='40.0' y='1300.0' font-family='Helvetica, Arial, sans-serif' font-size='11.5' fill='#6b7280' text-anchor='start' font-weight='normal'>Same rule in both parts: the end face stays open so the plugs can go in; the printed wall over each side window is cut away so the wire can come out.</text>
+<text x='40.0' y='1320.0' font-family='Helvetica, Arial, sans-serif' font-size='11.5' fill='#6b7280' text-anchor='start' font-weight='normal'>`cad/check_p0.py` models both exits of every servo as keep-out volumes and fails if any printed part enters them — it fails on the previous arm and mount.</text>
+</svg>

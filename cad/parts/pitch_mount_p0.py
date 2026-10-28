@@ -6,8 +6,10 @@ horn face at Z = TOP.
 
 Orientation (from the Robotis XL430 model): the output axis is 11.25 mm from the horn-end face
 of the 46.5 mm body, and the two 3-pin connectors are on the opposite (back) end. The servo
-stands on its horn end: horn end DOWN on the mount floor, back end UP and open, so the
-connectors are reachable from above and the leads simply leave upward. That also puts the
+stands on its horn end: horn end DOWN on the mount floor, back end UP and open, so the plugs go
+into the two end windows from above (before the deck is fitted). The wire then runs down the
+servo's hollow back and out of one of its SIDE windows, which face the X walls - so the X walls
+are cut away over that zone and the lead leaves the mount fore or aft, under the deck. That also puts the
 pivot only ~17.5 mm above the plate, which is what gives the flat pose its ground clearance.
 
 Frame: X across the mount, Y up (pivot axis at y = 0), Z along the output axis with the back
@@ -58,6 +60,13 @@ def build():
                 for sx in (-1, 1):
                     with Locations(Location((sx * (OUT_W / 2 - depth / 2 + 0.5), ly, z), (0, 90, 0))):
                         Cylinder(radius=P.XL430_SIDE_CBORE / 2, height=depth + 1, mode=Mode.SUBTRACT)
+        # windows in both X walls over the servo's side cable windows: L = +8..+34 from the axis
+        # toward the back (= up), D = 0..6 from the idler face (= the back wall). The wire comes out
+        # of the case sideways here, fore and aft, under the deck, instead of up into it.
+        ly0 = P.XL430_SIDE_WINDOW_L[0] - 1.0
+        ly1 = P.XL430_SIDE_WINDOW_L[1] + 1.0
+        with Locations((0, (ly0 + ly1) / 2, BACK + P.WALL_WINDOW_H / 2)):
+            Box(OUT_W + 2, ly1 - ly0, P.WALL_WINDOW_H, mode=Mode.SUBTRACT)
         # foot flange: the floor extended sideways, full depth in Z
         foot_len = OUT_W + 2 * FOOT_W
         with Locations((0, BOTTOM + FLOOR / 2, BODY_Z / 2)):

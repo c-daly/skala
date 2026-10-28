@@ -37,6 +37,21 @@ XL430_SIDE_HOLES_L = (4.0, 28.0)   # along the length, measured from the output 
 XL430_SIDE_HOLES_D = (-6.0, 6.0)   # across the depth, from mid-depth (= 11 and 23 mm below the horn face)
 XL430_BACK_HOLES = ((-8.0, -6.0), (-8.0, 6.0), (8.0, -6.0), (8.0, 6.0))   # M2.6 taps in the back face (W, D)
 XL430_CLEAR = 0.3         # pocket clearance per side
+# Cable exits, from the detailed XL430 in Robotis's TurtleBot3 Burger mesh (turtlebot3_description/meshes/
+# bases/burger_base.stl) cross-checked against the dummy STEP. Two connector windows in the BACK END face,
+# 7.5 (along D) x 2.5 (along W), centred W = ±8, D = -3.5..+4 about the body centre; the plug seats about
+# 9 mm inside, so nothing but ~2 mm of plug stands above the end face. One SIDE window in each W face,
+# against the idler-side surface, from L = +8 to +34 (from the output axis toward the back), D = 0..6 from
+# the idler face. The wire goes down the hollow back and out either side window ("3-way routing").
+# Any printed wall over a W face must be cut away over that zone; anything bolted to the end must leave
+# the two end windows reachable for plugging.
+XL430_END_WINDOW_W = 8.0          # window centres at W = ±8
+XL430_END_WINDOW_SIZE = (2.5, 7.5)   # (W, D)
+XL430_END_WINDOW_D = (-3.5, 4.0)  # about the body centre (positive toward the horn face)
+XL430_SIDE_WINDOW_L = (8.0, 34.0) # from the output axis toward the back end
+XL430_SIDE_WINDOW_D = (0.0, 6.0)  # from the idler face
+XL430_PLUG_PROUD = 2.0            # plug top above the end face when seated
+CABLE_CLEAR = 8.0                 # free space a wire needs outside a window
 HORN_RELIEF = 1.0         # printed faces around a horn stop this far short of the horn face
 XL430_MASS = 57.0         # g
 
@@ -90,9 +105,14 @@ HUB_SPACER_T = 3.0        # printed spacers between the bearings and between hub
 HUB_TOTAL = HUB_FLANGE_T + 6.0 + HUB_SPACER_T + 6.0    # 21.5: see tip_hub_p0
 TIP_BOSS_H = PLATE_T + 34.0 - HUB_TOTAL - HUB_SPACER_T  # 19.5: boss + spacer + hub = wheel plane
 SERVO_WALL = 5.0          # wall around the drive servo pocket
-CABLE_HOLE_X = 0.0        # drive-servo lead through the arm plate, beside the pivot flange (both sides,
-CABLE_HOLE_Y = 22.0       # so the symmetric print serves left and right)
+CABLE_HOLE_X = 0.0        # end-route hole: drive-servo lead through the arm plate beside the pivot flange (both
+CABLE_HOLE_Y = 22.0       # sides, so the symmetric print serves left and right); used if the lead leaves the end window
 CABLE_HOLE_D = 8.0
+CABLE_SLOT_X = 22.0       # side-route slot: under the housing wall window, 16 x 8 along X, both sides
+CABLE_SLOT_Y = 21.0
+CABLE_SLOT_L = 16.0
+CABLE_SLOT_W = 8.0
+WALL_WINDOW_H = 7.0       # height of the cut in the housing / mount walls over the servo's side window
 TIE_HOLE_D = 3.2          # zip-tie holes through the housing side walls
 HOLE_R_LIGHTEN = 9.0      # lightening holes
 

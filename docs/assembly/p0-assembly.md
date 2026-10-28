@@ -41,6 +41,8 @@ Then print in this order — hub spacers and pivot spacers, tip hubs, pitch moun
 
 ![Figure 3 — flipper arm](figures/fig3-flipper-arm.png)
 
+![Figure 12 — cable routing](figures/fig12-cable-routing.png)
+
 ![Figure 10 — pivot stack-up](figures/fig10-pivot-stackup.png)
 
 ![Figure 4 — chassis placement](figures/fig4-chassis-layout.png)
@@ -143,11 +145,13 @@ Everything that touches the chassis plate, and the grid hole it uses (Figure 4):
 
 ## 6. Pitch servo mounts (A: 4, B: 2)
 
-Each mount is a box, open outboard and open on top, with slotted feet that bolt to the grid. The servo **stands on its horn end**: the output axis is only 11.25 mm from that end of the body, so standing it this way puts the pivot 17.5 mm above the plate (which is what gives the flat pose its ground clearance) and leaves the back end — where the two 3-pin connectors are — facing up and open, 7 mm under the deck.
+Each mount is a box, open outboard and open on top, with slotted feet that bolt to the grid. The servo **stands on its horn end**: the output axis is only 11.25 mm from that end of the body, so standing it this way puts the pivot 17.5 mm above the plate (which is what gives the flat pose its ground clearance) and leaves the back end — where the two connector windows are — facing up.
+
+**Where the XL430's wires come out** (Figure 12). The two 3-pin sockets are inside the back end of the case, behind two 7.5 × 2.5 mm windows in the end face, 8 mm either side of centre; a plug goes in along the servo's length and seats about 9 mm deep, so only ~2 mm of it stands proud. The wire then runs down the servo's hollow back and leaves through a **side window in either narrow face**, right against the idler-side surface, 8–34 mm from the output axis. In the mount those narrow faces are against the X walls, so **the X walls are cut away over that zone** (7 mm in from the back wall, 26 mm tall): the lead comes out of the mount fore or aft, 25–52 mm above the plate, under the deck.
 
 1. Drop a pitch servo into the mount from the open outboard face, horn outboard, horn end down on the floor, connectors up. Its wide faces are against the mount's X walls. The servo stands **1 mm proud** of the mount's outboard face — the mount body stops short of the horn so nothing printed can touch the arm's spacer.
 2. Four of the servo's own **M2.6 × 5 self-tapping** screws through the counterbored holes in the mount's X walls into the case (the holes are at 4 and 28 mm above the pivot, 11 and 23 mm in from the horn face — they only line up one way; the counterbores leave 2 mm of wall, the same as a Robotis frame).
-3. Plug the servo leads in from above *now*; they leave the top of the mount and run under the deck edge. The front mounts' connectors are just ahead of the deck's front edge (x = 54); the rear mounts' are under its corner with 7 mm to spare.
+3. Plug both leads into the end windows from above *now*, before the deck exists (the deck will sit 7 mm above the mount top; a plug cannot be inserted under it). Push each lead through the hollow back so it leaves by a side window — one fore, one aft is tidy — out through the wall cut-outs.
 4. Place the mount on the chassis top face so its **horn face is flush with the plate's side edge** and the horn axis is at x = +60. Its foot slots sit over grid holes (32, ±48), (32, ±64), (88, ±48), (88, ±64) — the slots give ±2 mm along Y to bring the horn face flush. **A:** rear mounts the same at x = −60 over (−32…−88, ±48/±64), (the mount is symmetric, so no rotation matters). M3 × 8 through the slots, nylocks underneath, finger-tight. Figure 10 shows the stack from the plate edge outward.
 5. Sight along each pair of horns: left and right must be coaxial. Adjust in the slots, then torque.
 
@@ -156,11 +160,12 @@ Each mount is a box, open outboard and open on top, with slotted feet that bolt 
 Build one, then repeat; the parts are identical. A right-hand arm is the same print turned over so its servo housing faces outboard; a rear arm is turned around so its tip points aft. The order matters: the arm goes onto the pitch horn **before** its drive servo goes in, because the servo's plugs sit over two of the pivot screws.
 
 1. **Arm to pitch horn.** Pitch servo at its "horizontal" reading, arm held horizontal. Put a pivot spacer on the horn, Ø20 step toward the servo (it sits on the horn disc only; the Ø26 part clears the case by 1 mm). Arm over it, outboard face toward you; four **M2 × 12** down the counterbores in the arm's outboard face, through the spacer, into the horn; torque in a cross. The arm's inboard face now stands 6 mm off the horn and 7 mm off the mount body — that gap is deliberate, the lead runs in it.
-2. **Drive servo.** It lies *along* the arm: horn end toward the tip, back end (connectors) toward the pivot, which is the open end of the housing. Drop it in from outboard, horn out; its output axis is 46 mm from the pivot and the housing only fits it one way round. Four of its **M2.6 × 5 self-tapping** screws through the counterbored holes in the housing's side walls (at 18 and 42 mm from the pivot, 11 and 23 mm below the horn face). Plug the lead in through the open end, drop it through the **Ø8 hole in the arm plate beside the pivot flange** (the one at 0, +22 — the other is for the mirrored arm), and out along the spacer gap, upward, over the top of the mount. Zip-tie the slack to the housing's tie holes.
-3. **Drive wheel.** TB3 wheel straight onto the drive horn with its PHS M2 × 4 screws. The horn stands 1 mm proud of the housing walls; spin the wheel and check it touches nothing.
-4. **Tip wheel.** The hub-and-wheel from section 4 brings its own bolt. Onto the bolt, inboard of the hub: one printed spacer, then through the tip-boss slot (the boss is 21 mm tall), then an M6 washer and nylock on the arm's inboard face, loose. Both wheels' inner faces must be **50 mm from the chassis plate edge** (6 spacer + 10 plate + 34 housing — Figure 10), i.e. 44 mm from the arm's inboard face; the hub stack (3 + 20) puts it there by itself. Figure 11 shows the whole arm in section.
-5. **Track.** Loop the ICT-01 links around both wheels. 80 links at 6 mm pitch close at a 136 mm centre distance; the slot gives ±4 mm. Slide the bolt in the slot until the lower run deflects ~5 mm under a thumb, then tighten the nylock while holding the head with a 5 mm hex key through the wheel's centre bore.
-6. Rotate the arm by hand (power off). The drive wheel sweeps a 79 mm radius and the tip wheel 215 mm about the pivot, entirely outboard of the plate edge. In configuration A the front and rear arms on a side share a plane: see the limits in section 11 before powering up.
+2. **Drive servo.** It lies *along* the arm: horn end toward the tip, back end (connector windows) toward the pivot, which is the open end of the housing. Drop it in from outboard, horn out; its output axis is 46 mm from the pivot and the housing only fits it one way round — the servo's idler face is on the plate and its two side windows face the housing's side walls, where the walls are cut away (x 11–35, 7 mm up). Four of its **M2.6 × 5 self-tapping** screws through the counterbored holes in the side walls (at 18 and 42 mm from the pivot, 11 and 23 mm below the horn face).
+3. **Drive lead** (Figure 12). Plug it into one of the two end windows from the pivot side. Then either: **side route** — push the wire through the hollow back and out the side window on the arm's upper side, through the wall cut, and down the **slot at (22, 21)** in the plate; or **end route** — bring it straight out of the end window and down the **Ø8 hole at (0, 22)**. Both end on the inboard face in the 6 mm spacer gap. Use the side route unless the wire won't take the bend; the end route puts the plug over two pivot screws, which is why the screws went in first. Zip-tie the slack to the housing's tie holes.
+4. **Drive wheel.** TB3 wheel straight onto the drive horn with its PHS M2 × 4 screws. The horn stands 1 mm proud of the housing walls; spin the wheel and check it touches nothing.
+5. **Tip wheel.** The hub-and-wheel from section 4 brings its own bolt. Onto the bolt, inboard of the hub: one printed spacer, then through the tip-boss slot (the boss is 21 mm tall), then an M6 washer and nylock on the arm's inboard face, loose. Both wheels' inner faces must be **50 mm from the chassis plate edge** (6 spacer + 10 plate + 34 housing — Figure 10), i.e. 44 mm from the arm's inboard face; the hub stack (3 + 20) puts it there by itself. Figure 11 shows the whole arm in section.
+6. **Track.** Loop the ICT-01 links around both wheels. 80 links at 6 mm pitch close at a 136 mm centre distance; the slot gives ±4 mm. Slide the bolt in the slot until the lower run deflects ~5 mm under a thumb, then tighten the nylock while holding the head with a 5 mm hex key through the wheel's centre bore.
+7. Rotate the arm by hand (power off). The drive wheel sweeps a 79 mm radius and the tip wheel 215 mm about the pivot, entirely outboard of the plate edge. In configuration A the front and rear arms on a side share a plane: see the limits in section 11 before powering up.
 
 ## 8. Rear skids [B only]
 
@@ -169,7 +174,7 @@ Build one, then repeat; the parts are identical. A right-hand arm is the same pr
 1. Bolt a skid bracket (L on the left, R on the right) to the rear corner of the plate: upright's outboard face on the plate edge, pivot axis at x = −60, foot holes over (−80, ±56), (−80, ±64), (−40, ±56), (−40, ±64). Four M3 × 8.
 2. M6 × 35 bolt from inboard through the bracket's pivot hole, then a pivot spacer (Ø20 step toward the bracket), then the skid arm pointing aft, then an M6 washer and nylock. Snug, not tight — the pin sets the angle, the bolt only clamps the stack.
 3. Line the arm's index hole up with one of the bracket's holes — start with **35°** — and drop an M3 × 20 through arm, gap and bracket as the pin, nylock. Now tighten the pivot nylock.
-4. Tip hub, spacer, wheel and bolt exactly as in 7.4–7.5, matching the wheel plane to the front wheels: 50 mm from the plate edge to the wheel's inner face (Figures 10 and 11).
+4. Tip hub, spacer, wheel and bolt exactly as in 7.5–7.6, matching the wheel plane to the front wheels: 50 mm from the plate edge to the wheel's inner face (Figures 10 and 11).
 5. 0° is the flat pose; 35° puts all four wheels level with the front arms at 30° down (`cad/assembly_p0.py 30 35`).
 
 ## 9. Upper deck and electronics
@@ -239,8 +244,9 @@ OpenCR TTL → ID 2 → ID 1 → ID 3 → ID 4            (B)
 OpenCR TTL → ID 2 → ID 1 → ID 3 → ID 4 → ID 6 → ID 5 → ID 7 → ID 8   (A)
 ```
 
-- Pitch-servo leads leave the top of each mount (the connectors face up) and run under the deck edge; tie them along the inside of the plate edge.
-- Drive-servo leads come out of the open pivot end of the housing, down through the Ø8 hole in the arm plate, and run in the 6 mm gap between the arm and the mount, radially outward past the mount's top, then inboard. Leave a **~120 mm service loop** there, coiled and tied to the *mount*, not the arm. This loop allows about ±150° of pitch and the firmware limits must match it.
+- Pitch-servo leads come out of the servo's side windows through the cut-outs in the mount's X walls, fore and aft, 25–52 mm above the plate and under the deck; the aft one goes to the previous servo in the chain (or the OpenCR), the fore one up over the mount to the arm. Tie them to the mount, not the deck.
+- Drive-servo leads come out of the servo's side window through the housing wall cut and down the slot at (22, ±21) (or out of the end window and down the Ø8 hole at (0, ±22)), and run in the 6 mm gap between the arm and the mount, radially outward past the mount's top, then inboard to the pitch servo's forward side window. Leave a **~120 mm service loop** there, coiled and tied to the *mount*, not the arm. This loop allows about ±150° of pitch and the firmware limits must match it.
+- **Assembly order that follows from this:** pitch screws → pivot screws → drive servo → plugs; and on the chassis, plug every pitch servo before the deck goes on.
 - **Arm limits (A).** The front and rear arms on a side are coplanar and their tip circles overlap, so the firmware must enforce: (i) neither arm beyond 90° down (tip under the body is useless anyway); (ii) both arms may be raised to 90° up at the same time, but one arm may only go past that — up to 150° up, i.e. tucked back over the body — while the other is **at or below horizontal**. `cad/check_p0.py` verifies these poses are collision-free. Self-righting, which would need both arms past vertical together, is therefore not available on P0 in either configuration.
 - USB: Pi → OpenCR (micro-USB) and Pi → RPLidar A1. Tie under the deck.
 - Camera: CSI ribbon from the cradle up to the Pi with a loose loop above the pan base; no twist. Pan and tilt servos to two OpenCR PWM pins (e.g. D4 and D5 on the Arduino header) with 5 V and ground from the OpenCR's 5 V header.
@@ -252,7 +258,7 @@ OpenCR TTL → ID 2 → ID 1 → ID 3 → ID 4 → ID 6 → ID 5 → ID 7 → ID
 On blocks, wheels and arms free.
 
 1. Battery in, OpenCR on, Pi booted. All Dynamixels answer a ping at their IDs; `rpicam-hello` (or `libcamera-hello`) shows a picture; the RPLidar spins; pan and tilt go to centre when the firmware starts and sweep gently to their limits without the ribbon pulling.
-2. Torque **off**. Move each arm (and skid) by hand through its range; nothing binds, the lead slides freely in the spacer gap and does not pull taut before 150° up or 90° down.
+2. Torque **off**. Move each arm (and skid) by hand through its range; nothing binds, the lead slides freely in the spacer gap and does not pull taut before 150° up or 90° down, and no lead is pinched where it leaves a side window.
 3. Load the reflex firmware with limits first: pitch −150° (up) to +90° (down) about each horizontal offset, plus the arm-to-arm rule from section 11 in configuration A; current trip at the step-3 limit, IMU tip-over at ±60°, 500 ms heartbeat timeout → hold pitch, zero drive.
 4. Torque on one servo at a time. Command each pitch servo ±10° and check direction: left and right are mirrored, so one side's positive is the other's negative. Fix signs in firmware, not by swapping cables.
 5. Each drive servo at 10 rpm forward; both (all four) tracks should move the robot forward. Fix signs likewise.

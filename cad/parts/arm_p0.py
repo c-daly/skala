@@ -12,7 +12,10 @@ Layout:
                                heads in counterbores so 3 mm of plate is under them)
   drive XL430 (in arm)      -> lies along the arm at X=DRIVE_X, horn toward +Z, back (connector)
                                end toward the pivot; housing open at that end and 1 mm short of
-                               the horn face so the wheel never rubs it
+                               the horn face so the wheel never rubs it. The servo's side cable
+                               windows (against the plate, 8-34 mm from the axis toward the back)
+                               face the housing's side walls, so those walls are cut away there
+                               and a slot in the plate below each cut takes the wire through.
   tip wheel                 -> TB3 wheel on a printed 626-bearing hub on an M6 bolt; the bolt is
                                clamped through the tip boss slot by a nylock on the inboard face
 Prints flat on the inboard face (Z=0 down) so layer lines run along the arm. Symmetric about
@@ -80,7 +83,14 @@ def drive_servo_housing():
                     depth = P.SERVO_WALL - P.XL430_SIDE_WALL
                     with Locations(Location((x, sy * (OUTER_W / 2 - depth / 2 + 0.5), z), (90, 0, 0))):
                         Cylinder(radius=P.XL430_SIDE_CBORE / 2, height=depth + 1, mode=Mode.SUBTRACT)
-        # zip-tie holes through both side walls near the open end, for dressing the lead
+        # windows in both side walls over the servo's side cable windows (L = +8..+34 from the axis
+        # toward the back, D = 0..6 from the idler face, which sits on the plate): the wire comes out of
+        # the case sideways here and drops through the slot in the plate below
+        wx0 = P.DRIVE_X - P.XL430_SIDE_WINDOW_L[1] - 1.0
+        wx1 = P.DRIVE_X - P.XL430_SIDE_WINDOW_L[0] + 1.0
+        with Locations(((wx0 + wx1) / 2, 0, z0 + P.WALL_WINDOW_H / 2)):
+            Box(wx1 - wx0, OUTER_W + 2, P.WALL_WINDOW_H, mode=Mode.SUBTRACT)
+        # zip-tie holes through both side walls above the windows, for dressing the lead
         for x in (X_BACK + 6, X_BACK + 16):
             with Locations(Location((x, 0, HOUSING_TOP - 4), (90, 0, 0))):
                 Cylinder(radius=P.TIE_HOLE_D / 2, height=OUTER_W + 2, mode=Mode.SUBTRACT)
@@ -116,7 +126,13 @@ def pivot_and_lightening(part):
                 # counterbore from the outboard face, leaving PIVOT_FLOOR_T of plate under the head
                 with Locations((0, 0, P.PIVOT_FLOOR_T)):
                     Cylinder(radius=P.PIVOT_CBORE_D / 2, height=P.PLATE_T, align=(Align.CENTER, Align.CENTER, Align.MIN), mode=Mode.SUBTRACT)
-        # drive-servo lead: Ø8 through the plate beside the pivot flange, both sides
+        # drive-servo lead, side route: a slot through the plate under each wall window
+        for sy in (-1, 1):
+            with BuildSketch(Plane.XY):
+                with Locations((P.CABLE_SLOT_X, sy * P.CABLE_SLOT_Y)):
+                    SlotCenterToCenter(P.CABLE_SLOT_L - P.CABLE_SLOT_W, P.CABLE_SLOT_W)
+            extrude(amount=P.PLATE_T * 3, both=True, mode=Mode.SUBTRACT)
+        # drive-servo lead, end route: Ø8 through the plate beside the pivot flange, both sides
         for sy in (-1, 1):
             with Locations((P.CABLE_HOLE_X, sy * P.CABLE_HOLE_Y, 0)):
                 Cylinder(radius=P.CABLE_HOLE_D / 2, height=P.PLATE_T * 3, mode=Mode.SUBTRACT)

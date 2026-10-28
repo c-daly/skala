@@ -103,8 +103,9 @@ figure_over_base(
     "fig3-flipper-arm", "arm_p0_iso",
     [
         (95, 240, 40, 560, "Pivot flange\nØ9.4 centre; four M2 x 12 on the Ø16 horn PCD, heads\nin counterbores → through the 6 mm spacer → pitch horn", ACC, "start"),
-        (255, 145, 60, 90, "Ø8 cable holes at (0, ±22)\nthe lead drops through into the spacer gap", ACC2, "start"),
-        (225, 270, 60, 640, "Open pivot end of the housing\nthe servo's connectors face this way; tie holes in the walls", ACC, "start"),
+        (255, 145, 60, 90, "Ø8 holes at (0, ±22)\nend-route alternative for the lead (Fig. 12)", ACC2, "start"),
+        (225, 270, 60, 640, "Open pivot end of the housing\nthe servo's two connector windows face this way", ACC, "start"),
+        (250, 300, 300, 700, "Wall windows + plate slots (both sides)\nover the servo's side cable windows: the wire comes out here (Fig. 12)", ACC2, "start"),
         (430, 215, 560, 110, "Drive servo housing (open outboard and toward the pivot)\nXL430 lies along the arm, horn end toward the tip,\noutput axis at X = 46; walls stop 1 mm below the horn", ACC, "start"),
         (300, 155, 560, 185, "4 × M2.6 x 5 self-tapping through both side walls\ninto the case taps: X = 18 and 42, 11 and 23 below the horn face;\ncounterbored to a 2 mm wall", INK, "start"),
         (560, 405, 430, 660, "Lightening holes\nno function; leave or fill", MUTE, "start"),
@@ -347,7 +348,7 @@ svg = ["<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1000 560' width='10
        ab(SP + WZ - 4, -3, SP + WZ + PR.TB3_WHEEL_W + 4, 3, "#9ca3af"),          # axle / horn
        # the lead: out of the arm's Ø8 hole at (0, 22) into the spacer gap, radially out past the mount, then to the tie point
        f"<path d='M {A(SP+PR.PLATE_T/2, 22)[0]:.0f} {A(SP+PR.PLATE_T/2, 22)[1]:.0f} L {A(SP/2, 22)[0]:.0f} {A(SP/2,22)[1]:.0f} L {A(SP/2, 42)[0]:.0f} {A(SP/2,42)[1]:.0f} L {A(-40, 42)[0]:.0f} {A(-40,42)[1]:.0f}' fill='none' stroke='{ACC2}' stroke-width='2' stroke-dasharray='4 3'/>",
-       f"<text x='{A(-40,46)[0]:.0f}' y='{A(-40,46)[1]:.0f}' {FONT} font-size='9' fill='{ACC2}' text-anchor='start'>drive-servo lead: through the arm at (0, 22), out along the {SP:.0f} mm gap, over the mount top, tied inboard</text>",
+       f"<text x='{A(-40,46)[0]:.0f}' y='{A(-40,46)[1]:.0f}' {FONT} font-size='9' fill='{ACC2}' text-anchor='start'>drive-servo lead: through the arm's slot at (22, ±21), out along the {SP:.0f} mm gap, over the mount top, tied inboard (Fig. 12)</text>",
        ]
 # dimension line
 for y, t in ((0, "0 plate edge / horn"), (SP, f"{SP:.0f}"), (SP + PR.PLATE_T, f"{SP+PR.PLATE_T:.0f}"), (SP + WZ, f"{SP+WZ:.0f} wheel inner face"), (SP + WZ + PR.TB3_WHEEL_W, f"{SP+WZ+PR.TB3_WHEEL_W:.0f} wheel outer face")):
@@ -580,3 +581,118 @@ svg.append(f"<text x='40' y='585' {FONT} font-size='12' fill='{MUTE}'>Tip order 
 svg.append(f"<text x='40' y='603' {FONT} font-size='12' fill='{MUTE}'>The boss slot lets the bolt move ±4 mm along the arm for track tension; the nylock clamps it. No clamp screw, collar or cut rod any more.</text>")
 svg.append("</svg>")
 write("fig11-arm-section", "\n".join(svg))
+
+
+# --------------------------------------------------------------------------- Fig 12: where the wires actually go (drawn to scale from the XL430's real windows)
+K = 4.0
+def R12(p0, p1, fill, stroke=INK, dash=None, op=1, sw=1.3, rx=0):
+    (x0, y0), (x1, y1) = p0, p1
+    dd = f" stroke-dasharray='{dash}'" if dash else ""
+    return f"<rect x='{min(x0,x1):.1f}' y='{min(y0,y1):.1f}' width='{abs(x1-x0):.1f}' height='{abs(y1-y0):.1f}' rx='{rx}' fill='{fill}' stroke='{stroke}' stroke-width='{sw}'{dd} opacity='{op}'/>"
+def T12(x, y, t, color=INK, size=11, anchor="start", weight="normal"):
+    return f"<text x='{x:.1f}' y='{y:.1f}' {FONT} font-size='{size}' fill='{color}' text-anchor='{anchor}' font-weight='{weight}'>{t}</text>"
+def L12(p, tx, ty, lines, color=INK):
+    out=[f"<circle cx='{p[0]:.1f}' cy='{p[1]:.1f}' r='3.5' fill='{color}'/>", f"<line x1='{p[0]:.1f}' y1='{p[1]:.1f}' x2='{tx}' y2='{ty}' stroke='{color}' stroke-width='1.1'/>"]
+    for k, ln in enumerate(lines):
+        out.append(T12(tx + 4, ty + 4 + 14 * k, ln, color if k == 0 else MUTE, 12 if k == 0 else 11, "start", "bold" if k == 0 else "normal"))
+    return "\n".join(out)
+XB = PR.XL430_END_WINDOW_W; EW = PR.XL430_END_WINDOW_SIZE; ED = PR.XL430_END_WINDOW_D
+SL = PR.XL430_SIDE_WINDOW_L; SD = PR.XL430_SIDE_WINDOW_D
+HX0 = PR.DRIVE_X - (PR.XL430_H - PR.XL430_HORN_OFF) - PR.XL430_CLEAR
+HX1 = PR.DRIVE_X + PR.XL430_HORN_OFF + PR.XL430_CLEAR + PR.SERVO_WALL
+WX0, WX1 = PR.DRIVE_X - SL[1] - 1, PR.DRIVE_X - SL[0] + 1
+SB0 = PR.DRIVE_X - (PR.XL430_H - PR.XL430_HORN_OFF); SB1 = PR.DRIVE_X + PR.XL430_HORN_OFF
+svg = ["<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1000 1360' width='1000' height='1360'>",
+       "<rect width='100%' height='100%' fill='white'/>",
+       title("Figure 12 — Where the wires go (1 mm = 4 px)", "XL430: two connector windows in the back END face, one SIDE window in each narrow face against the idler surface. Every printed wall over a side window is cut away.")]
+# ================= panel A: arm root from outboard (plan). X along the arm to the right, Y up the page.
+ox, oy = 170, 300
+def A(x, y): return (ox + x * K, oy - y * K)
+svg.append(T12(40, 88, "A — arm root seen from outboard (horn face of the drive servo toward you)", INK, 13, weight="bold"))
+svg.append(f"<circle cx='{A(0,0)[0]:.1f}' cy='{A(0,0)[1]:.1f}' r='{30*K:.1f}' fill='#fde68a' stroke='#92400e' stroke-width='1.3'/>")
+svg.append(R12(A(0, 30), A(80, -30), "#fde68a", "#92400e"))
+svg.append(f"<line x1='{A(0,29.4)[0]:.1f}' y1='{A(0,29.4)[1]:.1f}' x2='{A(0,-29.4)[0]:.1f}' y2='{A(0,-29.4)[1]:.1f}' stroke='#fde68a' stroke-width='4'/>")
+for (hx, hy) in ((8, 0), (-8, 0), (0, 8), (0, -8)):
+    svg.append(f"<circle cx='{A(hx,hy)[0]:.1f}' cy='{A(hx,hy)[1]:.1f}' r='{2.25*K:.1f}' fill='white' stroke='#92400e' stroke-width='1'/>")
+svg.append(f"<circle cx='{A(0,0)[0]:.1f}' cy='{A(0,0)[1]:.1f}' r='{4.7*K:.1f}' fill='white' stroke='#92400e' stroke-width='1'/>")
+for sy in (-1, 1):
+    svg.append(f"<circle cx='{A(0,sy*22)[0]:.1f}' cy='{A(0,sy*22)[1]:.1f}' r='{4*K:.1f}' fill='white' stroke='{ACC2}' stroke-width='1.5'/>")
+    svg.append(R12(A(PR.CABLE_SLOT_X-8, sy*21+4), A(PR.CABLE_SLOT_X+8, sy*21-4), "white", ACC, None, 1.5, rx=4*K))
+for sy in (-1, 1):   # housing side walls in plan, with the window region shown as a dashed cut
+    svg.append(R12(A(HX0, sy*14.55), A(HX1, sy*19.55), "#d6d3d1", "#57534e"))
+    svg.append(R12(A(WX0, sy*14.55), A(WX1, sy*19.55), "white", "#57534e", "4 3"))
+svg.append(R12(A(HX1-PR.SERVO_WALL, 19.55), A(HX1, -19.55), "#d6d3d1", "#57534e"))
+svg.append(R12(A(SB0, 14.25), A(SB1, -14.25), "#e5e7eb", INK, None, 0.9))                     # servo
+svg.append(f"<circle cx='{A(PR.DRIVE_X,0)[0]:.1f}' cy='{A(PR.DRIVE_X,0)[1]:.1f}' r='{10.4*K:.1f}' fill='#9ca3af' stroke='{INK}' stroke-width='1'/>")
+svg.append(T12(*A(PR.DRIVE_X, -1.2), "horn", INK, 10, "middle"))
+for sy in (-1, 1):
+    svg.append(R12(A(SB0-0.5, sy*XB+EW[0]/2), A(SB0+2, sy*XB-EW[0]/2), "#1f2937", "#1f2937"))         # end windows (edge-on)
+    svg.append(R12(A(PR.DRIVE_X-SL[1], sy*14.25), A(PR.DRIVE_X-SL[0], sy*14.25 - sy*1.5), "#1f2937", "#1f2937"))   # side windows (edge-on)
+# wires
+w0 = A(PR.DRIVE_X-18, 14.25); w1 = A(PR.DRIVE_X-18, 21); w2 = A(PR.CABLE_SLOT_X, 21)
+svg.append(f"<path d='M {w0[0]:.0f} {w0[1]:.0f} L {w1[0]:.0f} {w1[1]:.0f} L {w2[0]:.0f} {w2[1]:.0f}' fill='none' stroke='{ACC}' stroke-width='3.5'/>")
+svg.append(f"<circle cx='{w2[0]:.0f}' cy='{w2[1]:.0f}' r='6' fill='{ACC}'/>")
+e0 = A(SB0, -8); e1 = A(0, -22)
+svg.append(f"<path d='M {e0[0]:.0f} {e0[1]:.0f} C {A(SB0-10,-8)[0]:.0f} {A(SB0-10,-8)[1]:.0f} {A(2,-12)[0]:.0f} {A(2,-12)[1]:.0f} {e1[0]:.0f} {e1[1]:.0f}' fill='none' stroke='{ACC2}' stroke-width='3.5' stroke-dasharray='7 4'/>")
+svg.append(f"<circle cx='{e1[0]:.0f}' cy='{e1[1]:.0f}' r='6' fill='{ACC2}'/>")
+# labels, right-hand column
+svg.append(L12(A(SB0, 8), 560, 150, ["Connector windows (end face)", "two, 7.5 × 2.5, at ±8; the plugs go in", "along the servo toward the tip"]))
+svg.append(L12(A(PR.DRIVE_X-21, 14.25), 560, 215, ["Side window (narrow face)", "8–34 mm from the axis, against the plate;", "the wire comes out of the case here"]))
+svg.append(L12(A(WX1-3, 17), 560, 280, ["Housing wall cut away", "x 11–35, 7 mm up from the plate,", "both sides — so the side window is open"]))
+svg.append(L12(w2, 560, 345, ["● Side route (use this)", "out of the side window, through the cut,", "down the slot at (22, ±21), out on the inboard face"], ACC))
+svg.append(L12(e1, 560, 410, ["● End route (alternative)", "out of the end window, down the Ø8 hole", "at (0, ±22); keeps clear of the pivot screws"], ACC2))
+svg.append(L12(A(-8, 0), 560, 475, ["Pivot flange", "four counterbored M2 × 12 — fit these", "before the servo, the plugs cover two of them"], "#92400e"))
+# ================= panel B: section looking from the front (X along the arm, Z outboard up)
+ox, oy = 170, 870
+def B(x, z): return (ox + x * K, oy - z * K)
+svg.append(T12(40, 660, "B — the same corner in section, from the front (up = outboard)", INK, 13, weight="bold"))
+svg.append(R12(B(-30, -6), B(80, 0), "#c7d2fe", "#3730a3", None, 0.35))                        # spacer gap below the plate
+svg.append(R12(B(-30, 0), B(80, 10), "#fde68a", "#92400e"))                                      # plate
+svg.append(R12(B(HX0, 10), B(HX1, 43), "#d6d3d1", "#57534e", None, 0.5))                         # far wall
+svg.append(R12(B(WX0, 10), B(WX1, 10+PR.WALL_WINDOW_H), "white", "#57534e", "4 3"))              # cut in the wall
+svg.append(R12(B(SB0, 10), B(SB1, 44), "#e5e7eb", INK))                                          # servo
+svg.append(f"<circle cx='{B(PR.DRIVE_X,44)[0]:.1f}' cy='{B(PR.DRIVE_X,44)[1]:.1f}' r='3' fill='{INK}'/>")
+svg.append(R12(B(PR.DRIVE_X-SL[1], 10), B(PR.DRIVE_X-SL[0], 10+SD[1]), "#1f2937", "#1f2937"))      # side window on the near face
+svg.append(R12(B(SB0-0.5, 10+17+ED[0]), B(SB0+2, 10+17+ED[1]), "#1f2937", "#1f2937"))               # end window
+svg.append(R12(B(PR.CABLE_SLOT_X-8, 0), B(PR.CABLE_SLOT_X+8, 10), "white", ACC, None, 1.5))       # slot
+svg.append(R12(B(-4, 0), B(4, 10), "white", ACC2, None, 1.5))                                    # end-route hole
+p0 = B(PR.DRIVE_X-18, 12); p1 = B(PR.CABLE_SLOT_X, 10); p2 = B(PR.CABLE_SLOT_X, -3); p3 = B(-22, -3)
+svg.append(f"<path d='M {p0[0]:.0f} {p0[1]:.0f} L {p1[0]:.0f} {p1[1]+2:.0f} L {p2[0]:.0f} {p2[1]:.0f} L {p3[0]:.0f} {p3[1]:.0f}' fill='none' stroke='{ACC}' stroke-width='3.5'/>")
+q0 = B(SB0, 27); q2 = B(0, -3); q3 = B(-22, -3)
+svg.append(f"<path d='M {q0[0]:.0f} {q0[1]:.0f} C {B(SB0-10,27)[0]:.0f} {B(SB0-10,27)[1]:.0f} {q2[0]:.0f} {q2[1]+36:.0f} {q2[0]:.0f} {q2[1]:.0f} L {q3[0]:.0f} {q3[1]:.0f}' fill='none' stroke='{ACC2}' stroke-width='3.5' stroke-dasharray='7 4'/>")
+svg.append(L12(B(SB0+0.7, 27), 560, 730, ["Plug seats ~9 mm inside the end", "only ~2 mm stands proud of the end face"]))
+svg.append(L12(B(PR.DRIVE_X-21, 13), 560, 785, ["Side window: 6 mm tall, right on the plate", "the wall cut in front of it is 7 mm tall"]))
+svg.append(L12(B(PR.DRIVE_X+5, 44), 560, 840, ["Horn face at 44, walls stop at 43", "so the wheel never touches the housing"]))
+svg.append(L12(B(60, -3), 560, 895, ["6 mm spacer gap under the arm", "both routes end here; the lead runs out along", "the gap, over the mount top, to the pitch servo"], "#3730a3"))
+# ================= panel C: pitch mount from above (plan). Robot X across the page, robot Y up the page.
+ox, oy = 300, 1250
+def C(x, y): return (ox + x * K, oy - (y - 38) * K)
+svg.append(T12(40, 960, "C — a pitch mount from above: servo on its horn end, back end (connectors) up; its side windows face the X walls, which are cut away there", INK, 13, weight="bold"))
+PMW = PR.XL430_W + 2*PR.XL430_CLEAR; OW = PMW + 10
+svg.append(R12(C(-OW/2, 38), C(OW/2, 75), "#fed7aa", ACC))                                        # mount in plan (walls + back wall)
+svg.append(R12(C(-PMW/2, 42), C(PMW/2, 76), "white", ACC))                                        # pocket
+for sx in (-1, 1):
+    svg.append(R12(C(sx*PMW/2, 42), C(sx*OW/2, 42+SD[1]+1), "white", ACC, "4 3"))                 # wall cut-outs (seen from above through the open top)
+svg.append(R12(C(-14.25, 42.3), C(14.25, 76), "#e5e7eb", INK, None, 0.95))                        # servo end face
+for sx in (-1, 1):
+    svg.append(R12(C(sx*XB-EW[0]/2, 59.3+ED[0]), C(sx*XB+EW[0]/2, 59.3+ED[1]), "#1f2937", "#1f2937"))
+    for dy in (-6, 6):
+        svg.append(f"<circle cx='{C(sx*8, 59.3+dy)[0]:.1f}' cy='{C(sx*8, 59.3+dy)[1]:.1f}' r='{1.3*K:.1f}' fill='white' stroke='{INK}' stroke-width='0.8'/>")
+svg.append(R12(C(-14.25, 42.3), C(14.25, 42.3+SD[1]), "none", INK, "3 2"))                        # the side-window band, hidden below
+svg.append(f"<line x1='{C(-70,76)[0]:.0f}' y1='{C(-70,76)[1]:.0f}' x2='{C(70,76)[0]:.0f}' y2='{C(70,76)[1]:.0f}' stroke='{INK}' stroke-width='2'/>")
+svg.append(f"<line x1='{C(-70,60)[0]:.0f}' y1='{C(-70,60)[1]:.0f}' x2='{C(70,60)[0]:.0f}' y2='{C(70,60)[1]:.0f}' stroke='{MUTE}' stroke-width='1.2' stroke-dasharray='8 4'/>")
+for sx in (-1, 1):
+    w0 = C(sx*8, 59.3); w1 = C(sx*8, 45.5); w2 = C(sx*(OW/2+14), 45.5)
+    svg.append(f"<path d='M {w0[0]:.0f} {w0[1]:.0f} L {w1[0]:.0f} {w1[1]:.0f}' fill='none' stroke='{ACC}' stroke-width='3.5' stroke-dasharray='5 3'/>")
+    svg.append(f"<path d='M {w1[0]:.0f} {w1[1]:.0f} L {w2[0]:.0f} {w2[1]:.0f}' fill='none' stroke='{ACC}' stroke-width='3.5'/>")
+svg.append(T12(*C(-OW/2-16, 47), "aft → OpenCR", ACC, 11, "end", "bold"))
+svg.append(T12(*C(OW/2+16, 47), "forward → up over the mount → spacer gap → drive servo", ACC, 11, "start", "bold"))
+svg.append(L12(C(8, 59.3), 560, 1000, ["Connector windows in the end face", "7.5 × 2.5 at x = ±8; plug from above,", "before the deck goes on (deck is 7 mm up)"]))
+svg.append(L12(C(0, 44), 560, 1060, ["Side windows, hidden against the back wall", "the wire goes down the hollow back and", "out here, fore or aft, 25–52 mm above the plate"]))
+svg.append(L12(C(OW/2-2.5, 46), 560, 1120, ["X-wall cut-outs", "7 mm deep from the back wall, 26 mm tall;", "both walls (either way round)"], ACC))
+svg.append(L12(C(40, 76), 560, 1180, ["Plate edge y = 76 = horn face", "the arm's spacer sits on the horn here"]))
+svg.append(L12(C(-40, 60), 560, 1225, ["Deck edge y = 60", "the deck covers the inboard half of the mount"], MUTE))
+svg.append(T12(40, 1300, "Same rule in both parts: the end face stays open so the plugs can go in; the printed wall over each side window is cut away so the wire can come out.", MUTE, 11.5))
+svg.append(T12(40, 1320, "`cad/check_p0.py` models both exits of every servo as keep-out volumes and fails if any printed part enters them — it fails on the previous arm and mount.", MUTE, 11.5))
+svg.append("</svg>")
+write("fig12-cable-routing", "\n".join(svg))

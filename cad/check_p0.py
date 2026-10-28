@@ -81,7 +81,12 @@ def allowed(n1, n2):
     pairs = [("track_", "drive_wheel_"), ("track_", "tip_wheel_"), ("track_", "tip_hub_"),
              ("camera_head_sweep", "tilt_yoke"), ("camera_head_sweep", "pan_base"),
              ("pi5", "pi_adapter"), ("opencr", "opencr_adapter"), ("rplidar_base", "lidar_adapter"),
-             ("plugs_", "drive_servo_"), ("spacer_", "pitch_servo_")]
+             ("spacer_", "pitch_servo_"),
+             # cable zones may overlap hardware envelopes and each other; printed parts are checked separately
+             ("cable_", "cable_"), ("cable_", "pitch_servo_"), ("cable_", "drive_servo_"), ("cable_", "lipo_"),
+             ("cable_", "deck_standoff"), ("cable_", "spacer_"), ("cable_", "track_"), ("cable_", "drive_wheel_"),
+             ("cable_", "tip_wheel_"), ("cable_", "tip_hub_"), ("cable_", "camera_head_sweep"), ("cable_", "opencr"),
+             ("cable_", "pi5"), ("cable_", "rplidar"), ("cable_", "board_standoff"), ("cable_", "lidar_standoff")]
     for a, b in pairs:
         if (n1.startswith(a) and n2.startswith(b)) or (n2.startswith(a) and n1.startswith(b)):
             return True
@@ -102,7 +107,10 @@ def check_pose(pitch, skid, rear, four, label):
         v = overlap_volume(s1, s2)
         if v > 0.5 or v < 0:
             hits += 1
-            say(False, f"{n1} ∩ {n2} = {v:.0f} mm³")
+            if n1.startswith("cable_") or n2.startswith("cable_"):
+                say(False, f"CABLE EXIT BLOCKED: {n1} ∩ {n2} = {v:.0f} mm³ (a printed part sits where the servo's wire comes out)")
+            else:
+                say(False, f"{n1} ∩ {n2} = {v:.0f} mm³")
     say(hits == 0, f"{label}: {hits} interferences")
     return parts
 

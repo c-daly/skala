@@ -45,10 +45,37 @@ def servo_arm():
     return b.translate((P.DRIVE_X - (P.XL430_H / 2 - P.XL430_HORN_OFF), 0, P.PLATE_T))
 
 
-def plugs_arm():
-    """The two cable plugs standing off the drive servo's back face toward the pivot (~8 mm)."""
-    x0 = P.DRIVE_X - (P.XL430_H - P.XL430_HORN_OFF)
-    return Box(8, 16, 10, align=(Align.MAX, Align.CENTER, Align.MIN)).translate((x0, 0, P.PLATE_T + P.XL430_D / 2 - 5))
+def cable_zones_pm():
+    """Free space the XL430's cable exits need, in the pitch-mount frame (axis on Z, horn face at
+    Z = D, body along +Y toward the back end, horn end at Y = -11.25, idler face at Z = 0).
+    Returns (end_zone, side_zone_minus_x, side_zone_plus_x). The end zone is the seated plug
+    (XL430_PLUG_PROUD) plus the wire's bend; the side zones are CABLE_CLEAR deep outside each W face
+    over the servo's side window. check_p0 requires all three to be free of printed parts."""
+    back = P.XL430_H - P.XL430_HORN_OFF                     # Y of the back end face
+    dz0, dz1 = (P.XL430_D / 2 + P.XL430_END_WINDOW_D[0] - 2, P.XL430_D / 2 + P.XL430_END_WINDOW_D[1] + 2)
+    end = Box(2 * (P.XL430_END_WINDOW_W + 4), P.XL430_PLUG_PROUD + 3, dz1 - dz0, align=(Align.CENTER, Align.MIN, Align.MIN)).translate((0, back, dz0))
+    l0, l1 = P.XL430_SIDE_WINDOW_L
+    d0, d1 = P.XL430_SIDE_WINDOW_D
+    sides = []
+    for sx in (-1, 1):
+        b = Box(P.CABLE_CLEAR, l1 - l0, d1 - d0 + 1, align=(Align.MIN if sx > 0 else Align.MAX, Align.MIN, Align.MIN))
+        sides.append(b.translate((sx * P.XL430_W / 2, l0, d0)))
+    return end, sides[0], sides[1]
+
+
+def cable_zones_arm():
+    """Same zones in the arm frame: servo axis at DRIVE_X, horn at WHEEL_Z (+Z), back end toward -X,
+    idler face on the plate (Z = PLATE_T), W across Y."""
+    xb = P.DRIVE_X - (P.XL430_H - P.XL430_HORN_OFF)        # back end face
+    dz0, dz1 = (P.PLATE_T + P.XL430_D / 2 + P.XL430_END_WINDOW_D[0] - 2, P.PLATE_T + P.XL430_D / 2 + P.XL430_END_WINDOW_D[1] + 2)
+    end = Box(P.XL430_PLUG_PROUD + 3, 2 * (P.XL430_END_WINDOW_W + 4), dz1 - dz0, align=(Align.MAX, Align.CENTER, Align.MIN)).translate((xb, 0, dz0))
+    l0, l1 = P.XL430_SIDE_WINDOW_L
+    d0, d1 = P.XL430_SIDE_WINDOW_D
+    sides = []
+    for sy in (-1, 1):
+        b = Box(l1 - l0, P.CABLE_CLEAR, d1 - d0 + 1, align=(Align.MIN, Align.MIN if sy > 0 else Align.MAX, Align.MIN))
+        sides.append(b.translate((P.DRIVE_X - l1, sy * P.XL430_W / 2, P.PLATE_T + d0)))
+    return end, sides[0], sides[1]
 
 
 def arm_to_robot(shape, side, pitch_deg, x_pivot, aft=False):
@@ -116,11 +143,14 @@ def build(named=False):
             tag = ("rear" if aft else "front") + ("L" if side > 0 else "R")
             add(f"pitch_mount_{tag}", mount_to_robot(pitch_mount_p0.build(), side, xp))
             add(f"pitch_servo_{tag}", mount_to_robot(servo_pm().translate((0, 0, pitch_mount_p0.BACK)), side, xp))
+            for zname, z in zip(("end", "sideA", "sideB"), cable_zones_pm()):
+                add(f"cable_pitch_{zname}_{tag}", mount_to_robot(z.translate((0, 0, pitch_mount_p0.BACK)), side, xp))
             # spacer sits on the horn face: arm frame Z from -SPACER_T to 0
             add(f"spacer_{tag}", arm_to_robot(tip_hub_p0.pivot_spacer().translate((0, 0, -P.SPACER_T)), side, pitch, xp, aft))
             add(f"arm_{tag}", arm_to_robot(arm_p0.build(), side, pitch, xp, aft))
             add(f"drive_servo_{tag}", arm_to_robot(servo_arm(), side, pitch, xp, aft))
-            add(f"plugs_{tag}", arm_to_robot(plugs_arm(), side, pitch, xp, aft))
+            for zname, z in zip(("end", "sideA", "sideB"), cable_zones_arm()):
+                add(f"cable_drive_{zname}_{tag}", arm_to_robot(z, side, pitch, xp, aft))
             add(f"drive_wheel_{tag}", arm_to_robot(wheel().translate((P.DRIVE_X, 0, arm_p0.WHEEL_Z)), side, pitch, xp, aft))
             add(f"tip_hub_{tag}", arm_to_robot(tip_hub_p0.hub().rotate(Axis.X, 180).translate((P.TIP_X, 0, arm_p0.WHEEL_Z)), side, pitch, xp, aft))
             add(f"tip_wheel_{tag}", arm_to_robot(wheel().translate((P.TIP_X, 0, arm_p0.WHEEL_Z)), side, pitch, xp, aft))
