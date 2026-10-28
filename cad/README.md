@@ -16,9 +16,9 @@ Two configurations share these parts: **A** (full design, four flippers) and **B
 
 | Part | File | Size (mm) | Material | Orientation | Qty | Notes |
 | --- | --- | --- | --- | --- | --- | --- |
-| Flipper arm | `out/stl/arm_p0.stl` | 211 × 60 × 44 | PLA+ | Inboard face (Z=0) down, rotated 45° on the bed | 1 per flipper (4 in A, 2 in B); all identical | 211 mm exceeds the 210 limit by a hair; fits diagonally with room. 5 walls, 40 % gyroid. Supports only under the cable slot. |
+| Flipper arm | `out/stl/arm_p0.stl` | 227 × 60 × 44 | PLA+ | Inboard face (Z=0) down, rotated 45° on the bed | 1 per flipper (4 in A, 2 in B); all identical | Fits the 220 mm bed diagonally. Drive XL430 lies along the arm (axis at X = 46, connectors toward the pivot, housing open that end); Ø8 cable hole through the plate at (0, 22). 5 walls, 40 % gyroid, no supports. |
 | Tip wheel hub | `out/stl/tip_hub_p0.stl` | 30 × 30 × 21 | PLA | Wheel face (flange) down | 4 (2 arms + 2 skids) | 6 walls, 100 % infill. Bearing seats at −0.10 mm; adjust from the coupon. |
-| Pitch servo mount | `out/stl/pitch_mount_p0.stl` | 69 × 63 × 38 | PLA | Back wall (Z=0) down | 1 per flipper (4 in config A, 2 in B) | 5 walls, 40 %. Foot slots on an 8 mm pitch for TB3 waffle plates. Horn face is the arm's pivot plane. |
+| Pitch servo mount | `out/stl/pitch_mount_p0.stl` | 69 × 53 × 38 | PLA | Back wall (Z=0) down | 1 per flipper (4 in config A, 2 in B) | 5 walls, 40 %. XL430 stands on its horn end, connectors up and open; pivot 17.55 mm above the plate; case-screw holes at the servo's real taps. Foot slots 56 mm apart on the 8 mm grid. Horn face is the arm's pivot plane. |
 | Chassis plate | `out/stl/chassis_p0.stl` | 200 × 152 × 6 | PLA | Flat | 1 | 8 mm M3 grid throughout, battery strap slots, two lightening windows. 4 walls, 30 %. Pitch mounts at the front corners with horn faces flush to the side edges. |
 | Pi adapter | `out/stl/pi_adapter_p0.stl` | 76 × 66 × 3 | PLA | Flat | 1 | Pi 58 × 49 pattern (M2.5) to grid holes at 64 × 48 (M3); the LiDAR standoffs stack on the same holes. |
 | OpenCR adapter | `out/stl/opencr_adapter_p0.stl` | 84 × 112 × 3 | PLA | Flat | 1 | OpenCR holes (VERIFY, slotted) to grid holes at 80 × 64. |

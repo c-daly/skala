@@ -23,7 +23,10 @@ def wheel():
 
 
 def servo():
-    return Box(P.XL430_W, P.XL430_H, P.XL430_D, align=(Align.CENTER, Align.CENTER, Align.MIN))
+    """XL430 placeholder in the pitch-mount frame: output axis on Z at the origin, horn face at
+    Z = D, body length along +Y toward the back (connector) end, horn end 11.25 mm below the axis."""
+    b = Box(P.XL430_W, P.XL430_H, P.XL430_D, align=(Align.CENTER, Align.CENTER, Align.MIN))
+    return b.translate((0, P.XL430_H / 2 - P.XL430_HORN_OFF, 0))
 
 
 def build():
@@ -60,8 +63,8 @@ def build():
 
     for side in (-1, 1):
         # --- pitch mount: part frame Z = horn axis (outboard). Robot: outboard = side*Y.
-        # Part Y (up) -> robot Z; part X -> robot X. Foot bottom at part y = -OUT_H/2 - FOOT_T.
-        foot_y = -pitch_mount_p0.OUT_H / 2 - pitch_mount_p0.FOOT_T
+        # Part Y (up) -> robot Z; part X -> robot X. Mount underside at part y = BOTTOM.
+        foot_y = pitch_mount_p0.BOTTOM
         pm = pitch_mount_p0.build()
         pm = pm.rotate(Axis.X, 90)                     # part +Y -> robot +Z, part +Z -> robot -Y
         if side > 0:

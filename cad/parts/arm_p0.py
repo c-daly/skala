@@ -44,23 +44,35 @@ def arm_plate():
 
 
 def drive_servo_housing():
-    """Block on the outboard face holding the drive XL430, horn axis along Z, open outboard."""
-    pw = P.XL430_W + 2 * P.XL430_CLEAR
-    ph = P.XL430_H + 2 * P.XL430_CLEAR
+    """Block on the outboard face holding the drive XL430, horn axis along Z, open outboard.
+
+    The servo body lies ALONG the arm (its 46.5 mm length along X), with the horn end toward the
+    tip and the back end — where the two 3-pin connectors are — toward the pivot. The output axis
+    is 11.25 mm from the horn end, so the pocket runs from DRIVE_X−35.55 to DRIVE_X+11.55.
+    The pivot-side end of the housing is open: the connectors face the pivot and the leads drop
+    straight through a Ø8 hole in the arm plate at (0, 22) to the inboard side. Four M2 screws go
+    through the Y walls into the case taps at +4 / +28 from the axis (toward the back) and at
+    ±6 mm about mid-depth (11 and 23 mm below the horn face).
+    """
+    cl = P.XL430_CLEAR
+    x_back = P.DRIVE_X - (P.XL430_H - P.XL430_HORN_OFF) - cl     # pocket end toward the pivot
+    x_horn = P.DRIVE_X + P.XL430_HORN_OFF + cl                    # pocket end toward the tip
+    pw = P.XL430_W + 2 * cl                                       # pocket across (Y)
     outer_w = pw + 2 * P.SERVO_WALL
-    outer_h = ph + 2 * P.SERVO_WALL
+    z0, z1 = P.PLATE_T, P.PLATE_T + P.XL430_D                     # pocket floor / horn face
     with BuildPart() as hs:
-        with Locations((P.DRIVE_X, 0, P.PLATE_T + P.XL430_D / 2)):
-            Box(outer_w, outer_h, P.XL430_D)
-            Box(pw, ph, P.XL430_D + 1, mode=Mode.SUBTRACT)
-        # cable exit: slot through the pivot-side wall, low, for the servo lead
-        with Locations((P.DRIVE_X - pw / 2 - P.SERVO_WALL / 2, 0, P.PLATE_T + 6)):
-            Box(P.SERVO_WALL + 2, 14, 8, mode=Mode.SUBTRACT)
-        # M2 case screws through the two X-facing walls, at two heights
-        for z in (P.PLATE_T + 8.0, P.PLATE_T + P.XL430_D - 8.0):
-            for y in P.XL430_SIDE_HOLES_Y:
-                with Locations(Location((P.DRIVE_X, y, z), (0, 90, 0))):
-                    Cylinder(radius=(P.XL430_SIDE_SCREW + 0.4) / 2,
+        # outer block: wall on the tip end only; pivot end left open for the connectors
+        with Locations(((x_back + x_horn + P.SERVO_WALL) / 2, 0, (z0 + z1) / 2)):
+            Box(x_horn - x_back + P.SERVO_WALL, outer_w, P.XL430_D)
+        with Locations(((x_back + x_horn) / 2 - 1, 0, (z0 + z1) / 2 + 0.5)):
+            Box(x_horn - x_back + 2, pw, P.XL430_D + 1, mode=Mode.SUBTRACT)
+        # M2 case screws through both Y walls into the servo's side taps
+        for lx in P.XL430_SIDE_HOLES_L:
+            for dd in P.XL430_SIDE_HOLES_D:
+                x = P.DRIVE_X - lx                 # toward the back = toward the pivot
+                z = z1 - P.XL430_D / 2 + dd
+                with Locations(Location((x, 0, z), (90, 0, 0))):
+                    Cylinder(radius=(P.XL430_SIDE_SCREW + 0.2) / 2,
                              height=outer_w + 2, mode=Mode.SUBTRACT)
     return hs.part
 
@@ -91,6 +103,9 @@ def pivot_and_lightening(part):
             Cylinder(radius=(P.XL430_HORN_BOSS_D + 0.4) / 2, height=P.PLATE_T * 3, mode=Mode.SUBTRACT)
             with PolarLocations(P.XL430_HORN_PCD / 2, P.XL430_HORN_N):
                 Cylinder(radius=(P.XL430_HORN_SCREW + 0.4) / 2, height=P.PLATE_T * 3, mode=Mode.SUBTRACT)
+        # drive-servo lead: Ø8 through the plate beside the pivot flange, inside the root radius
+        with Locations((P.CABLE_HOLE_X, P.CABLE_HOLE_Y, 0)):
+            Cylinder(radius=P.CABLE_HOLE_D / 2, height=P.PLATE_T * 3, mode=Mode.SUBTRACT)
         # lightening holes between the servo housing and the tip boss, shrinking toward the tip
         for i, x in enumerate((P.DRIVE_X + 46, P.DRIVE_X + 74, P.DRIVE_X + 102)):
             with Locations((x, 0, 0)):

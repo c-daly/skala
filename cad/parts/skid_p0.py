@@ -18,7 +18,7 @@ import math
 BR_T = 8.0                # bracket upright thickness (Z)
 BR_H = 60.0               # bracket upright height (Y), pivot in the middle-upper
 BR_W = 56.0               # bracket width (X), two grid pitches each side of pivot
-PIVOT_Y = 14.0            # pivot height above the bracket foot top; the index arc sits above and forward of the pivot
+PIVOT_Y = 11.55           # pivot height above the bracket foot top: matches the flipper pivot (17.55 above the plate) so the rear wheel plane and height match the front
 FOOT_T = 6.0
 ARM_T = 8.0
 ARM_H = 24.0

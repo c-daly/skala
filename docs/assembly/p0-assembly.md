@@ -17,7 +17,7 @@ Robot frame throughout: **X forward, Y left, Z up**, origin at the centre of the
 
 1. Measure the **ICT-01 link pitch**: lay 10 links flat, hinge to hinge, and divide by 10. `params.py` assumes 6.0 mm. If it differs, change `ICT01_PITCH`, rebuild, and the arm length and tip-slot position move with it.
 2. Measure the **TB3 wheel outer diameter with ICT-01 links fitted** and the wheel width. Assumed 66 × 22 mm.
-3. Measure an **XL430-W250**: body 28.5 × 46.5 × 34 mm, horn Ø20, horn screw PCD 16 (4 × M2), horn centre boss Ø8, case screw positions ±18 mm along the long side. Any of these being off changes the arm housing, pitch mount and coupon.
+3. The **XL430-W250** dimensions in `params.py` are taken from Robotis's STEP model (28.5 × 46.5 × 34 mm body; output axis 11.25 mm from the horn end; four M2 case taps in each wide face at 4 and 28 mm from the axis toward the back, 6 mm either side of mid-depth; connectors on the back end). Still **verify on a servo**: horn screw PCD 16 (4 × M2) and horn centre boss Ø8 are not in the model. If either is off, the arm's pivot flange and the coupon change.
 4. Check the OpenCR 1.0 mounting-hole pattern (assumed 85 × 65 mm) against the upper deck's grid; it will not land exactly on 8 mm pitches, so expect to use slotted holes or an adapter like the Pi's.
 5. Print the **tolerance coupon** (`coupon_p0`). Press a 608 into each of the three seats; the one that needs a firm thumb push but no mallet is your `PRESS_FIT`. Slide the 8 mm rod through the three bores; the one that turns freely without wobble is `CLEAR_FIT`. Try an XL430 in the pocket and a horn on the pattern. Put the numbers in `params.py` and rebuild.
 
@@ -51,7 +51,7 @@ Only after step 5: print the rest, in this order — tip hubs, pitch mounts, **[
 | --- | --- | --- | --- |
 | Chassis plate `chassis_p0` | 1 | 1 | Flat, 4 walls, 30 %. |
 | Pitch servo mount `pitch_mount_p0` | 4 | 2 | Back wall down, 5 walls, 40 %. All identical; the part is symmetric. |
-| Flipper arm `arm_p0` | 4 | 2 | Inboard face down, rotated 45° on the bed (211 mm long). 5 walls, 40 %. PLA+. Supports only under the cable slot. **All identical** — the arm is symmetric about its long axis; a right-hand or rear arm is the same print turned over or around. |
+| Flipper arm `arm_p0` | 4 | 2 | Inboard face down, rotated 45° on the bed (227 mm long; fits the 220 mm bed only diagonally). 5 walls, 40 %. PLA+. No supports needed (the housing is open toward the pivot and outboard). **All identical** — the arm is symmetric about its long axis; a right-hand or rear arm is the same print turned over or around. |
 | Tip hub `tip_hub_p0` | 4 | 4 | Flange down, 6 walls, 100 %. |
 | Skid bracket `skid_bracket_p0_L` / `_R` | — | 1 + 1 | Foot down. Handed; the build emits left and right. |
 | Skid arm `skid_arm_p0` | — | 2 | Flat. PLA+. Identical, symmetric. |
@@ -139,24 +139,25 @@ Everything that touches the chassis plate, and the grid hole it uses (Figure 4):
 
 ## 6. Pitch servo mounts (A: 4, B: 2)
 
-Each mount is a box with the servo horn facing outboard and slotted feet that bolt to the grid.
+Each mount is a box, open outboard and open on top, with slotted feet that bolt to the grid. The servo **stands on its horn end**: the output axis is only 11.25 mm from that end of the body, so standing it this way puts the pivot 17.5 mm above the plate (which is what gives the flat pose its ground clearance) and leaves the back end — where the two 3-pin connectors are — facing up and open, 7 mm under the deck.
 
-1. Drop a pitch servo into the mount from the open horn face, cable end toward the cable slot in the back wall. Route the lead out through that slot before seating the servo.
-2. Four M2 × 6 through the mount's X-facing walls into the servo case holes.
-3. Place the mount on the chassis top face so its **horn face is flush with the plate's side edge** and the horn axis is at x = +60. Its foot slots sit over grid holes (32, ±48), (32, ±64), (88, ±48), (88, ±64) — the slots give ±2 mm along Y to bring the horn face flush. **A:** rear mounts the same at x = −60 over (−32…−88, ±48/±64), rotated 180° so their cable slots face forward. M3 × 8 through the slots, nylocks underneath, finger-tight. Figure 10 shows the stack from the plate edge outward.
-4. Sight along each pair of horns: left and right must be coaxial. Adjust in the slots, then torque.
+1. Drop a pitch servo into the mount from the open outboard face, horn outboard, horn end down on the floor, connectors up. Its wide faces are against the mount's X walls.
+2. Four M2 × 6 through the mount's X walls into the servo's case taps (the holes are at 4 and 28 mm above the pivot, 11 and 23 mm in from the horn face — they only line up one way).
+3. Plug the servo leads in from above *now*; they leave the top of the mount and run under the deck edge. The front mounts' connectors are just ahead of the deck's front edge (x = 54); the rear mounts' are under its corner with 7 mm to spare.
+4. Place the mount on the chassis top face so its **horn face is flush with the plate's side edge** and the horn axis is at x = +60. Its foot slots sit over grid holes (32, ±48), (32, ±64), (88, ±48), (88, ±64) — the slots give ±2 mm along Y to bring the horn face flush. **A:** rear mounts the same at x = −60 over (−32…−88, ±48/±64), (the mount is symmetric, so no rotation matters). M3 × 8 through the slots, nylocks underneath, finger-tight. Figure 10 shows the stack from the plate edge outward.
+5. Sight along each pair of horns: left and right must be coaxial. Adjust in the slots, then torque.
 
 ## 7. Flipper arms (A: 4, B: 2)
 
 Build one, then repeat; the parts are identical. A right-hand arm is the same print turned over so its servo housing faces outboard; a rear arm is turned around so its tip points aft.
 
-1. **Drive servo.** Drop it into the housing on the arm's outboard face, horn out, cable toward the pivot-end slot. Route the lead through the slot before seating. Four M2 × 6 through the housing walls.
+1. **Drive servo.** It lies *along* the arm: horn end toward the tip, back end (connectors) toward the pivot, which is the open end of the housing. Drop it in from outboard, horn out; its output axis is 46 mm from the pivot and the housing only fits it one way round. Four M2 × 6 through the housing's two side walls into the case taps (at 18 and 42 mm from the pivot, 11 and 23 mm below the horn face). Plug the lead in through the open end and drop it through the **Ø8 hole in the arm plate beside the pivot flange** (at 0, 22) to the inboard side.
 2. **Drive wheel.** TB3 wheel straight onto the drive horn (Robotis horn screws). Spin; ≥ 1 mm clearance to the housing all round.
 3. **Tip axle.** 75 mm rod through the tip-boss slot (the boss is 21 mm tall), flush with the arm's inboard face, protruding outboard ~54 mm. M3 × 16 clamp across the boss's split, loose.
 4. **Tip wheel.** Onto the axle in this order: M8 washer, hub-and-wheel (flange and wheel outboard, hub body against the washer), then an 8 mm shaft collar on the outboard end. Both wheels' inner faces must be **47 mm from the chassis plate edge** (3 mm horn + 10 mm arm plate + 34 mm housing — Figure 10), i.e. 44 mm from the arm's inboard face. Slide the hub along the axle until its wheel matches the drive wheel's plane, then tighten the collar's set screw and the boss clamp. Figure 11 shows the whole arm in section.
 5. **Track.** Loop the ICT-01 links around both wheels. 80 links at 6 mm pitch close at a 136 mm centre distance; the slot gives ±4 mm. Lower run should deflect ~5 mm under a thumb. Tighten the clamp.
 6. **Arm to pitch horn.** Pitch servo at its "horizontal" reading, arm held horizontal: Ø8.4 flange hole over the horn boss, four M2 × 10 into the horn, torqued in a cross.
-7. Rotate the arm by hand (power off). The drive wheel sweeps a 63 mm radius about the pivot; it must clear the plate edge, the mount feet and the deck standoffs. If a standoff is clipped, move it one grid pitch inboard.
+7. Rotate the arm by hand (power off). The drive wheel sweeps a 79 mm radius about the pivot, entirely outboard of the plate edge; check that the housing clears the mount and the track clears the deck corner at full tuck.
 
 ## 8. Rear skids [B only]
 
@@ -234,8 +235,8 @@ OpenCR TTL → ID 2 → ID 1 → ID 3 → ID 4            (B)
 OpenCR TTL → ID 2 → ID 1 → ID 3 → ID 4 → ID 6 → ID 5 → ID 7 → ID 8   (A)
 ```
 
-- Pitch-servo leads exit the back of each mount; tie them along the inside of the plate edge.
-- Drive-servo leads leave the arm through the pivot-side slot. Leave a **~120 mm service loop** at the pivot, coiled and tied to the *mount*, not the arm. This loop allows ±200° of pitch and is what limits rotation in P0; the firmware limit must match it.
+- Pitch-servo leads leave the top of each mount (the connectors face up) and run under the deck edge; tie them along the inside of the plate edge.
+- Drive-servo leads come out of the open pivot end of the housing and down through the Ø8 hole in the arm plate, emerging on the inboard face next to the pitch horn. Leave a **~120 mm service loop** at the pivot, coiled and tied to the *mount*, not the arm. This loop allows ±200° of pitch and is what limits rotation in P0; the firmware limit must match it.
 - USB: Pi → OpenCR (micro-USB) and Pi → RPLidar A1. Tie under the deck.
 - Camera: CSI ribbon from the cradle up to the Pi with a loose loop above the pan base; no twist. Pan and tilt servos to two OpenCR PWM pins (e.g. D4 and D5 on the Arduino header) with 5 V and ground from the OpenCR's 5 V header.
 - Grounds: tie the power bank's negative to the OpenCR ground once (through the USB serial cable is enough) so the PWM and serial references agree.

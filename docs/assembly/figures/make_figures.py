@@ -102,15 +102,16 @@ figure_over_base(
 figure_over_base(
     "fig3-flipper-arm", "arm_p0_iso",
     [
-        (100, 230, 60, 500, "Pivot flange\nØ8.4 clearance for the horn boss;\nfour M2 on the Ø16 horn PCD → pitch servo horn", ACC, "start"),
-        (365, 210, 40, 110, "Drive servo housing (open outboard)\nXL430 drops in horn-up; four M2 through the walls", ACC, "start"),
-        (175, 320, 60, 400, "Cable slot (pivot-side wall)\nservo lead exits here toward the pivot", INK, "start"),
-        (580, 440, 430, 600, "Lightening holes\nno function; leave or fill", MUTE, "start"),
-        (890, 440, 820, 120, "Tip boss with 8 mm slot\n±4 mm track tension travel", ACC, "start"),
-        (845, 500, 600, 690, "Clamp screw M3 × 16\ntightens the boss onto the axle", ACC, "start"),
-        (50, 290, 60, 660, "Inboard face (Z = 0) → print this face down", MUTE, "start"),
+        (95, 240, 40, 560, "Pivot flange\nØ8.4 clearance for the horn boss;\nfour M2 on the Ø16 horn PCD → pitch servo horn", ACC, "start"),
+        (255, 145, 60, 90, "Ø8 cable hole at (0, 22)\ndrive-servo lead drops through the plate here", ACC2, "start"),
+        (225, 270, 60, 640, "Open pivot end of the housing\nthe servo's connectors face this way", ACC, "start"),
+        (430, 215, 560, 110, "Drive servo housing (open outboard and toward the pivot)\nXL430 lies along the arm, horn end toward the tip;\noutput axis at X = 46", ACC, "start"),
+        (300, 155, 560, 185, "4 × M2 through both side walls\ninto the case taps: X = 18 and 42, 11 and 23 below the horn face", INK, "start"),
+        (560, 405, 430, 660, "Lightening holes\nno function; leave or fill", MUTE, "start"),
+        (895, 545, 600, 585, "Tip boss with 8 mm slot\n±4 mm track tension travel; 21 tall, split", ACC, "start"),
+        (945, 585, 640, 650, "Clamp screw M3 × 16\ntightens the boss onto the axle", ACC, "start"),
     ],
-    "Figure 3 — Flipper arm `arm_p0`", "Frame: X along the arm from the pivot, Z outboard. The part is symmetric about its long axis: one print serves left and right.")
+    "Figure 3 — Flipper arm `arm_p0`", "X along the arm from the pivot, Z outboard. 227 mm long: print flat, inboard face down, diagonally on the 220 mm bed. Symmetric: one print serves both sides.")
 
 # --------------------------------------------------------------------------- Fig 4: chassis plan, dimensioned (from params.PLACE)
 S = 3.4
@@ -257,7 +258,7 @@ def dim(z, text, x=132, color=INK):
 ST = PR.STACK
 svg = ["<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1000 660' width='1000' height='660'>",
        "<rect width='100%' height='100%' fill='white'/>",
-       title("Figure 9 — Vertical stack-up, side view from the left (1 mm = 2.6 px)", "Heights are above the chassis plate's top face. Front is to the right. Flippers omitted; their pivot is at the plate edge, 0 mm."),
+       title("Figure 9 — Vertical stack-up, side view from the left (1 mm = 2.6 px)", "Heights are above the chassis plate's top face. Front is to the right. Flippers omitted; their pivot axis is 17.55 mm above the plate, at the plate edge."),
        eb(-100, -6, 100, 0, "#e5e7eb"),                                                   # chassis plate
        eb(-17.5, 0, 17.5, ST["battery_top"], "#fef3c7", "#b45309"),                     # battery
        # camera head on the chassis (drawn first; the near-side pitch mount is translucent over it)
@@ -286,32 +287,36 @@ svg.append(eb(pix - 35, ST["lidar_adapter_top"] + 8, pix + 35, ST["lidar_adapter
 sp = ST["lidar_scan_plane"]
 svg.append(f"<line x1='{E(-120,sp)[0]}' y1='{E(0,sp)[1]:.1f}' x2='{E(130,sp)[0]}' y2='{E(0,sp)[1]:.1f}' stroke='{ACC}' stroke-width='1.2' stroke-dasharray='8 4'/>")
 # dimensions
-for z, t in ((0, "0 — chassis top"), (ST["battery_top"], f"{ST['battery_top']} battery top"), (ST["pitch_mount_top"], f"{ST['pitch_mount_top']} pitch-mount top"),
+for z, t in ((0, "0 — chassis top"), (ST["pivot_axis"], f"{ST['pivot_axis']} flipper pivot axis"), (ST["battery_top"], f"{ST['battery_top']} battery top"), (ST["pitch_mount_top"], f"{ST['pitch_mount_top']} pitch-mount top (open: connectors)"),
              (ST["deck_underside"], f"{ST['deck_underside']} deck underside"), (ST["opencr_top"], f"{ST['opencr_top']} OpenCR headers"),
              (ST["camera_head_top"], f"{ST['camera_head_top']} camera head top"), (ST["pi_cooler_top"], f"{ST['pi_cooler_top']} Pi cooler top"),
              (ST["lidar_adapter_top"], f"{ST['lidar_adapter_top']} LiDAR base"), (sp, f"≈{sp} LiDAR scan plane")):
     svg.append(dim(z, t, color=(ACC if "scan" in t else INK)))
 for x, t, anc in ((ocx, "OpenCR", "middle"), (pix, "Pi + LiDAR", "start"), (80, "camera", "middle"), (0, "battery", "end")):
     X, Y = E(x, -14); svg.append(f"<text x='{X:.1f}' y='{Y:.1f}' {FONT} font-size='10.5' fill='{MUTE}' text-anchor='{anc}'>x = {x} {t}</text>")
-svg.append(f"<text x='40' y='625' {FONT} font-size='12' fill='{MUTE}'>Clearances: deck underside 60 over the 57 mm mount tops · LiDAR adapter 40 over the Pi adapter for a 30 mm cooler ·</text>")
+svg.append(f"<text x='40' y='625' {FONT} font-size='12' fill='{MUTE}'>Clearances: deck underside 60 over the 53 mm mount tops (servo leads leave upward, 7 mm under the deck) · LiDAR adapter 40 over the Pi adapter for a 30 mm cooler ·</text>")
 svg.append(f"<text x='40' y='643' {FONT} font-size='12' fill='{MUTE}'>camera head top {ST['camera_head_top']} under the ≈{sp} scan plane and ahead of the deck's front edge (x = 54) · bolt the deck down before fitting the adapters (two deck screws sit under them).</text>")
 svg.append("</svg>")
 write("fig9-stack-up", "\n".join(svg))
 
 # --------------------------------------------------------------------------- Fig 10: pivot-axis stack-up (section along the arm pivot, looking from the front)
-K = 4.5; YB = 330; ZB = 300          # y is outboard to the right, from the plate edge
+K = 4.5; YB = 330; ZB = 330          # y is outboard to the right, from the plate edge
 def A(y, z): return (YB + y * K, ZB - z * K)
 def ab(y0, z0, y1, z1, fill, stroke=INK, dash=None):
     (a, b), (c, d) = A(y0, z1), A(y1, z0)
     dd = f" stroke-dasharray='{dash}'" if dash else ""
     return f"<rect x='{a:.1f}' y='{b:.1f}' width='{c-a:.1f}' height='{d-b:.1f}' fill='{fill}' stroke='{stroke}' stroke-width='1.3'{dd}/>"
 WZ = PR.PLATE_T + PR.XL430_D      # 44: wheel inner face from the plate edge
-svg = ["<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1000 520' width='1000' height='520'>",
+svg = ["<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1000 560' width='1000' height='560'>",
        "<rect width='100%' height='100%' fill='white'/>",
        title("Figure 10 — Flipper stack-up along the pivot axis (1 mm = 4.5 px)", "Section through the pivot, viewed from the front. Distances outboard from the chassis plate edge (= the pitch horn face). Same at the tip end and on the skids."),
-       ab(-38, -20, 0, 20, "#fed7aa", ACC),                                   # pitch mount box (inboard of the edge)
-       f"<text x='{A(-19,24)[0]:.0f}' y='{A(-19,24)[1]:.0f}' {FONT} font-size='11' fill='{ACC}' text-anchor='middle'>pitch mount + XL430</text>",
-       ab(-34, -12, -4, 12, "#d1d5db", INK, "3 2"),
+       ab(-60, -23.55, 0, -17.55, "#e5e7eb"),                                 # chassis plate (edge at y = 0)
+       f"<text x='{A(-30,-27)[0]:.0f}' y='{A(-30,-27)[1]+8:.0f}' {FONT} font-size='10' fill='{MUTE}' text-anchor='middle'>chassis plate, top 17.55 below the pivot</text>",
+       ab(-38, -17.55, 0, 35.55, "#fed7aa", ACC),                             # pitch mount (inboard of the edge), open at the top
+       f"<text x='{A(-19,39)[0]:.0f}' y='{A(-19,39)[1]:.0f}' {FONT} font-size='11' fill='{ACC}' text-anchor='middle'>pitch mount + XL430 standing on its horn end</text>",
+       ab(-34, -11.25, -4, 35.25, "#d1d5db", INK, "3 2"),
+       f"<text x='{A(-19,-14)[0]:.0f}' y='{A(-19,-14)[1]:.0f}' {FONT} font-size='9' fill='{INK}' text-anchor='middle'>horn end</text>",
+       f"<text x='{A(-19,31)[0]:.0f}' y='{A(-19,31)[1]:.0f}' {FONT} font-size='9' fill='{INK}' text-anchor='middle'>connectors ↑</text>",
        ab(0, -10, 3, 10, "#9ca3af"),                                           # horn
        f"<text x='{A(1.5,13)[0]:.0f}' y='{A(1.5,13)[1]-4:.0f}' {FONT} font-size='10' fill='{INK}' text-anchor='middle'>horn 3</text>",
        ab(3, -30, 3 + PR.PLATE_T, 30, "#fde68a", "#92400e"),                   # arm plate
@@ -327,8 +332,8 @@ for y, t in ((0, "0 plate edge"), (3, "3"), (3 + PR.PLATE_T, f"{3+PR.PLATE_T:.0f
     X, Y = A(y, 44)
     svg.append(f"<line x1='{X:.1f}' y1='{A(0,36)[1]:.1f}' x2='{X:.1f}' y2='{Y:.1f}' stroke='{INK}' stroke-width='0.8'/>")
     svg.append(f"<text x='{X:.1f}' y='{Y-6:.1f}' {FONT} font-size='10' fill='{INK}' text-anchor='{'end' if y > 40 else 'middle'}'>{t}</text>")
-svg.append(f"<text x='40' y='470' {FONT} font-size='12' fill='{MUTE}'>Match both wheels of an arm, and the skid wheels, to the same {3+WZ:.0f} mm inner-face distance; the tip axle slides in its slot to set it. Track width on the chassis is 152 + 2 × ({3+WZ+PR.TB3_WHEEL_W:.0f}) ≈ {152+2*(3+WZ+PR.TB3_WHEEL_W):.0f} mm overall.</text>")
-svg.append(f"<text x='40' y='490' {FONT} font-size='12' fill='{MUTE}'>Drive wheel: bolted straight to the drive servo horn, which protrudes from the housing's outboard face. Tip wheel: on the tip hub (2 × 608) over the 8 mm axle clamped in the boss.</text>")
+svg.append(f"<text x='40' y='510' {FONT} font-size='12' fill='{MUTE}'>Match both wheels of an arm, and the skid wheels, to the same {3+WZ:.0f} mm inner-face distance; the tip axle slides in its slot to set it. Track width on the chassis is 152 + 2 × ({3+WZ+PR.TB3_WHEEL_W:.0f}) ≈ {152+2*(3+WZ+PR.TB3_WHEEL_W):.0f} mm overall.</text>")
+svg.append(f"<text x='40' y='530' {FONT} font-size='12' fill='{MUTE}'>Drive wheel: bolted straight to the drive servo horn, which protrudes from the housing's outboard face. Tip wheel: on the tip hub (2 × 608) over the 8 mm axle clamped in the boss.</text>")
 svg.append("</svg>")
 write("fig10-pivot-stackup", "\n".join(svg))
 
@@ -487,19 +492,25 @@ def mt(x, z, t, color=INK, size=11, anchor="start", weight="normal"):
     X, Y = M(x, z); return f"<text x='{X:.1f}' y='{Y:.1f}' {FONT} font-size='{size}' fill='{color}' text-anchor='{anchor}' font-weight='{weight}'>{t}</text>"
 PT, HD, WZ = PR.PLATE_T, PR.XL430_D, PR.PLATE_T + PR.XL430_D     # 10, 34, 44
 TX, DX = PR.TIP_X, PR.DRIVE_X
+HX0 = DX - (PR.XL430_H - PR.XL430_HORN_OFF) - PR.XL430_CLEAR      # housing pocket, pivot end (open)
+HX1 = DX + PR.XL430_HORN_OFF + PR.XL430_CLEAR                      # housing pocket, tip end
 BH = PR.TIP_BOSS_H
 svg = ["<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1000 600' width='1000' height='600'>",
        "<rect width='100%' height='100%' fill='white'/>",
        title("Figure 11 — How the flipper arm works: section along the arm (1 mm = 3.1 px)", "Cut through the arm's centreline, looking from above. Up the page is outboard. Same tip arrangement on the skid arms."),
        # pitch servo (in the chassis mount) and its horn, inboard of the arm
-       mb(-24, -30, 24, -6, "#fed7aa", ACC, None, 0.7), mt(28, -20, "pitch XL430 in its chassis mount (horn axis = arm pivot)", ACC, 10),
+       mb(-14.25, -37, 14.25, -3, "#fed7aa", ACC, None, 0.7), mt(18, -30, "pitch XL430 in its chassis mount, seen end-on (horn axis = arm pivot; its body runs down the page)", ACC, 10),
        mb(-10, -3, 10, 0, "#9ca3af"), mt(28, -8, "horn → 4 × M2 into the arm flange", INK, 10),
        # arm plate and housing
        mb(-30, 0, TX + 12, PT, "#fde68a", "#92400e"),
-       mb(DX - 20, PT, DX + 20, WZ, "#fde68a", "#92400e"),
+       mb(HX0, PT, HX1 + PR.SERVO_WALL, WZ, "#fde68a", "#92400e"),            # housing: open toward the pivot (left), walled at the tip end
        mt(-28, PT + 3, "arm plate 10", "#92400e", 10),
-       # drive servo in the housing, horn out, wheel on horn
-       mb(DX - 14, PT + 1, DX + 14, WZ - 1, "#d1d5db", INK, "3 2"), mt(DX - 13, PT + 14, "drive XL430", INK, 10),
+       # drive servo lying along the arm: back (connector) end toward the pivot, horn end toward the tip
+       mb(HX0 + 0.3, PT + 0.3, HX1 - 0.3, WZ - 0.3, "#d1d5db", INK, "3 2"),
+       mt(DX - 30, PT + 20, "drive XL430 (46.5 long, lying along the arm)", INK, 10),
+       mb(HX0 + 0.3, PT + 10, HX0 + 4, PT + 24, "#1f2937"), mt(HX0 - 2, PT + 30, "connectors", INK, 9, "end"),
+       f"<path d='M {M(HX0,PT+17)[0]:.0f} {M(HX0,PT+17)[1]:.0f} L {M(2,PT+17)[0]:.0f} {M(2,PT+17)[1]:.0f} L {M(2,-2)[0]:.0f} {M(2,-2)[1]:.0f}' fill='none' stroke='{ACC2}' stroke-width='1.5' stroke-dasharray='4 3'/>",
+       mt(18, -17, "drive-servo lead → Ø8 hole in the plate at (0, 22) → down to the chassis", ACC2, 9),
        mb(DX - 10, WZ, DX + 10, WZ + 3, "#9ca3af"), mt(DX + 22, WZ + 1, "horn", INK, 10),
        mb(DX - 33, WZ + 3, DX + 33, WZ + 3 + PR.TB3_WHEEL_W, "#e5e7eb"), mt(DX - 33, WZ + 3 + PR.TB3_WHEEL_W + 4, "TB3 wheel bolted to the horn (drive sprocket)", INK, 10),
        # tip: boss, axle, washer, hub, wheel, collar
@@ -518,12 +529,18 @@ svg = ["<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1000 600' width='10
        mb(TX - 7, BH + 23 + PR.TB3_WHEEL_W + 1, TX + 7, BH + 23 + PR.TB3_WHEEL_W + 1 + PR.SHAFT_COLLAR_W, "#374151"),
        mt(TX - 10, BH + 23 + PR.TB3_WHEEL_W + 7, "8 mm shaft collar (set screw) — stops the hub walking off", INK, 10, "end"),
        ]
+# drive-servo case screws (through the side walls, i.e. into the page): mark their (x, z)
+for lx in PR.XL430_SIDE_HOLES_L:
+    for dd in PR.XL430_SIDE_HOLES_D:
+        X, Y = M(DX - lx, WZ - PR.XL430_D / 2 + dd)
+        svg.append(f"<circle cx='{X:.1f}' cy='{Y:.1f}' r='3' fill='white' stroke='{INK}' stroke-width='1.2'/>")
+svg.append(mt(DX + 36, WZ + 44, "○ 4 × M2 case screws through both side walls:", INK, 9)); svg.append(mt(DX + 36, WZ + 39, "X = 18 and 42; 11 and 23 below the horn face", INK, 9)); svg.append(mt(DX + 36, WZ + 34, "output axis 11.25 from the servo's tip end", INK, 9))
 # wheel plane line
 yz = WZ + 3
 X0, Y0 = M(-30, yz); X1, _ = M(TX + 40, yz)
 svg.append(f"<line x1='{X0}' y1='{Y0:.1f}' x2='{X1}' y2='{Y0:.1f}' stroke='{ACC}' stroke-width='1' stroke-dasharray='6 4'/>")
 svg.append(mt(-30, yz + 3, f"wheel plane: {yz:.0f} from the arm's inboard face (47 from the plate edge)", ACC, 10))
-svg.append(f"<text x='40' y='560' {FONT} font-size='12' fill='{MUTE}'>Tip assembly order: axle through the boss slot → washer → hub (flange outboard) → wheel onto the flange → collar. Slide the hub to match the drive wheel's plane, then tighten clamp and collar.</text>")
+svg.append(f"<text x='40' y='560' {FONT} font-size='12' fill='{MUTE}'>Tip order: axle through the boss slot → washer → hub (flange outboard) → wheel onto the flange → collar. Slide the hub to the drive wheel's plane, then tighten clamp and collar.</text>")
 svg.append(f"<text x='40' y='580' {FONT} font-size='12' fill='{MUTE}'>The boss slot lets the axle move ±4 mm along the arm for track tension. The split in the boss lets the M3 pinch the axle; without it a PLA cylinder would not grip.</text>")
 svg.append("</svg>")
 write("fig11-arm-section", "\n".join(svg))

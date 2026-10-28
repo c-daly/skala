@@ -10,16 +10,22 @@ BED = 220.0               # Adventurer 5M Pro usable bed, each axis
 MAX_PART = 210.0          # design limit per part dimension
 
 # ------------------------------------------------------- DYNAMIXEL XL430 -----
-XL430_W = 28.5            # body width  (across the horn axis)          VERIFY
-XL430_H = 46.5            # body height (along the long side)           VERIFY
-XL430_D = 34.0            # body depth  (along the horn axis)           VERIFY
-XL430_HORN_D = 20.0       # horn outer diameter                          VERIFY
-XL430_HORN_PCD = 16.0     # horn screw pitch-circle diameter             VERIFY
+# Measured from Robotis's XL430 STEP model (2026-10-28). Frame of the model: W across the body,
+# L along the body, D along the output (horn) axis. The output axis is NOT centred on the body:
+# it sits XL430_HORN_OFF from the horn-end face. Connectors are on the back end face.
+XL430_W = 28.5            # across the body (the two faces with the case screw holes)
+XL430_H = 46.5            # body length, horn end to back (connector) end
+XL430_D = 34.0            # depth along the output axis, horn face to idler face
+XL430_HORN_OFF = 11.25    # output axis from the horn-end face along the length
+XL430_HORN_D = 20.8       # horn disc diameter
+XL430_HORN_PCD = 16.0     # horn screw pitch-circle diameter                  VERIFY (not in model)
 XL430_HORN_N = 4          # horn screws
-XL430_HORN_SCREW = 2.0    # M2 horn screws; clearance hole = +0.4        VERIFY
-XL430_HORN_BOSS_D = 8.0   # horn centre boss diameter                    VERIFY
-XL430_SIDE_SCREW = 2.0    # M2 case screws                               VERIFY
-XL430_SIDE_HOLES_Y = (-18.0, 18.0)   # case screw positions along H     VERIFY
+XL430_HORN_SCREW = 2.0    # M2 horn screws; clearance hole = +0.4            VERIFY
+XL430_HORN_BOSS_D = 8.0   # horn centre boss diameter                         VERIFY
+XL430_SIDE_SCREW = 2.0    # M2 taps in the W faces (Ø2.1 in the model)
+XL430_SIDE_HOLES_L = (4.0, 28.0)   # along the length, measured from the output axis toward the back
+XL430_SIDE_HOLES_D = (-6.0, 6.0)   # across the depth, from mid-depth (= 11 and 23 mm below the horn face)
+XL430_BACK_HOLES = ((-8.0, -6.0), (-8.0, 6.0), (8.0, -6.0), (8.0, 6.0))   # M2 taps in the back face (W, D)
 XL430_CLEAR = 0.3         # pocket clearance per side
 
 # ------------------------------------------------------------ TB3 wheel ------
@@ -36,7 +42,7 @@ ARM_CENTER_DIST = (TRACK_LEN - math.pi * TB3_WHEEL_D) / 2.0   # ~136.3 mm
 # ----------------------------------------------------------- P0 arm ----------
 PLATE_T = 10.0            # arm plate thickness (Z, inboard face at Z=0)
 PIVOT_X = 0.0             # pitch axis
-DRIVE_X = 30.0            # drive wheel / drive servo axis
+DRIVE_X = 46.0            # drive wheel / servo output axis; body lies along the arm with its back (connector) end toward the pivot, clearing the pivot-flange screws at x = ±8
 TIP_X = DRIVE_X + ARM_CENTER_DIST
 ROOT_H = 60.0             # plate height at root  (Y extent)
 TIP_H = 30.0              # plate height at tip
@@ -48,6 +54,9 @@ HUB_TOTAL = 21.0          # tip hub length (flange 4 + body 17), see tip_hub_p0
 TIP_BOSS_H = PLATE_T + 34.0 - HUB_TOTAL - 2.0   # 21: boss stops 2 mm short of the hub so the hub can sit at the wheel plane
 SHAFT_COLLAR_W = 8.0      # 8 mm bore set-screw collar on the outboard end of each tip axle
 SERVO_WALL = 5.0          # wall around the drive servo pocket
+CABLE_HOLE_X = 0.0        # drive-servo lead through the arm plate, beside the pivot flange
+CABLE_HOLE_Y = 22.0
+CABLE_HOLE_D = 8.0
 HOLE_R_LIGHTEN = 9.0      # lightening holes
 
 # ----------------------------------------------------------- bearings --------
@@ -100,7 +109,7 @@ PLACE = {
 }
 # vertical stack (mm above chassis plate top face at z = 6)
 STACK = {
-    "chassis_top": 0, "pitch_mount_top": 57, "battery_top": 26, "deck_underside": 60, "deck_top": 64,
+    "chassis_top": 0, "pivot_axis": 17.55, "pitch_mount_top": 53, "battery_top": 26, "deck_underside": 60, "deck_top": 64,
     "board_standoff": 12, "opencr_top": 64 + 12 + 3 + 14, "pi_adapter_top": 64 + 12 + 3,
     "pi_cooler_top": 64 + 12 + 3 + 30, "lidar_adapter_top": 64 + 12 + 3 + 40 + 3,
     "lidar_scan_plane": 64 + 12 + 3 + 40 + 3 + 27, "camera_head_top": 4 + 22 + 3 + 48,
