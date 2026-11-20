@@ -1,0 +1,81 @@
+{
+  "scope": "Nominal lower assembly paths and example tool envelopes; not a print or hardware qualification",
+  "checks": [
+    {
+      "check": "Motor case can enter the pocket from outboard",
+      "pass": true,
+      "detail": "swept overlap 0.00000 mm3; case envelope only"
+    },
+    {
+      "check": "Motor side screw driver access at module Z=21",
+      "pass": true,
+      "detail": "[]; example 4 mm shaft, track off"
+    },
+    {
+      "check": "Motor side screw driver access at module Z=33",
+      "pass": true,
+      "detail": "[]; example 4 mm shaft, track off"
+    },
+    {
+      "check": "M6 head enters empty hub from its large rear opening",
+      "pass": true,
+      "detail": "swept overlap 0.00000 mm3"
+    },
+    {
+      "check": "Bearing-first order correctly rejected",
+      "pass": true,
+      "detail": "head overlaps seated bearing by 301.593 mm3"
+    },
+    {
+      "check": "5 mm hex-key circumscribed envelope clears hub access",
+      "pass": true,
+      "detail": "overlap 0.00000 mm3; wheel tested separately"
+    },
+    {
+      "check": "Idler washer contacts its recessed carrier seat",
+      "pass": false,
+      "detail": "nearest gap 0.5000 mm"
+    },
+    {
+      "check": "Carrier geometry permits the same print on both sides",
+      "pass": true,
+      "detail": "mirror-symmetry difference 0.00000 mm3"
+    },
+    {
+      "check": "Sixteen M3 foot bolts have vertical insertion and tool paths",
+      "pass": true,
+      "detail": "[]"
+    },
+    {
+      "check": "M4 nut-tool approach before track closure",
+      "pass": true,
+      "detail": "[]; example 10 mm OD socket"
+    },
+    {
+      "check": "Side -1 plate route admits a nominal 4 mm cable envelope",
+      "pass": true,
+      "detail": "overlap 0.00000 mm3; no bend-radius or connector-passage claim"
+    },
+    {
+      "check": "Side 1 plate route admits a nominal 4 mm cable envelope",
+      "pass": true,
+      "detail": "overlap 0.00000 mm3; no bend-radius or connector-passage claim"
+    }
+  ],
+  "failures": [
+    {
+      "check": "Idler washer contacts its recessed carrier seat",
+      "pass": false,
+      "detail": "nearest gap 0.5000 mm"
+    }
+  ],
+  "source_sha256": {
+    "cad/staged_base.py": "26a7717f8a0efb63c27a32bb96efd11d88afa1d6bbdd6f7cc57ca1c371e16cf4",
+    "cad/staged_base.json": "78d7d799b0892408489501a71fe5a1f1976e117314898e35d973a6aa31c5e516",
+    "cad/check_staged_base.py": "8be060360a5aa7508591f9013fb347ba3678098bddfdcc9b63d2407f8366b525",
+    "cad/audit_s1_assembly.py": "b6878a99fd22dbd06af9fbbfe0a8e7981fc6a69eaa541830a2de0c28db3428a2",
+    "cad/review/r1/step/arm_p0_r1.step": "9ae48cc99e8715f90c77fb0c5fb3eaa09b8c13a1494832f96a8cfdc79f575770",
+    "cad/out/step/tip_hub_p0.step": "94cfce3b05b4ec926369aec61705af172c64d2cf63a2e054bc1478b8963033eb",
+    "cad/out/step/chassis_p0.step": "a5a233d1e98f80ae73bfb1644e8f0db8fe83597fcf49b62ef4c3775a054b8b1b"
+  }
+}

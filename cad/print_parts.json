@@ -1,0 +1,14 @@
+[
+  {"id": "F1", "name": "Motor fit coupon", "stl": "motor_fit_coupon_s1.stl", "export": "current", "identify": "Short carrier section with the motor pocket; not installed on the robot."},
+  {"id": "F2", "name": "Bearing fit coupon", "stl": "bearing_fit_coupon_s1.stl", "export": "current", "identify": "Four rings, bores 19.0 / 19.1 / 19.2 / 19.3 mm. Labels were not visible on the user's print; alternating holes accepted the bearing. Retain the sample; no repeat print required."},
+  {"id": "P1", "name": "Track carrier", "stl": "track_carrier_s1.stl", "export": "current", "identify": "Long body with integral motor housing, continuous backplate and slotted idler boss."},
+  {"id": "P2", "name": "Fixed bracket", "stl": "fixed_bracket_s1.stl", "export": "current", "identify": "Bracket with two carrier holes and four chassis-foot holes."},
+  {"id": "P3", "name": "Tip hub", "stl": "tip_hub_p0.stl", "export": "current", "identify": "Revised hub: Ø30 wheel flange and rear collar, Ø27 waist, 21.5 mm long; three rear pilot holes for P8, four front wheel holes. Ø19.3 bearing bore. Earlier hub without rear holes is superseded; physical fit and load remain unqualified."},
+  {"id": "P4", "name": "Hub spacer", "stl": "hub_spacer_p0.stl", "export": "retained", "identify": "Plain ring: 9.5 mm outside diameter, 6.3 mm bore, 3 mm thick; no peripheral screw holes."},
+  {"id": "P5", "name": "Chassis", "stl": "chassis_p0.stl", "export": "retained", "identify": "200 x 152 x 6 mm lower plate."},
+  {"id": "P6", "name": "Upper deck", "stl": "deck_p0.stl", "export": "retained", "identify": "164 x 120 x 4 mm plate; retained unchanged for the U1 deck and board assembly."},
+  {"id": "P7", "name": "Drive-lead restraint", "stl": "drive_lead_restraint_s1.stl", "export": "current", "identify": "Small open stand with two chassis holes and two cable-tie slots."},
+  {"id": "P8", "name": "Idler bearing cap", "stl": "idler_bearing_cap_s1.stl", "export": "current", "identify": "Ø30 x 2 ring, Ø17 opening, three countersunk holes. Shallow circular relief faces bearing; countersunk screw heads face carrier. Attaches to revised P3 with three H8 screws."},
+  {"id": "P9", "name": "OpenCR adapter", "stl": "opencr_adapter_s1.stl", "export": "current", "identify": "92 x 112 x 3 mm plate, central 44 x 60 window; replaces the thin-edged 84 mm-wide legacy adapter. Four slotted board holes, four round deck fixing holes."},
+  {"id": "P10", "name": "Pi 4B adapter", "stl": "pi4_adapter_s1.stl", "export": "current", "identify": "64 x 96 x 3 mm plate, central 34 x 50 window; 49 x 58 board pattern, 48 x 80 deck pattern. Pi USB/Ethernet face the robot's left side."}
+]

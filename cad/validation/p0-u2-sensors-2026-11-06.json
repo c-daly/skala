@@ -1,0 +1,335 @@
+{
+  "revision": "P0-U2-2026-11-06",
+  "scope": "Nominal sensor mounting candidates. Actual HAT seating, A1 revision/interface, servo/horns, dynamic ribbon and physical strength remain unqualified.",
+  "checks": [
+    {
+      "name": "solid_lidar_side_frame_s1_L",
+      "passed": true,
+      "solids": 1
+    },
+    {
+      "name": "bed_lidar_side_frame_s1_L",
+      "passed": true,
+      "size_mm": [
+        96.0,
+        70.0,
+        18.0
+      ]
+    },
+    {
+      "name": "solid_lidar_side_frame_s1_R",
+      "passed": true,
+      "solids": 1
+    },
+    {
+      "name": "bed_lidar_side_frame_s1_R",
+      "passed": true,
+      "size_mm": [
+        96.0,
+        70.0,
+        18.0
+      ]
+    },
+    {
+      "name": "solid_lidar_bridge_s1",
+      "passed": true,
+      "solids": 1
+    },
+    {
+      "name": "bed_lidar_bridge_s1",
+      "passed": true,
+      "size_mm": [
+        116.0,
+        136.0,
+        4.0
+      ]
+    },
+    {
+      "name": "solid_camera_pan_base_s1",
+      "passed": true,
+      "solids": 1
+    },
+    {
+      "name": "bed_camera_pan_base_s1",
+      "passed": true,
+      "size_mm": [
+        61.5,
+        64.0,
+        25.0
+      ]
+    },
+    {
+      "name": "solid_camera_yoke_s1",
+      "passed": true,
+      "solids": 1
+    },
+    {
+      "name": "bed_camera_yoke_s1",
+      "passed": true,
+      "size_mm": [
+        38.0,
+        60.0,
+        54.0
+      ]
+    },
+    {
+      "name": "solid_camera_cradle_s1",
+      "passed": true,
+      "solids": 1
+    },
+    {
+      "name": "bed_camera_cradle_s1",
+      "passed": true,
+      "size_mm": [
+        30.0,
+        40.5,
+        22.0
+      ]
+    },
+    {
+      "name": "solid_camera_pivot_bush_s1",
+      "passed": true,
+      "solids": 1
+    },
+    {
+      "name": "bed_camera_pivot_bush_s1",
+      "passed": true,
+      "size_mm": [
+        5.0,
+        5.0,
+        4.0
+      ]
+    },
+    {
+      "name": "solid_lidar_interface_carrier_s1",
+      "passed": true,
+      "solids": 1
+    },
+    {
+      "name": "bed_lidar_interface_carrier_s1",
+      "passed": true,
+      "size_mm": [
+        28.0,
+        60.0,
+        3.0
+      ]
+    },
+    {
+      "name": "bridge_existing_deck_holes",
+      "passed": true
+    },
+    {
+      "name": "camera_existing_chassis_holes",
+      "passed": true
+    },
+    {
+      "name": "bridge_left_clear_boards_deck",
+      "passed": true,
+      "max_intersection_mm3": 0
+    },
+    {
+      "name": "bridge_right_clear_boards_deck",
+      "passed": true,
+      "max_intersection_mm3": 0
+    },
+    {
+      "name": "bridge_plate_clear_boards_deck",
+      "passed": true,
+      "max_intersection_mm3": 0
+    },
+    {
+      "name": "interface_carrier_clear_boards_deck",
+      "passed": true,
+      "max_intersection_mm3": 0
+    },
+    {
+      "name": "camera_base_clear_boards_deck",
+      "passed": true,
+      "max_intersection_mm3": 0
+    },
+    {
+      "name": "bridge_left_clear_usb",
+      "passed": true
+    },
+    {
+      "name": "bridge_left_clear_pi_components",
+      "passed": true
+    },
+    {
+      "name": "bridge_left_clear_hat",
+      "passed": true
+    },
+    {
+      "name": "bridge_right_clear_usb",
+      "passed": true
+    },
+    {
+      "name": "bridge_right_clear_pi_components",
+      "passed": true
+    },
+    {
+      "name": "bridge_right_clear_hat",
+      "passed": true
+    },
+    {
+      "name": "bridge_plate_clear_usb",
+      "passed": true
+    },
+    {
+      "name": "bridge_plate_clear_pi_components",
+      "passed": true
+    },
+    {
+      "name": "bridge_plate_clear_hat",
+      "passed": true
+    },
+    {
+      "name": "interface_carrier_clear_usb",
+      "passed": true
+    },
+    {
+      "name": "interface_carrier_clear_pi_components",
+      "passed": true
+    },
+    {
+      "name": "interface_carrier_clear_hat",
+      "passed": true
+    },
+    {
+      "name": "hat_below_bridge",
+      "passed": true,
+      "gap_mm": 24.4
+    },
+    {
+      "name": "negative_low_bridge_hits_hat",
+      "passed": true
+    },
+    {
+      "name": "bridge_top_nut_-20_-64",
+      "passed": true
+    },
+    {
+      "name": "bridge_top_nut_-20_64",
+      "passed": true
+    },
+    {
+      "name": "bridge_top_nut_36_-64",
+      "passed": true
+    },
+    {
+      "name": "bridge_top_nut_36_64",
+      "passed": true
+    },
+    {
+      "name": "a1_motor_below_feet_allowance",
+      "passed": true,
+      "conservative_clearance_mm": 8.5
+    },
+    {
+      "name": "pivot_captured_without_clamping_ear",
+      "passed": true
+    },
+    {
+      "name": "bridge_feet_thread_projection",
+      "passed": true,
+      "projection_mm": 1
+    },
+    {
+      "name": "bridge_top_thread_projection",
+      "passed": true,
+      "projection_mm": 1
+    },
+    {
+      "name": "camera_base_thread_projection",
+      "passed": true,
+      "projection_mm": 1
+    },
+    {
+      "name": "pivot_thread_projection",
+      "passed": true,
+      "projection_mm": 3
+    },
+    {
+      "name": "camera_pcb_thread_projection",
+      "passed": true,
+      "projection_mm": 1.28
+    },
+    {
+      "name": "hat_opposed_screws_do_not_meet",
+      "passed": true,
+      "tip_gap_mm": 3.7
+    },
+    {
+      "name": "pan_servo_fits_base",
+      "passed": true
+    },
+    {
+      "name": "pan_lead_exit_open",
+      "passed": true
+    },
+    {
+      "name": "pan_shaft_relief",
+      "passed": true
+    },
+    {
+      "name": "tilt_nuts_fit_without_side_tool",
+      "passed": true
+    },
+    {
+      "name": "cradle_tilt_servo_sweep",
+      "passed": true,
+      "max_intersection_mm3": 0
+    },
+    {
+      "name": "negative_inboard_servo_hits_cradle",
+      "passed": true
+    },
+    {
+      "name": "cradle_yoke_sweep",
+      "passed": true,
+      "max_intersection_mm3": 0
+    },
+    {
+      "name": "head_vs_upper_sweep",
+      "passed": true,
+      "max_intersection_mm3": 0,
+      "worst_pair": "",
+      "scope": "13 pan poses x 3 tilt poses; nominal envelopes, not continuous clearance proof"
+    },
+    {
+      "name": "continuous_rigid_head_upper_bound",
+      "passed": true,
+      "radius_mm": 49.531,
+      "x_min_mm": 58.469,
+      "z_range_mm": [
+        33.0,
+        92.248
+      ],
+      "conflicts": []
+    },
+    {
+      "name": "camera3_vendor_holes",
+      "passed": true
+    },
+    {
+      "name": "cradle_vs_actual_camera3",
+      "passed": true,
+      "intersection_mm3": 0
+    }
+  ],
+  "passes": 60,
+  "failures": 0,
+  "source_sha256": {
+    "cad/sensors_s1.py": "c8feee7ec5ff601643b49fe633fed0c2c33dc003d426e3f61cce02f859eaf406",
+    "cad/audit_sensors_s1.py": "549f4cc764d5d43cb8b1b08a8db600cd2fc2649dd69337b668f2657bc2093430",
+    "cad/upper_s1.py": "fc5fbf8872c9d8fded6151f9976061f1db29159bc54a9f5fd47ffaf66aa1400d",
+    "cad/sensor_parts.json": "705ee0b5341b5c58bf4ba6d4db3505fb3c018acbff66552a236fb77ceb30a0c3",
+    "cad/vendor/sensor_sources.json": "bd08042fa3f5afc7855dcd0f3ba7a6fe731287c8fd09d6852393e6ac6d083413",
+    "cad/vendor/waveshare/wm8960.stp": "393e821eab3035984c34e4a6b90700a96104138a256eea335c3f3e8242d3ab51",
+    "cad/vendor/raspberrypi/camera3_standard.stp": "ecbc4b091e51f31c6186b81ad68d4205b8dceec0d90c116cd7fd699e1f1c5702",
+    "cad/vendor/raspberrypi/camera3_standard.pdf": "bde27f5ab38dd46aa05713bbb17c6e8acc4cb1d48ff9109df511256f6fbc66ac",
+    "cad/vendor/slamtec/a1m8_v3.0.pdf": "b6938125e1778b1ddce3a9b35a50fa10b0af4a923fd1a52e538dc8b275a46834",
+    "cad/out/step/chassis_p0.step": "1d93d3e7671b686058e5679c1544c780933c737993c99b598798e83f40a7cd3e",
+    "cad/out/step/deck_p0.step": "5e17aa9fc6de252ed5cf450c3cbac58ae0ec2129c5ba624c12bbb078a9e4c5f4"
+  }
+}

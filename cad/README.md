@@ -1,87 +1,112 @@
-# skala CAD
+# Skala CAD
 
-Parametric source in Python (build123d). `params.py` holds every dimension; each part is a
-module in `parts/`; `build.py` regenerates STEP, STL and SVG views into `out/`.
+The active candidate is **P0-S1-2026-11-02-R2**: two reusable track modules on removable fixed brackets. The [assembly guide](../docs/assembly/p0-assembly.md) owns the build sequence; the [build review](../docs/assembly/p0-build-review.md) owns unresolved conditions. Geometry checks are not a print release.
 
-```
-uv sync            # once, from the repo root
-uv run cad/build.py
-```
+Use the [purchasing BOM](../docs/assembly/p0-bom.md) for supplier links, pack sizes and combined hardware quantities for the lower and deck/board assemblies. Upper candidate **P0-U1-2026-11-03** adds P9/P10 while retaining the printed chassis and deck.
 
-STEP files import directly into Fusion 360, Onshape or FreeCAD. STL files slice in Orca.
+The [complete-system design](../docs/assembly/s1-system-plan.md) extends requirements through power, sensors, wiring and commissioning. **P0-U2-2026-11-06** adds eight conditional sensor fit files (P11L/R–P17) while retaining the chassis, deck and board adapters. The electrical enclosure and battery restraints still lack released CAD. U2 adapter columns are not the WM8960 pillars; the sensor candidate specifies a separate M2.5 stack.
 
-## Prototype 0 parts
+## Sources
 
-Two configurations share these parts: **A** (full design, four flippers) and **B** (interim, two flippers + two rear skids). See `docs/assembly/p0-assembly.md`.
+| File | Responsibility |
+| --- | --- |
+| build.py | Normal build entry point; current STEP/STL outputs under out/ |
+| print_parts.json | Printed-part IDs, names, exact STL filenames and visual identification; shared with drawing legends and vault export |
+| staged_base.json | Configured dimensions, component counts, reuse policy and release conditions |
+| staged_base.py | Track-module body, fixed brackets, installed hardware and lower assembly |
+| check_staged_base.py | Geometry, interfaces, connector access, bolt stacks and bed fit |
+| harness_s1.py | R12 lower drive-lead route, restraints and their hardware |
+| upper_s1.py | U1 deck columns, OpenCR/Pi 4B adapters, PCB supports and installed geometry |
+| audit_upper_s1.py | U1 hole, fastener, component-clearance and assembly-order checks, including negative cases |
+| export_s0_fit.py | Implementation used by build.py; oriented fit parts and exported-mesh validation |
+| release_p0.json | Active revision and pointer to release requirements |
+| actuator_options.json | Later S2 pitch-actuator comparison, not an S1 purchase list |
+| sensors_s1.py / sensor_parts.json | U2 sensor geometry, IDs, filenames and individual matching conditions |
+| audit_sensors_s1.py | Sensor holes, fastener stacks, component clearances, camera sweep and manufacturer-model checks |
+| export_sensors_s1.py | Conditional sensor STEP/STL output, called by the normal build after lower/U1 export |
 
-| Part | File | Size (mm) | Material | Orientation | Qty | Notes |
-| --- | --- | --- | --- | --- | --- | --- |
-| Flipper arm | `out/stl/arm_p0.stl` | 227 × 60 × 43 | PLA+ | Inboard face (Z=0) down, rotated 45° on the bed | 1 per flipper (4 in A, 2 in B); all identical | Fits the 220 mm bed diagonally. Drive XL430 lies along the arm (axis at X = 46, connectors toward the pivot, housing open that end, walls 1 mm short of the horn); M2.6 case screws in counterbored walls; M2 × 12 pivot screws in counterbores; side walls cut away over the servo's side cable windows (x 11–35, 7 mm up) with a slot in the plate under each, plus Ø8 end-route holes at (0, ±22). 5 walls, 40 % gyroid, no supports (the wall cut bridges 24 mm). |
-| Tip wheel hub | `out/stl/tip_hub_p0.stl` | 30 × 30 × 21.5 | PLA | Wheel face (flange) down | 4 (2 arms + 2 skids) | 6 walls, 100 % infill. Two 626 seats in a through-bore from the back, Ø10.4 pocket for the M6 socket head in the flange, Ø6.5 key access through the face. Seats at −0.10 mm; adjust from the coupon. |
-| Hub spacer | `out/stl/hub_spacer_p0.stl` | Ø9.5 × 3 | PLA | Any | 8 | On the bolt: one between the bearings, one between hub and boss. 100 %. |
-| Pivot spacer | `out/stl/pivot_spacer_p0.stl` | Ø26 × 6 | PLA | Ø20 step down | 4 | Between pitch horn and arm (and skid bracket and skid arm). The horn is flush with the servo case; this keeps the arm 6 mm off it and makes room for the drive lead. 100 %. |
-| Pitch servo mount | `out/stl/pitch_mount_p0.stl` | 69 × 53 × 37 | PLA | Back wall (Z=0) down | 1 per flipper (4 in config A, 2 in B) | 5 walls, 40 %. XL430 stands on its horn end, connector windows up; X walls cut away over the servo's side cable windows so the leads leave fore/aft under the deck; pivot 17.55 mm above the plate; M2.6 case screws in counterbored walls; body 1 mm short of the horn face. Foot slots 56 mm apart on the 8 mm grid. |
-| Chassis plate | `out/stl/chassis_p0.stl` | 200 × 152 × 6 | PLA | Flat | 1 | 8 mm M3 grid throughout, strap slots for the motor LiPo (x = ±30) and the compute LiPo (−63, ±22), two lightening windows. 4 walls, 30 %. Pitch mounts at the corners with horn faces flush to the side edges. |
-| Pi adapter | `out/stl/pi_adapter_p0.stl` | 72 × 76 × 3 | PLA | Flat | 1 | Pi 58 × 49 pattern (M2.5) to grid holes at 48 × 64 (M3), 9 mm from the nearest Pi hole; the LiDAR standoffs stack on the same holes. |
-| OpenCR adapter | `out/stl/opencr_adapter_p0.stl` | 84 × 112 × 3 | PLA | Flat | 1 | OpenCR holes 66 × 96 (from the board STEP) to grid holes at 80 × 64. |
-| LiDAR adapter | `out/stl/lidar_adapter_p0.stl` | 100 × 74 × 3 | PLA | Flat | 1 | RPLidar A1 holes (±28 at +28, ±20 at −42 about its axis, from Slamtec's drawing) to the Pi adapter's 48 × 64 holes via 40 mm standoffs. |
-| Skid bracket | `out/stl/skid_bracket_p0_L.stl`, `_R.stl` | 56 × 60 × 35 | PLA | Upright flat | 1 each (config B only) | Rear corners; handed; foot holes at (−80/−40, ±56/±64). M6 pivot bolt, index holes at 0 / 20 / 35 / 50°. 5 walls, 40 %. |
-| Skid arm | `out/stl/skid_arm_p0.stl` | 158 × 52 × 21 | PLA+ | Flat | 2 (config B only) | Passive rear arm carrying a TB3 wheel on a tip hub. Angle fixed by an M3 index pin; 35° matches the front arms at 30° down. |
-| Upper deck | `out/stl/deck_p0.stl` | 164 × 120 × 4 | PLA | Flat | 1 | On four 60 mm standoffs at (−80, ±32) and (+24, ±32); OpenCR rear, Pi adapter front, RPLidar on 40 mm standoffs above the Pi. |
-| Camera pan base | `out/stl/pan_base_p0.stl` | 56 × 24 × 22 | PLA | Foot down | 1 | MG90S pan servo, shaft up; on the chassis plate at (80, ±24), ahead of the deck. |
-| Camera tilt yoke | `out/stl/tilt_yoke_p0.stl` | 44 × 44 × 51 | PLA | Plate down | 1 | On the pan horn; tilt MG90S in the right upright, M3 pivot in the left. |
-| Camera cradle | `out/stl/camera_cradle_p0.stl` | 28 × 22 × 30 | PLA | Plate flat | 1 | Pi Camera board; horn disc one side, pivot boss the other. |
-| Fixed camera mount | `out/stl/camera_mount_p0.stl` | 28 × 36 × 35 | PLA | Foot down | (1) | Fallback: fixed 10° down-tilt, no servos. |
-| Tolerance coupon | `out/stl/coupon_p0.stl` | 180 × 70 × 10.6 | PLA | Flat | 1 | **Print this first.** Three 626 seats (0 / −0.10 / −0.20), three 6 mm bores (+0.20 / +0.30 / +0.40), M6 socket-head pocket, three M2.6 self-tap test holes, horn pattern, servo pocket. Set `PRESS_FIT` and `CLEAR_FIT` in params.py from the result. |
+S1 derives its corrected motor pocket and idler geometry from review/r1/step/arm_p0_r1.step, then replaces the root interface and adds mounting pads and cable openings. The existing tip hub and vendor ICT-01 link are also geometry-pinned. Reference hashes cover STEP DATA sections; changing an export timestamp does not change geometry. The review receipt separately records exact source-file hashes.
 
-## Placement
+The installed check imports the existing chassis and deck STEP files. The older params.py, parts/arm_p0.py and R1 scripts are not S1's source of dimensions. They contain incompatible assumptions and must not regenerate its carrier. The normal build now uses staged_base.py through export_s0_fit.py.
 
-`params.PLACE` and `params.STACK` are the single source for where every part sits (grid hole coordinates and heights). The assembly guide's Figures 4, 8, 9 and 10 are generated from them.
+## Run and inspect
 
-## Assembly check
+    uv sync
+    uv run cad/build.py
 
-`uv run cad/assembly_p0.py <arm_pitch_deg> <skid_angle_deg> [rear_pitch_deg] [--four-arms]` places every part plus placeholder servos and wheels and
-writes `out/step/assembly_p0_pitch<N>.step` and iso/side/top SVGs. Positive arm pitch is tip-down. Useful poses:
-`0 0` (flat) and `30 35` (stance, all four wheels level). `30 0 30 --four-arms` shows the four-flipper variant (rear skids replaced by a second pair of pitch mounts and arms). Robot frame: X forward, Y left, Z up;
-the pitch horn faces are the chassis side edges at Y = ±76 and the arms sit 6 mm outboard on spacers.
+The normal build exports nine lower/U1 fit STLs plus eight conditional U2 sensor STLs in the project's established output folders. P3 uses its reviewed native STEP. The lower/U1 files are:
 
-`uv run cad/check_p0.py` rebuilds the assembly at six poses (both configurations) and reports every interference between printed parts and hardware envelopes, every servo cable exit (end and side windows) that a printed part blocks, every mounting hole that misses its grid, the key clearances, and the mass / centre-of-gravity / tip-back estimate from `params.MASS`. Run it after any change; it should end with `0 failure(s)`.
-
-## Bought parts (prototype 0)
-
-| Item | Qty | Notes |
+| Part | STL | STEP |
 | --- | --- | --- |
-| M6 × 50 socket-head cap screw, partially threaded (ISO 4762) + nylock + washer | 4 | Tip axles (front arms and skids); head in the hub, 5 mm key through the wheel bore. |
-| M6 × 35 hex bolt + nylock + washer | 2 | Skid pivots (B). |
-| 626-2RS bearing | 8 | Two per tip hub. |
-| M3 × 8 socket head + nut | ~30 | Grid mounting. M3 × 20 × 2 for the skid index pins. |
-| M3 × 12 standoffs, M3 × 40 standoffs, M3 × 60 standoffs | 8, 4, 4 | OpenCR and Pi adapters; LiDAR; deck. |
-| M2 × 12 socket head | 16 (A) / 8 (B) | Arm → spacer → pitch horn. The servo's own M2.6 × 5 self-tappers hold it in the housings/mounts; the wheels' own PHS M2 × 4 hold the wheels. |
-| M2.5 × 6 | 4 | Pi to adapter. |
-| Heat-set inserts M3 | optional | Not required; all M3 holes are through-holes with nuts. |
-| 25 mm straps | 2 | Motor LiPo (centre slots) and compute LiPo (rear slots). |
-| Second LB-012 + 5 V / 5 A buck | 1 + 1 | Compute supply, rear bay under the deck. |
+| Motor fit coupon | out/stl/motor_fit_coupon_s1.stl | out/step/motor_fit_coupon_s1.step |
+| Bearing fit coupon | out/stl/bearing_fit_coupon_s1.stl | out/step/bearing_fit_coupon_s1.step |
+| Track carrier | out/stl/track_carrier_s1.stl | out/step/track_carrier_s1.step |
+| Fixed bracket | out/stl/fixed_bracket_s1.stl | out/step/fixed_bracket_s1.step |
+| Tip hub with cap pilots, 19.3 mm bore | out/stl/tip_hub_p0.stl | out/step/tip_hub_p0.step |
+| Idler bearing cap | out/stl/idler_bearing_cap_s1.stl | out/step/idler_bearing_cap_s1.step |
+| Drive-lead restraint | out/stl/drive_lead_restraint_s1.stl | out/step/drive_lead_restraint_s1.step |
+| OpenCR adapter, P9 | out/stl/opencr_adapter_s1.stl | out/step/opencr_adapter_s1.step |
+| Pi 4B adapter, P10 | out/stl/pi4_adapter_s1.stl | out/step/pi4_adapter_s1.step |
 
-## How the arm goes together
+The build prints their full paths and validates the exported mesh bytes. `out/FIT_ARTICLES.json` records the revision, results and source hashes. The 2026-10-31 carrier and motor coupon restore a continuous 28 × 10 mm backplate beneath the motor; older open-bottom carrier files are superseded. The normal build rejects a missing or thinned backplate before writing print files. Print the 70 × 55.3 mm motor coupon first, then one module after the coupon passes. The carrier is already rotated 45°, with a 183.35 mm square footprint; its 5 mm brim fits the 220 mm bed. The assembly guide specifies supports and acceptance checks. These are fit articles, with no qualified payload rating.
 
-Summary only; the full build sequence, wiring and first-power-up checklist are in [`../docs/assembly/p0-assembly.md`](../docs/assembly/p0-assembly.md).
+After changing lower geometry or hardware, run the assembly checks and regenerate review views:
 
-- Pitch XL430 is mounted in the chassis, standing on its horn end; its horn (flush with the case) carries a 6 mm printed spacer and then the arm's pivot flange: four M2 × 12 from the arm's outboard face through counterbores, spacer and into the horn.
-- Drive XL430 lies along the arm in the housing on the outboard face, horn out, connector end toward the pivot where the housing is open; four M2.6 self-tappers through the counterbored side walls. Its lead leaves the servo's side window through the wall cut and the plate slot at (22, ±21) (or the end window and the Ø8 hole at (0, ±22)) and runs out along the spacer gap — Figure 12 in the assembly guide.
-- A TB3 wheel bolts straight onto the drive servo horn, as on the TurtleBot3; the housing walls stop 1 mm below the horn so the wheel never rubs.
-- Tip: the hub carries two 626 bearings on an M6 × 50 socket-head bolt whose head sits in the hub flange (a 5 mm key reaches it through the wheel's Ø7 bore). Bolt → spacer → through the 21 mm tall boss's slot → washer → nylock on the arm's inboard face. The wheel idles on the hub.
-- Track: 80 ICT-01 links around both wheels. The 8 mm tension slot gives ±4 mm on a 136 mm centre distance.
-- Clearance: the drive wheel sweeps a 79 mm radius around the pivot and the tip wheel 215 mm, all outboard of the plate. In configuration A the two arms on a side are coplanar: both may be ≤ 90° up together, one may go to 150° up only while the other is at or below horizontal (checked by `check_p0.py`).
+    uv run cad/check_staged_base.py
+    uv run cad/staged_base.py --export-review
+    uv run cad/audit_s1_assembly.py --output cad/validation/p0-s1-assembly-audit-2026-11-02.json
 
-## Print order
+The assembly audit separately checks insertion paths, tool envelopes, idler washer seating and the full lower lead bend/restraint. It does not establish printed fits, cable fatigue or structural performance.
 
-1. Coupon → set bore offsets in `params.py`, confirm horn pattern and servo pocket.
-2. Pitch mount and tip hub (small, fast; both depend only on the coupon result).
-3. Arm, once the ICT-01 pitch and TB3 wheel diameter are measured.
+For the deck/board stage, run:
 
-## Verify before printing (marked in params.py)
+    uv run cad/audit_upper_s1.py --output cad/validation/p0-u1-2026-11-03.json --export-step cad/review/upper/upper_deck_s1.step
+    uv run docs/assembly/figures/make_upper_figures.py --preview-dir /tmp/skala-upper-figures
 
-- XL430 body 28.5 × 46.5 × 34, horn Ø20, horn screw PCD 16 with four M2, horn boss Ø8, case screw positions ±18 mm. Check against the Robotis drawing.
-- TB3 wheel Ø66 and width 22 with ICT-01 links fitted.
-- ICT-01 pitch 6 mm (assumed). Lay 10 links flat; expect 60 mm. The arm length scales with it.
-- PLA bore offsets: print the bearing/shaft coupon first.
+The U1 audit checks the retained plate holes, column/bolt stacks, PCB spacers and actual OpenCR CAD. The Pi is an outline/mounting envelope from its manufacturer drawing, not a full component model. HAT/cooling, sensors, wiring and structural qualification are outside this receipt. The installed review STEP uses robot coordinates; exported printing STEP/STL files are translated onto the bed.
+
+For U2 sensor changes, run these in order:
+
+    uv run cad/audit_sensors_s1.py
+    uv run cad/build.py
+    uv run docs/assembly/figures/make_sensor_figures.py --preview-dir /tmp/skala-sensor-figures
+
+`out/SENSOR_FIT_ARTICLES.json` records validated sensor meshes and source hashes. `review/upper/sensor_stack_s1.step` shows installed coordinates and explicitly named hardware envelopes. The source registry `vendor/sensor_sources.json` distinguishes the actual Camera 3/HAT models from the conditional MG90S and A1 envelopes. The current A1/interface identity, HAT seating, servo/horn match and moving ribbon still need the guide's checks. The normal build refuses to export against a stale or failed sensor audit; it does not rerun that expensive audit silently.
+
+The dev dependencies include manifold3d for mesh comparisons. The exporter checks geometry before writing:
+
+| Output under review/staged-base/ | Use |
+| --- | --- |
+| track_carrier_s1.step | Revised printed arm/track-module body |
+| fixed_bracket_s1.step | Temporary chassis attachment, two per module |
+| fixed_base_s1.step | Lower assembly including hardware envelopes |
+| module.svg, base_top.svg | Module and installed lower-base views |
+| REVIEW_STATUS.json | Results, limitations and source hashes |
+
+## Existing files and evidence
+
+The printed IDs and filenames are fixed by `print_parts.json`: P1 Track carrier `track_carrier_s1.stl`, P2 Fixed bracket `fixed_bracket_s1.stl`, P3 Tip hub `tip_hub_p0.stl`, P4 Hub spacer `hub_spacer_p0.stl`, P5 Chassis `chassis_p0.stl`, P6 Upper deck `deck_p0.stl`, P7 Drive-lead restraint `drive_lead_restraint_s1.stl`, P8 Idler bearing cap `idler_bearing_cap_s1.stl`, P9 OpenCR adapter `opencr_adapter_s1.stl`, and P10 Pi 4B adapter `pi4_adapter_s1.stl`. F1/F2 are test pieces. The guide and BOM link all twelve files, including retained files, inside the vault. Vault preparation rejects a missing ID/name/filename mapping in either document.
+
+**Axial-retention correction, 2026-11-02:** reprint P3 with its reinforced rear collar and three cap pilots; add P8 and three H8 M2×6 DIN 965 countersunk screws. The 19.3 mm bearing bore remains a fit candidate. P8 mechanically captures the rear outer ring with 0.2 mm nominal play and 1 mm carrier clearance. The axle, bearings, spacers and wheel plane are unchanged. The normal build exports P3 from its pinned native STEP; source changes require a reviewed STEP regeneration and updated pin. Fit, free rotation and physical retention remain to be checked on one complete stack.
+
+The chassis, deck and tip-hub reference geometries used by S1 remain under out/step/. The normal build preserves those STEP references, exports the current hub STL, and leaves existing spacer/chassis/deck STLs intact. It does not regenerate superseded arms or pitch mounts. Legacy regeneration requires `uv run cad/build.py --legacy`, optionally followed by a legacy part name; it must not overwrite a pinned reference without renewed review.
+
+The validation directory contains engineering receipts. The [build review](../docs/assembly/p0-build-review.md) identifies what they support. Display sprockets are simplified envelopes; links use the retained vendor STEP. Real engagement and loaded tension need physical qualification.
+
+## Refresh the vault reading copies
+
+Obsidian is the main reading location. The exporter places full guides, readable register tables and the current labelled assembly illustrations inside the vault, preserving the existing guide/spec note names. It converts reading links to vault-local wikilinks and checks their targets and heading text. Source prose remains in this repository; project narrative and shared Talos context remain in the vault.
+
+After a geometry or illustration change, generate and visually inspect the assembly figures first:
+
+    uv run docs/assembly/figures/make_s1_figures.py --preview-dir /tmp/skala-s1-assembly-figures
+
+From the repository root, prepare a bundle for both the WSL source vault and the Windows viewing vault:
+
+    python scripts/sync_vault_docs.py --stage /tmp/skala-vault-reading --vault /home/fearsidhe/projects/vault --vault /mnt/c/vault
+
+Inspect the files under `/tmp/skala-vault-reading/files/`, then apply that exact bundle:
+
+    python scripts/sync_vault_docs.py --stage /tmp/skala-vault-reading --apply
+
+Preparation does not change either vault. Application refuses changed source files or conflicting edits since preparation, writes only the named notes/assets, and verifies both copies. It does not commit or push vault changes. Start reading at `10-projects/skala/Skala` in Obsidian. Path and heading validation does not substitute for checking rendering in the app.

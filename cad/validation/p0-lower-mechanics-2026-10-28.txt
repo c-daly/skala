@@ -1,0 +1,122 @@
+.venv/bin/python cad/check_p0.py --lower-only
+Exit status: 0 (sampled geometry only; three lower release requirements remain open)
+Track tooth engagement is checked separately; see p0-track-reference-2026-10-28.txt.
+
+Scope: lower mechanics, fixed XL430-W250-T motors; deck and batteries retained as obstacles.
+Upper electronics/camera and system power qualification are outside this check.
+
+== interference check: config A flat (68 solids)
+  ok   config A flat: 0 interferences
+
+== hole alignment (robot frame)
+  ok   pitch_mount_frontR: found 8 mounting-hole/slot axes, expected at least 8
+  ok   pitch_mount_frontR: hole slot at (32.0, -66.0..-62.0) -> chassis grid
+  ok   pitch_mount_frontR: hole slot at (32.0, -50.0..-46.0) -> chassis grid
+  ok   pitch_mount_frontR: hole slot at (88.0, -66.0..-62.0) -> chassis grid
+  ok   pitch_mount_frontR: hole slot at (88.0, -50.0..-46.0) -> chassis grid
+  ok   pitch_mount_rearR: found 8 mounting-hole/slot axes, expected at least 8
+  ok   pitch_mount_rearR: hole slot at (-88.0, -66.0..-62.0) -> chassis grid
+  ok   pitch_mount_rearR: hole slot at (-88.0, -50.0..-46.0) -> chassis grid
+  ok   pitch_mount_rearR: hole slot at (-32.0, -66.0..-62.0) -> chassis grid
+  ok   pitch_mount_rearR: hole slot at (-32.0, -50.0..-46.0) -> chassis grid
+  ok   pitch_mount_frontL: found 8 mounting-hole/slot axes, expected at least 8
+  ok   pitch_mount_frontL: hole slot at (32.0, 46.0..50.0) -> chassis grid
+  ok   pitch_mount_frontL: hole slot at (32.0, 62.0..66.0) -> chassis grid
+  ok   pitch_mount_frontL: hole slot at (88.0, 46.0..50.0) -> chassis grid
+  ok   pitch_mount_frontL: hole slot at (88.0, 62.0..66.0) -> chassis grid
+  ok   pitch_mount_rearL: found 8 mounting-hole/slot axes, expected at least 8
+  ok   pitch_mount_rearL: hole slot at (-88.0, 46.0..50.0) -> chassis grid
+  ok   pitch_mount_rearL: hole slot at (-88.0, 62.0..66.0) -> chassis grid
+  ok   pitch_mount_rearL: hole slot at (-32.0, 46.0..50.0) -> chassis grid
+  ok   pitch_mount_rearL: hole slot at (-32.0, 62.0..66.0) -> chassis grid
+  ok   deck standoff (-80, -32) on chassis grid
+  ok   deck standoff (-80, -32) on deck grid
+  ok   deck standoff (-80, 32) on chassis grid
+  ok   deck standoff (-80, 32) on deck grid
+  ok   deck standoff (24, -32) on chassis grid
+  ok   deck standoff (24, -32) on deck grid
+  ok   deck standoff (24, 32) on chassis grid
+  ok   deck standoff (24, 32) on deck grid
+
+== interference check: config A stance (68 solids)
+  ok   config A stance: 0 interferences
+  ok   config A stance: contact-height spread 0.00 mm (polygonal track approximation)
+
+== interference check: config B flat (56 solids)
+  ok   config B flat: 0 interferences
+
+== hole alignment (robot frame)
+  ok   pitch_mount_frontR: found 8 mounting-hole/slot axes, expected at least 8
+  ok   pitch_mount_frontR: hole slot at (32.0, -66.0..-62.0) -> chassis grid
+  ok   pitch_mount_frontR: hole slot at (32.0, -50.0..-46.0) -> chassis grid
+  ok   pitch_mount_frontR: hole slot at (88.0, -66.0..-62.0) -> chassis grid
+  ok   pitch_mount_frontR: hole slot at (88.0, -50.0..-46.0) -> chassis grid
+  ok   skid_bracket_R: found 4 mounting-hole/slot axes, expected at least 4
+  ok   skid_bracket_R: hole at (-80.0, -56.0..-56.0) -> chassis grid
+  ok   skid_bracket_R: hole at (-80.0, -48.0..-48.0) -> chassis grid
+  ok   skid_bracket_R: hole at (-40.0, -56.0..-56.0) -> chassis grid
+  ok   skid_bracket_R: hole at (-40.0, -48.0..-48.0) -> chassis grid
+  ok   pitch_mount_frontL: found 8 mounting-hole/slot axes, expected at least 8
+  ok   pitch_mount_frontL: hole slot at (32.0, 46.0..50.0) -> chassis grid
+  ok   pitch_mount_frontL: hole slot at (32.0, 62.0..66.0) -> chassis grid
+  ok   pitch_mount_frontL: hole slot at (88.0, 46.0..50.0) -> chassis grid
+  ok   pitch_mount_frontL: hole slot at (88.0, 62.0..66.0) -> chassis grid
+  ok   skid_bracket_L: found 4 mounting-hole/slot axes, expected at least 4
+  ok   skid_bracket_L: hole at (-80.0, 48.0..48.0) -> chassis grid
+  ok   skid_bracket_L: hole at (-80.0, 56.0..56.0) -> chassis grid
+  ok   skid_bracket_L: hole at (-40.0, 48.0..48.0) -> chassis grid
+  ok   skid_bracket_L: hole at (-40.0, 56.0..56.0) -> chassis grid
+  ok   deck standoff (-80, -32) on chassis grid
+  ok   deck standoff (-80, -32) on deck grid
+  ok   deck standoff (-80, 32) on chassis grid
+  ok   deck standoff (-80, 32) on deck grid
+  ok   deck standoff (24, -32) on chassis grid
+  ok   deck standoff (24, -32) on deck grid
+  ok   deck standoff (24, 32) on chassis grid
+  ok   deck standoff (24, 32) on deck grid
+
+== interference check: config B stance (56 solids)
+  ok   config B stance: 0 interferences
+  ok   config B stance: contact-height spread 0.38 mm (polygonal track approximation)
+
+== interference check: config A front tucked -150°, rear 30° down (68 solids)
+  ok   config A front tucked -150°, rear 30° down: 0 interferences
+
+== interference check: config A both arms at -90° (68 solids)
+  ok   config A both arms at -90°: 0 interferences
+
+== clearances
+  ok   flat-pose ground clearance under the chassis: 16.9 mm (chassis underside z = -6.0, wheel bottoms z = -22.9)
+  ok   flat-pose clearance under mounting-bolt ends: 8.9 mm
+  ok   arm_frontR: arm face to mount body gap 9.00 mm
+  ok   arm_frontL: arm face to mount body gap 9.00 mm
+  ok   compute bay |y| ≤ 29 clears the rear deck standoffs at y = ±32
+
+== track, fastener stacks and connector passage
+  ok   40 links per loop
+  ok   closed pin polygon, maximum pitch error 1.4e-14 mm
+  ok   JST EHR-3 housing cross-section 9.5 x 3.8 passes diameter 11 hole
+  ok   rear access window starts at x=34.45, beyond pitch flange r=16
+  ok   pitch mount: M3 x 20, minimum 17.5 including washer, nylock and two threads
+  ok   skid foot: M3 x 20, minimum 17.5 including washer, nylock and two threads
+  ok   skid index: M3 x 35, minimum 30.5 including washer, nylock and two threads
+  ok   pitch horn M2 engagement 3 mm, maximum 3.5
+  ok   idler M6 x 50 needs 48.5 mm including recessed washer and two threads
+  ok   both 626 inner races lie on the 26 mm plain axle shank
+  ok   arm: valid connected solid
+  ok   arm at 45 degrees: 179.4 x 179.4 mm on 220 bed
+  ok   pitch mount: valid connected solid
+  ok   all pitch-foot slot positions clear the head/driver path through the gussets
+
+== unweighed mass allowance and pitch-load screen (not qualification)
+  config A: mass allowance 2.68 kg
+    two front joints supporting half the total weight at 190 mm horizontal reach: 1.25 N m each
+    excludes dynamics/load imbalance; XL430 1.4 N m at 11.1 V is STALL, not continuous torque
+  config B: mass allowance 2.09 kg
+    two front joints supporting half the total weight at 190 mm horizontal reach: 0.97 N m each
+    excludes dynamics/load imbalance; XL430 1.4 N m at 11.1 V is STALL, not continuous torque
+  No stair-stability verdict: measured masses, load duty and changing contacts are unqualified.
+
+Lower mechanical print release: unreleased (3 open requirements in scope; see release_p0.json)
+
+0 failure(s)

@@ -1,0 +1,17 @@
+{
+  "retrieved": "2026-11-03",
+  "sources": [
+    {
+      "file": "robotis/opencr_rev_h.step",
+      "url": "https://github.com/ROBOTIS-GIT/OpenCR-Hardware/blob/4c56093c5aaedbcb98b374f94a8046187834022c/Layout/OpenCR_REVH.step",
+      "sha256": "1fdbbb882216cc011a3cd038fc56abe5525135bec9c77a5e5ff5066c85e7b484",
+      "use": "Unmodified manufacturer assembly. PCB outline centre (0.94461168041071,-1.65309900983864), top Z=0, underside Z=-1.65. Hole centres +/-33,+/-48 from outline centre. Shift to robot centre X=-64 and PCB underside Z=85. USB representation includes surfaces, not only solids."
+    },
+    {
+      "file": "raspberrypi/pi4-mechanical.pdf",
+      "url": "https://pip-assets.raspberrypi.com/categories/559-mechanical/documents/RP-001185-MD-1-Mechanical%20Drawing.pdf",
+      "sha256": "a5c88057563016631ebca26666fd672614fc9aaa1c59128a541612c7798e9809",
+      "use": "85 x 56 PCB, 58 x 49 mounting pattern, 3.5 mm hole offsets from three board edges. Turn USB edge toward robot +Y. PCB thickness 1.6 is only a nominal envelope; no complete Pi component or cooler CAD is claimed."
+    }
+  ]
+}

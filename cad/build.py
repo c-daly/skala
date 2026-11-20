@@ -1,4 +1,8 @@
-"""Build all parts: STEP + STL + SVG views into cad/out/."""
+"""Build the current fixed-track fit parts into cad/out/{step,stl}/.
+
+The superseded articulated design is available only with --legacy.
+"""
+import argparse
 import sys, pathlib, importlib
 HERE = pathlib.Path(__file__).resolve().parent
 sys.path.insert(0, str(HERE))
@@ -6,9 +10,6 @@ from build123d import *
 
 PARTS = ["arm_p0", "tip_hub_p0", "coupon_p0", "pitch_mount_p0", "chassis_p0", "skid_p0", "pi_adapter_p0", "deck_p0", "camera_mount_p0", "camera_pan_tilt_p0", "opencr_adapter_p0", "lidar_adapter_p0"]
 OUT = HERE / "out"
-(OUT / "step").mkdir(parents=True, exist_ok=True)
-(OUT / "stl").mkdir(parents=True, exist_ok=True)
-(OUT / "svg").mkdir(parents=True, exist_ok=True)
 
 def views(part, name):
     for label, (view, up) in {
@@ -31,12 +32,33 @@ def emit(part, name):
     bb = part.bounding_box().size
     print(f"{name}: {bb.X:.1f} x {bb.Y:.1f} x {bb.Z:.1f} mm, {part.volume/1000:.1f} cm3")
 
-if __name__ == "__main__":
-    only = sys.argv[1:]
+def main(argv=None):
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--legacy", action="store_true", help="explicitly regenerate the superseded articulated-design parts")
+    parser.add_argument("parts", nargs="*", help="optional legacy part names; requires --legacy")
+    args = parser.parse_args(argv)
+    if not args.legacy:
+        if args.parts:
+            parser.error("The current build exports all current fit parts. Omit part names; old part selection requires --legacy.")
+        from export_s0_fit import main as export_current
+        export_current()
+        from export_sensors_s1 import main as export_sensors
+        export_sensors()
+        return
+    unknown = set(args.parts) - set(PARTS)
+    if unknown:
+        parser.error("Unknown legacy parts: " + ", ".join(sorted(unknown)))
+    print("LEGACY EXPORT: superseded articulated parts; not the current fixed-track print set.")
+    for kind in ("step", "stl", "svg"):
+        (OUT / kind).mkdir(parents=True, exist_ok=True)
     for name in PARTS:
-        if only and name not in only:
+        if args.parts and name not in args.parts:
             continue
         mod = importlib.import_module(f"parts.{name}")
         result = mod.build()
         for part in (result if isinstance(result, list) else [result]):
             emit(part, part.label or name)
+
+
+if __name__ == "__main__":
+    main()

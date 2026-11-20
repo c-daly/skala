@@ -1,0 +1,15 @@
+Per corner: solid-PLA upper estimate 232.2 g; aluminium 93.1; custom steel 64.3; small hardware/cable allowance 155.0; gearbox 390
+Whole vehicle allowance with old upper payload budget: 5.846 kg; without deferred upper payload: 5.414 kg
+Other corner inventory: motors 114.4 g, wheels/40 links 150.0 g, idler hub/axle/bearings 49.1 g; body inventory 422.0 g total.
+Moving arm self-weight moment 0.396 N m uses current solid arm centroid, motor centre, and stated wheel/idler allowances.
+These are unweighed allowances; solid PLA density 1.24 g/cm3, aluminium 2.70, steel 7.85.
+lower, 0.25 weight at 190 mm tip: 2.127 N m; x1.5 3.191; comparison fuse-band minimum/80% catalogue efficiency 6.400
+lower, 0.5 weight at 190 mm tip: 4.650 N m; x1.5 6.975; comparison fuse-band minimum/80% catalogue efficiency 6.400
+  equivalent 100:150 slope drive screen: 0.227 N m/four contacts; 0.453/two; motor estimate .28
+with upper allowance, 0.25 weight at 190 mm tip: 2.328 N m; x1.5 3.493; comparison fuse-band minimum/80% catalogue efficiency 6.400
+with upper allowance, 0.5 weight at 190 mm tip: 5.053 N m; x1.5 7.579; comparison fuse-band minimum/80% catalogue efficiency 6.400
+  equivalent 100:150 slope drive screen: 0.245 N m/four contacts; 0.489/two; motor estimate .28
+Angle-rail screen at 6.4 N m: vertical couple force 106.7 N/rail, 100 mm cantilever; I=1590.8 mm4; stress 68.2 MPa; deflection 0.324 mm using E=69 GPa
+  reaction couple across 16 mm chassis bolts approximately 667 N; metal backing/compression sleeves are required.
+This beam screen omits angle torsion, plate/block bending, fastener prying, chassis flex and printed-part creep. Bench qualification remains necessary.
+Input fuse does not protect against back-driven impacts or guarantee a power-off hold. No stair or rated-payload release.

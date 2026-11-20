@@ -1,0 +1,10 @@
+.venv/bin/python cad/check_track_p0.py
+Exit status: 1 (reference-geometry interference)
+manifold3d: 3.5.4; source files and provenance in docs/assembly/p0-build-review.md
+
+Link mesh volume differs from BRep by 0.00743%; both meshes are valid.
+Nominal pose: 40 links, centres 144 mm, sprocket phase 0 degrees.
+drive sprocket intersections (link index, mm^3): [(0, 5.01039), (32, 5.01037), (33, 3.5989), (34, 4.15322), (35, 3.51222), (36, 3.49994), (37, 3.49313), (38, 3.51219), (39, 4.0818)]
+idler sprocket intersections (link index, mm^3): [(12, 5.01037), (13, 3.5989), (14, 4.15322), (15, 3.51222), (16, 3.49994), (17, 3.49313), (18, 3.51219), (19, 4.0818), (20, 5.01039)]
+Adjacent-link intersections (index, mm^3): []
+FAIL: reference geometry interferes. Resolve the wheel/link source match and wrap kinematics before releasing the arm.

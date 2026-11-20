@@ -1,0 +1,57 @@
+{
+  "status": "review-only",
+  "parts": [
+    "pitch_mount_p0",
+    "skid_p0"
+  ],
+  "open_requirements": [
+    {
+      "id": "moving-leads",
+      "status": "open",
+      "parts": [
+        "arm_p0",
+        "pitch_mount_p0"
+      ],
+      "reason": "Rear-case windows and EHR-3 passage are modelled; seated plugs, lead bend radius and full pitch sweep need a routed harness model and fit check.",
+      "scope": "lower"
+    },
+    {
+      "id": "load-and-print-fit",
+      "status": "open",
+      "parts": [
+        "arm_p0",
+        "pitch_mount_p0",
+        "tip_hub_p0",
+        "skid_p0"
+      ],
+      "reason": "Measured mass, pitch duty/load qualification, horn loads, bearing fit and printed structure strength are not established. Stall torque is not a continuous rating.",
+      "scope": "lower"
+    }
+  ],
+  "source_sha256": {
+    "track_p0.py": "b8ecf10df72a9a249af85902cf9cb97c04bf7462164d411972d7d747b213e65a",
+    "plate_ict01.py": "2b345befee30bdfb2be49338f3620ac2b12a551d882c949a4bdfdecb78a885b5",
+    "check_track_p0.py": "84b1092b5291b58e7cf8b7e0800f4232a9633e2a0ce1ec354d1e9d1c2a0beec9",
+    "build.py": "82e90400e18a20cfbe19bb1d58ee41501bc7757e92940b7494aa3e6dae4edbf6",
+    "assembly_p0.py": "fed32220da12b47c8c3672dbbe8f28eb05560240dbd0b61a8412e3e3dc4b3552",
+    "params.py": "7a4fe43e9a3b1577f7e3426ef3bd7b54b6a5429d1239ac136e75897e1e8c7d95",
+    "check_p0.py": "876e4776d0dac7b356fa2c75c4a9176bc9ae3ee9f1a56d880b465312b88b6ac9",
+    "check_vendor_p0.py": "d9c5d578a4c37d9375fb86c1051d21a2d106b25aaa57290f9c8c00b5c1a44788",
+    "parts/opencr_adapter_p0.py": "18124941a97694e56f1bc953fb3ea15f4383a9f3ac2b5004dfd23a3e9c775cb6",
+    "parts/deck_p0.py": "73b50c886e493c0a1164ff9d1fd65365f767f61fa00c0895b14e7e77eaaeb653",
+    "parts/camera_pan_tilt_p0.py": "88bf5a58756f102cb5b70b37310a0ef19776e92cf7e5ff805cd78053a6281dd8",
+    "parts/lidar_adapter_p0.py": "13a789015cf1722a1ab8ffa419a782b4dd5d3a061fc541c08912af2578825884",
+    "parts/coupon_p0.py": "27bb8aab392b80b1941d120e6628774759fabd158267a1ccfef6b0d8403f0b02",
+    "parts/pi_adapter_p0.py": "d36418198a0fab2dc54593a56db60ed4f9b3b8c718f219d15a31ee25f7c2de74",
+    "parts/chassis_p0.py": "59d7d934018753f57b4365b5e5ec3c72082f2cb40d032ea21dad7a492b733657",
+    "parts/ict01_link.py": "a0260215f254ff413e451e988ef6c50090567a19f4ccb6958d0a0465887fabc8",
+    "parts/tip_hub_p0.py": "8308cd765b7c4a2fd7d12701853f659e733387bf18196fee88d568387315e760",
+    "parts/skid_p0.py": "cca87da91174e3ee6699c1ccfef2b5be82011c30be8f1cc57dad55ba547a5cc8",
+    "parts/pitch_mount_p0.py": "685d25f01e6faca49a332eb040621ac0cb21ef79b5d3d4d7d43bc9d2a22b37a4",
+    "parts/arm_p0.py": "673c7af9134a74619be5ebd1fa05144f39a1f11e1542cb94e8b746ec57b61920",
+    "parts/camera_mount_p0.py": "451b9ca73a0032d782149f346dacdf91ed822ab8f991041e7419332aa2adf799",
+    "vendor/robotis/ict01_caterpillar.step": "a9df2f096a368dabbb33939d20b0430766d3969d53c978454493c026627f5ed0",
+    "vendor/robotis/tb3_left_tire.stl": "578c9452ee51c2f71e5e6723b503d784e58a6ac317fa53ee308e645f204c8d6a",
+    "release_p0.json": "ab9feb1c237e77d1baeb1774ca09b90f920d1599ada46f9690648b4a15e2f86b"
+  }
+}

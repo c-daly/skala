@@ -1,0 +1,70 @@
+PASS Pinned R1 carrier, existing hub and vendor link match their source hashes
+PASS Continuous 28 x 10 mm motor backplate from X28 to X92: missing 0.00000 mm3
+PASS Vendor link has 12 mm pin/socket spacing
+PASS Vendor track width is 42 mm
+PASS 40-link pin polygon closes at 144 mm centres, phase -11.25 deg
+PASS 40-link pin polygon closes at 144 mm centres, phase 0 deg
+PASS 40-link pin polygon closes at 144 mm centres, phase 11.25 deg
+PASS carrier: valid single connected solid
+PASS carrier: 183.35 x 183.35 mm footprint at 45 deg, <=210 mm
+PASS bracket: valid single connected solid
+PASS bracket: 32.00 x 36.00 mm footprint at 0 deg, <=210 mm
+PASS Carrier vs motor_envelope: overlap 0.00000 mm3
+PASS Carrier vs idler_hub: overlap 0.00000 mm3
+PASS Carrier vs axle: overlap 0.00000 mm3
+PASS Carrier vs axle_washer: overlap -0.00000 mm3
+PASS Carrier vs axle_nut_envelope: overlap 0.00000 mm3
+PASS Actual nominal links clear carrier, motor and hub: []
+PASS Motor connector access volume 0: overlap 0.00000 mm3
+PASS Motor connector access volume 1: overlap 0.00000 mm3
+PASS Motor connector access volume 2: overlap 0.00000 mm3
+PASS Idler hardware clears carrier at tension-slot offset -4 mm: []
+PASS Idler hardware clears carrier at tension-slot offset +4 mm: []
+PASS Both 626 inner races lie on the 26 mm plain axle shank
+PASS M6 x 50 projects at least two pitches beyond nominal nut
+PASS M4 x 25 clears bracket/carrier/washer/nut stack by two pitches
+PASS M3 x 20 clears foot/chassis/washer/nut stack by two pitches
+PASS Existing chassis accepts M3 foot at (-24, -56)
+PASS Existing chassis accepts M3 foot at (-24, -72)
+PASS Existing chassis accepts M3 foot at (-8, -56)
+PASS Existing chassis accepts M3 foot at (-8, -72)
+PASS M4 shaft at (-16, side -1, 11) clears solid material: []
+PASS M4 head at (-16, side -1, 11) clears solid material: []
+PASS M4 shaft at (-16, side -1, 29) clears solid material: []
+PASS M4 head at (-16, side -1, 29) clears solid material: []
+PASS Existing chassis accepts M3 foot at (24, -56)
+PASS Existing chassis accepts M3 foot at (24, -72)
+PASS Existing chassis accepts M3 foot at (40, -56)
+PASS Existing chassis accepts M3 foot at (40, -72)
+PASS M4 shaft at (32, side -1, 11) clears solid material: []
+PASS M4 head at (32, side -1, 11) clears solid material: []
+PASS M4 shaft at (32, side -1, 29) clears solid material: []
+PASS M4 head at (32, side -1, 29) clears solid material: []
+PASS Existing chassis accepts M3 foot at (-24, 56)
+PASS Existing chassis accepts M3 foot at (-24, 72)
+PASS Existing chassis accepts M3 foot at (-8, 56)
+PASS Existing chassis accepts M3 foot at (-8, 72)
+PASS M4 shaft at (-16, side 1, 11) clears solid material: []
+PASS M4 head at (-16, side 1, 11) clears solid material: []
+PASS M4 shaft at (-16, side 1, 29) clears solid material: []
+PASS M4 head at (-16, side 1, 29) clears solid material: []
+PASS Existing chassis accepts M3 foot at (24, 56)
+PASS Existing chassis accepts M3 foot at (24, 72)
+PASS Existing chassis accepts M3 foot at (40, 56)
+PASS Existing chassis accepts M3 foot at (40, 72)
+PASS M4 shaft at (32, side 1, 11) clears solid material: []
+PASS M4 head at (32, side 1, 11) clears solid material: []
+PASS M4 shaft at (32, side 1, 29) clears solid material: []
+PASS M4 head at (32, side 1, 29) clears solid material: []
+PASS Installed module parts vs chassis, deck, battery bays and brackets: []
+PASS -1_bracket_102 vs existing body: []
+PASS -1_bracket_150 vs existing body: []
+PASS 1_bracket_102 vs existing body: []
+PASS 1_bracket_150 vs existing body: []
+PASS Fixed-mount screws, washers and nuts clear installed material: []
+PASS Nominal lowest non-track part clears flat ground by 6.41 mm
+Base review bounds: [-152.   -164.    -20.41] .. [112.41 164.    64.  ] mm
+0 geometry failures; 65 checks. Not a print release.
+/home/fearsidhe/projects/skala/cad/staged_base.py:284: UserWarning: Skipping ellipse that is too small to export safely (length < 1e-6).
+  export_review()
+Review STEP/SVG saved to /home/fearsidhe/projects/skala/cad/review/staged-base; no STL or print release.

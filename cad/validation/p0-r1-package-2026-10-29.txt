@@ -1,0 +1,22 @@
+P0-R1 package verification after session recovery, 2026-10-29
+
+PASS: all 13 recorded source SHA256 values match current files.
+PASS: BOM per-corner/four-corner quantities have the required 1:4 ratio.
+PASS: 14 new printed components per corner, plus one shared index-pin knob;
+      all 15 named STEP/STL pairs exist and are nonempty.
+PASS: R1 Python source syntax and BOM JSON parse.
+PASS: export_r1.py without --review refuses export with exit code 2.
+PASS: scoped git diff --check for Python, Markdown, JSON and configuration.
+PASS: check_pitch_load_p0.py equilibrium/sign/drive-force regression checks.
+PASS: final robot overview, joint and fabrication SVGs rendered and visually
+      inspected for readability. Full assembly export bounds 581 x 533 x 108.75 mm.
+
+Retained geometry receipts report zero joint and installed-geometry failures:
+  p0-r1-geometry-2026-10-29.txt
+  p0-r1-installed-2026-10-29.txt
+Retained mass/load screen: p0-r1-load-2026-10-29.txt
+  Lower estimate 5.414 kg; factored half-weight tip case 6.975 N m exceeds
+  the 6.4 N m comparison at the proposed input fuse band's lower edge.
+
+No physical fit, cable-motion, fuse, structure, thermal or stair qualification
+is implied. Historical cad/out was not written during this recovery pass.

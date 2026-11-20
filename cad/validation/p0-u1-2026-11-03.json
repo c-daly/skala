@@ -1,0 +1,355 @@
+{
+  "revision": "P0-U1-2026-11-03",
+  "scope": "Unpowered deck/OpenCR/Pi4 mounting geometry; no wiring, strength or thermal qualification",
+  "checks": [
+    {
+      "name": "chassis_columns",
+      "passed": true,
+      "holes": 4,
+      "max_intersection_mm3": 0
+    },
+    {
+      "name": "deck_columns",
+      "passed": true,
+      "holes": 4,
+      "max_intersection_mm3": 0
+    },
+    {
+      "name": "opencr_deck",
+      "passed": true,
+      "holes": 4,
+      "max_intersection_mm3": 0
+    },
+    {
+      "name": "pi_deck",
+      "passed": true,
+      "holes": 4,
+      "max_intersection_mm3": 0
+    },
+    {
+      "name": "opencr_adapter",
+      "passed": true,
+      "holes": 4,
+      "max_intersection_mm3": 0
+    },
+    {
+      "name": "pi_adapter",
+      "passed": true,
+      "holes": 4,
+      "max_intersection_mm3": 0
+    },
+    {
+      "name": "opencr_board_slots",
+      "passed": true,
+      "holes": 4,
+      "max_intersection_mm3": 0
+    },
+    {
+      "name": "pi_board_holes",
+      "passed": true,
+      "holes": 4,
+      "max_intersection_mm3": 0
+    },
+    {
+      "name": "offset_hole_negative_control",
+      "passed": true,
+      "purpose": "A 2 mm error must fail the hole check"
+    },
+    {
+      "name": "deck_supported_landing",
+      "passed": true,
+      "contacts": 4,
+      "expected_mm3": 2.111150263212342
+    },
+    {
+      "name": "opencr_supported_landing",
+      "passed": true,
+      "contacts": 4,
+      "expected_mm3": 2.111150263212342
+    },
+    {
+      "name": "pi_supported_landing",
+      "passed": true,
+      "contacts": 4,
+      "expected_mm3": 2.111150263212342
+    },
+    {
+      "name": "adapters_separate",
+      "passed": true,
+      "intersection_mm3": 0
+    },
+    {
+      "name": "adapter_gap",
+      "passed": true,
+      "gap_mm": 2
+    },
+    {
+      "name": "opencr_washer_full_land_0",
+      "passed": true
+    },
+    {
+      "name": "opencr_washer_full_land_1",
+      "passed": true
+    },
+    {
+      "name": "opencr_washer_full_land_2",
+      "passed": true
+    },
+    {
+      "name": "opencr_washer_full_land_3",
+      "passed": true
+    },
+    {
+      "name": "pi_washer_full_land_0",
+      "passed": true
+    },
+    {
+      "name": "pi_washer_full_land_1",
+      "passed": true
+    },
+    {
+      "name": "pi_washer_full_land_2",
+      "passed": true
+    },
+    {
+      "name": "pi_washer_full_land_3",
+      "passed": true
+    },
+    {
+      "name": "opencr_actual_hole_0",
+      "passed": true,
+      "intersection_mm3": 0
+    },
+    {
+      "name": "opencr_spacer_clear_0",
+      "passed": true,
+      "intersection_mm3": 0
+    },
+    {
+      "name": "opencr_head_clear_0",
+      "passed": true,
+      "intersection_mm3": 0
+    },
+    {
+      "name": "opencr_actual_hole_1",
+      "passed": true,
+      "intersection_mm3": 0
+    },
+    {
+      "name": "opencr_spacer_clear_1",
+      "passed": true,
+      "intersection_mm3": 0
+    },
+    {
+      "name": "opencr_head_clear_1",
+      "passed": true,
+      "intersection_mm3": 0
+    },
+    {
+      "name": "opencr_actual_hole_2",
+      "passed": true,
+      "intersection_mm3": 0
+    },
+    {
+      "name": "opencr_spacer_clear_2",
+      "passed": true,
+      "intersection_mm3": 0
+    },
+    {
+      "name": "opencr_head_clear_2",
+      "passed": true,
+      "intersection_mm3": 0
+    },
+    {
+      "name": "opencr_actual_hole_3",
+      "passed": true,
+      "intersection_mm3": 0
+    },
+    {
+      "name": "opencr_spacer_clear_3",
+      "passed": true,
+      "intersection_mm3": 0
+    },
+    {
+      "name": "opencr_head_clear_3",
+      "passed": true,
+      "intersection_mm3": 0
+    },
+    {
+      "name": "opencr_underside_clear",
+      "passed": true,
+      "intersection_mm3": 0,
+      "minimum_z_mm": 81.19,
+      "adapter_top_mm": 79
+    },
+    {
+      "name": "opencr_underside_negative_control",
+      "passed": true,
+      "purpose": "Omitting the 6 mm PCB spacers must fail"
+    },
+    {
+      "name": "opencr_oversize_washer_negative_control",
+      "passed": true,
+      "purpose": "A standard 7 mm washer at the PCB touches the nearby connector; use 6 mm OD"
+    },
+    {
+      "name": "opencr_base_head_below_board_0",
+      "passed": true,
+      "intersection_mm3": 0
+    },
+    {
+      "name": "opencr_base_head_below_board_1",
+      "passed": true,
+      "intersection_mm3": 0
+    },
+    {
+      "name": "opencr_base_head_below_board_2",
+      "passed": true,
+      "intersection_mm3": 0
+    },
+    {
+      "name": "opencr_base_head_below_board_3",
+      "passed": true,
+      "intersection_mm3": 0
+    },
+    {
+      "name": "pi_base_head_below_board_0",
+      "passed": true,
+      "intersection_mm3": 0
+    },
+    {
+      "name": "pi_base_head_below_board_1",
+      "passed": true,
+      "intersection_mm3": 0
+    },
+    {
+      "name": "pi_base_head_below_board_2",
+      "passed": true,
+      "intersection_mm3": 0
+    },
+    {
+      "name": "pi_base_head_below_board_3",
+      "passed": true,
+      "intersection_mm3": 0
+    },
+    {
+      "name": "opencr_pcb_bolt_deck_clear_0",
+      "passed": true,
+      "intersection_mm3": 0
+    },
+    {
+      "name": "opencr_pcb_bolt_deck_clear_1",
+      "passed": true,
+      "intersection_mm3": 0
+    },
+    {
+      "name": "opencr_pcb_bolt_deck_clear_2",
+      "passed": true,
+      "intersection_mm3": 0
+    },
+    {
+      "name": "opencr_pcb_bolt_deck_clear_3",
+      "passed": true,
+      "intersection_mm3": 0
+    },
+    {
+      "name": "opencr_nut_engagement",
+      "passed": true,
+      "projection_mm": 4.35
+    },
+    {
+      "name": "pi_pcb_bolt_deck_clear_0",
+      "passed": true,
+      "intersection_mm3": 0
+    },
+    {
+      "name": "pi_pcb_bolt_deck_clear_1",
+      "passed": true,
+      "intersection_mm3": 0
+    },
+    {
+      "name": "pi_pcb_bolt_deck_clear_2",
+      "passed": true,
+      "intersection_mm3": 0
+    },
+    {
+      "name": "pi_pcb_bolt_deck_clear_3",
+      "passed": true,
+      "intersection_mm3": 0
+    },
+    {
+      "name": "pi_nut_engagement",
+      "passed": true,
+      "projection_mm": 4.8
+    },
+    {
+      "name": "deck_bottom_thread_engagement",
+      "passed": true,
+      "minimum_mm": 3.45
+    },
+    {
+      "name": "deck_top_thread_engagement",
+      "passed": true,
+      "minimum_mm": 3.45
+    },
+    {
+      "name": "adapter_opposing_screws_do_not_meet",
+      "passed": true,
+      "minimum_tip_gap_mm": 3.9
+    },
+    {
+      "name": "deck_fasteners_require_adapter_off",
+      "passed": true
+    },
+    {
+      "name": "opencr_underside_tool_0",
+      "passed": true
+    },
+    {
+      "name": "opencr_underside_tool_1",
+      "passed": true
+    },
+    {
+      "name": "opencr_underside_tool_2",
+      "passed": true
+    },
+    {
+      "name": "opencr_underside_tool_3",
+      "passed": true
+    },
+    {
+      "name": "pi_underside_tool_0",
+      "passed": true
+    },
+    {
+      "name": "pi_underside_tool_1",
+      "passed": true
+    },
+    {
+      "name": "pi_underside_tool_2",
+      "passed": true
+    },
+    {
+      "name": "pi_underside_tool_3",
+      "passed": true
+    },
+    {
+      "name": "old_compute_bay_is_too_tight_for_purchase",
+      "passed": true,
+      "old_58mm_bay_clearance_mm": 0.113,
+      "new_selection_limit_width_mm": 54,
+      "note": "54 mm includes straps and protrusions; power hardware is not selected"
+    }
+  ],
+  "failures": [],
+  "source_sha256": {
+    "cad/upper_s1.py": "fc5fbf8872c9d8fded6151f9976061f1db29159bc54a9f5fd47ffaf66aa1400d",
+    "cad/audit_upper_s1.py": "a0bf3ef429894d488978df17f6cde9e23d4a505ce2a6519bced87b009bd89d63",
+    "cad/print_parts.json": "861f53ef2c87ffbb01c8c4a7dea97f1f2f2324669fed56de0214bf976a00596e",
+    "cad/vendor/upper_sources.json": "b054ab99ec167cb1d623689cef56068bc55dbc0978c5b6fe5f3bd31b19aaa73e",
+    "cad/vendor/robotis/opencr_rev_h.step": "1fdbbb882216cc011a3cd038fc56abe5525135bec9c77a5e5ff5066c85e7b484",
+    "cad/vendor/raspberrypi/pi4-mechanical.pdf": "a5c88057563016631ebca26666fd672614fc9aaa1c59128a541612c7798e9809",
+    "cad/out/step/chassis_p0.step": "1d93d3e7671b686058e5679c1544c780933c737993c99b598798e83f40a7cd3e",
+    "cad/out/step/deck_p0.step": "5e17aa9fc6de252ed5cf450c3cbac58ae0ec2129c5ba624c12bbb078a9e4c5f4"
+  }
+}

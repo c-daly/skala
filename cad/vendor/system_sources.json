@@ -1,0 +1,11 @@
+{
+  "retrieved": "2026-11-04",
+  "sources": [
+    {
+      "file": "robotis/opencr_rev_h_schematic.pdf",
+      "url": "https://github.com/ROBOTIS-GIT/OpenCR-Hardware/blob/4c56093c5aaedbcb98b374f94a8046187834022c/Schematic/OpenCR_REVH.pdf",
+      "sha256": "66f6a3febd85873572c416de1c98ae7447b8bc6a725ecdd200881feed83729ca",
+      "use": "Manufacturer schematic, 12 PDF pages. Inspected PDF pages 3 (USB, U5 host VBUS switch), 7 (raw input through Q9 to DXL_PWR), 11 (input, USB logic-power diode D10). Physical owned revision and powered backfeed/stop tests remain H06 in docs/assembly/s1-system-plan.md."
+    }
+  ]
+}

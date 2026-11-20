@@ -1,0 +1,40 @@
+Groove  0: 6 distinct samples; centre radius 30.755064; groove radius 4.032937
+Groove  1: 6 distinct samples; centre radius 30.755029; groove radius 4.032915
+Groove  2: 6 distinct samples; centre radius 30.755035; groove radius 4.032916
+Groove  3: 6 distinct samples; centre radius 30.754970; groove radius 4.032875
+Groove  4: 6 distinct samples; centre radius 30.755120; groove radius 4.032969
+Groove  5: 6 distinct samples; centre radius 30.755035; groove radius 4.032916
+Groove  6: 6 distinct samples; centre radius 30.755027; groove radius 4.032908
+Groove  7: 6 distinct samples; centre radius 30.755039; groove radius 4.032917
+Groove  8: 6 distinct samples; centre radius 30.755064; groove radius 4.032937
+Groove  9: 6 distinct samples; centre radius 30.755029; groove radius 4.032915
+Groove 10: 6 distinct samples; centre radius 30.755035; groove radius 4.032916
+Groove 11: 6 distinct samples; centre radius 30.754970; groove radius 4.032875
+Groove 12: 6 distinct samples; centre radius 30.755120; groove radius 4.032969
+Groove 13: 6 distinct samples; centre radius 30.755035; groove radius 4.032916
+Groove 14: 6 distinct samples; centre radius 30.755027; groove radius 4.032908
+Groove 15: 6 distinct samples; centre radius 30.755039; groove radius 4.032917
+Comparison groove radius 4.027857; nearest source vertex 4.032857 mm
+Phase -11.25: pitch error 1.6e-14 mm; intersections []
+Phase -10.00: pitch error 2e-14 mm; intersections []
+Phase  -8.75: pitch error 2.1e-14 mm; intersections []
+Phase  -7.50: pitch error 2e-14 mm; intersections []
+Phase  -6.25: pitch error 1.8e-14 mm; intersections []
+Phase  -5.00: pitch error 2.8e-14 mm; intersections []
+Phase  -3.75: pitch error 2.1e-14 mm; intersections []
+Phase  -2.50: pitch error 1.4e-14 mm; intersections []
+Phase  -1.25: pitch error 2.8e-14 mm; intersections []
+Phase  +0.00: pitch error 1.4e-14 mm; intersections []
+Phase  +1.25: pitch error 2.7e-14 mm; intersections []
+Phase  +2.50: pitch error 1.2e-14 mm; intersections []
+Phase  +3.75: pitch error 2.8e-14 mm; intersections []
+Phase  +5.00: pitch error 2.7e-14 mm; intersections []
+Phase  +6.25: pitch error 2.8e-14 mm; intersections []
+Phase  +7.50: pitch error 2e-14 mm; intersections []
+Phase  +8.75: pitch error 2.1e-14 mm; intersections []
+Phase +10.00: pitch error 2e-14 mm; intersections []
+Phase +11.25: pitch error 1.6e-14 mm; intersections []
+All 9 nominal drive-wheel mesh clashes lie inside the measured grooves:
+  clash-vertex radius <= 3.950135; comparison groove radius 4.027857 mm
+PASS: circular-groove reconstruction explains the raw clashes; 19 sampled phases clear both wheels and adjacent links.
+This supports a tessellation-artifact diagnosis. It does not certify manufactured or printed fit, tension or strength.

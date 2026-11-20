@@ -1,0 +1,75 @@
+{
+  "revision": "P0-S1-2026-11-02-R2",
+  "scope": "Rechecked backplate and exporter guard after idler-retainer addition; not strength qualification",
+  "cases": [
+    {
+      "case": "continuous_backplate",
+      "expected_accept": true,
+      "accepted": true,
+      "detail": "backplate present",
+      "solid_count": 1
+    },
+    {
+      "case": "backplate_cut_across_at_x67",
+      "expected_accept": false,
+      "accepted": false,
+      "detail": "Carrier backplate incomplete: 280.000 mm3 missing from X28..92, Y-14..14, Z0..10; do not export this carrier",
+      "solid_count": 1
+    }
+  ],
+  "exporter_rejects_cut_backplate_before_writing": true,
+  "historical_record": "cad/validation/p0-s1-carrier-backplate-2026-10-31.json",
+  "historical_old_feet": [
+    {
+      "x_mm": [
+        80.0,
+        81.55
+      ],
+      "y_mm": [
+        -19.55,
+        -14.55
+      ],
+      "area_mm2": 7.614999999999817
+    },
+    {
+      "x_mm": [
+        80.0,
+        81.55
+      ],
+      "y_mm": [
+        14.549999999999997,
+        19.550000000000004
+      ],
+      "area_mm2": 7.614999999999826
+    }
+  ],
+  "historical_cases": [
+    {
+      "case": "old_carrier",
+      "expected_accept": false,
+      "accepted": false,
+      "detail": "Carrier backplate incomplete: 14103.330 mm3 missing from X28..92, Y-14..14, Z0..10; do not export this carrier",
+      "solid_count": 1
+    },
+    {
+      "case": "continuous_backplate",
+      "expected_accept": true,
+      "accepted": true,
+      "detail": "backplate present",
+      "solid_count": 1
+    },
+    {
+      "case": "backplate_cut_across_at_x67",
+      "expected_accept": false,
+      "accepted": false,
+      "detail": "Carrier backplate incomplete: 280.000 mm3 missing from X28..92, Y-14..14, Z0..10; do not export this carrier",
+      "solid_count": 1
+    }
+  ],
+  "source_sha256": {
+    "cad/staged_base.py": "83819788963b185830f1d598687f5fc26eff7237aae19de1ae368ad147fe5751",
+    "cad/staged_base.json": "d6850467ae5580f09f6256cb0af80603b8bfd1d1a0054add210f4d12b8865cc8",
+    "cad/check_staged_base.py": "71a66dd150786cd2cec77a5b69d21f7c60835ddf7a47d7eadc3ac4e6f9bcc4d9",
+    "cad/export_s0_fit.py": "94ca4c2b872fd3db892e86cef7546bc739eeb4024a9e192711ef38c2d9c3a152"
+  }
+}

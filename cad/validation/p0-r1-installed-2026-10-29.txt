@@ -1,0 +1,16 @@
+PASS installed front/rear +0/+0: []
+PASS socket insertion/bend plenums vs body: []
+PASS installed front/rear -50/-50: []
+PASS socket insertion/bend plenums vs body: []
+PASS installed front/rear +50/+50: []
+PASS socket insertion/bend plenums vs body: []
+PASS installed front/rear -50/+50: []
+PASS socket insertion/bend plenums vs body: []
+PASS installed front/rear +50/-50: []
+PASS socket insertion/bend plenums vs body: []
+PASS entire fixed motor rear face accessible
+PASS entire moving motor rear face accessible
+PASS drive connector plenum vs reducer at -50: []
+PASS drive connector plenum vs reducer at +0: []
+PASS drive connector plenum vs reducer at +50: []
+0 installed-geometry failures; discrete samples, not physical qualification.

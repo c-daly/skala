@@ -1,0 +1,338 @@
+{
+  "revision": "P0-S1-2026-11-02-R2",
+  "status": "UNRELEASED engineering review",
+  "failures": [],
+  "checks": [
+    {
+      "pass": true,
+      "check": "Pinned R1 carrier, existing hub and vendor link match their source hashes"
+    },
+    {
+      "pass": true,
+      "check": "Continuous 28 x 10 mm motor backplate from X28 to X92: missing 0.00000 mm3"
+    },
+    {
+      "pass": true,
+      "check": "Vendor link has 12 mm pin/socket spacing"
+    },
+    {
+      "pass": true,
+      "check": "Vendor track width is 42 mm"
+    },
+    {
+      "pass": true,
+      "check": "40-link pin polygon closes at 144 mm centres, phase -11.25 deg"
+    },
+    {
+      "pass": true,
+      "check": "40-link pin polygon closes at 144 mm centres, phase 0 deg"
+    },
+    {
+      "pass": true,
+      "check": "40-link pin polygon closes at 144 mm centres, phase 11.25 deg"
+    },
+    {
+      "pass": true,
+      "check": "carrier: valid single connected solid"
+    },
+    {
+      "pass": true,
+      "check": "carrier: 183.35 x 183.35 mm footprint at 45 deg, <=210 mm"
+    },
+    {
+      "pass": true,
+      "check": "bracket: valid single connected solid"
+    },
+    {
+      "pass": true,
+      "check": "bracket: 32.00 x 36.00 mm footprint at 0 deg, <=210 mm"
+    },
+    {
+      "pass": true,
+      "check": "Carrier vs motor_envelope: overlap 0.00000 mm3"
+    },
+    {
+      "pass": true,
+      "check": "Carrier vs idler_hub: overlap 0.00000 mm3"
+    },
+    {
+      "pass": true,
+      "check": "Carrier vs idler_bearing_cap: overlap 0.00000 mm3"
+    },
+    {
+      "pass": true,
+      "check": "Carrier vs idler_cap_screw_0: overlap 0.00000 mm3"
+    },
+    {
+      "pass": true,
+      "check": "Carrier vs idler_cap_screw_1: overlap 0.00000 mm3"
+    },
+    {
+      "pass": true,
+      "check": "Carrier vs idler_cap_screw_2: overlap 0.00000 mm3"
+    },
+    {
+      "pass": true,
+      "check": "Carrier vs axle: overlap 0.00000 mm3"
+    },
+    {
+      "pass": true,
+      "check": "Carrier vs axle_washer: overlap -0.00000 mm3"
+    },
+    {
+      "pass": true,
+      "check": "Carrier vs axle_nut_envelope: overlap 0.00000 mm3"
+    },
+    {
+      "pass": true,
+      "check": "Actual nominal links clear carrier, motor and hub: []"
+    },
+    {
+      "pass": true,
+      "check": "Motor connector access volume 0: overlap 0.00000 mm3"
+    },
+    {
+      "pass": true,
+      "check": "Motor connector access volume 1: overlap 0.00000 mm3"
+    },
+    {
+      "pass": true,
+      "check": "Motor connector access volume 2: overlap 0.00000 mm3"
+    },
+    {
+      "pass": true,
+      "check": "Idler hardware clears carrier at tension-slot offset -4 mm: []"
+    },
+    {
+      "pass": true,
+      "check": "Idler hardware clears carrier at tension-slot offset +4 mm: []"
+    },
+    {
+      "pass": true,
+      "check": "Both 626 inner races lie on the 26 mm plain axle shank"
+    },
+    {
+      "pass": true,
+      "check": "M6 x 50 projects at least two pitches beyond nominal nut"
+    },
+    {
+      "pass": true,
+      "check": "M4 x 25 clears bracket/carrier/washer/nut stack by two pitches"
+    },
+    {
+      "pass": true,
+      "check": "M3 x 20 clears foot/chassis/washer/nut stack by two pitches"
+    },
+    {
+      "pass": true,
+      "check": "Existing chassis accepts M3 foot at (-24, -56)"
+    },
+    {
+      "pass": true,
+      "check": "Existing chassis accepts M3 foot at (-24, -72)"
+    },
+    {
+      "pass": true,
+      "check": "Existing chassis accepts M3 foot at (-8, -56)"
+    },
+    {
+      "pass": true,
+      "check": "Existing chassis accepts M3 foot at (-8, -72)"
+    },
+    {
+      "pass": true,
+      "check": "M4 shaft at (-16, side -1, 11) clears solid material: []"
+    },
+    {
+      "pass": true,
+      "check": "M4 head at (-16, side -1, 11) clears solid material: []"
+    },
+    {
+      "pass": true,
+      "check": "M4 shaft at (-16, side -1, 29) clears solid material: []"
+    },
+    {
+      "pass": true,
+      "check": "M4 head at (-16, side -1, 29) clears solid material: []"
+    },
+    {
+      "pass": true,
+      "check": "Existing chassis accepts M3 foot at (24, -56)"
+    },
+    {
+      "pass": true,
+      "check": "Existing chassis accepts M3 foot at (24, -72)"
+    },
+    {
+      "pass": true,
+      "check": "Existing chassis accepts M3 foot at (40, -56)"
+    },
+    {
+      "pass": true,
+      "check": "Existing chassis accepts M3 foot at (40, -72)"
+    },
+    {
+      "pass": true,
+      "check": "M4 shaft at (32, side -1, 11) clears solid material: []"
+    },
+    {
+      "pass": true,
+      "check": "M4 head at (32, side -1, 11) clears solid material: []"
+    },
+    {
+      "pass": true,
+      "check": "M4 shaft at (32, side -1, 29) clears solid material: []"
+    },
+    {
+      "pass": true,
+      "check": "M4 head at (32, side -1, 29) clears solid material: []"
+    },
+    {
+      "pass": true,
+      "check": "Existing chassis accepts M3 foot at (-24, 56)"
+    },
+    {
+      "pass": true,
+      "check": "Existing chassis accepts M3 foot at (-24, 72)"
+    },
+    {
+      "pass": true,
+      "check": "Existing chassis accepts M3 foot at (-8, 56)"
+    },
+    {
+      "pass": true,
+      "check": "Existing chassis accepts M3 foot at (-8, 72)"
+    },
+    {
+      "pass": true,
+      "check": "M4 shaft at (-16, side 1, 11) clears solid material: []"
+    },
+    {
+      "pass": true,
+      "check": "M4 head at (-16, side 1, 11) clears solid material: []"
+    },
+    {
+      "pass": true,
+      "check": "M4 shaft at (-16, side 1, 29) clears solid material: []"
+    },
+    {
+      "pass": true,
+      "check": "M4 head at (-16, side 1, 29) clears solid material: []"
+    },
+    {
+      "pass": true,
+      "check": "Existing chassis accepts M3 foot at (24, 56)"
+    },
+    {
+      "pass": true,
+      "check": "Existing chassis accepts M3 foot at (24, 72)"
+    },
+    {
+      "pass": true,
+      "check": "Existing chassis accepts M3 foot at (40, 56)"
+    },
+    {
+      "pass": true,
+      "check": "Existing chassis accepts M3 foot at (40, 72)"
+    },
+    {
+      "pass": true,
+      "check": "M4 shaft at (32, side 1, 11) clears solid material: []"
+    },
+    {
+      "pass": true,
+      "check": "M4 head at (32, side 1, 11) clears solid material: []"
+    },
+    {
+      "pass": true,
+      "check": "M4 shaft at (32, side 1, 29) clears solid material: []"
+    },
+    {
+      "pass": true,
+      "check": "M4 head at (32, side 1, 29) clears solid material: []"
+    },
+    {
+      "pass": true,
+      "check": "Installed module parts vs chassis, deck, battery bays and brackets: []"
+    },
+    {
+      "pass": true,
+      "check": "-1_bracket_102 vs existing body: []"
+    },
+    {
+      "pass": true,
+      "check": "-1_bracket_150 vs existing body: []"
+    },
+    {
+      "pass": true,
+      "check": "1_bracket_102 vs existing body: []"
+    },
+    {
+      "pass": true,
+      "check": "1_bracket_150 vs existing body: []"
+    },
+    {
+      "pass": true,
+      "check": "Fixed-mount screws, washers and nuts clear installed material: []"
+    },
+    {
+      "pass": true,
+      "check": "Nominal lowest non-track part clears flat ground by 6.41 mm"
+    }
+  ],
+  "print_footprints_mm": {
+    "carrier": [
+      183.35,
+      183.35,
+      43.0
+    ],
+    "bracket": [
+      32.0,
+      36.0,
+      38.0
+    ]
+  },
+  "lower_assembly_bounds_mm": {
+    "min": [
+      -152.0,
+      -164.0000001,
+      -20.411186865107453
+    ],
+    "max": [
+      112.41118686510747,
+      164.0000001,
+      64.0
+    ]
+  },
+  "nominal_minimum_ground_clearance_mm": 6.4111868651074495,
+  "limitations": [
+    "Nominal geometry and discrete idler positions only; no loaded tension or strength result.",
+    "Sprocket envelopes are display placeholders; historical groove diagnosis is separate.",
+    "Upper electronics, sensor mounts and scan-plane clearance are not certified by this lower assembly.",
+    "No future pivot geometry or stair-load qualification is included.",
+    "Fastener envelopes omit thread form; physical insertion, tooling and clamp behavior still require checks."
+  ],
+  "release_blockers": [
+    "printed motor and bearing fit",
+    "fastener and plug assembly access",
+    "physical track engagement and tension",
+    "fixed bracket and chassis load/creep testing",
+    "actual payload mass and center of gravity",
+    "loaded skid steering and motor heating",
+    "complete electrical and stop design",
+    "exact upper hardware and LiDAR scan clearance"
+  ],
+  "source_sha256": {
+    "staged_base.py": "83819788963b185830f1d598687f5fc26eff7237aae19de1ae368ad147fe5751",
+    "check_staged_base.py": "71a66dd150786cd2cec77a5b69d21f7c60835ddf7a47d7eadc3ac4e6f9bcc4d9",
+    "staged_base.json": "d6850467ae5580f09f6256cb0af80603b8bfd1d1a0054add210f4d12b8865cc8",
+    "harness_s1.py": "7ff82d9c44cc743aab0b902f1534f7ff80596c442579c29bc8cb5331c7c62065",
+    "vendor/robotis/xl430_2018_drawing.pdf": "17df547295dcb57c3b994d659b40fe6cdd8a947c0cb18f0ccf6f61c5c8549fe3",
+    "out/step/chassis_p0.step": "1d93d3e7671b686058e5679c1544c780933c737993c99b598798e83f40a7cd3e",
+    "out/step/deck_p0.step": "5e17aa9fc6de252ed5cf450c3cbac58ae0ec2129c5ba624c12bbb078a9e4c5f4",
+    "parts/tip_hub_p0.py": "d3219a47d3ce5a803357165d4bbbb5a3cf4e4b8b2d1de71ca1c18aa07e04b519",
+    "review/r1/step/arm_p0_r1.step": "9ae48cc99e8715f90c77fb0c5fb3eaa09b8c13a1494832f96a8cfdc79f575770",
+    "vendor/robotis/ict01_caterpillar.step": "a9df2f096a368dabbb33939d20b0430766d3969d53c978454493c026627f5ed0",
+    "out/step/tip_hub_p0.step": "05f3d99ad14fc1e745b9bfc4892bf13d345c421a312b96889d5a574ccbfa976f"
+  }
+}

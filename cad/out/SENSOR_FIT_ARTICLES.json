@@ -1,0 +1,132 @@
+{
+  "revision": "P0-U2-2026-11-06",
+  "parts": {
+    "lidar_side_frame_s1_L": {
+      "stl_validation": {
+        "closed_single_solid": true,
+        "triangles": 2112,
+        "mesh_volume_mm3": 19302.189,
+        "max_zero_snap_mm": 2.842170943040401e-14
+      },
+      "stl_sha256": "410cc52d559739b2210bf791724a786f76657ebff09bceea20027c1abb6a77ef",
+      "size_mm": [
+        96.0,
+        70.0,
+        18.0
+      ]
+    },
+    "lidar_side_frame_s1_R": {
+      "stl_validation": {
+        "closed_single_solid": true,
+        "triangles": 2112,
+        "mesh_volume_mm3": 19302.189,
+        "max_zero_snap_mm": 1.4210854715202004e-14
+      },
+      "stl_sha256": "003e8b0cc5e91dfc19a8b8e0fcce2137dad3fba429c1b74b003f5d7490ba2530",
+      "size_mm": [
+        96.0,
+        70.0,
+        18.0
+      ]
+    },
+    "lidar_bridge_s1": {
+      "stl_validation": {
+        "closed_single_solid": true,
+        "triangles": 5192,
+        "mesh_volume_mm3": 49007.8,
+        "max_zero_snap_mm": 0.0
+      },
+      "stl_sha256": "0675d475b5c6b0e366d23a7b7b617a1a9316ee264d9ca778764013f62b2de399",
+      "size_mm": [
+        116.0,
+        136.0,
+        4.0
+      ]
+    },
+    "camera_pan_base_s1": {
+      "stl_validation": {
+        "closed_single_solid": true,
+        "triangles": 4320,
+        "mesh_volume_mm3": 25458.927,
+        "max_zero_snap_mm": 0.0
+      },
+      "stl_sha256": "533a5aa075bc627cee9b1246e4f10e5d3acfc8d0dff8e087858462927e84410e",
+      "size_mm": [
+        61.5,
+        64.0,
+        25.0
+      ]
+    },
+    "camera_yoke_s1": {
+      "stl_validation": {
+        "closed_single_solid": true,
+        "triangles": 2680,
+        "mesh_volume_mm3": 19982.68,
+        "max_zero_snap_mm": 0.0
+      },
+      "stl_sha256": "68c245700def406528633363c5d0cd536febc1fa22be22af294987d180dc225f",
+      "size_mm": [
+        38.0,
+        60.0,
+        54.0
+      ]
+    },
+    "camera_cradle_s1": {
+      "stl_validation": {
+        "closed_single_solid": true,
+        "triangles": 6770,
+        "mesh_volume_mm3": 4908.511,
+        "max_zero_snap_mm": 3.552713678800501e-15
+      },
+      "stl_sha256": "2ec8d6961ab6b09713349d45bdddb322dbbc375095ea37608adab37e84b78bc8",
+      "size_mm": [
+        30.0,
+        40.5,
+        22.0
+      ]
+    },
+    "camera_pivot_bush_s1": {
+      "stl_validation": {
+        "closed_single_solid": true,
+        "triangles": 1008,
+        "mesh_volume_mm3": 46.351,
+        "max_zero_snap_mm": 0.0
+      },
+      "stl_sha256": "56c05e2616586c83934c095d48d73a72713fe10d3ae2ebb542fbe807dfde8d68",
+      "size_mm": [
+        5.0,
+        5.0,
+        4.0
+      ]
+    },
+    "lidar_interface_carrier_s1": {
+      "stl_validation": {
+        "closed_single_solid": true,
+        "triangles": 1108,
+        "mesh_volume_mm3": 4645.661,
+        "max_zero_snap_mm": 0.0
+      },
+      "stl_sha256": "8862f771bc20105e6700eb42307aa01e45617634ad21fc4b357561c5428fd106",
+      "size_mm": [
+        28.0,
+        60.0,
+        3.0
+      ]
+    }
+  },
+  "status": "Candidates: match HAT seating, A1/interface revision and servo/horn dimensions before the affected print or assembly.",
+  "source_sha256": {
+    "cad/sensors_s1.py": "c8feee7ec5ff601643b49fe633fed0c2c33dc003d426e3f61cce02f859eaf406",
+    "cad/audit_sensors_s1.py": "549f4cc764d5d43cb8b1b08a8db600cd2fc2649dd69337b668f2657bc2093430",
+    "cad/upper_s1.py": "fc5fbf8872c9d8fded6151f9976061f1db29159bc54a9f5fd47ffaf66aa1400d",
+    "cad/sensor_parts.json": "705ee0b5341b5c58bf4ba6d4db3505fb3c018acbff66552a236fb77ceb30a0c3",
+    "cad/vendor/sensor_sources.json": "bd08042fa3f5afc7855dcd0f3ba7a6fe731287c8fd09d6852393e6ac6d083413",
+    "cad/vendor/waveshare/wm8960.stp": "393e821eab3035984c34e4a6b90700a96104138a256eea335c3f3e8242d3ab51",
+    "cad/vendor/raspberrypi/camera3_standard.stp": "ecbc4b091e51f31c6186b81ad68d4205b8dceec0d90c116cd7fd699e1f1c5702",
+    "cad/vendor/raspberrypi/camera3_standard.pdf": "bde27f5ab38dd46aa05713bbb17c6e8acc4cb1d48ff9109df511256f6fbc66ac",
+    "cad/vendor/slamtec/a1m8_v3.0.pdf": "b6938125e1778b1ddce3a9b35a50fa10b0af4a923fd1a52e538dc8b275a46834",
+    "cad/out/step/chassis_p0.step": "1d93d3e7671b686058e5679c1544c780933c737993c99b598798e83f40a7cd3e",
+    "cad/out/step/deck_p0.step": "5e17aa9fc6de252ed5cf450c3cbac58ae0ec2129c5ba624c12bbb078a9e4c5f4",
+    "cad/export_sensors_s1.py": "a1abbea253821d3a43cd75138e4cfea56c293f30781fb3967b564b512fbff228"
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "status": "unreleased",
+  "current_lower_revision": "P0-S1-2026-11-02-R2",
+  "first_prototype_scope": "S0 one track module, then S1 two fixed tracks with Pi/OpenCR, LiDAR, camera and audio. Preserve modules for later flippers; stairs are a later qualification goal.",
+  "current_lower_bom": "staged_base.json",
+  "current_lower_export": "staged_base.py --export-review",
+  "review": "../docs/assembly/p0-build-review.md",
+  "assembly_guide": "../docs/assembly/p0-assembly.md",
+  "design_spec": "../docs/design/physical-design-spec.md",
+  "whole_system_design": "../docs/assembly/s1-system-plan.md",
+  "whole_system_release_requirements": "H01-H10 plus assembly commissioning gates G1-G7; proposed circuit and sensor mounts are not released",
+  "active_release_requirements": {
+    "file": "staged_base.json",
+    "field": "release_blockers"
+  },
+  "geometry_receipt": "review/staged-base/REVIEW_STATUS.json",
+  "actuator_selection": "actuator_options.json",
+  "selection_status": "S1 fixed tracks first. Compare budget DIY joints, integrated brushless joints and aspirational high-end Dynamixels, with reduced XL430/gearmotor alternatives retained. Evaluate two- and four-pitch layouts toward four tracked legs with pitch and lateral movement. No joint or future layout selected; complete fit, power and cost precede selection.",
+  "manufacturing_stl_released": false
+}

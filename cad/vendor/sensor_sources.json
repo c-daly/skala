@@ -1,0 +1,29 @@
+{
+  "retrieved": "2026-11-06",
+  "sources": [
+    {
+      "file": "waveshare/wm8960.stp",
+      "url": "https://files.waveshare.com/upload/b/b3/WM8960_Audio_HAT_drawing.zip",
+      "use": "Unmodified w29-2.stp. One simplified solid, not a complete electrical clearance model. Native PCB z +/-0.8; socket on +Z, installed flipped. Four holes +/-29,+/-11.5. GPIO-side pair aligns to existing Pi holes.",
+      "sha256": "393e821eab3035984c34e4a6b90700a96104138a256eea335c3f3e8242d3ab51"
+    },
+    {
+      "file": "raspberrypi/camera3_standard.stp",
+      "url": "https://pip-assets.raspberrypi.com/categories/1207-design-files/documents/RP-008154-DS-1-camera-module-3-step.zip",
+      "use": "Unmodified Camera_module_3_std_model_simple.stp. Camera PCB holes native (2/14.5,2/23), diameter 2.2; 590 component solids retained. CSI is oriented downward in the candidate cradle.",
+      "sha256": "ecbc4b091e51f31c6186b81ad68d4205b8dceec0d90c116cd7fd699e1f1c5702"
+    },
+    {
+      "file": "raspberrypi/camera3_standard.pdf",
+      "url": "https://pip-assets.raspberrypi.com/categories/1207-design-files/documents/RP-008153-DS-1-camera-module-3-standard-mechanical-drawing.pdf",
+      "use": "Manufacturer mechanical drawing, standard lens, 25 x 23.862 PCB. Use actual STEP for component collision.",
+      "sha256": "bde27f5ab38dd46aa05713bbb17c6e8acc4cb1d48ff9109df511256f6fbc66ac"
+    },
+    {
+      "file": "slamtec/a1m8_v3.0.pdf",
+      "url": "https://files.seeedstudio.com/products/114992561/LD108_SLAMTEC_rplidar_datasheet_A1M8_v3.0_en.pdf",
+      "use": "SLAMTEC-authored revision 3.0 PDF, distributor mirror because manufacturer archive unavailable. Page 16: four diameter 3.3 clearance holes at +28,+/-28 and -42,+/-20 about scan axis; mounting flange nominal 26.5..31.5 above motor bottom, scan plane 42 and top 51. Candidate uses 35 mm columns below feet; owned model still must match. Page 11: scanner startup up to 600 mA, motor typical 100 mA is not its peak.",
+      "sha256": "b6938125e1778b1ddce3a9b35a50fa10b0af4a923fd1a52e538dc8b275a46834"
+    }
+  ]
+}

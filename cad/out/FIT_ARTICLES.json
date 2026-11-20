@@ -1,0 +1,155 @@
+{
+  "revision": "P0-S1-2026-11-02-R2",
+  "upper_revision": "P0-U1-2026-11-03",
+  "purpose": "S0 fit articles; coupon first, one carrier after fit; no physical load qualification",
+  "parts": {
+    "motor_fit_coupon_s1": {
+      "size_mm": [
+        70.0,
+        55.263,
+        43.0
+      ],
+      "volume_mm3": 47520.09,
+      "stl_validation": {
+        "closed_single_solid": true,
+        "triangles": 10420,
+        "mesh_volume_mm3": 47520.497,
+        "max_zero_snap_mm": 2.842170943040401e-14
+      },
+      "stl_sha256": "95f3eeb8dc61e1e50e3a38cec7a3930b52875f113bf8537f591e6eabe46a9696"
+    },
+    "bearing_fit_coupon_s1": {
+      "size_mm": [
+        125.0,
+        33.5,
+        6.0
+      ],
+      "volume_mm3": 8401.16,
+      "stl_validation": {
+        "closed_single_solid": true,
+        "triangles": 24132,
+        "mesh_volume_mm3": 8399.077,
+        "max_zero_snap_mm": 1.0000000116860974e-07
+      },
+      "stl_sha256": "056f3d2e2654040ce0ebab62d0e543087553ab85e8df758bfd4105906523636a"
+    },
+    "track_carrier_s1": {
+      "size_mm": [
+        183.35,
+        183.35,
+        43.0
+      ],
+      "volume_mm3": 120464.2,
+      "stl_validation": {
+        "closed_single_solid": true,
+        "triangles": 17412,
+        "mesh_volume_mm3": 120452.849,
+        "max_zero_snap_mm": 0.0
+      },
+      "stl_sha256": "d21c79099b4aa6682904a406ff75e4960ec7e572b5afeec845fc01b3233667a4"
+    },
+    "fixed_bracket_s1": {
+      "size_mm": [
+        38.0,
+        36.0,
+        32.0
+      ],
+      "volume_mm3": 11119.64,
+      "stl_validation": {
+        "closed_single_solid": true,
+        "triangles": 3076,
+        "mesh_volume_mm3": 11119.801,
+        "max_zero_snap_mm": 3.552713678800501e-15
+      },
+      "stl_sha256": "54d24dd8e580310f0e6750824ffb3df5b47522d7c7245600e484e7e5be29def6"
+    },
+    "drive_lead_restraint_s1": {
+      "size_mm": [
+        24.0,
+        44.0,
+        12.0
+      ],
+      "volume_mm3": 3767.37,
+      "stl_validation": {
+        "closed_single_solid": true,
+        "triangles": 1084,
+        "mesh_volume_mm3": 3767.396,
+        "max_zero_snap_mm": 7.105427357601002e-15
+      },
+      "stl_sha256": "140b8d4290091f6c696f3eb724ed23611b5a333926f6f1723ba626564c94859d"
+    },
+    "tip_hub_p0": {
+      "size_mm": [
+        30.0,
+        30.0,
+        21.5
+      ],
+      "volume_mm3": 8797.2,
+      "stl_validation": {
+        "closed_single_solid": true,
+        "triangles": 6662,
+        "mesh_volume_mm3": 8793.135,
+        "max_zero_snap_mm": 5.1453734664901746e-14
+      },
+      "stl_sha256": "347b9209d20ef1cebe5c6fea65126a0139c8522395b4a7c98a819c34e487d60c"
+    },
+    "idler_bearing_cap_s1": {
+      "size_mm": [
+        30.0,
+        30.0,
+        2.0
+      ],
+      "volume_mm3": 902.36,
+      "stl_validation": {
+        "closed_single_solid": true,
+        "triangles": 5682,
+        "mesh_volume_mm3": 902.001,
+        "max_zero_snap_mm": 3.774758283725532e-15
+      },
+      "stl_sha256": "7d268ad0910e277e464667e3628571f0d937ed5bf4f5e1ef55bbf32c7bd7492a"
+    },
+    "opencr_adapter_s1": {
+      "size_mm": [
+        92.0,
+        112.0,
+        3.0
+      ],
+      "volume_mm3": 22744.0,
+      "stl_validation": {
+        "closed_single_solid": true,
+        "triangles": 5152,
+        "mesh_volume_mm3": 22744.17,
+        "max_zero_snap_mm": 0.0
+      },
+      "stl_sha256": "4a33aa2aa73f11e709731f63c53f32048222510a75d19afb4ce9578c7aa211ec"
+    },
+    "pi4_adapter_s1": {
+      "size_mm": [
+        64.0,
+        96.0,
+        3.0
+      ],
+      "volume_mm3": 13177.52,
+      "stl_validation": {
+        "closed_single_solid": true,
+        "triangles": 5120,
+        "mesh_volume_mm3": 13177.628,
+        "max_zero_snap_mm": 0.0
+      },
+      "stl_sha256": "1883fc219ff5178404d4fb4456ebbf0c5525cc226875f4059458c74899a8f368"
+    }
+  },
+  "source_sha256": {
+    "build.py": "96bef3777f069107bddaebf83cb119beee990903b967ae5050ac304f33ff5310",
+    "staged_base.py": "83819788963b185830f1d598687f5fc26eff7237aae19de1ae368ad147fe5751",
+    "staged_base.json": "d6850467ae5580f09f6256cb0af80603b8bfd1d1a0054add210f4d12b8865cc8",
+    "harness_s1.py": "7ff82d9c44cc743aab0b902f1534f7ff80596c442579c29bc8cb5331c7c62065",
+    "export_s0_fit.py": "94ca4c2b872fd3db892e86cef7546bc739eeb4024a9e192711ef38c2d9c3a152",
+    "print_parts.json": "861f53ef2c87ffbb01c8c4a7dea97f1f2f2324669fed56de0214bf976a00596e",
+    "upper_s1.py": "fc5fbf8872c9d8fded6151f9976061f1db29159bc54a9f5fd47ffaf66aa1400d",
+    "parts/bearing_fit_coupon_s1.py": "5c56d023566552871cc1e7a542e5fc53eb301cde3191e2fdb2d0ae33633e64c0",
+    "parts/tip_hub_p0.py": "d3219a47d3ce5a803357165d4bbbb5a3cf4e4b8b2d1de71ca1c18aa07e04b519",
+    "params.py": "26e3c94870bc593021e94c94d83d6c82d1373f375f531276baab5d40d7aa7bd7",
+    "out/step/tip_hub_p0.step": "05f3d99ad14fc1e745b9bfc4892bf13d345c421a312b96889d5a574ccbfa976f"
+  }
+}

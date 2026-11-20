@@ -1,0 +1,120 @@
+{
+  "scope": "Nominal lower assembly paths and example tool envelopes; not a print or hardware qualification",
+  "checks": [
+    {
+      "check": "Supplied XL430 body dimensions and side-hole axes match the housing assumptions",
+      "pass": true,
+      "detail": "native dimensions [28.5, 34.0, 46.5]; taps [(4.0, -6.0), (4.0, 6.0), (28.0, -6.0), (28.0, 6.0)]; horn dimensions checked against the separate ROBOTIS drawing"
+    },
+    {
+      "check": "Motor case can enter the pocket from outboard",
+      "pass": true,
+      "detail": "swept overlap 0.00000 mm3; case envelope only"
+    },
+    {
+      "check": "Motor side screw driver access at module Z=21",
+      "pass": true,
+      "detail": "[]; example 4 mm shaft, track off"
+    },
+    {
+      "check": "Motor side screw driver access at module Z=33",
+      "pass": true,
+      "detail": "[]; example 4 mm shaft, track off"
+    },
+    {
+      "check": "M6 head enters empty hub from its large rear opening",
+      "pass": true,
+      "detail": "swept overlap 0.00000 mm3"
+    },
+    {
+      "check": "Bearing-first order correctly rejected",
+      "pass": true,
+      "detail": "head overlaps seated bearing by 301.593 mm3"
+    },
+    {
+      "check": "5 mm hex-key circumscribed envelope clears hub access",
+      "pass": true,
+      "detail": "overlap 0.00000 mm3"
+    },
+    {
+      "check": "5 mm hex key clears retained vendor sprocket centre bore",
+      "pass": true,
+      "detail": "swept overlap 0.00000 mm3; cylindrical envelope includes hex corners"
+    },
+    {
+      "check": "Drawing horn fits wheel with its sampled circular centre recess restored",
+      "pass": true,
+      "detail": "raw coarse-mesh overlap 0.17678; circular-recess overlap -0.00000 mm3; \u00d89 x 2 recess from rings at native Y=-9/-7; boss \u00d88 x 1.9"
+    },
+    {
+      "check": "Idler washer contacts seat across slot travel without penetration",
+      "pass": true,
+      "detail": "(offset, gap, overlap, 0.01 mm seat advance): [(-4, 0.0, 0, 0.61435), (0, 0.0, 0, 0.42336), (4, 0.0, 0, 0.61435)]"
+    },
+    {
+      "check": "Carrier geometry permits the same print on both sides",
+      "pass": true,
+      "detail": "mirror-symmetry difference 0.00000 mm3"
+    },
+    {
+      "check": "Sixteen M3 foot bolts have vertical insertion and tool paths",
+      "pass": true,
+      "detail": "[]"
+    },
+    {
+      "check": "M4 nut-tool approach before track closure",
+      "pass": true,
+      "detail": "[]; example 10 mm OD socket"
+    },
+    {
+      "check": "R12 drive-lead bend clears motor, carrier and wheel envelopes",
+      "pass": true,
+      "detail": "[]; bundle OD4.5; outside-motor path 43.85 mm"
+    },
+    {
+      "check": "Installed lead restraints and hardware clear the lower assembly",
+      "pass": true,
+      "detail": "[]"
+    },
+    {
+      "check": "Restraint bolts enter from below and nut tools enter from side",
+      "pass": true,
+      "detail": "[]"
+    },
+    {
+      "check": "Both motor plugs have a straight service approach with tracks fitted",
+      "pass": true,
+      "detail": "[]; 40 mm approach, 14 x 12 mm tool envelope beyond motor end face"
+    },
+    {
+      "check": "Lower M4 joint rejects OD12 washer and clears specified OD9",
+      "pass": true,
+      "detail": "OD12 overlap 3.6012; OD9 overlap 0.0000 mm3"
+    },
+    {
+      "check": "Side -1 plate route admits a nominal 4 mm cable envelope",
+      "pass": true,
+      "detail": "overlap 0.00000 mm3; no bend-radius or connector-passage claim"
+    },
+    {
+      "check": "Side 1 plate route admits a nominal 4 mm cable envelope",
+      "pass": true,
+      "detail": "overlap 0.00000 mm3; no bend-radius or connector-passage claim"
+    }
+  ],
+  "failures": [],
+  "source_sha256": {
+    "cad/staged_base.py": "19a077aeb14f0354afa4524a9599421e7b25b06b2a7d518b6c95a086d2660054",
+    "cad/staged_base.json": "ef51ea3d7fbed916e69c94438207f45b373b90039c6c72817b60291faa452ca5",
+    "cad/check_staged_base.py": "de2594743e043fcd9ac624ecf72ea6e46a14a0f3549fcade5bcfef9fd0835ee3",
+    "cad/audit_s1_assembly.py": "39845bca2cfc966f0fc424421cd9d3545e78dc9919943191af7551bd5b4f4b51",
+    "cad/review/r1/step/arm_p0_r1.step": "9ae48cc99e8715f90c77fb0c5fb3eaa09b8c13a1494832f96a8cfdc79f575770",
+    "cad/out/step/tip_hub_p0.step": "c44c7e2db02ce50e4bc22c83a20c8997fbcfb711afe3457cb31b6fb4d42a33e7",
+    "cad/out/step/chassis_p0.step": "165caa65373c7ba1dd769cb0fad19d79db5c1cc060faee4693a65eb1ac1211e3",
+    "cad/check_vendor_p0.py": "d9c5d578a4c37d9375fb86c1051d21a2d106b25aaa57290f9c8c00b5c1a44788",
+    "cad/vendor/robotis/tb3_left_tire.stl": "578c9452ee51c2f71e5e6723b503d784e58a6ac317fa53ee308e645f204c8d6a",
+    "cad/vendor/robotis/xl430_user_body.step": "dbaa0f0af08224b288e3b6f4adc5e67ce40da0568e911845e50ef262e7b22c84",
+    "cad/harness_s1.py": "7ff82d9c44cc743aab0b902f1534f7ff80596c442579c29bc8cb5331c7c62065",
+    "cad/vendor/robotis/xl430_2018_drawing.pdf": "17df547295dcb57c3b994d659b40fe6cdd8a947c0cb18f0ccf6f61c5c8549fe3"
+  }
+}

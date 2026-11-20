@@ -1,0 +1,85 @@
+{
+  "revision": "P0-S1-2026-10-31",
+  "scope": "Geometry regression and measured old wall feet; not strength qualification",
+  "old_native_step_sha256": "1cbacd7721c82be6a502dd1c37b01df16281a1b608e52e784aa4b1065289cf24",
+  "old_print_stl_sha256": "6252856f51c958f49de667e2f66bdb6e03056851b84211603ee1b25b85a46f90",
+  "old_connection_section_z_mm": 12,
+  "old_feet": [
+    {
+      "x_mm": [
+        80.0,
+        81.55
+      ],
+      "y_mm": [
+        -19.55,
+        -14.55
+      ],
+      "area_mm2": 7.614999999999817
+    },
+    {
+      "x_mm": [
+        80.0,
+        81.55
+      ],
+      "y_mm": [
+        14.549999999999997,
+        19.550000000000004
+      ],
+      "area_mm2": 7.614999999999826
+    }
+  ],
+  "cases": [
+    {
+      "case": "old_carrier",
+      "expected_accept": false,
+      "accepted": false,
+      "detail": "Carrier backplate incomplete: 14103.330 mm3 missing from X28..92, Y-14..14, Z0..10; do not export this carrier",
+      "solid_count": 1
+    },
+    {
+      "case": "continuous_backplate",
+      "expected_accept": true,
+      "accepted": true,
+      "detail": "backplate present",
+      "solid_count": 1
+    },
+    {
+      "case": "backplate_cut_across_at_x67",
+      "expected_accept": false,
+      "accepted": false,
+      "detail": "Carrier backplate incomplete: 280.000 mm3 missing from X28..92, Y-14..14, Z0..10; do not export this carrier",
+      "solid_count": 1
+    }
+  ],
+  "new_backplate_mm": {
+    "x": [
+      28,
+      92
+    ],
+    "y": [
+      -14,
+      14
+    ],
+    "z": [
+      0,
+      10
+    ]
+  },
+  "added_volume_mm3": 14103.33033219156,
+  "source_sha256": {
+    "cad/staged_base.py": "9c0da89547d3fd45df1ff643452d5b2dcb46ea848682672b500a0e851c83f80e",
+    "cad/staged_base.json": "42b1a47a159241cbdaa47f39e3e6817c0542d510f2f6354e1dfcaa6297a57fc8",
+    "cad/check_staged_base.py": "a527d3f257799deab6c2fefb91cd5fab71e5acba575cd953b7db11a0c03fd050",
+    "cad/export_s0_fit.py": "d5b94b54c2ed2a183badceeebfd1e61c8d5e0a2db675eb5cac8f53b7494ec5a6"
+  },
+  "exporter_recheck": {
+    "date": "2026-11-02",
+    "reason": "Exporter adds a bearing-fit sample and part-name catalog; structural source files are unchanged.",
+    "continuous_backplate_accepted": true,
+    "cut_backplate_rejected_before_export": true,
+    "detail": "Carrier backplate incomplete: 280.000 mm3 missing from X28..92, Y-14..14, Z0..10; do not export this carrier",
+    "existing_stl_bytes_unchanged_by_rejection": true,
+    "previous_exporter_sha256": "306a0761bd367e56861c5f91078823051e69d47fb8b0593d1d6d7c12128660d6",
+    "historical_cases": "Original old-carrier measurements and cases above are retained; their structural source hashes remain unchanged."
+  }
+}

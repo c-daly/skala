@@ -1,0 +1,10 @@
+[
+  {"id":"P11L","name":"LiDAR side frame, left","stl":"lidar_side_frame_s1_L.stl","quantity":1,"status":"fit candidate; deck attachment checked"},
+  {"id":"P11R","name":"LiDAR side frame, right","stl":"lidar_side_frame_s1_R.stl","quantity":1,"status":"fit candidate; deck attachment checked"},
+  {"id":"P12","name":"LiDAR bridge","stl":"lidar_bridge_s1.stl","quantity":1,"status":"conditional A1M8 v3.0 footprint; match owned scanner before printing"},
+  {"id":"P13","name":"Camera pan base","stl":"camera_pan_base_s1.stl","quantity":1,"status":"conditional MG90S flange and shaft offsets; match servo before printing"},
+  {"id":"P14","name":"Camera yoke","stl":"camera_yoke_s1.stl","quantity":1,"status":"conditional MG90S flange, shaft and horn fit"},
+  {"id":"P15","name":"Camera cradle","stl":"camera_cradle_s1.stl","quantity":1,"status":"Camera 3 Standard model checked; horn interface conditional"},
+  {"id":"P16","name":"Camera pivot bush","stl":"camera_pivot_bush_s1.stl","quantity":1,"status":"temporary printed fit bush; replace with 5 OD x 3.2 ID x 4 nylon tube for running"},
+  {"id":"P17","name":"LiDAR interface carrier","stl":"lidar_interface_carrier_s1.stl","quantity":1,"status":"carrier only; board-specific insulating attachment pending interface identification"}
+]

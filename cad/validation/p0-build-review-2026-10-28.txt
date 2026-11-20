@@ -1,0 +1,177 @@
+
+== interference check: config A flat (85 solids)
+  FAIL camera_cradle ∩ tilt_servo = 365 mm³
+  FAIL config A flat: 1 interferences
+
+== hole alignment (robot frame)
+  ok   pan_base: found 2 mounting-hole/slot axes, expected at least 2
+  ok   pan_base: hole at (88.0, -24.0..-24.0) -> chassis grid
+  ok   pan_base: hole at (88.0, 24.0..24.0) -> chassis grid
+  ok   pitch_mount_frontR: found 8 mounting-hole/slot axes, expected at least 8
+  ok   pitch_mount_frontR: hole slot at (32.0, -66.0..-62.0) -> chassis grid
+  ok   pitch_mount_frontR: hole slot at (32.0, -50.0..-46.0) -> chassis grid
+  ok   pitch_mount_frontR: hole slot at (88.0, -66.0..-62.0) -> chassis grid
+  ok   pitch_mount_frontR: hole slot at (88.0, -50.0..-46.0) -> chassis grid
+  ok   pitch_mount_rearR: found 8 mounting-hole/slot axes, expected at least 8
+  ok   pitch_mount_rearR: hole slot at (-88.0, -66.0..-62.0) -> chassis grid
+  ok   pitch_mount_rearR: hole slot at (-88.0, -50.0..-46.0) -> chassis grid
+  ok   pitch_mount_rearR: hole slot at (-32.0, -66.0..-62.0) -> chassis grid
+  ok   pitch_mount_rearR: hole slot at (-32.0, -50.0..-46.0) -> chassis grid
+  ok   pitch_mount_frontL: found 8 mounting-hole/slot axes, expected at least 8
+  ok   pitch_mount_frontL: hole slot at (32.0, 46.0..50.0) -> chassis grid
+  ok   pitch_mount_frontL: hole slot at (32.0, 62.0..66.0) -> chassis grid
+  ok   pitch_mount_frontL: hole slot at (88.0, 46.0..50.0) -> chassis grid
+  ok   pitch_mount_frontL: hole slot at (88.0, 62.0..66.0) -> chassis grid
+  ok   pitch_mount_rearL: found 8 mounting-hole/slot axes, expected at least 8
+  ok   pitch_mount_rearL: hole slot at (-88.0, 46.0..50.0) -> chassis grid
+  ok   pitch_mount_rearL: hole slot at (-88.0, 62.0..66.0) -> chassis grid
+  ok   pitch_mount_rearL: hole slot at (-32.0, 46.0..50.0) -> chassis grid
+  ok   pitch_mount_rearL: hole slot at (-32.0, 62.0..66.0) -> chassis grid
+  ok   opencr_adapter: M3 hole at (-104, -32) -> deck grid
+  ok   opencr_adapter: M3 hole at (-104, 32) -> deck grid
+  ok   opencr_adapter: M3 hole at (-24, -32) -> deck grid
+  ok   opencr_adapter: M3 hole at (-24, 32) -> deck grid
+  ok   pi_adapter: M3 hole at (-8, -32) -> deck grid
+  ok   pi_adapter: M3 hole at (-8, 32) -> deck grid
+  ok   pi_adapter: M3 hole at (40, -32) -> deck grid
+  ok   pi_adapter: M3 hole at (40, 32) -> deck grid
+  ok   lidar_adapter: hole at (-8, -32) -> Pi adapter standoff
+  ok   lidar_adapter: hole at (-8, 32) -> Pi adapter standoff
+  ok   lidar_adapter: hole at (40, -32) -> Pi adapter standoff
+  ok   lidar_adapter: hole at (40, 32) -> Pi adapter standoff
+  ok   deck standoff (-80, -32) on chassis grid
+  ok   deck standoff (-80, -32) on deck grid
+  ok   deck standoff (-80, 32) on chassis grid
+  ok   deck standoff (-80, 32) on deck grid
+  ok   deck standoff (24, -32) on chassis grid
+  ok   deck standoff (24, -32) on deck grid
+  ok   deck standoff (24, 32) on chassis grid
+  ok   deck standoff (24, 32) on deck grid
+
+== interference check: config A stance (85 solids)
+  FAIL camera_cradle ∩ tilt_servo = 365 mm³
+  FAIL config A stance: 1 interferences
+  ok   config A stance: contact-height spread 0.00 mm (polygonal track approximation)
+
+== interference check: config B flat (73 solids)
+  FAIL camera_cradle ∩ tilt_servo = 365 mm³
+  FAIL config B flat: 1 interferences
+
+== hole alignment (robot frame)
+  ok   pan_base: found 2 mounting-hole/slot axes, expected at least 2
+  ok   pan_base: hole at (88.0, -24.0..-24.0) -> chassis grid
+  ok   pan_base: hole at (88.0, 24.0..24.0) -> chassis grid
+  ok   pitch_mount_frontR: found 8 mounting-hole/slot axes, expected at least 8
+  ok   pitch_mount_frontR: hole slot at (32.0, -66.0..-62.0) -> chassis grid
+  ok   pitch_mount_frontR: hole slot at (32.0, -50.0..-46.0) -> chassis grid
+  ok   pitch_mount_frontR: hole slot at (88.0, -66.0..-62.0) -> chassis grid
+  ok   pitch_mount_frontR: hole slot at (88.0, -50.0..-46.0) -> chassis grid
+  ok   skid_bracket_R: found 4 mounting-hole/slot axes, expected at least 4
+  ok   skid_bracket_R: hole at (-80.0, -64.0..-64.0) -> chassis grid
+  ok   skid_bracket_R: hole at (-80.0, -56.0..-56.0) -> chassis grid
+  ok   skid_bracket_R: hole at (-40.0, -64.0..-64.0) -> chassis grid
+  ok   skid_bracket_R: hole at (-40.0, -56.0..-56.0) -> chassis grid
+  ok   pitch_mount_frontL: found 8 mounting-hole/slot axes, expected at least 8
+  ok   pitch_mount_frontL: hole slot at (32.0, 46.0..50.0) -> chassis grid
+  ok   pitch_mount_frontL: hole slot at (32.0, 62.0..66.0) -> chassis grid
+  ok   pitch_mount_frontL: hole slot at (88.0, 46.0..50.0) -> chassis grid
+  ok   pitch_mount_frontL: hole slot at (88.0, 62.0..66.0) -> chassis grid
+  ok   skid_bracket_L: found 4 mounting-hole/slot axes, expected at least 4
+  ok   skid_bracket_L: hole at (-80.0, 56.0..56.0) -> chassis grid
+  ok   skid_bracket_L: hole at (-80.0, 64.0..64.0) -> chassis grid
+  ok   skid_bracket_L: hole at (-40.0, 56.0..56.0) -> chassis grid
+  ok   skid_bracket_L: hole at (-40.0, 64.0..64.0) -> chassis grid
+  ok   opencr_adapter: M3 hole at (-104, -32) -> deck grid
+  ok   opencr_adapter: M3 hole at (-104, 32) -> deck grid
+  ok   opencr_adapter: M3 hole at (-24, -32) -> deck grid
+  ok   opencr_adapter: M3 hole at (-24, 32) -> deck grid
+  ok   pi_adapter: M3 hole at (-8, -32) -> deck grid
+  ok   pi_adapter: M3 hole at (-8, 32) -> deck grid
+  ok   pi_adapter: M3 hole at (40, -32) -> deck grid
+  ok   pi_adapter: M3 hole at (40, 32) -> deck grid
+  ok   lidar_adapter: hole at (-8, -32) -> Pi adapter standoff
+  ok   lidar_adapter: hole at (-8, 32) -> Pi adapter standoff
+  ok   lidar_adapter: hole at (40, -32) -> Pi adapter standoff
+  ok   lidar_adapter: hole at (40, 32) -> Pi adapter standoff
+  ok   deck standoff (-80, -32) on chassis grid
+  ok   deck standoff (-80, -32) on deck grid
+  ok   deck standoff (-80, 32) on chassis grid
+  ok   deck standoff (-80, 32) on deck grid
+  ok   deck standoff (24, -32) on chassis grid
+  ok   deck standoff (24, -32) on deck grid
+  ok   deck standoff (24, 32) on chassis grid
+  ok   deck standoff (24, 32) on deck grid
+
+== interference check: config B stance (73 solids)
+  FAIL camera_cradle ∩ tilt_servo = 365 mm³
+  FAIL config B stance: 1 interferences
+  ok   config B stance: contact-height spread 0.38 mm (polygonal track approximation)
+
+== interference check: config A front tucked -150°, rear 30° down (85 solids)
+  FAIL camera_cradle ∩ tilt_servo = 365 mm³
+  FAIL config A front tucked -150°, rear 30° down: 1 interferences
+
+== interference check: config A both arms at -90° (85 solids)
+  FAIL camera_cradle ∩ tilt_servo = 365 mm³
+  FAIL config A both arms at -90°: 1 interferences
+
+== clearances
+  ok   flat-pose ground clearance under the chassis: 16.9 mm (chassis underside z = -6.0, wheel bottoms z = -22.9)
+  ok   arm_frontR: arm face to mount body gap 9.00 mm
+  ok   arm_frontL: arm face to mount body gap 9.00 mm
+  ok   camera + external servo pan envelope: deck clearance 22.1 mm; horn/ribbon still unqualified
+  ok   Pi/cooler envelope to LiDAR adapter: 14.0 mm (target >=10)
+  ok   compute bay |y| ≤ 29 clears the rear deck standoffs at y = ±32
+
+== track, fastener stacks and connector passage
+  ok   40 links per loop
+  ok   closed pin polygon, maximum pitch error 1.4e-14 mm
+  ok   JST EHR-3 housing cross-section 9.5 x 3.8 passes diameter 11 hole
+  ok   rear access window starts at x=34.45, beyond pitch flange r=16
+  ok   pitch mount: M3 x 20, minimum 17.5 including washer, nylock and two threads
+  ok   skid foot: M3 x 20, minimum 17.5 including washer, nylock and two threads
+  ok   camera foot: M3 x 16, minimum 15.5 including washer, nylock and two threads
+  ok   skid index: M3 x 35, minimum 30.5 including washer, nylock and two threads
+  ok   pitch horn M2 engagement 3 mm, maximum 3.5
+  ok   idler M6 x 50 needs 48.5 mm including recessed washer and two threads
+  ok   both 626 inner races lie on the 26 mm plain axle shank
+  ok   arm: valid connected solid
+  ok   arm at 45 degrees: 179.4 x 179.4 mm on 220 bed
+  ok   pitch mount: valid connected solid
+
+== unweighed mass allowance and pitch-load screen (not qualification)
+  config A: mass allowance 2.68 kg
+    two front joints supporting half the total weight at 190 mm horizontal reach: 1.25 N m each
+    excludes dynamics/load imbalance; XL430 1.4 N m at 11.1 V is STALL, not continuous torque
+  config B: mass allowance 2.09 kg
+    two front joints supporting half the total weight at 190 mm horizontal reach: 0.97 N m each
+    excludes dynamics/load imbalance; XL430 1.4 N m at 11.1 V is STALL, not continuous torque
+  No stair-stability verdict: measured masses, load duty and changing contacts are unqualified.
+
+Print release: unreleased (6 open requirements; see release_p0.json)
+  FAIL track-engagement: 144 mm closes the 40-link pin polygon; bare-sprocket tooth engagement, phase, tension range and printed-link fit remain unqualified.
+  FAIL moving-leads: Rear-case windows and EHR-3 passage are modelled; seated plugs, lead bend radius and full pitch sweep need a routed harness model and fit check.
+  FAIL camera-interfaces: Tilt-servo envelope overlaps the existing cradle. Exact camera, MG90S variant and horn must be selected before resolving horn planes, pivot spacing and ribbon travel.
+  FAIL electronics-harness: Pi/cooler and A1 revision, LiDAR mounting feet, USB/CSI cable heads, buck and power harness mounting are not fixed. Board spacers are included in candidate geometry.
+  FAIL power-protection: XL430 has no Current Limit register. Motor supply protection, compute-pack low-voltage cutoff, Pi USB-C current capability and a stop circuit covering Dynamixels plus pan/tilt still need specified hardware.
+  FAIL load-and-print-fit: Measured mass, pitch duty/load qualification, horn loads, bearing fit and printed structure strength are not established. Stall torque is not a continuous rating.
+
+18 failure(s)
+ - camera_cradle ∩ tilt_servo = 365 mm³
+ - config A flat: 1 interferences
+ - camera_cradle ∩ tilt_servo = 365 mm³
+ - config A stance: 1 interferences
+ - camera_cradle ∩ tilt_servo = 365 mm³
+ - config B flat: 1 interferences
+ - camera_cradle ∩ tilt_servo = 365 mm³
+ - config B stance: 1 interferences
+ - camera_cradle ∩ tilt_servo = 365 mm³
+ - config A front tucked -150°, rear 30° down: 1 interferences
+ - camera_cradle ∩ tilt_servo = 365 mm³
+ - config A both arms at -90°: 1 interferences
+ - track-engagement: 144 mm closes the 40-link pin polygon; bare-sprocket tooth engagement, phase, tension range and printed-link fit remain unqualified.
+ - moving-leads: Rear-case windows and EHR-3 passage are modelled; seated plugs, lead bend radius and full pitch sweep need a routed harness model and fit check.
+ - camera-interfaces: Tilt-servo envelope overlaps the existing cradle. Exact camera, MG90S variant and horn must be selected before resolving horn planes, pivot spacing and ribbon travel.
+ - electronics-harness: Pi/cooler and A1 revision, LiDAR mounting feet, USB/CSI cable heads, buck and power harness mounting are not fixed. Board spacers are included in candidate geometry.
+ - power-protection: XL430 has no Current Limit register. Motor supply protection, compute-pack low-voltage cutoff, Pi USB-C current capability and a stop circuit covering Dynamixels plus pan/tilt still need specified hardware.
+ - load-and-print-fit: Measured mass, pitch duty/load qualification, horn loads, bearing fit and printed structure strength are not established. Stall torque is not a continuous rating.

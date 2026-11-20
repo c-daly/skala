@@ -1,0 +1,108 @@
+P0-R1-2026-10-29 — review geometry, physical qualification pending
+PASS pitch_mount_p0_r1 is one valid solid
+PASS arm_p0_r1 is one valid solid
+PASS pitch_input_fuse_p0_r1 is one valid solid
+PASS pitch_oldham_disc_p0_r1 is one valid solid
+PASS pitch_pinned_coupler_p0_r1 is one valid solid
+PASS rail_block_minus_p0_r1 is one valid solid
+PASS rail_block_plus_p0_r1 is one valid solid
+PASS pitch_bearing_cap_lower_p0_r1 is one valid solid
+PASS pitch_bearing_cap_upper_p0_r1 is one valid solid
+PASS fixed_cable_post_p0_r1 is one valid solid
+PASS cable_bushing_minus_p0_r1 is one valid solid
+PASS cable_bushing_plus_p0_r1 is one valid solid
+PASS index_pin_knob_p0_r1 is one valid solid
+PASS input_bearing_carrier_p0_r1 is one valid solid
+PASS input_bearing_cap_p0_r1 is one valid solid
+PASS rail_minus_p0_r1 is one valid solid
+PASS rail_plus_p0_r1 is one valid solid
+PASS gearbox_end_plate_p0_r1 is one valid solid
+PASS pitch_input_shaft_steel_p0_r1 is one valid solid
+PASS pitch_output_hub_C45_p0_r1 is one valid solid
+PASS chassis_backing_strip_minus_p0_r1 is one valid solid
+PASS chassis_backing_strip_plus_p0_r1 is one valid solid
+PASS arm: handedness symmetry, unmatched volume 0
+PASS fuse: handedness symmetry, unmatched volume 0
+PASS Oldham cross: handedness symmetry, unmatched volume 0
+PASS pinned coupler: handedness symmetry, unmatched volume 0
+PASS end plate: handedness symmetry, unmatched volume 0
+PASS bearing-cap pair: handedness symmetry, unmatched volume 0
+PASS rail pair: handedness symmetry, unmatched volume 0
+PASS minus block: handedness symmetry, unmatched volume 0
+PASS plus block: handedness symmetry, unmatched volume 0
+PASS pitch_mount_p0_r1: footprint <=210 mm (68.9)
+PASS arm_p0_r1: footprint <=210 mm (183.4)
+PASS pitch_input_fuse_p0_r1: footprint <=210 mm (22.0)
+PASS pitch_oldham_disc_p0_r1: footprint <=210 mm (20.0)
+PASS pitch_pinned_coupler_p0_r1: footprint <=210 mm (26.0)
+PASS rail_block_minus_p0_r1: footprint <=210 mm (27.3)
+PASS rail_block_plus_p0_r1: footprint <=210 mm (27.3)
+PASS pitch_bearing_cap_lower_p0_r1: footprint <=210 mm (66.3)
+PASS pitch_bearing_cap_upper_p0_r1: footprint <=210 mm (66.3)
+PASS fixed_cable_post_p0_r1: footprint <=210 mm (30.0)
+PASS cable_bushing_minus_p0_r1: footprint <=210 mm (10.5)
+PASS cable_bushing_plus_p0_r1: footprint <=210 mm (10.5)
+PASS index_pin_knob_p0_r1: footprint <=210 mm (14.0)
+PASS input_bearing_carrier_p0_r1: footprint <=210 mm (51.6)
+PASS input_bearing_cap_p0_r1: footprint <=210 mm (25.5)
+PASS analytic bearing/journal contact at 0 degrees, volume 0
+PASS analytic bearing/journal contact at 5 degrees, volume 0
+PASS analytic bearing/journal contact at 50 degrees, volume 0
+PASS fixed/input interfaces: []
+PASS moving assembly internal interfaces: []
+PASS pitch -50: []
+PASS pitch -45: []
+PASS pitch -40: []
+PASS pitch -35: []
+PASS pitch -30: []
+PASS pitch -25: []
+PASS pitch -20: []
+PASS pitch -15: []
+PASS pitch -10: []
+PASS pitch -5: []
+PASS pitch +0: []
+PASS pitch +5: []
+PASS pitch +10: []
+PASS pitch +15: []
+PASS pitch +20: []
+PASS pitch +25: []
+PASS pitch +30: []
+PASS pitch +35: []
+PASS pitch +40: []
+PASS pitch +45: []
+PASS pitch +50: []
+PASS loop length constant: 274.757..274.757 mm
+PASS CAD path length constant: 274.759..274.760 mm
+PASS service loop minimum bend radius 11.943 mm
+PASS nonlocal centreline separation 6.767 mm
+PASS lead length incl. 80/50 mm socket dressing tails 779.5 <= 900 mm
+PASS input revolution 0: []
+PASS input revolution 15: []
+PASS input revolution 30: []
+PASS input revolution 45: []
+PASS input revolution 60: []
+PASS input revolution 75: []
+PASS input revolution 90: []
+PASS input revolution 105: []
+PASS input revolution 120: []
+PASS input revolution 135: []
+PASS input revolution 150: []
+PASS input revolution 165: []
+PASS input revolution 180: []
+PASS input revolution 195: []
+PASS input revolution 210: []
+PASS input revolution 225: []
+PASS input revolution 240: []
+PASS input revolution 255: []
+PASS input revolution 270: []
+PASS input revolution 285: []
+PASS input revolution 300: []
+PASS input revolution 315: []
+PASS input revolution 330: []
+PASS input revolution 345: []
+PASS hard stop contacts at -56 degrees (9.570 mm^3 overlap)
+PASS hard stop contacts at +56 degrees (9.570 mm^3 overlap)
+PASS input insertion 7.5..9.5 mm at body tolerance
+PASS 6 mm key stays inside shortest output keyway
+PASS hub spacer specified 0.5..2.5 mm after measuring shaft shoulder
+0 geometric failures; no physical print/load/fatigue release.
