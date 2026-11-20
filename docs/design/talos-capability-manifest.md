@@ -1,8 +1,8 @@
 # talos Capability Manifest — Design Note
 
-A body connecting to LOGOS through talos describes its own capabilities at runtime; talos defines only how that description is structured and exchanged, never which capabilities exist. Skala is the first body written against it.
+A body connecting to LOGOS through talos describes its own capabilities at runtime; talos defines only how that description is structured and exchanged, never which capabilities exist. Skala is a planned body integration; its repository currently contains requirements, not a live body implementation.
 
-This note belongs to talos (the LOGOS hardware-interface layer) and is mirrored here because skala is the first body written against it. Design date 2026-10-24; editable original https://claude.ai/artifact/Bpau2znAarDhkKruEdU6iF.
+The generic interface proposal dates from 2026-10-24; it is historical design context, not an assessment of the current shared Talos implementation. The Skala S1 profile below is maintained with the current robot decisions (reviewed 2026-11-07). Reuse and check the actual maintained Talos interfaces before implementing the Skala adapter; do not build a competing protocol from this earlier sketch.
 
 ## Problem and principles
 
@@ -137,7 +137,7 @@ What talos fixes about every behaviour:
 - **Abort is a request.** The body decides how to stop safely and reports what it did. A stair climber half-way up a step should not simply release.
 - **Direct actuator commands during a behaviour** are rejected for the actuators it uses. The body owns them until the handle closes.
 
-What talos leaves to the body: the parameter vocabulary, how progress is measured, and whether the behaviour is scripted, reactive or learned. Skala's `climb_step` will be a scripted state machine over IMU pitch and servo current; a later body might offer a behaviour backed by a policy network. The agent sees the same four events either way.
+What talos leaves to the body: the parameter vocabulary, how progress is measured, and whether the behaviour is scripted, reactive or learned. A future articulated Skala could offer a `climb_step` behavior, using feedback available from its eventual qualified joints. It is outside current S1 scope; XL430 inferred load is not measured current. A different body might offer a behavior backed by a policy network. The agent sees the same four events either way.
 
 **Composition** is not a talos concern. If the agent wants "climb the whole flight," it invokes `climb_step` repeatedly and watches state, or the body offers `climb_flight` as its own verb. Both are legitimate; the second is a body author deciding the sequence is stable enough to package.
 
@@ -154,7 +154,7 @@ The agent should never have to infer that something is wrong from an absence of 
 | `booting` | manifest, state | power-on until the reflex layer reports healthy |
 | `ready` | everything | reflex layer healthy, link up, no faults |
 | `busy` | subscribe, state, abort; commands on unused actuators | a behaviour is running |
-| `reflex_only` | subscribe, state | link to the agent lost; the body holds position and stops drives on its own |
+| `reflex_only` | subscribe, state | link lost; Skala stops and disarms locally. Power-off position holding is not provided |
 | `fault` | subscribe, state, clear_fault | a fault flag is set that blocks motion |
 | `estop` | subscribe, state | hardware e-stop; cleared only physically |
 
@@ -166,80 +166,29 @@ The agent should never have to infer that something is wrong from an absence of 
 
 **What the agent must never assume:** that a command took effect (watch the echo), that a behaviour finished (wait for `done`), that the body is still there (watch the heartbeat), or that a capability still exists (watch `manifest_version`).
 
-## Skala's manifest (prototype 0)
+## Skala S1 capability plan
 
-The first concrete instance. Everything here is what the skala body driver on the Pi will publish; the OpenCR firmware exposes the joints and IMU underneath it. Shown in YAML for readability; the wire form is whatever the transport uses.
+The [first platform](physical-design-spec.md) has two fixed tracks and retains LiDAR, camera and microphone input. This is a driver contract to implement, not a live capability announcement. Publish only installed, exercised devices and measured operating limits.
 
-```yaml
-body: skala-p0
-manifest_version: 1
-talos_version: 0.1
-clock: { source: monotonic_ns, heartbeat_hz: 2 }
-frames:
-  base:   { parent: null }
-  lidar:  { parent: base, xyz: [0.0, 0.0, 0.12], rpy: [0, 0, 0] }
-  camera: { parent: base, xyz: [0.04, 0.0, 0.14], rpy: [0, 0, 0], moving: [cam_pan, cam_tilt] }   # pose follows the pan/tilt setpoints
+| Capability | S1 requirement |
+| --- | --- |
+| Drive actuation | Two independently identified XL430 velocity channels; limits and acceleration bounds determined by bench/load tests |
+| Drive feedback | Actual position/velocity, temperature, voltage and inferred load; label load as inferred, never measured current |
+| IMU and power state | Available OpenCR measurements with units, calibration, capture times and fault/staleness semantics |
+| LiDAR scan | Selected A1 capture format, angles/ranges and validity; capture timing, gaps and measured body-frame transform |
+| Camera | Selected format/resolution, frame timestamps and measured camera pose; declare moving frame only when pan/tilt is implemented |
+| Audio | Selected sample format/rate/channels, capture clock, sample positions, gaps and restart boundaries |
+| State | Ready/fault/link/stop state and explicit recovery rules |
 
-sensors:
-  - { name: imu,            dtype: f32, shape: [9],   units: [m/s2, m/s2, m/s2, rad/s, rad/s, rad/s, rad, rad, rad], rate_hz: 50, frame: base, latency_ms: 5, tags: [imu, accel, gyro, rpy] }
-  - { name: pitch_pos,      dtype: f32, shape: [2],   units: deg,  rate_hz: 50, source: pitch,  tags: [servo, echo] }
-  - { name: pitch_current,  dtype: f32, shape: [2],   units: mA,   rate_hz: 50, source: pitch,  tags: [servo, current] }
-  - { name: drive_vel,      dtype: f32, shape: [2],   units: rpm,  rate_hz: 50, source: drive,  tags: [servo, echo] }
-  - { name: drive_current,  dtype: f32, shape: [2],   units: mA,   rate_hz: 50, source: drive,  tags: [servo, current] }
-  - { name: battery_v,      dtype: f32, shape: [1],   units: V,    rate_hz: 1,  tags: [power] }
-  - { name: scan,           dtype: f32, shape: [360], units: m,    rate_hz: 8,  frame: lidar, latency_ms: 60, tags: [lidar, 2d, range] }
-  - { name: camera,         dtype: u8,  shape: [480, 640, 3], units: rgb, rate_hz: 15, frame: camera, latency_ms: 80, tags: [camera, rgb, forward] }
-  - { name: cam_pan_set,    dtype: f32, shape: [1],   units: deg,  rate_hz: 0,  source: cam_pan,  tags: [servo, echo, setpoint-only] }
-  - { name: cam_tilt_set,   dtype: f32, shape: [1],   units: deg,  rate_hz: 0,  source: cam_tilt, tags: [servo, echo, setpoint-only] }
+Confirmed hardware is Pi 4B, Camera Module 3 Standard, WM8960 onboard stereo microphones and A1 with cable/external interface board. A1/interface revision, HAT mounting and cooling remain unresolved. The [current system plan](../assembly/s1-system-plan.md) owns power, wiring and commissioning requirements. No Skala runtime exists under this repo's firmware/software directories yet. The owned Pi has a prior TurtleBot3 ROS 2 installation (Humble or newer), and OpenCR previously ran these motors; inspect/back up those versions and adapt the suitable components. An owned 5 V/3 A bank supplies the Pi and downstream sensors, including WM8960 through the header; its loaded behavior remains to qualify. Do not publish invented stream rates, latency, fixed scan lengths or pose coordinates. Keep drive identities stable and update the manifest/frame map when modules are relocated or a pair is added.
 
-actuators:
-  - { name: pitch, command: position, units: deg, range: [-200, 200], rate_limit: 180, echo: pitch_pos, group: arms, shape: [2], tags: [flipper, front] }
-  - { name: drive, command: velocity, units: rpm, range: [-80, 80],   rate_limit: 400, echo: drive_vel, group: arms, shape: [2], tags: [track, front] }
-  - { name: cam_pan,  command: position, units: deg, range: [-90, 90], rate_limit: 180, echo: cam_pan_set,  tags: [camera, pan,  open-loop] }
-  - { name: cam_tilt, command: position, units: deg, range: [-45, 30], rate_limit: 180, echo: cam_tilt_set, tags: [camera, tilt, open-loop] }
+Pitch/lateral actuators, stance/climb/self-right behaviors and camera pan/tilt are not S1 capabilities until their hardware/control is implemented and exercised. The ultimate destination is four tracked legs with independently controlled pitch and lateral movement. Use stable per-leg drive/pitch/lateral identities and measured joint feedback as each axis is installed; the exact lateral axis/frame is not yet selected. Two-leg and pitch-only stages must report their actual installed topology, not an eight-axis placeholder manifest. MG90S camera servos, if used, have no measured position echo; report commanded setpoints explicitly as such. A transported scan is not automatically a Cliste-native representation.
 
-behaviours:
-  - name: set_stance
-    params: { stance: { enum: [flat, stance, climb_ready, tucked] } }
-    uses: [pitch]
-    preconditions: [mode in (ready, busy:set_stance)]
-    abortable: { honoured: true, on_abort: hold }
-    typical_duration_s: 2
-  - name: drive_velocity
-    params: { v_mps: { type: number, range: [-0.5, 0.5] }, w_radps: { type: number, range: [-2, 2] } }
-    uses: [drive]
-    preconditions: [mode == ready]
-    abortable: { honoured: true, on_abort: stop }
-    typical_duration_s: null        # runs until aborted or re-invoked
-  - name: climb_step
-    params: { rise_mm: { type: number, range: [50, 120] } }
-    uses: [pitch, drive]
-    preconditions: [mode == ready, imu.pitch < 10deg]
-    events: [{ name: phase, payload: { enum: [approach, catch, pull, level] } }]
-    abortable: { honoured: true, on_abort: hold }
-    typical_duration_s: 8
-
-state:
-  fields: { mode: enum, faults: flags, battery_pct: f32, link_rtt_ms: f32, running: [behaviour_handle] }
-  modes: [booting, ready, busy, reflex_only, fault, estop]
-  faults:
-    - { name: servo_overcurrent, indexed: true,  self_clears: false }
-    - { name: tip_over,          indexed: false, self_clears: false }
-    - { name: battery_low,       indexed: false, self_clears: true }
-    - { name: clock_drift,       indexed: false, self_clears: true }
-    - { name: sensor_stale,      indexed: true,  self_clears: true }
-```
-
-Notes on choices:
-
-- `shape: [2]` on the actuators means prototype 0 has two driven arms; prototype 1 bumps it to 4 and `manifest_version` to 2, and nothing in talos or LOGOS changes.
-- `drive_velocity` is a behaviour, not an actuator, because it embeds track kinematics (v, ω → per-side rpm). The raw `drive` actuator is still exposed for babbling and learned control.
-- The RPLidar A1 appears only as a `scan` sensor; stair detection in P0 is the body's business inside `climb_step`, from IMU and current, and the agent sees it as `phase` events.
-- The camera rides a two-servo pan/tilt. MG90S servos have no position feedback, so their `echo` sensors report the commanded setpoint, tagged `setpoint-only`; the agent should treat them as less trustworthy than a Dynamixel echo. The `camera` frame is declared as moving with those actuators.
+Capture must preserve request, acknowledgement, actual feedback and outcome as separate records. A latest-value snapshot alone cannot establish ordered audio/video or body-event history. Follow the [audio handoff](../research/2026-10-25-audio-memory-handoff.md) for capture and replay requirements.
 
 ## Open questions
 
-These need a decision before the manifest schema becomes code. None blocks the OpenCR firmware.
+The questions below were recorded with the original 2026-10-24 interface proposal. They are historical design questions, not a claim that current Talos lacks a schema or transport. Resolve Skala's remaining adapter choices against the maintained shared implementation and the current S1 system plan.
 
 - [ ] **Where the body driver lives.** `talos/bodies/skala` inside talos, or the skala repo depending on talos. The interface is the same either way; this is about who owns releases.
 - [ ] **Schema language.** JSON Schema for `params` and `fields` (portable, verbose) versus Python dataclasses with runtime validation (concise, Python-only). LOGOS is Python; is anything else ever going to publish a manifest?
@@ -250,4 +199,4 @@ These need a decision before the manifest schema becomes code. None blocks the O
 - [ ] **Learning hooks.** Does talos record anything itself (a ring buffer of samples around each behaviour event, say) or is recording entirely the agent's job? The former makes every body self-documenting for episodic memory; the latter keeps talos thin.
 - [ ] **Versioning across the boundary.** When `talos_version` moves, which side bends? Proposal: the client supports N and N−1 and bodies pin one.
 
-What to do next, in order: settle the first two questions, write `manifest.py` with the four kinds and a validator, write skala's manifest as its test fixture, then write the OpenCR firmware against the actuators and sensors it must expose.
+Current Skala sequence: preserve and inventory the existing hardware software, qualify stationary sensors and power/stop behavior, adapt two-track control, then map the exercised devices into the maintained Talos interfaces. Implement a Skala-specific adapter and recorder where needed; do not assume a new shared manifest schema or library is required.

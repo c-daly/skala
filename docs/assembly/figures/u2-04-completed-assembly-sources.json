@@ -1,0 +1,25 @@
+{
+  "figure": "u2-04-completed-assembly.svg",
+  "source_sha256": {
+    "cad/harness_s1.py": "7ff82d9c44cc743aab0b902f1534f7ff80596c442579c29bc8cb5331c7c62065",
+    "cad/out/step/chassis_p0.step": "1d93d3e7671b686058e5679c1544c780933c737993c99b598798e83f40a7cd3e",
+    "cad/out/step/deck_p0.step": "5e17aa9fc6de252ed5cf450c3cbac58ae0ec2129c5ba624c12bbb078a9e4c5f4",
+    "cad/out/step/tip_hub_p0.step": "05f3d99ad14fc1e745b9bfc4892bf13d345c421a312b96889d5a574ccbfa976f",
+    "cad/parts/tip_hub_p0.py": "d3219a47d3ce5a803357165d4bbbb5a3cf4e4b8b2d1de71ca1c18aa07e04b519",
+    "cad/print_parts.json": "861f53ef2c87ffbb01c8c4a7dea97f1f2f2324669fed56de0214bf976a00596e",
+    "cad/review/r1/step/arm_p0_r1.step": "9ae48cc99e8715f90c77fb0c5fb3eaa09b8c13a1494832f96a8cfdc79f575770",
+    "cad/sensor_parts.json": "705ee0b5341b5c58bf4ba6d4db3505fb3c018acbff66552a236fb77ceb30a0c3",
+    "cad/sensors_s1.py": "c8feee7ec5ff601643b49fe633fed0c2c33dc003d426e3f61cce02f859eaf406",
+    "cad/staged_base.json": "d6850467ae5580f09f6256cb0af80603b8bfd1d1a0054add210f4d12b8865cc8",
+    "cad/staged_base.py": "83819788963b185830f1d598687f5fc26eff7237aae19de1ae368ad147fe5751",
+    "cad/upper_s1.py": "fc5fbf8872c9d8fded6151f9976061f1db29159bc54a9f5fd47ffaf66aa1400d",
+    "cad/vendor/raspberrypi/camera3_standard.stp": "ecbc4b091e51f31c6186b81ad68d4205b8dceec0d90c116cd7fd699e1f1c5702",
+    "cad/vendor/robotis/ict01_caterpillar.step": "a9df2f096a368dabbb33939d20b0430766d3969d53c978454493c026627f5ed0",
+    "cad/vendor/robotis/opencr_rev_h.step": "1fdbbb882216cc011a3cd038fc56abe5525135bec9c77a5e5ff5066c85e7b484",
+    "cad/vendor/sensor_sources.json": "bd08042fa3f5afc7855dcd0f3ba7a6fe731287c8fd09d6852393e6ac6d083413",
+    "cad/vendor/waveshare/wm8960.stp": "393e821eab3035984c34e4a6b90700a96104138a256eea335c3f3e8242d3ab51",
+    "docs/assembly/figures/make_completed_sensor_view.py": "49c8033a123eee475c8193d23cd8247638ab9304e70e592acf7cf6746dc5d787"
+  },
+  "output_sha256": "33481b6d15b997ebf62fdfe92ce8626802b7295d96d262360fbb3e8c8c95e685",
+  "scope": "Step 10 nominal assembly. No proposed batteries/power tray. Bought-part envelopes, omitted cable/hardware detail and unfinished P17 board attachment labelled. A1 base webs are illustrative housing only, connecting the CAD mounting feet; not fit/clearance geometry."
+}

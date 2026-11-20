@@ -1,6 +1,8 @@
 # Filament guide — FlashForge Adventurer 5M Pro
 
-Starting settings for each filament this project uses, tuned for the 5M Pro: 220 × 220 × 220 mm, enclosed with a door and a top vent, direct-drive extruder, 280 °C stock hotend, double-sided PEI plate (smooth and textured), Orca-based FlashPrint/Orca-Flashforge slicer. Treat every number as a first guess for the stock profile and adjust from a test print.
+The current S0/S1 build uses PLA/PLA+ printed parts and the owned ICT-01 track links. **No TPU or printed track links are needed.** Use the [current assembly guide](../assembly/p0-assembly.md#0-print-the-small-fit-article-first) for the exact fit files, bed orientations, supports and print settings. The material notes below describe possible later work, not an additional S0 shopping or printing list.
+
+The Adventurer 5M Pro has a 220 × 220 × 220 mm build volume. The active carrier STL is already oriented at 45° and fits with the specified brim. Use the slicer's matching machine/nozzle profile; temperatures below are starting points, not measured material qualification.
 
 ## Quick reference
 
@@ -24,7 +26,7 @@ PLA is the known quantity on this printer and needs nothing special. For structu
 
 ## TPU 95A
 
-TPU is the one filament the first prototype depends on, and the 5M Pro's direct-drive extruder makes it tractable. Expect the first few prints to look rough and the fifth to look fine.
+TPU is a possible later material for custom tracks or pads. The current S0/S1 prototype uses bought ICT-01 links and does not require it.
 
 - Buy 95A, not softer. 85A and below feed poorly even on direct drive.
 - Dry it every time it has been out for more than a day. Wet TPU strings, bubbles, and bonds weakly.
@@ -77,8 +79,8 @@ One habit removes most filament problems: store opened spools sealed with desicc
 
 ## Test prints before committing
 
-1. Bearing coupon: a 10 mm plate with 6001 (28 mm), 608 (22 mm) and 625 (16 mm) bores at nominal, −0.1 and −0.2 mm. Print once per material. (For P0 the repo's `coupon_p0` covers 608 and the 8 mm axle plus the XL430 horn pattern.)
-2. Shaft coupon: 12 mm bore at +0.1, +0.2, +0.3 mm for the pivot shaft clearance fit.
-3. Single-wall cube for flow tuning on every new spool of TPU.
-4. Four track segments pinned together to check articulation before a batch.
-5. One flipper arm half to confirm flat print orientation and insert pockets before printing all eight.
+1. Print the current small motor coupon linked in assembly-guide section 0; check the owned motor, four case screws, wheel and terminated lead before printing a carrier.
+2. For the idler retention correction, reprint P3 `tip_hub_p0.stl` with its three rear cap pilots and add P8 `idler_bearing_cap_s1.stl`. Print P3 wheel-flange down and P8 in its exported orientation, countersinks down and shallow bearing relief up; no supports. Use 0.20 mm layers and the same material/hole compensation as the F2 sample. The bore remains a 19.3 mm candidate. Add three M2×6 DIN 965 cap screws, retaining the 626 bearings, M6 axle and plain P4 spacers. Follow the [assembly guide](../assembly/p0-assembly.md) for seating, cap retention and free-rotation checks before duplication.
+3. Print and assemble one current carrier with two fixed brackets. Check one 40-link ICT-01 loop and the specified lead bend/restraint before duplication.
+
+The older generic `coupon_p0`, pivot-shaft coupons, printed track segments and arm-half quantities are not S0 print instructions. Future materials or pivot interfaces will need their own test pieces once selected.

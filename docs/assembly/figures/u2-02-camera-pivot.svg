@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="958" viewBox="0 0 1200 958">
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10Z" fill="context-stroke"/></marker></defs>
+<rect width="100%" height="100%" fill="white"/>
+<g font-family="DejaVu Sans,Arial,sans-serif" stroke-linejoin="round" stroke-linecap="round">
+<text x="34" y="38" font-size="26" fill="#172b3a" text-anchor="start" font-weight="700">10C  Camera pivot retention and assembly</text>
+<text x="34" y="67" font-size="17" fill="#526473" text-anchor="start" font-weight="400">Section along tilt axle • fixed bush carries the rotating cradle ear • enlarged for clarity</text>
+<line x1="34" y1="83" x2="1166" y2="83" stroke="#d4dde3" stroke-width="2"/>
+<rect x="120" y="250" width="88" height="160" rx="0" fill="#dcecf7" stroke="#172b3a" stroke-width="2"/>
+<rect x="208" y="310" width="88" height="40" rx="0" fill="#b5c0c9" stroke="#172b3a" stroke-width="2"/>
+<rect x="219.0" y="240" width="66" height="70" rx="0" fill="#d9f1e6" stroke="#172b3a" stroke-width="2"/>
+<rect x="219.0" y="350" width="66" height="70" rx="0" fill="#d9f1e6" stroke="#172b3a" stroke-width="2"/>
+<rect x="109.0" y="295" width="11.0" height="70" rx="0" fill="#b5c0c9" stroke="#172b3a" stroke-width="2"/>
+<rect x="296" y="295" width="11.0" height="70" rx="0" fill="#b5c0c9" stroke="#172b3a" stroke-width="2"/>
+<rect x="43.0" y="305" width="66" height="50" rx="0" fill="#b5c0c9" stroke="#172b3a" stroke-width="2"/>
+<rect x="307.0" y="295" width="88" height="70" rx="0" fill="#b5c0c9" stroke="#172b3a" stroke-width="2"/>
+<line x1="76" y1="330" x2="461.0" y2="330" stroke="#172b3a" stroke-width="6"/>
+<text x="65" y="180" font-size="18" fill="#172b3a" text-anchor="start" font-weight="700">M3×16 bolt from outside</text>
+<text x="65" y="470" font-size="18" fill="#236493" text-anchor="start" font-weight="400">Fixed yoke wall</text>
+<text x="65" y="495" font-size="18" fill="#236493" text-anchor="start" font-weight="400">4 mm</text>
+<text x="265" y="470" font-size="17" fill="#172b3a" text-anchor="start" font-weight="400">P16 bush: 4 mm</text>
+<text x="265" y="494" font-size="17" fill="#172b3a" text-anchor="start" font-weight="400">Ø5 outside / Ø3.2 bore</text>
+<text x="650" y="200" font-size="21" fill="#172b3a" text-anchor="start" font-weight="700">Clamp stack, outside → inside</text>
+<text x="650" y="240" font-size="18" fill="#172b3a" text-anchor="start" font-weight="400">Bolt head → Ø7 washer → yoke wall</text>
+<text x="650" y="265" font-size="18" fill="#172b3a" text-anchor="start" font-weight="400">→ 4 mm bush → Ø7 washer → M3 nyloc</text>
+<text x="650" y="335" font-size="18" fill="#172b3a" text-anchor="start" font-weight="400">The 3 mm cradle ear surrounds the bush.</text>
+<text x="650" y="360" font-size="18" fill="#172b3a" text-anchor="start" font-weight="400">Its Ø5.3 bore turns on the Ø5 outside.</text>
+<text x="650" y="385" font-size="18" fill="#172b3a" text-anchor="start" font-weight="400">0.5 mm nominal gap at each end.</text>
+<text x="650" y="410" font-size="18" fill="#172b3a" text-anchor="start" font-weight="400">The fixed wall and inner Ø7 washer</text>
+<text x="650" y="435" font-size="18" fill="#172b3a" text-anchor="start" font-weight="400">keep the ear from sliding off.</text>
+<rect x="50" y="585" width="1100" height="115" rx="8" fill="#f0f3f5" stroke="#d4dde3" stroke-width="2"/>
+<text x="67" y="614" font-size="18" fill="#172b3a" text-anchor="start" font-weight="700">Tightening the nut must NOT clamp the rotating ear</text>
+<text x="67" y="642" font-size="16" fill="#526473" text-anchor="start" font-weight="400">The bolt clamps the wall, bush and washers. If the cradle binds, stop and check bush length / print fit.</text>
+<text x="67" y="665" font-size="16" fill="#526473" text-anchor="start" font-weight="400">A loose nut is not the adjustment. Start with P16 for fitting; use a same-size nylon bush for running.</text>
+<text x="65" y="755" font-size="18" fill="#172b3a" text-anchor="start" font-weight="700">Opposite side: cradle → matched servo horn → spline → servo body OUTSIDE yoke</text>
+<text x="65" y="790" font-size="17" fill="#172b3a" text-anchor="start" font-weight="400">Fit the supplied spline screw through the cradle centre. Four camera screws use the integral 8 mm posts.</text>
+<text x="34" y="888" font-size="14" fill="#526473" text-anchor="start" font-weight="400">P14 Camera yoke: camera_yoke_s1.stl   |   P15 Camera cradle: camera_cradle_s1.stl</text>
+<text x="34" y="912" font-size="14" fill="#526473" text-anchor="start" font-weight="400">P16 Camera pivot bush: camera_pivot_bush_s1.stl</text>
+<line x1="34" y1="917" x2="1166" y2="917" stroke="#d4dde3" stroke-width="2"/>
+<text x="34" y="941" font-size="14" fill="#526473" text-anchor="start" font-weight="400">S0/S1 candidate • simplified assembly illustration • dimensions in mm • not a fabrication template</text>
+</g>
+</svg>

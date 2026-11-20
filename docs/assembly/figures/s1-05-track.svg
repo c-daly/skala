@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="799" viewBox="0 0 1200 799">
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10Z" fill="context-stroke"/></marker></defs>
+<rect width="100%" height="100%" fill="white"/>
+<g font-family="DejaVu Sans,Arial,sans-serif" stroke-linejoin="round" stroke-linecap="round">
+<text x="34" y="38" font-size="26" fill="#172b3a" text-anchor="start" font-weight="700">5  Close the track and set the idler position</text>
+<text x="34" y="67" font-size="17" fill="#526473" text-anchor="start" font-weight="400">Outboard side view • smooth wheel outlines simplify the teeth • the idler has no motor</text>
+<line x1="34" y1="83" x2="1166" y2="83" stroke="#d4dde3" stroke-width="2"/>
+<path d="M315 188.5615 H819.0 A141.4385 141.4385 0 0 1 819.0 471.4385 H315 A141.4385 141.4385 0 0 1 315 188.5615Z" fill="#f0f3f5" stroke="#526473" stroke-width="2"/>
+<circle cx="315" cy="330" r="107.6425" fill="#dcecf7" stroke="#236493" stroke-width="2"/>
+<circle cx="819.0" cy="330" r="107.6425" fill="#dcecf7" stroke="#236493" stroke-width="2"/>
+<circle cx="315" cy="330" r="36.4" fill="white" stroke="#236493" stroke-width="2"/>
+<circle cx="819.0" cy="330" r="52.5" fill="white" stroke="#236493" stroke-width="2"/>
+<circle cx="343.0" cy="330.0" r="4" fill="#172b3a" stroke="#172b3a" stroke-width="2"/>
+<circle cx="315.0" cy="358.0" r="4" fill="#172b3a" stroke="#172b3a" stroke-width="2"/>
+<circle cx="287.0" cy="330.0" r="4" fill="#172b3a" stroke="#172b3a" stroke-width="2"/>
+<circle cx="315.0" cy="302.0" r="4" fill="#172b3a" stroke="#172b3a" stroke-width="2"/>
+<circle cx="847.0" cy="330.0" r="4" fill="#172b3a" stroke="#172b3a" stroke-width="2"/>
+<circle cx="819.0" cy="358.0" r="4" fill="#172b3a" stroke="#172b3a" stroke-width="2"/>
+<circle cx="791.0" cy="330.0" r="4" fill="#172b3a" stroke="#172b3a" stroke-width="2"/>
+<circle cx="819.0" cy="302.0" r="4" fill="#172b3a" stroke="#172b3a" stroke-width="2"/>
+<rect x="794.5" y="319.15" width="49.0" height="21.7" rx="10" fill="white" stroke="#a64c13" stroke-width="2" stroke-dasharray="7 5"/>
+<circle cx="819.0" cy="330" r="10.5" fill="#a64c13" stroke="#a64c13" stroke-width="2"/>
+<line x1="315.0" y1="188.5615" x2="315.0" y2="205.5615" stroke="#526473" stroke-width="2"/>
+<line x1="315.0" y1="471.4385" x2="315.0" y2="454.4385" stroke="#526473" stroke-width="2"/>
+<line x1="357.0" y1="188.5615" x2="357.0" y2="205.5615" stroke="#526473" stroke-width="2"/>
+<line x1="357.0" y1="471.4385" x2="357.0" y2="454.4385" stroke="#526473" stroke-width="2"/>
+<line x1="399.0" y1="188.5615" x2="399.0" y2="205.5615" stroke="#526473" stroke-width="2"/>
+<line x1="399.0" y1="471.4385" x2="399.0" y2="454.4385" stroke="#526473" stroke-width="2"/>
+<line x1="441.0" y1="188.5615" x2="441.0" y2="205.5615" stroke="#526473" stroke-width="2"/>
+<line x1="441.0" y1="471.4385" x2="441.0" y2="454.4385" stroke="#526473" stroke-width="2"/>
+<line x1="483.0" y1="188.5615" x2="483.0" y2="205.5615" stroke="#526473" stroke-width="2"/>
+<line x1="483.0" y1="471.4385" x2="483.0" y2="454.4385" stroke="#526473" stroke-width="2"/>
+<line x1="525.0" y1="188.5615" x2="525.0" y2="205.5615" stroke="#526473" stroke-width="2"/>
+<line x1="525.0" y1="471.4385" x2="525.0" y2="454.4385" stroke="#526473" stroke-width="2"/>
+<line x1="567.0" y1="188.5615" x2="567.0" y2="205.5615" stroke="#526473" stroke-width="2"/>
+<line x1="567.0" y1="471.4385" x2="567.0" y2="454.4385" stroke="#526473" stroke-width="2"/>
+<line x1="609.0" y1="188.5615" x2="609.0" y2="205.5615" stroke="#526473" stroke-width="2"/>
+<line x1="609.0" y1="471.4385" x2="609.0" y2="454.4385" stroke="#526473" stroke-width="2"/>
+<line x1="651.0" y1="188.5615" x2="651.0" y2="205.5615" stroke="#526473" stroke-width="2"/>
+<line x1="651.0" y1="471.4385" x2="651.0" y2="454.4385" stroke="#526473" stroke-width="2"/>
+<line x1="693.0" y1="188.5615" x2="693.0" y2="205.5615" stroke="#526473" stroke-width="2"/>
+<line x1="693.0" y1="471.4385" x2="693.0" y2="454.4385" stroke="#526473" stroke-width="2"/>
+<line x1="735.0" y1="188.5615" x2="735.0" y2="205.5615" stroke="#526473" stroke-width="2"/>
+<line x1="735.0" y1="471.4385" x2="735.0" y2="454.4385" stroke="#526473" stroke-width="2"/>
+<line x1="777.0" y1="188.5615" x2="777.0" y2="205.5615" stroke="#526473" stroke-width="2"/>
+<line x1="777.0" y1="471.4385" x2="777.0" y2="454.4385" stroke="#526473" stroke-width="2"/>
+<line x1="315" y1="133" x2="315" y2="147" stroke="#172b3a" stroke-width="2"/>
+<line x1="819.0" y1="133" x2="819.0" y2="147" stroke="#172b3a" stroke-width="2"/>
+<line x1="315" y1="140" x2="819.0" y2="140" stroke="#172b3a" stroke-width="1"/>
+<text x="567.0" y="130" font-size="16" fill="#172b3a" text-anchor="middle" font-weight="400">144 nominal axle centres</text>
+<circle cx="315" cy="280" r="3" fill="#236493" stroke="#236493" stroke-width="2"/>
+<line x1="315" y1="280" x2="245.921875" y2="159" stroke="#236493" stroke-width="1.5"/>
+<text x="45" y="165" font-size="18" fill="#236493" text-anchor="start" font-weight="700">W1  Drive sprocket</text>
+<text x="45" y="190" font-size="16" fill="#526473" text-anchor="start" font-weight="400">Bolts to M1 horn</text>
+<circle cx="819.0" cy="280" r="3" fill="#236493" stroke="#236493" stroke-width="2"/>
+<line x1="819.0" y1="280" x2="962" y2="159" stroke="#236493" stroke-width="1.5"/>
+<text x="970" y="165" font-size="18" fill="#236493" text-anchor="start" font-weight="700">W1  Idler sprocket</text>
+<text x="970" y="190" font-size="16" fill="#526473" text-anchor="start" font-weight="400">Bolts to P3 hub</text>
+<circle cx="600" cy="471.4385" r="3" fill="#172b3a" stroke="#172b3a" stroke-width="2"/>
+<line x1="600" y1="471.4385" x2="512" y2="534" stroke="#172b3a" stroke-width="1.5"/>
+<text x="520" y="540" font-size="18" fill="#172b3a" text-anchor="start" font-weight="700">T1  40 links per loop</text>
+<text x="520" y="565" font-size="16" fill="#526473" text-anchor="start" font-weight="400">12 mm pin pitch; 42 mm width</text>
+<line x1="805.0" y1="375" x2="833.0" y2="375" stroke="#a64c13" stroke-width="2" marker-end="url(#arrow)"/>
+<circle cx="833.0" cy="330" r="3" fill="#a64c13" stroke="#a64c13" stroke-width="2"/>
+<line x1="833.0" y1="330" x2="857" y2="519" stroke="#a64c13" stroke-width="1.5"/>
+<text x="865" y="525" font-size="18" fill="#a64c13" text-anchor="start" font-weight="700">8 mm total travel</text>
+<text x="865" y="550" font-size="16" fill="#526473" text-anchor="start" font-weight="400">Carrier slot is behind hub</text>
+<rect x="45" y="580" width="1110" height="115" rx="8" fill="#f0f3f5" stroke="#d4dde3" stroke-width="2"/>
+<text x="62" y="609" font-size="18" fill="#172b3a" text-anchor="start" font-weight="700">Tension is not set by tightening the axle nut</text>
+<text x="62" y="637" font-size="16" fill="#526473" text-anchor="start" font-weight="400">Move the idler along the slot, then clamp its position. Hand-turn the entire loop several times.</text>
+<text x="62" y="660" font-size="16" fill="#526473" text-anchor="start" font-weight="400">Both wheels must stay free and the lead must stay clear. Loaded tension and retention remain to be qualified.</text>
+<text x="34" y="753" font-size="14" fill="#526473" text-anchor="start" font-weight="400">P1 Track carrier: track_carrier_s1.stl   |   P3 Tip hub: tip_hub_p0.stl</text>
+<line x1="34" y1="758" x2="1166" y2="758" stroke="#d4dde3" stroke-width="2"/>
+<text x="34" y="782" font-size="14" fill="#526473" text-anchor="start" font-weight="400">S0/S1 candidate • simplified assembly illustration • dimensions in mm • not a fabrication template</text>
+</g>
+</svg>

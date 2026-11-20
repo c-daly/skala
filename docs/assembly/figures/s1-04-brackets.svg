@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="888" viewBox="0 0 1200 888">
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10Z" fill="context-stroke"/></marker></defs>
+<rect width="100%" height="100%" fill="white"/>
+<g font-family="DejaVu Sans,Arial,sans-serif" stroke-linejoin="round" stroke-linecap="round">
+<text x="34" y="38" font-size="26" fill="#172b3a" text-anchor="start" font-weight="700">4  Attach the brackets before closing the track</text>
+<text x="34" y="67" font-size="17" fill="#526473" text-anchor="start" font-weight="400">Two brackets per module • four M4 sets per module • feet point toward the chassis</text>
+<line x1="34" y1="83" x2="1166" y2="83" stroke="#d4dde3" stroke-width="2"/>
+<text x="45" y="125" font-size="19" fill="#172b3a" text-anchor="start" font-weight="700">A. M4 fastener stack — separated for clarity</text>
+<rect x="80" y="227.5" width="45" height="65" rx="0" fill="#b5c0c9" stroke="#172b3a" stroke-width="2"/>
+<text x="102.5" y="390" font-size="16" fill="#526473" text-anchor="middle" font-weight="400">head</text>
+<rect x="175" y="220.0" width="12" height="80" rx="0" fill="#b5c0c9" stroke="#172b3a" stroke-width="2"/>
+<text x="181.0" y="390" font-size="16" fill="#526473" text-anchor="middle" font-weight="400">washer</text>
+<rect x="237" y="180.0" width="70" height="160" rx="0" fill="#ffe2c2" stroke="#172b3a" stroke-width="2"/>
+<text x="272.0" y="390" font-size="16" fill="#526473" text-anchor="middle" font-weight="400">P2 bracket</text>
+<rect x="357" y="170.0" width="115" height="180" rx="0" fill="#dcecf7" stroke="#172b3a" stroke-width="2"/>
+<text x="414.5" y="390" font-size="16" fill="#526473" text-anchor="middle" font-weight="400">P1 carrier</text>
+<rect x="522" y="220.0" width="12" height="80" rx="0" fill="#b5c0c9" stroke="#172b3a" stroke-width="2"/>
+<text x="528.0" y="390" font-size="16" fill="#526473" text-anchor="middle" font-weight="400">washer</text>
+<rect x="584" y="215.0" width="55" height="90" rx="0" fill="#b5c0c9" stroke="#172b3a" stroke-width="2"/>
+<text x="611.5" y="390" font-size="16" fill="#526473" text-anchor="middle" font-weight="400">nyloc</text>
+<line x1="95" y1="260" x2="654" y2="260" stroke="#172b3a" stroke-width="7"/>
+<line x1="80" y1="420" x2="654" y2="420" stroke="#236493" stroke-width="2" marker-end="url(#arrow)"/>
+<text x="80" y="452" font-size="18" fill="#236493" text-anchor="start" font-weight="700">M4 × 25 enters from INBOARD → OUTBOARD</text>
+<text x="80" y="475" font-size="16" fill="#526473" text-anchor="start" font-weight="400">Two washers per bolt; one under the head, one under the nut.</text>
+<rect x="820" y="155" width="335" height="140" rx="8" fill="#f0f3f5" stroke="#d4dde3" stroke-width="2"/>
+<text x="837" y="184" font-size="18" fill="#172b3a" text-anchor="start" font-weight="700">H3  Per bracket</text>
+<text x="837" y="212" font-size="16" fill="#526473" text-anchor="start" font-weight="400">2 × M4 × 25 bolts</text>
+<text x="837" y="235" font-size="16" fill="#526473" text-anchor="start" font-weight="400">4 × M4 washers</text>
+<text x="837" y="258" font-size="16" fill="#526473" text-anchor="start" font-weight="400">2 × M4 nyloc nuts</text>
+<rect x="820" y="320" width="335" height="140" rx="8" fill="#f0f3f5" stroke="#d4dde3" stroke-width="2"/>
+<text x="837" y="349" font-size="18" fill="#172b3a" text-anchor="start" font-weight="700">Seat the bracket</text>
+<text x="837" y="377" font-size="16" fill="#526473" text-anchor="start" font-weight="400">The upright meets the carrier.</text>
+<text x="837" y="400" font-size="16" fill="#526473" text-anchor="start" font-weight="400">The foot points inboard.</text>
+<text x="837" y="423" font-size="16" fill="#526473" text-anchor="start" font-weight="400">Leave the chassis holes clear.</text>
+<text x="45" y="540" font-size="19" fill="#172b3a" text-anchor="start" font-weight="700">B. Chassis foot joint — upper upright omitted</text>
+<rect x="100" y="690" width="390" height="30" rx="0" fill="#f0f3f5" stroke="#172b3a" stroke-width="2"/>
+<rect x="370" y="660" width="180" height="30" rx="0" fill="#ffe2c2" stroke="#a64c13" stroke-width="2"/>
+<rect x="520" y="575" width="30" height="105" rx="0" fill="#ffe2c2" stroke="#a64c13" stroke-width="2"/>
+<rect x="550" y="575" width="50" height="105" rx="0" fill="#dcecf7" stroke="#236493" stroke-width="2"/>
+<line x1="390" y1="657.5" x2="390" y2="757.5" stroke="#172b3a" stroke-width="15"/>
+<rect x="376.25" y="642.5" width="27.5" height="15" rx="0" fill="#b5c0c9" stroke="#172b3a" stroke-width="2"/>
+<rect x="372.5" y="657.5" width="35" height="2.5" rx="0" fill="#b5c0c9" stroke="#172b3a" stroke-width="2"/>
+<rect x="372.5" y="720" width="35" height="2.5" rx="0" fill="#b5c0c9" stroke="#172b3a" stroke-width="2"/>
+<rect x="376.25" y="722.5" width="27.5" height="20" rx="0" fill="#b5c0c9" stroke="#172b3a" stroke-width="2"/>
+<circle cx="390" cy="648" r="3" fill="#172b3a" stroke="#172b3a" stroke-width="2"/>
+<line x1="390" y1="648" x2="188.625" y2="589" stroke="#172b3a" stroke-width="1.5"/>
+<text x="48" y="595" font-size="18" fill="#172b3a" text-anchor="start" font-weight="700">H4  M3 × 20</text>
+<text x="48" y="620" font-size="16" fill="#526473" text-anchor="start" font-weight="400">Head above foot</text>
+<circle cx="390" cy="735" r="3" fill="#172b3a" stroke="#172b3a" stroke-width="2"/>
+<line x1="390" y1="735" x2="432" y2="766" stroke="#172b3a" stroke-width="1.5"/>
+<text x="440" y="772" font-size="18" fill="#172b3a" text-anchor="start" font-weight="700">Washer + nyloc below chassis</text>
+<text x="720" y="560" font-size="18" fill="#172b3a" text-anchor="start" font-weight="700">4 × H4 sets per bracket; 16 for the vehicle</text>
+<text x="720" y="600" font-size="17" fill="#172b3a" text-anchor="start" font-weight="400">Top to bottom:</text>
+<text x="720" y="624" font-size="17" fill="#172b3a" text-anchor="start" font-weight="400">head → washer → 6 mm foot →</text>
+<text x="720" y="648" font-size="17" fill="#172b3a" text-anchor="start" font-weight="400">6 mm chassis → washer → nyloc</text>
+<text x="720" y="720" font-size="17" fill="#526473" text-anchor="start" font-weight="400">Keep the chassis underside accessible</text>
+<text x="720" y="744" font-size="17" fill="#526473" text-anchor="start" font-weight="400">until every nut has been installed.</text>
+<text x="34" y="818" font-size="14" fill="#526473" text-anchor="start" font-weight="400">P1 Track carrier: track_carrier_s1.stl   |   P2 Fixed bracket: fixed_bracket_s1.stl</text>
+<text x="34" y="842" font-size="14" fill="#526473" text-anchor="start" font-weight="400">P5 Chassis: chassis_p0.stl</text>
+<line x1="34" y1="847" x2="1166" y2="847" stroke="#d4dde3" stroke-width="2"/>
+<text x="34" y="871" font-size="14" fill="#526473" text-anchor="start" font-weight="400">S0/S1 candidate • simplified assembly illustration • dimensions in mm • not a fabrication template</text>
+</g>
+</svg>

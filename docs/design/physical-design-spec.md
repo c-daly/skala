@@ -1,291 +1,186 @@
-# Skala — Physical Design Spec
+# Skala physical design
 
-Design baseline as of 2026-10-25. The editable original is a Claude Docs artifact (https://claude.ai/artifact/DH7kdYLKpPLf4d8KyuJBgt); this file is the version of record for the repo. Concept drawing: [`../concept/track_robot_concept.png`](../concept/track_robot_concept.png). Assembly: [`../assembly/p0-assembly.md`](../assembly/p0-assembly.md).
+Updated 2026-11-07. The ultimate destination is **four powerful tracked legs with independent pitch and lateral movement**, with stair climbing qualified through experiments. Simpler forms are development stages toward that robot. The current build endpoint remains the complete two-fixed-track research vehicle with LiDAR, Camera Module 3 Standard, WM8960 stereo microphone input, Raspberry Pi 4B and OpenCR for floor-based research with Sophia/Cliste. U2 supplies conditional sensor/pan-tilt mounting CAD; owned-part matching, physical cable motion and powered qualification remain open. Powered legs are later work.
 
-## Purpose and scope
+The active candidate is **P0-S1-2026-11-02-R2, unreleased**. This document defines architecture and interfaces. The [assembly guide](../assembly/p0-assembly.md) owns procedure; the [parts register](../../cad/staged_base.json) owns counts and configured dimensions; the [build review](../assembly/p0-build-review.md) owns validation status.
 
-This spec defines the mechanical design of Skala (Greek σκάλα, staircase), a small four-flipper tracked robot that climbs standard stairs and traverses irregular ground, built mostly from 3D-printed parts on a FlashForge Adventurer 5M Pro. It covers geometry, chassis, flipper arms and pivots, track modules, actuation, payload layout, power, and materials.
+## Build sequence
 
-Out of scope here: firmware and the `talos` interface, the Pi-side software, and the LOGOS integration. Those have their own specs and code against the body-layer contract this hardware exposes.
-
-## Requirements and constraints
-
-The robot must climb a standard US interior stair (178 mm rise, 280 mm tread) and recover from a roll-over, while carrying a 3D LiDAR, a camera, a Raspberry Pi, and an Arduino-class motion controller.
-
-| Requirement | Target | Rationale |
+| Stage | Scope | Exit evidence |
 | --- | --- | --- |
-| Stair geometry | 178 mm rise, 280 mm tread, 32° pitch | US IRC residential maximum rise / minimum tread |
-| Extended length | ≥ 560 mm (two treads) | Prevents nosing over at the top of a flight |
-| Total mass | 6–8 kg | Within printed-structure and hobby-actuator limits |
-| Payload | ≤ 1.5 kg on the deck | LiDAR, camera, antennas, future sensors |
-| Ground clearance | ≥ 50 mm on flat ground | Door thresholds, cables, rubble |
-| Self-righting | Flippers rotate 360° | Recover from roll-over without help |
-| Runtime | ≥ 45 min mixed driving | Useful test sessions |
-| Fabrication | ≤ 210 mm per printed part dimension | Adventurer 5M Pro bed (220 mm) with margin |
-| Materials | PETG/ASA structure, TPU tracks, bought metal for shafts, bearings, gears | Print what prints well; buy what doesn't |
-| Serviceability | Any single printed part replaceable without full teardown | Joints will be reprinted several times |
+| S0 | One supported track module | Printed fit, screw/plug access, engagement/tension, supported running and motor temperature |
+| S1 | Two fixed modules and research payload | Loaded floor driving, turning/stopping, stable power, mass/balance and timestamped LiDAR/camera/audio capture |
+| S2 | One supported powered pivot | Installed cost, fabrication, sustained load, speed, heat, holding/stop behavior, referencing and cable movement |
+| S2b, optional | Two pitch-enabled tracks, or a powered pair with fixed main tracks | Chosen layout's balance/contact support, joint duty, total power and frame checks; not automatically a stair-capable robot |
+| S3 | Four pitch-enabled tracked legs | Four-module structure/contact tests, integrated propulsion and restrained step tests; assess one future two-axis hip before duplicating four hip structures |
+| S4 | Add lateral movement progressively | One complete two-axis leg first, then a pair and four; combined-axis load, cable sweep, stability, collision and control evidence |
 
-Fixed constraints: four flipper legs only, no main body tracks. All ground contact goes through the arms. Compute is a Raspberry Pi plus an Arduino-class board already on hand; no Jetson.
+S1 research and S2 mechanical development can proceed independently. The first pair is intended to become two of the eventual four legs. Reuse is a design objective; later load testing may require stronger structure or propulsion. Existing chassis dimensions and XL430 propulsion are not immutable limits on the ultimate powerful robot. Preserve useful parts and interfaces where possible, and identify replacements explicitly before building each stage.
 
-## Overall geometry
+## Mechanical arrangement
 
-The baseline is a 340 × 240 × 110 mm chassis with four 220 mm flipper arms at the corners, giving a 780 mm footprint fully extended and roughly 360 mm with arms folded under.
+Each module has one XL430-W250-T drive, two bare TB3 sprockets, an idler hub supported by two 626 bearings, an M6 tensioning axle and a 40-link ICT-01 loop. Retained vendor geometry establishes **12 mm pin pitch, 42 mm link width and 144 mm nominal wheel centres**. Closure geometry is separate from real engagement and loaded tension.
 
-| Dimension | Value |
+The R2 tip hub adds a three-screw rear cap that catches the rear bearing outer ring; the axle clamps inner rings and spacers. The cap leaves 0.2 mm nominal axial play and 1 mm carrier clearance. Reprint the hub and add the cap and three M2×6 DIN 965 screws per idler. Bearings, axle, spacers and wheel plane remain unchanged. The 19.3 mm bore is still a fit candidate; seating, seal clearance, free rotation and retention strength require physical checks.
+
+The revised printed track-module body incorporates the motor housing. It replaces the faulty arm print, carries separate pads for temporary brackets and reserves a bolted root interface for later articulation. Two printed brackets per module attach to the chassis grid. S1 uses ordinary bought bearings and fasteners; it specifies no custom machined hub, gearbox rail or pitch transmission.
+
+The lower lead uses the motor's upper side channel, a 14 mm-wide carrier exit and an R12 bend for a bundle up to Ø4.5 mm. A printed restraint on existing chassis holes X=−56/−48, Y=±64 holds each factory 180 mm X3P lead at Z=46.25. The lower path is 43.85 mm from case exit to restraint; upper routing remains separate. The motor drawing confirms the 2 mm horn projection used by the common Z=46 wheel plane.
+
+Wheel loads reach that body by two paths. The drive sprocket is mounted directly to the XL430 horn, so its support loads pass through the motor output and case mount. The idler sprocket turns with the hub on two 626 bearings around an M6 axle clamped to the carrier. No separate external drive-wheel bearing or outboard support plate is present. Drive output/case support under payload, track tension, sideways steering forces and shock remains unqualified; the geometric clearance checks do not establish its adequacy.
+
+The carrier now has a continuous 28 mm wide × 10 mm thick inboard backplate from module X=28 to X=92, beneath the motor and between the cable exits. This removes dependence on the previous pair of approximately 1.55 × 5 mm wall feet at the motor-to-idler-body transition. The normal build checks that the backplate is present. Its dimensions establish the revised load path, not a qualified strength or payload rating.
+
+## Placement and attachment interfaces
+
+Coordinates are millimetres: X forward, Y left, Z up, chassis top at Z=0.
+
+| Interface | Candidate location or dimensions |
 | --- | --- |
-| Chassis outer (L × W × H) | 340 × 240 × 110 mm |
-| Flipper arm length (pivot to tip sprocket center) | 220 mm |
-| Track width | 45 mm |
-| Pivot-end sprocket pitch diameter | 90 mm |
-| Tip idler pitch diameter | 50 mm |
-| Overall width, tracks included | ~340 mm |
-| Length, arms extended fore/aft | ~780 mm |
-| Length, arms folded under | ~360 mm |
-| Ground clearance, arms horizontal | ~50 mm |
-| Pivot height above ground, arms horizontal | ~45 mm |
+| Existing chassis | 200 × 152 × 6 |
+| Existing deck | 164 × 120 × 4; centre X=−28; underside Z=60 |
+| Deck columns | Four M3 female–female, 60 mm body / 5 mm AF, X=−80/+24, Y=±32; M3×8 above deck, M3×10 below chassis, 0.5 mm washers beneath heads |
+| OpenCR adapter, P9 | 92 × 112 × 3, centre X=−64, bottom Z=76; deck fixings X=−104/−24, Y=±32; four 12 mm columns |
+| Pi 4B adapter, P10 | 64 × 96 × 3, centre X=16, bottom Z=76; deck fixings X=−8/+40, Y=±40; four 12 mm columns |
+| Bare PCB supports | Four 6 mm nylon spacers per board; underside Z=85. Pi USB/Ethernet and OpenCR micro-USB face left |
+| U2 sensor layer | P11 side frames on deck X=−32/+40, Y=±56; bridge underside/top Z=134/138. A1 feet on four 35 mm columns; owned revision still must match |
+| U2 camera head | P13 base on chassis X=80/96, Y=±24; pan axis X=108, tilt axis Z=72. Conditional MG90S/horn interfaces; retained plates unchanged |
+| Sprocket axes | X=−72 and +72; Z=20 |
+| Module inboard faces | Y=±88, leaving 12 mm outside the chassis edges |
+| Fixed bracket centres | X=−16 and +32 on each side |
+| Module-to-bracket screws | Z=11 and 29 at each bracket centre |
+| Chassis foot holes | X=−24, −8, +24, +40; Y=±56 and ±72 |
+| Future module root | Four M4 clearance holes on a 32 mm square; central Ø16 opening |
 
-Stance modes:
+The central opening is not a guaranteed cable passage once a shaft is installed. A replaceable adapter must connect the module to a supported pivot while preserving a feasible lead route. The fixed mounts use separate holes so their removal does not require altering the root.
 
-1. **Flat** — all four arms horizontal; longest wheelbase, lowest profile, best for speed and tight gaps.
-2. **Stance** — arms angled down 30–45°; raises the body for clearance and lets each arm conform independently on rubble.
-3. **Climb** — front arms raised 40° to catch the nosing, rear arms down to push; body pitch tracks the stair angle.
-4. **Tucked** — arms folded alongside the body for transport and storage.
+The first tracks are centred under the body; unused root extensions project rearward. Reposition the modules when adding the second pair and pivots. Future packaging, swept clearances and chassis loading remain unresolved; the fixed assembly does not establish them.
 
-Center of gravity target: body center in plan, as low as possible. The battery sits lowest and central; the LiDAR is the only heavy item above deck. On a 32° stair the CoG must stay inside the rear-arm contact patch, which the 220 mm arms give with margin at this mass.
+The nominal lower assembly is approximately **264.4 × 328 mm**, with only **6.4 mm minimum ground clearance** in CAD. Its first use is floor testing; deformation, carpet and payload balance require physical checks. No threshold, stair, payload or runtime rating is established.
 
-## Chassis
+The carrier fits a 220 mm bed diagonally, with an approximately **183.35 mm square footprint at 45°**. The bracket footprint is **32 × 36 mm**. Retaining chassis/deck geometry does not certify the printed parts' strength.
 
-The chassis is a printed box frame: two side rails, each made of two 170 mm plate sections, tied by four cross-bulkheads, with removable top deck and bottom pan.
+## Sensor and electrical arrangement
 
-- **Side rails** — PETG, 8 mm thick, two sections per side joined by a 30 mm lap with four M4 bolts and two 5 mm steel dowels. The pivot bearing housings bolt to the outer face at each end.
-- **Bulkheads** — PETG, 6 mm, at each pivot station and at the two battery-bay ends. The pivot bulkheads carry the flipper loads straight across the frame so the side rails see shear, not bending.
-- **Bottom pan** — PETG, 4 mm, bolted on; removable for battery and driver access. Carries the battery tray.
-- **Top deck** — PETG, 4 mm, bolted on; carries the payload mounts (see Payload layout). Two sections so the LiDAR mast can be removed independently.
-- **Fasteners** — M3 and M4 heat-set brass inserts throughout; no self-tapping into plastic for anything structural.
-- **Sealing** — none for the prototype. Design the deck and pan with a 2 mm lip so a gasket can be added later.
-
-Internal volume is roughly 300 × 200 × 90 mm after wall thickness and bulkheads, split into a battery bay (front-center, low), an electronics bay (rear), and pivot cavities at the four corners where the flipper actuators sit.
-
-## Flipper arms and pivot joint
-
-Each flipper is a tapered printed arm carrying its own drive motor, pivoting on a steel shaft through a bearing housing on the chassis, with the pitch actuator inside the chassis on the pivot axis. This is the offset-drive arrangement: pitch on the pivot axis, track drive in the arm.
-
-**Arm**
-
-- ASA, printed flat in two halves split at mid-length and joined with two 6 mm dowels plus M4 bolts; the pivot half will be reprinted more often than the tip half.
-- Tapered profile: ~110 mm tall at the pivot end, ~60 mm at the tip, 45 mm track width plus 8 mm side cheeks.
-- Hollow with internal ribs; drive motor and gear stage live in the pivot end, cable runs through the arm to the pivot.
-- Hard stop: none on rotation (360° required), but a printed sacrificial shear pin between actuator output and arm so a stalled arm strips a $0.10 part, not a gearbox.
-
-**Pivot**
-
-- 12 mm steel shaft, two 6001-2RS bearings (12 × 28 × 8 mm) in a printed housing bolted to the side rail and bulkhead.
-- The pitch actuator output couples to the shaft via a keyed or D-flat hub inside the chassis; the arm clamps to the shaft outside with a split hub and pinch bolts.
-- Pivot-end drive sprocket rides on its own bearings concentric with the pivot shaft but driven from the arm-mounted motor through a 2:1 printed spur or GT2 belt stage, so the sprocket turns independently of arm pitch.
-- Slip ring: not for the prototype. Rotation is unlimited mechanically, but cables to the arm motor allow roughly ±200° before fouling; firmware enforces this envelope. A slip ring is a later upgrade if full continuous rotation proves useful.
-
-**Why not coaxial drive through the hub.** A hollow pitch shaft with the drive shaft inside is cleaner but needs a 20+ mm bore through the actuator and precision concentric bearings, which printed parts do poorly. Revisit after the first prototype proves the geometry.
-
-## Track modules
-
-Each arm carries a segmented TPU track running over a driven pivot-end sprocket, a tip idler, and two small printed support rollers along the bottom run.
-
-| Element | Spec |
-| --- | --- |
-| Track type | Linked TPU 95A segments, 45 mm wide, 12 mm pitch |
-| Segment | Chevron grousers 6 mm tall, two drive lugs engaging sprocket teeth, hinge knuckles each end |
-| Pins | 3 mm stainless rod, retained by printed snap caps |
-| Segments per track | ~58 for a 220 mm center distance with 90/50 mm sprockets |
-| Drive sprocket | PETG, 90 mm pitch dia, 23 teeth, on 6001 bearings concentric with pivot |
-| Tip idler | PETG, 50 mm pitch dia, on 608 bearings, 10 mm adjustable slot for tension |
-| Support rollers | 2 × PETG, 25 mm dia, on 625 bearings, keep the bottom run flat under load |
-| Tension | Idler slot plus printed shim pack; target ~8 mm sag at mid-run |
-
-Design notes:
-
-- Segmented tracks print flat in batches of 24–30 per plate, repair one link at a time, and avoid the layer-adhesion failure of continuous printed belts.
-- Sprocket teeth engage the segment lugs, not the pins, so the TPU wears instead of the steel.
-- Grouser height trades stair grip against carpet drag; start at 6 mm and print a 9 mm variant for testing.
-- Track width of 45 mm is a compromise between footprint and ground pressure; at 7 kg on four 220 mm runs the pressure is around 5 kPa, well under what matters indoors.
-
-## Actuation and torque budget
-
-At 7 kg, each flipper pitch joint needs about 10 N·m peak and each track drive about 0.5 N·m at the sprocket; smart servos for pitch and brushed gearmotors for drive cover both with margin.
-
-**Pitch joint (worst case: one arm lifting half the body)**
-
-| Load | Calculation | Torque |
+| System | Planned placement and connection | Unresolved interface |
 | --- | --- | --- |
-| Half body weight at arm tip | 3.5 kg × 9.81 × 0.22 m | 7.6 N·m |
-| Arm self-weight at mid-length | 0.6 kg × 9.81 × 0.11 m | 0.65 N·m |
-| Total static | | 8.2 N·m |
-| Design peak (×1.25 dynamic) | | 10 N·m |
-| Holding, normal stance (shared by two arms) | | ~4 N·m |
+| OpenCR | P9 on rear deck; 66 × 96 board holes, M3 through-bolts, Ø6 nylon PCB washers; USB to Pi | Full cable routes, branch protection and motor stop; board mounting geometry checked against Rev H CAD |
+| Pi 4B and cooling | P10 on front deck; USB/Ethernet face left, USB-C/front and GPIO/rear; independent compute source | Cooler, HAT support stack, selection/mounting of an owned power bank and loaded power budget |
+| RPLidar A1 | Owned scanner, cable and external board; independently supported bridge above Pi, USB to Pi | Owned revision/feet, interface mounting, power path and scan occlusions |
+| Camera Module 3 Standard | Owned; forward head; standard 15-pin CSI ribbon to Pi 4B | Match U2 mounts to owned servo/horns; qualify flexible ribbon length/travel and physical motion. U2 resolves the earlier nominal rigid-part clash |
+| Waveshare WM8960 Audio HAT | Owned; Pi 40-pin header supplies 5 V/GND, I2C control and I2S stereo audio; onboard dual MEMS microphones | Supported stack, cooler clearance, acoustic exposure and driver qualification; no separate microphone purchase for initial capture |
+| Two independent supplies | Owned LB-012 for drive/OpenCR/head; one owned 5 V/3 A power bank feeds Pi USB-C, with camera/HAT/LiDAR powered downstream | Mobile compute source, protection, USB backfeed/grounding, stop behavior and loaded capacity |
 
-Candidate actuators:
+The U2 candidate replaces the former Pi-to-LiDAR pillar arrangement with P11 side frames, P12 and four 35 mm scanner columns. The [assembly guide](../assembly/p0-assembly.md#10-fit-audio-camera-and-lidar) specifies attachment and remaining model-matching checks; the legacy adapter and 55 mm allowance are superseded. The [SLAMTEC A1 specifications](https://www.slamtec.com/en/lidar/a1spec) do not establish the owned revision. Keep the scan plane clear of the complete head, supports and wiring, or measure and record occlusion sectors.
 
-- **Dynamixel XM540-W270** — 10.6 N·m stall at 12 V, 30 rpm, position/velocity/current modes, daisy-chained TTL bus. Meets the peak with no margin; acceptable for a prototype if firmware limits current. Simplest integration.
-- **NEMA 17 + 50:1 planetary** — ~14 N·m at 70 % efficiency, self-holding when idle, needs a stepper driver and an absolute encoder on the output. More torque, more parts, no feedback unless added.
-- **Brushless gimbal/robot motor + 30:1 cycloidal** — the eventual target; printed nylon-CF cycloidal is a later experiment, not a prototype dependency.
+The [complete-system design](../assembly/s1-system-plan.md) now owns the two-domain power circuit, current budget, every harness endpoint, remaining placement allocations, implementation requirements and H01–H10 closure register. It selects reuse of an owned 5 V/3 A compute bank; the exact bank/cable and retention remain to qualify. A coil-interrupted relay stop covering both drives and head servos remains a circuit candidate pending electrical and fault tests. The WM8960 needs no separate power cable or regulator. OpenCR's motor bus follows its battery input; USB can keep logic alive after drive power is removed. Full-charge voltage compatibility and USB backfeed are explicit H06 holds.
 
-Baseline: XM540-W270 for the prototype, with the shear pin sized to fail at ~12 N·m.
+For bench work use the official Pi 5.1 V/3 A USB-C supply if available, or test a suitable owned bank with drive power disconnected. The Pi is assumed bare, without a cooler; thermal testing determines the cooler/fan addition. The old rear compute envelope of 88 × 58 × 50 leaves only 0.12 mm to a deck column. Restrict selection to an **88 × 54 × 50 total package**, including retention and plugs. This is a reserved space, not a released tray. The current compute worksheet totals 2.85 A of allowances, not measurements. A 3 A bank remains a reasonable candidate; the worksheet does not establish a need for 5 A. Simultaneous-load tests determine any change to the bank, cable or peripheral distribution.
 
-**Track drive (32° stair, 0.5 m/s)**
+The XL430 has an internal drive controller; S1 adds no external H-bridge. Its load feedback is inferred, not measured current; PWM limiting is not a programmable current limit. See the [ROBOTIS manual](https://emanual.robotis.com/docs/en/dxl/x/xl430-w250/). Later pivot power and feedback need their own sizing.
 
-| Quantity | Value |
-| --- | --- |
-| Tractive force, total | 7 kg × 9.81 × (sin 32° + 0.1) ≈ 43 N |
-| Per track | ~11 N |
-| Sprocket torque (45 mm radius) | 0.5 N·m continuous, 1.5 N·m peak |
-| Sprocket speed at 0.5 m/s | ~106 rpm |
-| Motor, through 2:1 stage | ~0.25 N·m at ~210 rpm |
+## Later powered flippers
 
-Baseline: 4 × 24 V brushed gearmotor, 200–250 rpm, ≥ 1 N·m stall, with quadrature encoder (e.g. a 37 mm-frame 50:1 unit). Driven by two dual H-bridge boards with current sense.
+**High-end Dynamixels remain an aspirational option**, as requested by the user; they are not the assumed near-term purchase. Direct XL430 pitch drive failed the earlier load screen; external reduction remains a budget comparator. The [actuator register](../../cad/actuator_options.json) owns the cost ladder, associated parts and board alternatives. No replacement joint is selected. Compare equivalent output load, speed and duty, including complete installation and any required redesign.
 
-## Payload and electronics layout
+The MG17-G50 R1 assembly remains evidence for one comparison, not a purchase list. Shaft support, output referencing, protection, power-off behavior and cable motion must be demonstrated on one joint before duplication. The old 12 N·m test and stall-torque sizing are withdrawn.
 
-Sensors sit on the top deck with the LiDAR at the front third on a short mast; compute and drivers sit in the rear electronics bay; the battery sits low and central.
+Stair climbing remains a destination. Specify actual stair geometry and payload before sizing it. Self-righting, unrestricted pivot rotation, larger batteries and 3D LiDAR are separate future capabilities, not prerequisites for first research use.
 
-| Item | Location | Notes |
-| --- | --- | --- |
-| Unitree L2 LiDAR (75 × 75 × 65 mm, 10 W) | Deck, front third, on 60 mm mast | Mast clears the raised front arms from the 360° × 96° field; printed mast with vibration pad |
-| Camera (CSI module or OAK-D Lite) | Deck, forward edge, on a printed tilt mount | Tilt via micro servo later; fixed 10° down for the prototype |
-| IMU (9-DoF) | Chassis center, bottom pan | Rigidly mounted, as close to CoG as the battery allows |
-| Raspberry Pi 5 + active cooler | Rear electronics bay, vertical on a bracket | Ports face a rear access panel; USB to Arduino and LiDAR |
-| Arduino / Teensy motion controller | Rear bay, beside the Pi | Short runs to motor drivers |
-| 2 × dual H-bridge driver boards | Rear bay, on the bulkhead | Heatsinks facing the airflow path |
-| Dynamixel U2D2 or TTL adapter | Rear bay | One bus to all four pitch actuators |
-| Buck converters (5 V, 12 V) | Rear bay, near battery connector | Fused at the battery |
-| WiFi antenna | Rear deck | External antenna on a U.FL pigtail if the printed deck attenuates |
-| Carry handle / e-stop | Rear deck | Mushroom e-stop cuts motor power only; Pi stays up |
+### Options from budget to aspirational
 
-Cooling: a 40 mm fan at the rear panel pulling through vents in the front bulkhead, with the Pi and H-bridges in the path. Cable routing: motor and encoder cables enter the pivot cavity and run along the inside of the side rail in a printed channel to the rear bay.
+This is a **provisional cash-cost ladder**, not a ranking of torque, quality or demonstrated fit. Prices checked 2026-11-05. The budget row is a joint-material allowance; the purchased rows are actuator prices, so they are not yet comparable complete installation quotes. No option has passed Skala's joint qualification.
 
-## Power system
-
-A single 6S LiPo (22.2 V nominal, 5000–6000 mAh, ~700 g) feeds the drive motors directly and two buck converters for everything else; expected runtime is 45–60 minutes of mixed driving.
-
-| Rail | Source | Loads | Budget |
+| Tier and route | Cost basis per positioning axis | Additional motor-driver board? | Main development and installation tradeoff |
 | --- | --- | --- | --- |
-| 22.2 V | Battery, 30 A fuse | 4 × drive motors via H-bridges | 15 W avg, 100 W peak |
-| 12 V | Buck, 10 A | 4 × Dynamixel XM540, LiDAR | 25 W avg, 60 W peak |
-| 5 V | Buck, 6 A | Pi 5, Arduino, camera, IMU, fan | 15 W avg, 25 W peak |
+| 1. Budget DIY BLDC + printed cycloidal joint | **$150–305 planning allowance**, itemized in the register; no complete compatible BOM quoted | Yes, one phase-driver channel per axis. A combined MCU/driver such as [ST B-G431B-ESC1](https://www.st.com/en/evaluation-tools/b-g431b-esc1.html) avoids a separate Arduino | Most gearbox, feedback, firmware and wear development. Four boards need real homes; compact local mounting is a candidate, not established fit |
+| 2. Integrated brushless robot joint | **$369 per GO-M8010-6**, motor/reducer/driver/feedback unit only. [Unitree listing](https://shop.unitree.com/products/go1-motor) | No separate motor power board; compatible RS485 command hardware/software still needed | Buys the motor-control package. Larger/heavier joint and a different power/protocol installation; potential chassis and propulsion changes |
+| 3. High-end Dynamixel | **$482.89 per XM540-W270-T**, integrated actuator only. [ROBOTIS listing](https://robotis.us/products/dynamixel-xm540-w270-t) | No separate motor power board; retains compatible OpenCR TTL control | Highest listed unit cost here; established interface, but external load support and possibly further reduction remain. The model is a reference, not a promise of sufficient ultimate torque |
 
-Average draw is roughly 55 W; at 22.2 V × 5 Ah = 111 Wh, that gives ~1.5 h idle-heavy and ~45 min under stair work.
+Budget worksheet: motor $25–50; MCU/phase driver $40–80; motor/output sensing and magnets $20–40; bearings/metal pins/shafts/fasteners $35–70; printed transmission/housing/adapter material $15–35; local wiring/cooling $15–30. These are **engineering allowances**, excluding labor, failed iterations, tools, spares, shipping/tax and shared power/frame changes. The original $50–65 motor/driver/encoder proposal omitted much of the joint. The detailed bill may exceed this allowance; that would change the ranking.
 
-- Battery tray in the bottom pan, front-center, with a strap and a side-access door so it swaps without removing the deck.
-- XT60 main connector; a key switch or loop plug on the battery positive as the master cut.
-- E-stop opens the 22.2 V and 12 V rails only; the 5 V rail stays live so the Pi can log the event and shut down cleanly.
-- Battery voltage sensed by the Arduino through a divider; low-voltage warning at 3.5 V/cell, hard cutoff at 3.3 V/cell.
-- The Pi 5 wants a clean 5 V/5 A; use a dedicated buck with a 1000 µF bulk cap at the Pi rather than sharing with the motor-controller logic.
+The [ST development board](https://www.st.com/en/evaluation-tools/b-g431b-esc1.html) includes an MCU and current-sensing three-phase stage in a published 30 × 41 mm board assembly. Its advertised 40 A peak used propeller cooling, so it is not an enclosed continuous-current rating. Position firmware, encoder connections, cooling and Skala duty must still be developed. It demonstrates that the extra board need not be Arduino-shield sized.
 
-## Materials and 3D printing
+Unitree's [published example](https://www.unitree.com/mobile/go1/motor/) is approximately 530 g and 96.5 × 92.5 × 42.3 mm, with 12–30 V input and 24 V recommended. Four units alone add about 2.12 kg; eight add 4.24 kg. That is a serious chassis/propulsion implication. Its RS485 protocol is not Dynamixel TTL; the owned controller requires a verified new interface/driver. Manufacturer maximum torque is not a continuous rating. Confirm output reference after reboot and add sensing/homing if required. The store shows conflicting shipping/backorder messages; availability is unconfirmed.
 
-The first prototype is PLA everywhere except the tracks, which are TPU 95A; all shafts, bearings, gears and fasteners are bought metal. PETG and ASA are deferred until the first build shows which parts actually creep or soften. Everything prints on the Adventurer 5M Pro (220 × 220 × 220 mm, enclosed, direct drive, 280 °C stock hotend).
+ROBOTIS identifies the XM540's 2.12 N·m estimated rated torque as a calculation from stall, not a Skala endurance test. Its 10.6 N·m stall number does not prove it can hold the eventual robot continuously. A larger model or extra reduction could raise the high-end budget. Supplied motors/frames and their output load limits still need checking; price alone does not make this the most powerful route.
 
-| Part group | Prototype 1 | Later upgrade | Walls / infill | Orientation | Notes |
-| --- | --- | --- | --- | --- | --- |
-| Side rails, bulkheads, pan, deck | PLA or PLA+ | PETG if any plate creeps | 4 walls, 30 % gyroid | Flat | Known settings; 100 % fan |
-| Flipper arm halves | PLA+ | PETG, then ASA | 5 walls, 40 % gyroid | Flat, layer lines along the arm | Watch for sag after an hour parked in stance; that is the signal to switch |
-| Pivot bearing housings, sprockets, idlers | PLA | PETG | 6 walls, 50 % | Bore axis vertical | Print a test bore first |
-| Motor mounts | PLA | ASA if motors run hot to the touch | 5 walls, 50 % | Flat | Add 1 mm air gap around motor cans |
-| Track segments | TPU 95A | — | 3 walls, 100 % | Flat, 24–30 per plate | 25–30 mm/s, retraction near zero, dried; the one new material in the first build |
-| Track fallback | PLA links + glued rubber pads | TPU when dialed in | 100 % | Flat | Inner-tube or silicone pads in pockets; unblocks stair tests if TPU fights |
-| Spur gears | Bought steel | Printed nylon-CF | — | — | Needs a hardened nozzle; not for the first build |
-| Shear pins | PLA | — | 100 % | Axis vertical | Deliberately the weakest part; print a bag |
+Additional budget alternatives remain: **brushed encoder gearmotor plus reduction** and **owned XL430 plus reduction**. The [Pololu 4756](https://www.pololu.com/product/4756) plus [2992 driver](https://www.pololu.com/product/2992) is a $105.90 core-parts example before external reduction, supported output and referencing. Its gearbox's recommended continuous load is only about 0.98 N·m, so it is not a direct-drive powerful hip. It may compete with the DIY budget tier after full costing. Owned-XL430 reuse depends on actual spare stock and transmission cost; it is not automatically cheapest.
 
-Bought parts: 12 mm steel shaft stock, 6001-2RS and 608 and 625 bearings, M3/M4 heat-set inserts and hardware, 3 mm stainless pin rod, GT2 belts or steel spur gears for the drive stage, 5 mm dowel pins.
+### Form-factor choices and joint counts
 
-Tolerances: design bearing seats at nominal minus 0.1 mm and shaft clearances at plus 0.2 mm, then correct from a printed test coupon. Dry PETG and TPU before printing structural or track parts.
+Actuator technology and leg count are independent choices. Compare each candidate at the chosen layout's actual loads; fewer joints reduce hardware count but may increase the load carried by each joint.
 
-Printer-specific settings for each filament: [Filament guide](filament-guide-adventurer-5m-pro.md).
+| Development form | Track drives | Pitch axes | Lateral axes | Benefit and unresolved consequence |
+| --- | --- | --- | --- | --- |
+| Current two fixed tracks | 2 | 0 | 0 | Useful research base now; no articulated support tests |
+| Two pitch-enabled tracks as the only legs | 2 | 2 | 0 | Lowest added joint count; reuse current pair. Pitching can shrink the support contact to track ends, so body balance and controlled poses are central constraints |
+| Two fixed main tracks plus a pitch-enabled pair | 4 | 2 | 0 | Retains a main-track support footprint while exercising flippers. Adds two propulsion modules, length and mass; optional intermediate rather than a required purchase |
+| Four pitch-enabled legs | 4 | 4 | 0 | Independent front/rear placement and load-transfer experiments; no lateral placement yet |
+| Ultimate four legs, pitch plus one lateral axis each | 4 | 4 | 4 | Eight positioning axes plus four track drives; this is the minimum interpretation of the destination, with lateral kinematics still to clarify |
 
-## Prototype 0 — TurtleBot3-scale test rig
+**Two sole articulated tracks are worth screening first as the least-hardware articulated vehicle, after one supported joint.** They are not assumed to climb stairs or support the body in every pose. In the current CAD, the reserved roots lie at **X=−118, Y=±88, Z=20**, behind the centred track contacts; they are not hip pivots under the body centre. Simply removing the brackets and adding motors does not establish balance. Check body CG, possible root relocation/adapter changes, and whether a passive skid or temporary support is needed. The fixed-main-track layout is the comparison if support limitations outweigh its extra hardware cost.
 
-Before the full-size build, a ~1.5 kg rig made from TurtleBot3 parts on hand validates the pivot layout, the stair sequence, and the whole `talos` stack at zero material cost and with no new filament.
+For a first static screen, joint torque follows support force × its perpendicular moment arm. Equal load sharing would make each of two supporting joints carry twice the load of each of four, at the same total mass and lever arm. Stair contact is often unequal, so actual force/moment balance and dynamic allowance must replace that simplification. Do not halve the motor rating just because the robot has two legs, or carry the old R1 torque figure unchanged into a lighter layout.
 
-**Parts on hand**
-
-| Part | Qty | Role in prototype 0 |
-| --- | --- | --- |
-| DYNAMIXEL XL430-W250-T | 4 | Two arms: drive + pitch each (or four arms with four more servos) |
-| TB3 Wheel/Tire ISW-01 | 8 | Sprocket at each arm end; the ICT-01 links clip onto the wheel |
-| TB3 Caterpillar ICT-01 | 80 links | One track of 80 links at the assumed 6 mm pitch; a second track needs two more sets |
-| OpenCR 1.0 | 1 | Reflex layer: Dynamixel bus, IMU, Arduino-compatible firmware |
-| LiPo 11.1 V 1800 mAh (LB-012) + charger | 1 (+1) | One powers OpenCR and servos; a second one, through a 5 V / 5 A buck, powers the compute stack |
-| Raspberry Pi (several on hand) | 1 | Body layer: `talos`, LiDAR driver, link to desktop; use the newest available |
-| Slamtec RPLidar A1 | 1 | 2D 360° LiDAR, 12 m range, USB; mapping and localization for prototype 0 |
-| Raspberry Pi Camera Module (v2/v3) + 2 × MG90S | 1 + 2 | Forward video on a printed two-servo pan/tilt (±90° / −45…+30°) at the deck's front edge; CSI to the Pi, servos on OpenCR PWM. Buy if not on hand. |
-| Printed TB3 structure | — | Plates reusable as the chassis |
-
-**Layout**
-
-- Two configurations: **A**, the full design with four articulated flippers (needs four more XL430s and six more ICT-01 sets); **B**, an interim build from parts on hand with two front flippers and two passive, pin-indexed rear skids. Same chassis, deck and electronics; B upgrades to A by swapping the rear corners.
-- Chassis: one printed 200 × 152 × 6 mm PLA plate on the TB3 8 mm grid, battery strapped across its centre, camera pan/tilt head at the front centre, and a 164 × 120 upper deck on 60 mm standoffs above the mounts carrying the OpenCR (rear), the Pi (front) and the RPLidar A1 on 40 mm standoffs above the Pi.
-- Power: two supplies — one 3S 1800 mAh LiPo for OpenCR and servos (≈55 min in B, ≈30 min in A), and a second LB-012 through a 5 V/5 A buck for the Pi, LiDAR and camera (≈2 h) — so servo stalls cannot brown out the Pi. There is no room on P0 for a 10 000 mAh power bank. Budget in `docs/assembly/p0-assembly.md` §10.
-- Arms: two printed PLA arms, a TB3 wheel at each end, ICT-01 links around them. Link pitch **assumed 6 mm** from Robotis Japan's listing, unverified. Center distance follows from 80 links per track: (80 × 6 mm − π × 66 mm) / 2 ≈ 136 mm. With the 80 links on hand that is one arm; a two-arm rig needs two more ICT-01 sets. Confirm the pitch (lay 10 links flat, expect ~60 mm) before cutting the arm length.
-- Pitch actuator: one XL430 at the chassis, horn bolted to the arm root through a 6 mm printed spacer (the horn is flush with the case). Drive: one XL430 in the arm root driving the pivot-end wheel; the tip wheel idles on two 626 bearings on an M6 bolt.
-- Rear: configuration A, two more pitch mounts and arms; configuration B, two passive printed skid arms at a pin-selected angle (0/20/35/50°).
-- Sensing: RPLidar A1 on the top plate for 2D mapping; it scans a horizontal plane and cannot see tread edges, so stair detection in prototype 0 comes from the OpenCR IMU pitch and servo current, not the LiDAR. That is the same signal set the full build will use as its fallback.
-- Reflex layer on OpenCR: pitch position limits, current trips, IMU tip-over cutoff, serial link to the Pi. This firmware is the first real `talos` deliverable and carries forward unchanged in concept.
-
-**Torque check**
-
-- Rig mass ~1.5 kg; two front arms lifting half of it at a 136 mm arm: 0.75 kg × 9.81 × 0.136 m / 2 arms ≈ 0.5 N·m per joint, plus ~0.1 N·m arm weight.
-- XL430-W250 stall is 1.4 N·m at 11.1 V, so about 2× margin on pitch; drive load is well under that.
-- Keep the rig under 2 kg; above that the XL430 pitch margin disappears.
-
-**Test stair:** a 100 mm rise × 150 mm tread made from books or plywood, roughly the full-size stair at 0.55 scale. Clearing two steps of it with the scripted sequence is the exit criterion.
-
-**What transfers to prototype 1:** pivot and arm-root geometry, the stance and climb sequence, the `talos` message schema and OpenCR firmware structure, and the LOGOS bridge. What does not: torque figures, track design, and the chassis.
-
-**P0 CAD as of 2026-10-27** (in `cad/` of the repo, build123d, `uv run cad/build.py`): arm, tip hub, pitch servo mount, tolerance coupon, chassis plate, upper deck, Pi adapter, rear skid bracket (L/R) + arm, and `assembly_p0.py` for pose/clearance checks in either configuration (`--four-arms`). Stance (arms 30° down) is ~200 mm tall to the top of the LiDAR with all four wheels level. Build sequence: `docs/assembly/p0-assembly.md`. XL430 and TB3 wheel dimensions in `params.py` are from memory and marked VERIFY.
-
-## Staging and upgrade path
-
-The build runs in three hardware stages, each with an exit test, and the software stages (teleop through LOGOS hybrid) ride on top of them rather than waiting for the last one.
-
-| Stage | Goal | Key hardware changes from the previous stage | Exit criterion |
+| Positioning-hardware scale | 2 axes | 4 axes | 8 axes |
 | --- | --- | --- | --- |
-| P0 — TurtleBot3 rig | Prove pivot, arm root, climb sequence, `talos` reflex layer | TB3 parts, XL430s, ICT-01 track, OpenCR, RPLidar A1, PLA | Clears two steps of a 100 × 150 mm test stair under the scripted sequence; OpenCR watchdog and current trips verified |
-| P1 — full-size prototype | Climb a real 178 × 280 stair with payload | 340 mm chassis, 220 mm arms, 12 mm pivots, XM540 pitch servos, gearmotor drive, 6S battery, PLA structure, TPU tracks (or PLA + rubber pads), Pi 5 | Climbs and descends a full flight carrying LiDAR and camera; self-rights from a roll; 45 min runtime |
-| P1.x — hardening | Fix what P1 breaks | PETG arms, ASA motor mounts, steel gears, slip rings if rotation envelope is limiting, tuned grouser height, gasketed deck | 10 consecutive stair climbs without a reprint or re-tension |
-| P2 — research platform | Stable body for LOGOS perception and episodic-memory work | Unitree L2 3D LiDAR, Pi AI HAT or Jetson if onboard inference is needed, coaxial hub if cable routing limits arms, printed nylon-CF cycloidal pitch reducers, larger battery, sealed electronics bay | Runs unattended sessions with LOGOS as remote cognition, logging full sensor streams |
+| DIY joint-local material allowance | $300–610 | $600–1,220 | $1,200–2,440 |
+| Unitree example, purchased units only | $738 | $1,476 | $2,952 |
+| XM540 example, purchased units only | $965.78 | $1,931.56 | $3,863.12 |
 
-**What changes between stages, by subsystem**
+These sums exclude track drives and shared system changes. Eight-axis totals assume identical units solely to show cost scale; pitch and lateral axes may need different motors. A two-pitch trial needs two external BLDC driver channels (or integrated controllers); four pitch needs four; an all-DIY eight-positioning-axis robot needs eight. Shared bus, processor, switching and supply capacity must be checked at each step rather than multiplied blindly.
 
-- **Pivot joint:** servo horn on a printed root (P0) → 12 mm steel shaft in 6001 bearings with offset drive (P1) → coaxial hub and cycloidal reducer only if P1 shows the need (P2).
-- **Tracks:** ICT-01 on TB3 wheels (P0) → printed TPU segments on printed sprockets, rubber-pad fallback (P1) → tuned grouser height and segment material from wear data (P1.x).
-- **Pitch actuators:** XL430 (P0) → XM540-class smart servo (P1) → brushless + cycloidal when torque or speed limits appear (P2).
-- **Structure:** reused TB3 plates (P0) → PLA box frame (P1) → PETG/ASA where creep or heat shows up (P1.x).
-- **Sensing:** RPLidar A1, IMU, servo current, Pi Camera on micro-servo pan/tilt (P0) → same camera head, same 2D LiDAR acceptable (P1) → Unitree L2 3D LiDAR for tread-edge detection and LOGOS perception streams (P2).
-- **Compute:** Pi + OpenCR (P0) → Pi 5 + Arduino/Teensy motion controller (P1) → AI HAT or Jetson only if onboard perception is required in the fully autonomous configuration (P2).
-- **Power:** 3S 1800 mAh for motors + a second 3S 1800 mAh with a 5 V buck for compute (P0) → 6S 5000–6000 mAh with 12 V and 5 V rails (P1) → larger pack and current-sensed rails for logging (P2).
+### Preserving the path to lateral movement
 
-**What is deliberately not planned:** weatherproofing, outdoor terrain beyond gravel, payload beyond 1.5 kg, and any speed target above 0.5 m/s. Those are new projects, not stages of this one.
+Pending clarification, lateral movement is treated as outward/inward stance adjustment, with the exact axis and geometry **not frozen**. Hip steering around a vertical axis is a different mechanism; both functions could require another axis. Neither automatically produces sideways body translation with ordinary tracks. No lateral CAD or purchase is released from this assumption.
 
-The software stages from the project plan (teleop → onboard sensing → onboard autonomy → LOGOS remote cognition → LOGOS remote perception → hybrid) map loosely: stages 1–3 should run on P0, stage 4 on P1, stages 5–6 on P2.
+Use a replaceable hip assembly between body and track module. The pitch prototype should leave a defined body-side attachment and cable exit that can later attach to a lateral joint; a fixed bracket can occupy that interface initially. Before making four copies, package one complete two-axis hip and check which actuator is inboard, its moving mass, combined bending/torsion, bearings, travel stops and full cable sweep. The inboard joint carries the outboard actuator as well as the leg. Adding a lateral motor to an already loaded printed pitch bracket is not a valid design shortcut.
 
-## Open questions and next steps
+Preserve track components, sensors, compute, stable device identities and reusable joint modules where qualified. The present 32 mm M4 root, printed chassis, XL430 wheel support and drive capacity are candidates for reuse, not promises for a powerful ultimate robot. Prefer replaceable hip mounts and an expandable power/interface carrier over making every future actuator depend on the current deck holes. Explicitly cost any new chassis, stronger propulsion or different battery when the chosen load requires it.
 
-The pivot joint and the track segment are the two parts to prototype first, since both are likely to need several iterations and everything else bolts to them.
+The implementation needs independent pitch/lateral position feedback, coordinated limits and body/leg transforms. Keep current S1 capabilities unchanged; advertise new axes only as installed and exercised. “Powerful” still needs a load/duty specification: complete mass, payload, support contacts, reach, travel/speed, dwell and stair geometry. The next mechanical milestone is one qualified joint, not eight purchased motors.
 
-Open questions:
+### BLDC boards and control
 
-- [ ] Which Pi model is on hand? A Pi 5 is assumed; a Pi 4 changes the perception split.
-- [ ] Which Arduino-class board? Hardware PWM and interrupt count decide whether encoders go on the MCU or on the driver boards.
-- [ ] Confirm XM540-W270 stock and price before ordering; fall back to stepper + planetary if unavailable.
-- [ ] ICT-01 link pitch: assumed 6 mm (Robotis Japan listing); measure 10 links to confirm before modeling the prototype 0 arm. Also: grouser height 6 mm vs 9 mm, decided by stair tests on the actual stair.
-- [ ] Is ±200° of arm rotation enough, or is a slip ring needed in the first build?
-- [ ] Deck mast height for the L2: verify the raised front arms stay out of the lower 48° of its vertical field.
+**Bare-BLDC joints require additional boards.** Dynamixels and the integrated brushless option above contain their power electronics and motor controller; bare BLDC motors do not. The four-pitch DIY layout needs **four independently controlled three-phase driver channels**, normally four single-motor boards or two suitable dual-motor boards. These are alternative arrangements. Neither the Pi nor OpenCR directly powers BLDC windings. Four XL430s remain the initial track-drive reuse candidate; ultimate propulsion must be sized to the final mass.
 
-Next steps:
+An integrated FOC controller, such as suitable [VESC-based hardware](https://vesc-project.com/node/311), contains its motor-control processor. A SimpleFOC Shield is a power stage that also requires a compatible MCU running the control loop. Do not budget zero additional MCU boards by assuming OpenCR can run four such loops alongside track control and the watchdog. Prefer local motor loops with OpenCR supervising through a verified command interface. Exact controller/firmware support for encoders, current limiting, position travel and fault behavior must be demonstrated; a generic drone speed controller is not an interchangeable position servo.
 
-1. Print the bearing housing and shaft test coupon; set PETG tolerances.
-2. Model and print one pivot joint with a dummy arm stub; load-test to 12 N·m with a lever and weights.
-3. Print 30 track segments and one sprocket; check pitch, link articulation and tooth engagement by hand.
-4. Model the full arm around the proven pivot; print one, mount a drive motor, run the track.
-5. Chassis plates and bulkheads; dry-fit with four arms.
-6. Full BOM and order list.
+The [SimpleFOC Shield v3.2 specifications](https://simplefoc.com/simplefoc_shield_product_v3) target gimbal motors and explicitly warn that high-power drone motors can damage the driver. Its cheap price does not establish compatibility with the proposed $25 motor. Motor-angle sensor breakouts add up to four small PCBs; the planning baseline also includes four output-angle sensor assemblies unless integrated into the selected joint/controller.
 
-The `talos` interface schema can be written in parallel with steps 1–4 since it depends only on the actuator and sensor list above.
+The [AS5047P](https://www.infineon.com/part/AS5047P) gives single-turn motor angle. At 40:1 reduction, the same reading recurs every **9° of output travel**. It does not give absolute arm position after a restart. Output-side absolute sensing is the planning baseline; a homing/counting scheme may replace it only with a demonstrated startup and fault procedure. Check dual-feedback support before choosing a controller.
+
+### BLDC fit and power screen
+
+**Current finding: compatibility with the unchanged S1 installation is not established.** The code has fixed-track geometry and battery envelopes, but no four-BLDC layout or allocated controller carrier. The following constraints come from `cad/staged_base.py`, `cad/upper_s1.py`, the active dimension register and the [S1 power worksheet](../assembly/s1-system-plan.md#compute-source-candidate-and-budget).
+
+| Constraint | Existing design and consequence for selection |
+| --- | --- |
+| Body and joint space | Chassis 200 × 152 mm; deck underside Z=60; module inboard faces Y=±88 leave only 12 mm beyond chassis edges. This gap is not a reserved gearbox bay. A joint extending farther inboard needs body space or moved tracks; adding four pivots already requires module repositioning and a full sweep check |
+| Controller space | P9/OpenCR and P10/Pi occupy the deck; the HAT/LiDAR stack sits above it. The front under-deck allocation X=36..100, Y=−28..28, Z=0..50 is already intended for stop/distribution/head power and is itself unverified. Do not count it again as free driver volume. Place boards with plugs, insulation, cooling and service access |
+| Drive supply | Owned LB-012 body is 88 × 35 × 26 mm. Pack discharge/thermal suitability for flippers is unproven. The S1 worksheet is 3.95 A with two tracks; adding two more XL430 stall allowances gives **6.55 A before pitch**. This is a conservative screening sum, not measured continuous current. It already exceeds the proposed 5 A main-fuse nominal value, so that protection/distribution proposal cannot simply carry forward |
+| Voltage and heat | Preserve compatible XL430 supply voltage; higher-voltage BLDCs would require separate voltage conditioning/distribution. Account for phase-current limits, battery current, zero-speed holding heat and regenerative energy separately. Gearing does not establish a battery-current budget. Pi/USB power is not available for pitch motors |
+
+The increase from two to four track drives applies to every **four-track** route, including Dynamixel pitch. A two-track/two-pitch stage retains two drives and adds its own measured pitch load instead. Separate the common track expansion cost from BLDC-specific driver, feedback and cooling costs. The screen does not establish that BLDC uses more battery power than an equivalently loaded Dynamixel joint; that comparison needs selected hardware and measured duty.
+
+For scale, [Stephen Ferro's working printed-actuator example](https://scferro.github.io/projects/03-actuator) reports a 19:1 joint of Ø80 × 67 mm and 454 g, with over 12 N·m supported statically and a lower dynamic result. Four such joints would total **1.816 kg before external controllers and installation hardware**. A 67 mm-deep body cannot sit wholly within the existing 12 mm side gap. This is a packaging warning from one example, not a selected motor, continuous torque rating, or proof that every BLDC design is too large. Printed wear, backlash and shock tolerance must be tested; they are not guaranteed by the cycloidal topology.
+
+### If BLDC cycloidal pitch is selected
+
+| Project area | Required adjustment and intended reuse |
+| --- | --- |
+| Joint and structure | New gearbox/motor housing, eccentric and output carrier, bought bearings/metal pins/fasteners, supported hub, axial retention and root adapter. Existing pitch housings and R1 gearbox rails do not automatically fit. Retain tracks, wheels, idlers, tensioners and XL430 drives where load tests allow. Recheck the 32 mm M4 root pattern, chassis bending and drive-wheel support; reinforcement or changed track spacing may be necessary |
+| Boards and mounting | Add four phase-driver channels and their sensors; include separate MCUs if the chosen boards lack them. A new insulated board carrier, cooling and possibly changed deck layout are part of this option's cost. No controller footprint or mount is released |
+| Power and stop | Recalculate battery, fuses, wiring, connectors, switching, inrush and regeneration for track/pitch/head loads together. More battery capacity alone does not increase allowable current. Retain the independent compute-supply principle; a third battery is not automatically required. Extend physical stop and local watchdogs to every pitch driver; qualify a brake/lock if power-off arm support is required |
+| Wiring | Add three motor phases, motor/output feedback, protected supply and command/status/enable connections. A separate TTL lead still crosses each pivot to its XL430; BLDC motors provide no Dynamixel pass-through. Check complete connector/bend envelopes and strain relief throughout travel; the Ø16 root opening may be occupied by the shaft |
+| Firmware and research interface | Add calibration, current/position loops, output referencing, limits, thermal/fault reports and explicit rearm. Retain Pi/OpenCR and sensor hardware in principle. Talos needs pitch commands and measured output feedback, not motor angle presented as arm angle. The existing firmware/Pi directories contain requirements only. The owned boards have a prior TurtleBot3 stack to inspect and adapt; no Skala-specific joint controller is implemented here |
+| Mass, propulsion and qualification | Recalculate the complete robot mass/CG and pitch load with the actual transmission. Recheck XL430 steering/traction and wheel-support loads; extra pitch torque does not improve track-drive capacity. Price both one complete joint and the final four-joint installation, including parts displaced by redesign |
+
+**Selection order:** choose a concrete motor/driver/gearbox combination and a development layout, then show complete fit, electrical budget and installed cost on paper/CAD, including how it can connect to a future two-axis hip. If required chassis, battery or propulsion changes are unacceptable, reject that combination before printing it. A feasible candidate then gets one supported bench joint: repeated lifting and dwell, current/temperature, wear/backlash, restart/reference, communication-loss/stop and cable-travel tests. Only after that evidence should it be duplicated. Current S1 purchasing quantities and print geometry do not change merely because these options are recorded.
+
+## Research interfaces
+
+Start with stationary LiDAR/camera/audio capture, then teleoperated floor episodes, then bounded Sophia/Cliste experiments using qualified input paths. Record capture timestamps, sequence gaps, clock mapping, sensor transforms, requests, acknowledgements, actual feedback and outcomes. Compare audio with motors off and on.
+
+Use the [Talos contract](talos-capability-manifest.md) and [audio handoff](../research/2026-10-25-audio-memory-handoff.md). A transported scan is not automatically a Cliste-native representation. Neither CAD nor a declared interface proves capture or autonomy. Advertise pitch and climbing only when implemented and exercised.

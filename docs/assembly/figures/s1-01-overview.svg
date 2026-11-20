@@ -1,0 +1,128 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="887" viewBox="0 0 1200 887">
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10Z" fill="context-stroke"/></marker></defs>
+<rect width="100%" height="100%" fill="white"/>
+<g font-family="DejaVu Sans,Arial,sans-serif" stroke-linejoin="round" stroke-linecap="round">
+<text x="34" y="38" font-size="26" fill="#172b3a" text-anchor="start" font-weight="700">1  What the lower assembly contains</text>
+<text x="34" y="67" font-size="17" fill="#526473" text-anchor="start" font-weight="400">Top view • front is up • deck and electronics removed to expose the attachments</text>
+<line x1="34" y1="83" x2="1166" y2="83" stroke="#d4dde3" stroke-width="2"/>
+<rect x="472.2" y="190.0" width="235.6" height="310.0" rx="0" fill="#f0f3f5" stroke="#172b3a" stroke-width="2"/>
+<rect x="779.1" y="170.77999999999997" width="65.10000000000001" height="348.44000000000005" rx="0" fill="#d6dde3" stroke="#172b3a" stroke-width="2"/>
+<line x1="844.2" y1="507.75" x2="779.1" y2="507.75" stroke="#778895" stroke-width="1"/>
+<line x1="844.2" y1="489.15" x2="779.1" y2="489.15" stroke="#778895" stroke-width="1"/>
+<line x1="844.2" y1="470.55" x2="779.1" y2="470.55" stroke="#778895" stroke-width="1"/>
+<line x1="844.2" y1="451.95" x2="779.1" y2="451.95" stroke="#778895" stroke-width="1"/>
+<line x1="844.2" y1="433.35" x2="779.1" y2="433.35" stroke="#778895" stroke-width="1"/>
+<line x1="844.2" y1="414.75" x2="779.1" y2="414.75" stroke="#778895" stroke-width="1"/>
+<line x1="844.2" y1="396.15" x2="779.1" y2="396.15" stroke="#778895" stroke-width="1"/>
+<line x1="844.2" y1="377.55" x2="779.1" y2="377.55" stroke="#778895" stroke-width="1"/>
+<line x1="844.2" y1="358.95" x2="779.1" y2="358.95" stroke="#778895" stroke-width="1"/>
+<line x1="844.2" y1="340.35" x2="779.1" y2="340.35" stroke="#778895" stroke-width="1"/>
+<line x1="844.2" y1="321.75" x2="779.1" y2="321.75" stroke="#778895" stroke-width="1"/>
+<line x1="844.2" y1="303.15" x2="779.1" y2="303.15" stroke="#778895" stroke-width="1"/>
+<line x1="844.2" y1="284.55" x2="779.1" y2="284.55" stroke="#778895" stroke-width="1"/>
+<line x1="844.2" y1="265.95" x2="779.1" y2="265.95" stroke="#778895" stroke-width="1"/>
+<line x1="844.2" y1="247.35" x2="779.1" y2="247.35" stroke="#778895" stroke-width="1"/>
+<line x1="844.2" y1="228.75" x2="779.1" y2="228.75" stroke="#778895" stroke-width="1"/>
+<line x1="844.2" y1="210.15" x2="779.1" y2="210.15" stroke="#778895" stroke-width="1"/>
+<line x1="844.2" y1="191.54999999999998" x2="779.1" y2="191.54999999999998" stroke="#778895" stroke-width="1"/>
+<rect x="726.4" y="210.15" width="15.5" height="370.45" rx="0" fill="#dcecf7" stroke="#236493" stroke-width="2"/>
+<rect x="741.9" y="401.9625" width="52.7" height="72.075" rx="0" fill="#dcecf7" stroke="#236493" stroke-width="2"/>
+<rect x="726.4" y="210.15" width="33.325" height="46.5" rx="0" fill="#dcecf7" stroke="#236493" stroke-width="2"/>
+<rect x="759.725" y="226.0375" width="4.65" height="14.725" rx="0" fill="#ffe2c2" stroke="#236493" stroke-width="2"/>
+<rect x="761.275" y="210.15" width="3.1" height="46.5" rx="0" fill="#d9f1e6" stroke="#236493" stroke-width="2"/>
+<rect x="764.375" y="210.15" width="8.525" height="46.5" rx="0" fill="#dcecf7" stroke="#236493" stroke-width="2"/>
+<rect x="772.9" y="212.475" width="14.725" height="41.85" rx="0" fill="#dcecf7" stroke="#236493" stroke-width="2"/>
+<rect x="787.625" y="210.15" width="10.075000000000001" height="46.5" rx="0" fill="#dcecf7" stroke="#236493" stroke-width="2"/>
+<rect x="670.6" y="345.0" width="55.800000000000004" height="49.6" rx="0" fill="#ffe2c2" stroke="#a64c13" stroke-width="2"/>
+<rect x="670.6" y="270.6" width="55.800000000000004" height="49.6" rx="0" fill="#ffe2c2" stroke="#a64c13" stroke-width="2"/>
+<rect x="797.7" y="408.92975" width="27.125" height="95.34049999999999" rx="0" fill="#b5c0c9" stroke="#172b3a" stroke-width="2"/>
+<rect x="797.7" y="185.72975" width="27.125" height="95.34049999999999" rx="0" fill="#b5c0c9" stroke="#172b3a" stroke-width="2"/>
+<rect x="715.55" y="224.44875" width="9.3" height="17.902500000000018" rx="0" fill="#b5c0c9" stroke="#172b3a" stroke-width="2"/>
+<rect x="724.85" y="224.1" width="2.479999999999991" height="18.6" rx="0" fill="#b5c0c9" stroke="#172b3a" stroke-width="2"/>
+<line x1="710.125" y1="233.39999999999998" x2="796.925" y2="233.39999999999998" stroke="#172b3a" stroke-width="3"/>
+<rect x="679.9" y="407.0" width="18.6" height="37.2" rx="0" fill="#d9f1e6" stroke="#156f50" stroke-width="2"/>
+<line x1="746.55" y1="424.05" x2="689.2" y2="424.05" stroke="#156f50" stroke-width="3"/>
+<rect x="335.79999999999995" y="170.77999999999997" width="65.10000000000001" height="348.44000000000005" rx="0" fill="#d6dde3" stroke="#172b3a" stroke-width="2"/>
+<line x1="400.9" y1="507.75" x2="335.79999999999995" y2="507.75" stroke="#778895" stroke-width="1"/>
+<line x1="400.9" y1="489.15" x2="335.79999999999995" y2="489.15" stroke="#778895" stroke-width="1"/>
+<line x1="400.9" y1="470.55" x2="335.79999999999995" y2="470.55" stroke="#778895" stroke-width="1"/>
+<line x1="400.9" y1="451.95" x2="335.79999999999995" y2="451.95" stroke="#778895" stroke-width="1"/>
+<line x1="400.9" y1="433.35" x2="335.79999999999995" y2="433.35" stroke="#778895" stroke-width="1"/>
+<line x1="400.9" y1="414.75" x2="335.79999999999995" y2="414.75" stroke="#778895" stroke-width="1"/>
+<line x1="400.9" y1="396.15" x2="335.79999999999995" y2="396.15" stroke="#778895" stroke-width="1"/>
+<line x1="400.9" y1="377.55" x2="335.79999999999995" y2="377.55" stroke="#778895" stroke-width="1"/>
+<line x1="400.9" y1="358.95" x2="335.79999999999995" y2="358.95" stroke="#778895" stroke-width="1"/>
+<line x1="400.9" y1="340.35" x2="335.79999999999995" y2="340.35" stroke="#778895" stroke-width="1"/>
+<line x1="400.9" y1="321.75" x2="335.79999999999995" y2="321.75" stroke="#778895" stroke-width="1"/>
+<line x1="400.9" y1="303.15" x2="335.79999999999995" y2="303.15" stroke="#778895" stroke-width="1"/>
+<line x1="400.9" y1="284.55" x2="335.79999999999995" y2="284.55" stroke="#778895" stroke-width="1"/>
+<line x1="400.9" y1="265.95" x2="335.79999999999995" y2="265.95" stroke="#778895" stroke-width="1"/>
+<line x1="400.9" y1="247.35" x2="335.79999999999995" y2="247.35" stroke="#778895" stroke-width="1"/>
+<line x1="400.9" y1="228.75" x2="335.79999999999995" y2="228.75" stroke="#778895" stroke-width="1"/>
+<line x1="400.9" y1="210.15" x2="335.79999999999995" y2="210.15" stroke="#778895" stroke-width="1"/>
+<line x1="400.9" y1="191.54999999999998" x2="335.79999999999995" y2="191.54999999999998" stroke="#778895" stroke-width="1"/>
+<rect x="438.1" y="210.15" width="15.5" height="370.45" rx="0" fill="#dcecf7" stroke="#236493" stroke-width="2"/>
+<rect x="385.4" y="401.9625" width="52.7" height="72.075" rx="0" fill="#dcecf7" stroke="#236493" stroke-width="2"/>
+<rect x="420.275" y="210.15" width="33.325" height="46.5" rx="0" fill="#dcecf7" stroke="#236493" stroke-width="2"/>
+<rect x="415.625" y="226.0375" width="4.65" height="14.725" rx="0" fill="#ffe2c2" stroke="#236493" stroke-width="2"/>
+<rect x="415.625" y="210.15" width="3.1" height="46.5" rx="0" fill="#d9f1e6" stroke="#236493" stroke-width="2"/>
+<rect x="407.1" y="210.15" width="8.525" height="46.5" rx="0" fill="#dcecf7" stroke="#236493" stroke-width="2"/>
+<rect x="392.375" y="212.475" width="14.725" height="41.85" rx="0" fill="#dcecf7" stroke="#236493" stroke-width="2"/>
+<rect x="382.29999999999995" y="210.15" width="10.075000000000001" height="46.5" rx="0" fill="#dcecf7" stroke="#236493" stroke-width="2"/>
+<rect x="453.6" y="345.0" width="55.800000000000004" height="49.6" rx="0" fill="#ffe2c2" stroke="#a64c13" stroke-width="2"/>
+<rect x="453.6" y="270.6" width="55.800000000000004" height="49.6" rx="0" fill="#ffe2c2" stroke="#a64c13" stroke-width="2"/>
+<rect x="355.17499999999995" y="408.92975" width="27.125" height="95.34049999999999" rx="0" fill="#b5c0c9" stroke="#172b3a" stroke-width="2"/>
+<rect x="355.17499999999995" y="185.72975" width="27.125" height="95.34049999999999" rx="0" fill="#b5c0c9" stroke="#172b3a" stroke-width="2"/>
+<rect x="455.15" y="224.44875" width="9.3" height="17.902500000000018" rx="0" fill="#b5c0c9" stroke="#172b3a" stroke-width="2"/>
+<rect x="452.67" y="224.1" width="2.479999999999991" height="18.6" rx="0" fill="#b5c0c9" stroke="#172b3a" stroke-width="2"/>
+<line x1="469.875" y1="233.39999999999998" x2="383.075" y2="233.39999999999998" stroke="#172b3a" stroke-width="3"/>
+<rect x="481.5" y="407.0" width="18.6" height="37.2" rx="0" fill="#d9f1e6" stroke="#156f50" stroke-width="2"/>
+<line x1="433.45" y1="424.05" x2="490.8" y2="424.05" stroke="#156f50" stroke-width="3"/>
+<line x1="590" y1="160" x2="590" y2="112" stroke="#236493" stroke-width="2" marker-end="url(#arrow)"/>
+<text x="590" y="104" font-size="17" fill="#236493" text-anchor="middle" font-weight="700">FRONT / +X</text>
+<text x="368.35" y="555" font-size="17" fill="#172b3a" text-anchor="middle" font-weight="700">LEFT</text>
+<text x="811.65" y="555" font-size="17" fill="#172b3a" text-anchor="middle" font-weight="700">RIGHT</text>
+<circle cx="368.35" cy="221.0" r="3" fill="#172b3a" stroke="#172b3a" stroke-width="2"/>
+<line x1="368.35" y1="221.0" x2="294.1875" y2="159" stroke="#172b3a" stroke-width="1.5"/>
+<text x="70" y="165" font-size="18" fill="#172b3a" text-anchor="start" font-weight="700">T1  One loop per side</text>
+<text x="70" y="190" font-size="16" fill="#526473" text-anchor="start" font-weight="400">40 links on each module</text>
+<circle cx="405.54999999999995" cy="233.39999999999998" r="3" fill="#236493" stroke="#236493" stroke-width="2"/>
+<line x1="405.54999999999995" y1="233.39999999999998" x2="293.03125" y2="249" stroke="#236493" stroke-width="1.5"/>
+<text x="55" y="255" font-size="18" fill="#236493" text-anchor="start" font-weight="700">P3 / A1  Idler support</text>
+<text x="55" y="280" font-size="16" fill="#526473" text-anchor="start" font-weight="400">Hub, bearings and fixed axle</text>
+<text x="55" y="303" font-size="16" fill="#526473" text-anchor="start" font-weight="400">Axle clamps to P1 only</text>
+<circle cx="590.0" cy="321.75" r="3" fill="#172b3a" stroke="#172b3a" stroke-width="2"/>
+<line x1="590.0" y1="321.75" x2="892" y2="164" stroke="#172b3a" stroke-width="1.5"/>
+<text x="900" y="170" font-size="18" fill="#172b3a" text-anchor="start" font-weight="700">P5  Existing chassis</text>
+<text x="900" y="195" font-size="16" fill="#526473" text-anchor="start" font-weight="400">200 × 152 × 6; retained</text>
+<circle cx="695.4" cy="295.4" r="3" fill="#a64c13" stroke="#a64c13" stroke-width="2"/>
+<line x1="695.4" y1="295.4" x2="892" y2="274" stroke="#a64c13" stroke-width="1.5"/>
+<text x="900" y="280" font-size="18" fill="#a64c13" text-anchor="start" font-weight="700">P2  Fixed brackets</text>
+<text x="900" y="305" font-size="16" fill="#526473" text-anchor="start" font-weight="400">2 per side; 4 total</text>
+<circle cx="411.75" cy="445.75" r="3" fill="#236493" stroke="#236493" stroke-width="2"/>
+<line x1="411.75" y1="445.75" x2="329.0" y2="329" stroke="#236493" stroke-width="1.5"/>
+<text x="70" y="335" font-size="18" fill="#236493" text-anchor="start" font-weight="700">M1  Drive motor</text>
+<text x="70" y="360" font-size="16" fill="#526473" text-anchor="start" font-weight="400">Horn and wheels face outboard</text>
+<circle cx="490.8" cy="424.05" r="3" fill="#156f50" stroke="#156f50" stroke-width="2"/>
+<line x1="490.8" y1="424.05" x2="303.59375" y2="409" stroke="#156f50" stroke-width="1.5"/>
+<text x="70" y="415" font-size="18" fill="#156f50" text-anchor="start" font-weight="700">P7  Lead restraint</text>
+<text x="70" y="440" font-size="16" fill="#526473" text-anchor="start" font-weight="400">One per side; holds the wire</text>
+<circle cx="734.15" cy="558.9" r="3" fill="#236493" stroke="#236493" stroke-width="2"/>
+<line x1="734.15" y1="558.9" x2="892" y2="484" stroke="#236493" stroke-width="1.5"/>
+<text x="900" y="490" font-size="18" fill="#236493" text-anchor="start" font-weight="700">P1  Reserved root</text>
+<text x="900" y="515" font-size="16" fill="#526473" text-anchor="start" font-weight="400">Points rearward on both sides</text>
+<line x1="335.79999999999995" y1="593" x2="335.79999999999995" y2="607" stroke="#172b3a" stroke-width="2"/>
+<line x1="844.2" y1="593" x2="844.2" y2="607" stroke="#172b3a" stroke-width="2"/>
+<line x1="335.79999999999995" y1="600" x2="844.2" y2="600" stroke="#172b3a" stroke-width="1"/>
+<text x="590.0" y="590" font-size="16" fill="#172b3a" text-anchor="middle" font-weight="400">328 overall assembled width</text>
+<rect x="65" y="635" width="1070" height="115" rx="8" fill="#f0f3f5" stroke="#d4dde3" stroke-width="2"/>
+<text x="82" y="664" font-size="18" fill="#172b3a" text-anchor="start" font-weight="700">What changes later</text>
+<text x="82" y="692" font-size="16" fill="#526473" text-anchor="start" font-weight="400">The two track modules are retained as candidates for future flippers. Fixed brackets are temporary.</text>
+<text x="82" y="715" font-size="16" fill="#526473" text-anchor="start" font-weight="400">This drawing does not define future pivot clearance, upper mounting or a stair-capable configuration.</text>
+<text x="34" y="793" font-size="14" fill="#526473" text-anchor="start" font-weight="400">P1 Track carrier: track_carrier_s1.stl   |   P2 Fixed bracket: fixed_bracket_s1.stl</text>
+<text x="34" y="817" font-size="14" fill="#526473" text-anchor="start" font-weight="400">P3 Tip hub: tip_hub_p0.stl   |   P5 Chassis: chassis_p0.stl</text>
+<text x="34" y="841" font-size="14" fill="#526473" text-anchor="start" font-weight="400">P7 Drive-lead restraint: drive_lead_restraint_s1.stl</text>
+<line x1="34" y1="846" x2="1166" y2="846" stroke="#d4dde3" stroke-width="2"/>
+<text x="34" y="870" font-size="14" fill="#526473" text-anchor="start" font-weight="400">S0/S1 candidate • simplified assembly illustration • dimensions in mm • not a fabrication template</text>
+</g>
+</svg>

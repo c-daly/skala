@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="984" viewBox="0 0 1200 984">
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10Z" fill="context-stroke"/></marker></defs>
+<rect width="100%" height="100%" fill="white"/>
+<g font-family="DejaVu Sans,Arial,sans-serif" stroke-linejoin="round" stroke-linecap="round">
+<text x="34" y="38" font-size="26" fill="#172b3a" text-anchor="start" font-weight="700">10B  Sensor fastening stacks and cable exits</text>
+<text x="34" y="67" font-size="17" fill="#526473" text-anchor="start" font-weight="400">Read each stack in order • no scanner load passes through the Pi or its header</text>
+<line x1="34" y1="83" x2="1166" y2="83" stroke="#d4dde3" stroke-width="2"/>
+<text x="45" y="130" font-size="21" fill="#172b3a" text-anchor="start" font-weight="700">Bridge feet — 4 joints</text>
+<text x="45" y="165" font-size="16" fill="#172b3a" text-anchor="start" font-weight="400">M3×16 head → washer → deck 4 → foot 6 → washer → M3 nyloc</text>
+<text x="45" y="195" font-size="16" fill="#526473" text-anchor="start" font-weight="400">Install from BELOW; fit both frames before boards obscure the upper nuts.</text>
+<text x="45" y="255" font-size="21" fill="#172b3a" text-anchor="start" font-weight="700">Bridge top — 4 joints</text>
+<text x="45" y="290" font-size="16" fill="#172b3a" text-anchor="start" font-weight="400">M3×16 head → washer → plate 4 → rail 6 → washer → M3 nyloc</text>
+<text x="45" y="320" font-size="16" fill="#526473" text-anchor="start" font-weight="400">Install from ABOVE; nuts remain accessible inside the side frames.</text>
+<text x="45" y="380" font-size="21" fill="#172b3a" text-anchor="start" font-weight="700">A1 scanner — 4 columns, conditional on model match</text>
+<text x="45" y="415" font-size="16" fill="#172b3a" text-anchor="start" font-weight="400">M3×10 + washer above foot 5 → M3 F/F column 35 → bridge 4 → washer + M3×10 below</text>
+<text x="45" y="445" font-size="16" fill="#526473" text-anchor="start" font-weight="400">Nominal thread engagement: 4.5 mm above / 5.5 mm below. Motor clears bridge by 8.5 mm.</text>
+<text x="45" y="505" font-size="21" fill="#172b3a" text-anchor="start" font-weight="700">WM8960 — 2 GPIO-side positions, conditional on seated gap</text>
+<text x="45" y="540" font-size="16" fill="#172b3a" text-anchor="start" font-weight="400">M2.5×16 from BELOW → washer → adapter 3 → spacer 6 → Pi 1.6 → washer → F/F pillar 12</text>
+<text x="45" y="570" font-size="16" fill="#526473" text-anchor="start" font-weight="400">Above: M2.5×6 → washer → HAT 1.6 → pillar. Natural board-face gap must match 12.5 mm.</text>
+<text x="45" y="630" font-size="21" fill="#172b3a" text-anchor="start" font-weight="700">Interface carrier — 2 columns</text>
+<text x="45" y="665" font-size="16" fill="#172b3a" text-anchor="start" font-weight="400">M2.5×8 + washer above bridge 4 → M2.5 F/F column 15 → carrier 3 → washer + M2.5×8</text>
+<text x="45" y="695" font-size="16" fill="#526473" text-anchor="start" font-weight="400">Board-specific insulated supports are still required; the bare PCB must not lie on screw heads.</text>
+<rect x="45" y="760" width="1110" height="115" rx="8" fill="#f0f3f5" stroke="#d4dde3" stroke-width="2"/>
+<text x="62" y="789" font-size="18" fill="#172b3a" text-anchor="start" font-weight="700">Cable paths remain below the scanning plane</text>
+<text x="62" y="817" font-size="16" fill="#526473" text-anchor="start" font-weight="400">A1 cable: rear opening to P17, USB toward the left-side Pi ports. CSI: front bridge slots to a relaxed head loop.</text>
+<text x="62" y="840" font-size="16" fill="#526473" text-anchor="start" font-weight="400">Keep microphone openings and the open bridge windows uncovered. Check the entire head motion with the real ribbon.</text>
+<text x="34" y="938" font-size="14" fill="#526473" text-anchor="start" font-weight="400">P12 LiDAR bridge: lidar_bridge_s1.stl   |   P17 LiDAR interface carrier: lidar_interface_carrier_s1.stl</text>
+<line x1="34" y1="943" x2="1166" y2="943" stroke="#d4dde3" stroke-width="2"/>
+<text x="34" y="967" font-size="14" fill="#526473" text-anchor="start" font-weight="400">S0/S1 candidate • simplified assembly illustration • dimensions in mm • not a fabrication template</text>
+</g>
+</svg>

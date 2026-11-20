@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="884" viewBox="0 0 1200 884">
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10Z" fill="context-stroke"/></marker></defs>
+<rect width="100%" height="100%" fill="white"/>
+<g font-family="DejaVu Sans,Arial,sans-serif" stroke-linejoin="round" stroke-linecap="round">
+<text x="34" y="38" font-size="26" fill="#172b3a" text-anchor="start" font-weight="700">2  Seat the motor and select the screw holes</text>
+<text x="34" y="67" font-size="17" fill="#526473" text-anchor="start" font-weight="400">Work on one module, with power disconnected and the track still off</text>
+<line x1="34" y1="83" x2="1166" y2="83" stroke="#d4dde3" stroke-width="2"/>
+<text x="45" y="120" font-size="19" fill="#172b3a" text-anchor="start" font-weight="700">A. Looking onto the motor horn</text>
+<circle cx="130.0" cy="285.0" r="105.4" fill="#dcecf7" stroke="#236493" stroke-width="2"/>
+<rect x="130.0" y="229.2" width="589.0" height="111.60000000000001" rx="0" fill="#dcecf7" stroke="#236493" stroke-width="2"/>
+<circle cx="130.0" cy="285.0" r="24.8" fill="white" stroke="#172b3a" stroke-width="2"/>
+<circle cx="80.4" cy="334.6" r="6.820000000000001" fill="white" stroke="#172b3a" stroke-width="2"/>
+<circle cx="80.4" cy="235.4" r="6.820000000000001" fill="white" stroke="#172b3a" stroke-width="2"/>
+<circle cx="179.6" cy="334.6" r="6.820000000000001" fill="white" stroke="#172b3a" stroke-width="2"/>
+<circle cx="179.6" cy="235.4" r="6.820000000000001" fill="white" stroke="#172b3a" stroke-width="2"/>
+<rect x="409.0" y="229.2" width="74.4" height="111.60000000000001" rx="0" fill="#dcecf7" stroke="#236493" stroke-width="2"/>
+<circle cx="446.2" cy="312.9" r="6.820000000000001" fill="white" stroke="#172b3a" stroke-width="2"/>
+<circle cx="446.2" cy="257.1" r="6.820000000000001" fill="white" stroke="#172b3a" stroke-width="2"/>
+<rect x="557.8" y="229.2" width="74.4" height="111.60000000000001" rx="0" fill="#dcecf7" stroke="#236493" stroke-width="2"/>
+<circle cx="595.0" cy="312.9" r="6.820000000000001" fill="white" stroke="#172b3a" stroke-width="2"/>
+<circle cx="595.0" cy="257.1" r="6.820000000000001" fill="white" stroke="#172b3a" stroke-width="2"/>
+<rect x="236.79500000000002" y="221.295" width="146.01000000000002" height="127.41000000000001" rx="0" fill="#ffe2c2" stroke="#a64c13" stroke-width="2"/>
+<rect x="237.72500000000002" y="240.825" width="144.15" height="88.35000000000001" rx="0" fill="#dcecf7" stroke="#236493" stroke-width="2"/>
+<circle cx="272.6" cy="285.0" r="32.24" fill="white" stroke="#236493" stroke-width="2"/>
+<circle cx="272.6" cy="285.0" r="10.85" fill="white" stroke="#236493" stroke-width="2"/>
+<circle cx="297.4" cy="285.0" r="2.4" fill="white" stroke="#236493" stroke-width="2"/>
+<circle cx="272.6" cy="260.2" r="2.4" fill="white" stroke="#236493" stroke-width="2"/>
+<circle cx="247.8" cy="285.0" r="2.4" fill="white" stroke="#236493" stroke-width="2"/>
+<circle cx="272.6" cy="309.8" r="2.4" fill="white" stroke="#236493" stroke-width="2"/>
+<line x1="381.875" y1="285.0" x2="412.1" y2="285.0" stroke="#156f50" stroke-width="5"/>
+<circle cx="130.0" cy="223.0" r="3" fill="#236493" stroke="#236493" stroke-width="2"/>
+<line x1="130.0" y1="223.0" x2="40" y2="424" stroke="#236493" stroke-width="1.5"/>
+<text x="48" y="430" font-size="18" fill="#236493" text-anchor="start" font-weight="700">Reserved root</text>
+<text x="48" y="455" font-size="16" fill="#526473" text-anchor="start" font-weight="400">Leave empty for S1</text>
+<circle cx="272.6" cy="263.3" r="3" fill="#236493" stroke="#236493" stroke-width="2"/>
+<line x1="272.6" y1="263.3" x2="262" y2="159" stroke="#236493" stroke-width="1.5"/>
+<text x="270" y="165" font-size="18" fill="#236493" text-anchor="start" font-weight="700">M1  XL430</text>
+<text x="270" y="190" font-size="16" fill="#526473" text-anchor="start" font-weight="400">Horn faces the reader</text>
+<circle cx="381.875" cy="285.0" r="3" fill="#156f50" stroke="#156f50" stroke-width="2"/>
+<line x1="381.875" y1="285.0" x2="532" y2="174" stroke="#156f50" stroke-width="1.5"/>
+<text x="540" y="180" font-size="18" fill="#156f50" text-anchor="start" font-weight="700">Connector end</text>
+<text x="540" y="205" font-size="16" fill="#526473" text-anchor="start" font-weight="400">Points toward idler →</text>
+<circle cx="412.1" cy="285.0" r="3" fill="#156f50" stroke="#156f50" stroke-width="2"/>
+<line x1="412.1" y1="285.0" x2="732" y2="409" stroke="#156f50" stroke-width="1.5"/>
+<text x="740" y="415" font-size="18" fill="#156f50" text-anchor="start" font-weight="700">C1  Motor lead</text>
+<text x="740" y="440" font-size="16" fill="#526473" text-anchor="start" font-weight="400">Plug at the end face</text>
+<text x="740" y="463" font-size="16" fill="#526473" text-anchor="start" font-weight="400">Side route is shown in 2C</text>
+<text x="805" y="290" font-size="18" fill="#172b3a" text-anchor="start" font-weight="700">IDLER →</text>
+<text x="45" y="510" font-size="19" fill="#172b3a" text-anchor="start" font-weight="700">B. Side wall screw pattern — repeat on the opposite wall</text>
+<rect x="65" y="555" width="330" height="150" rx="0" fill="#ffe2c2" stroke="#a64c13" stroke-width="2"/>
+<circle cx="120" cy="665" r="13" fill="white" stroke="#a64c13" stroke-width="2"/>
+<text x="120" y="670" font-size="16" fill="#a64c13" text-anchor="middle" font-weight="700">–</text>
+<circle cx="120" cy="593" r="13" fill="#a64c13" stroke="#a64c13" stroke-width="2"/>
+<text x="120" y="598" font-size="16" fill="white" text-anchor="middle" font-weight="700">✓</text>
+<circle cx="312" cy="665" r="13" fill="white" stroke="#a64c13" stroke-width="2"/>
+<text x="312" y="670" font-size="16" fill="#a64c13" text-anchor="middle" font-weight="700">–</text>
+<circle cx="312" cy="593" r="13" fill="#a64c13" stroke="#a64c13" stroke-width="2"/>
+<text x="312" y="598" font-size="16" fill="white" text-anchor="middle" font-weight="700">✓</text>
+<text x="120" y="735" font-size="16" fill="#526473" text-anchor="middle" font-weight="400">horn end</text>
+<text x="312" y="735" font-size="16" fill="#526473" text-anchor="middle" font-weight="400">connector end</text>
+<text x="440" y="565" font-size="19" fill="#172b3a" text-anchor="start" font-weight="700">H1  Four M2.6 × 5 tapping screws per motor</text>
+<text x="440" y="598" font-size="17" fill="#172b3a" text-anchor="start" font-weight="400">Use both filled UPPER positions on EACH side.</text>
+<text x="440" y="622" font-size="17" fill="#172b3a" text-anchor="start" font-weight="400">Upper row: nearer the horn face (outboard).</text>
+<text x="440" y="646" font-size="17" fill="#172b3a" text-anchor="start" font-weight="400">Lower row: nearer the carrier plate — leave empty.</text>
+<text x="440" y="670" font-size="17" fill="#172b3a" text-anchor="start" font-weight="400">Seat all four heads in their recesses.</text>
+<text x="440" y="694" font-size="17" fill="#172b3a" text-anchor="start" font-weight="400">Use supplied tapping screws; add no washers.</text>
+<text x="440" y="715" font-size="16" fill="#526473" text-anchor="start" font-weight="400">The thin wall under each screw head is 2 mm.</text>
+<text x="440" y="738" font-size="16" fill="#526473" text-anchor="start" font-weight="400">The four-screw arrangement still needs loaded qualification.</text>
+<text x="34" y="838" font-size="14" fill="#526473" text-anchor="start" font-weight="400">P1 Track carrier: track_carrier_s1.stl</text>
+<line x1="34" y1="843" x2="1166" y2="843" stroke="#d4dde3" stroke-width="2"/>
+<text x="34" y="867" font-size="14" fill="#526473" text-anchor="start" font-weight="400">S0/S1 candidate • simplified assembly illustration • dimensions in mm • not a fabrication template</text>
+</g>
+</svg>

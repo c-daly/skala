@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="850" viewBox="0 0 1200 850">
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10Z" fill="context-stroke"/></marker></defs>
+<rect width="100%" height="100%" fill="white"/>
+<g font-family="DejaVu Sans,Arial,sans-serif" stroke-linejoin="round" stroke-linecap="round">
+<text x="34" y="38" font-size="26" fill="#172b3a" text-anchor="start" font-weight="700">7  Connection endpoints and unfinished power work</text>
+<text x="34" y="67" font-size="17" fill="#526473" text-anchor="start" font-weight="400">Connection plan, not a released harness • attach drive leads before covering the lower chassis</text>
+<line x1="34" y1="83" x2="1166" y2="83" stroke="#d4dde3" stroke-width="2"/>
+<rect x="45" y="155" width="260" height="105" rx="8" fill="#dcecf7" stroke="#236493" stroke-width="2"/>
+<text x="60" y="183" font-size="18" fill="#236493" text-anchor="start" font-weight="700">Left XL430</text>
+<text x="60" y="211" font-size="15" fill="#526473" text-anchor="start" font-weight="400">3-pin TTL socket</text>
+<text x="60" y="233" font-size="15" fill="#526473" text-anchor="start" font-weight="400">Lead exits carrier inboard</text>
+<rect x="45" y="335" width="260" height="105" rx="8" fill="#dcecf7" stroke="#236493" stroke-width="2"/>
+<text x="60" y="363" font-size="18" fill="#236493" text-anchor="start" font-weight="700">Right XL430</text>
+<text x="60" y="391" font-size="15" fill="#526473" text-anchor="start" font-weight="400">3-pin TTL socket</text>
+<text x="60" y="413" font-size="15" fill="#526473" text-anchor="start" font-weight="400">Separate detachable lead</text>
+<rect x="430" y="240" width="270" height="120" rx="8" fill="#dcecf7" stroke="#236493" stroke-width="2"/>
+<text x="445" y="268" font-size="18" fill="#236493" text-anchor="start" font-weight="700">OpenCR</text>
+<text x="445" y="296" font-size="15" fill="#526473" text-anchor="start" font-weight="400">Two 3-pin TTL connections</text>
+<text x="445" y="318" font-size="15" fill="#526473" text-anchor="start" font-weight="400">Common TTL bus; distinct IDs</text>
+<path d="M305 207 H365 V270 H430" fill="none" stroke="#156f50" stroke-width="4"/>
+<path d="M305 387 H380 V330 H430" fill="none" stroke="#156f50" stroke-width="4"/>
+<text x="315" y="145" font-size="18" fill="#156f50" text-anchor="start" font-weight="700">C1 leads</text>
+<text x="315" y="172" font-size="15" fill="#156f50" text-anchor="start" font-weight="400">GND / VDD / DATA</text>
+<rect x="860" y="240" width="290" height="120" rx="8" fill="#f0f3f5" stroke="#172b3a" stroke-width="2"/>
+<text x="875" y="268" font-size="18" fill="#172b3a" text-anchor="start" font-weight="700">Raspberry Pi</text>
+<text x="875" y="296" font-size="15" fill="#526473" text-anchor="start" font-weight="400">USB data to OpenCR</text>
+<text x="875" y="318" font-size="15" fill="#526473" text-anchor="start" font-weight="400">Regulated compute supply</text>
+<line x1="700" y1="300" x2="860" y2="300" stroke="#172b3a" stroke-width="3"/>
+<text x="780" y="285" font-size="16" fill="#172b3a" text-anchor="middle" font-weight="400">USB</text>
+<rect x="825" y="105" width="340" height="90" rx="8" fill="#f0f3f5" stroke="#172b3a" stroke-width="2"/>
+<text x="840" y="133" font-size="18" fill="#172b3a" text-anchor="start" font-weight="700">LiDAR / camera / microphone</text>
+<text x="840" y="161" font-size="15" fill="#526473" text-anchor="start" font-weight="400">Interfaces and mounts to finalize</text>
+<line x1="1000" y1="195" x2="1000" y2="240" stroke="#526473" stroke-width="2" stroke-dasharray="7 5"/>
+<rect x="45" y="560" width="260" height="100" rx="8" fill="#ffe2c2" stroke="#a64c13" stroke-width="2"/>
+<text x="60" y="588" font-size="18" fill="#a64c13" text-anchor="start" font-weight="700">Motor supply</text>
+<text x="60" y="616" font-size="15" fill="#526473" text-anchor="start" font-weight="400">Source and protection</text>
+<text x="60" y="638" font-size="15" fill="#526473" text-anchor="start" font-weight="400">to be finalized</text>
+<rect x="395" y="540" width="330" height="140" rx="8" fill="#ffe2c2" stroke="#a64c13" stroke-width="2"/>
+<text x="410" y="568" font-size="18" fill="#a64c13" text-anchor="start" font-weight="700">Power / stop: unfinished</text>
+<text x="410" y="596" font-size="15" fill="#526473" text-anchor="start" font-weight="400">Fuse / disconnect / distribution</text>
+<text x="410" y="618" font-size="15" fill="#526473" text-anchor="start" font-weight="400">Ratings, connector ends and</text>
+<text x="410" y="640" font-size="15" fill="#526473" text-anchor="start" font-weight="400">placement are not yet specified</text>
+<line x1="305" y1="610" x2="395" y2="610" stroke="#a64c13" stroke-width="2" stroke-dasharray="7 5"/>
+<line x1="560" y1="540" x2="560" y2="360" stroke="#a64c13" stroke-width="2" stroke-dasharray="7 5" marker-end="url(#arrow)"/>
+<rect x="860" y="560" width="290" height="100" rx="8" fill="#ffe2c2" stroke="#a64c13" stroke-width="2"/>
+<text x="875" y="588" font-size="18" fill="#a64c13" text-anchor="start" font-weight="700">Compute supply</text>
+<text x="875" y="616" font-size="15" fill="#526473" text-anchor="start" font-weight="400">Connector and loaded capacity</text>
+<text x="875" y="638" font-size="15" fill="#526473" text-anchor="start" font-weight="400">to be finalized</text>
+<line x1="1000" y1="560" x2="1000" y2="360" stroke="#a64c13" stroke-width="2" stroke-dasharray="7 5" marker-end="url(#arrow)"/>
+<text x="45" y="740" font-size="18" fill="#172b3a" text-anchor="start" font-weight="700">Solid lines name intended data connections. Dashed paths still require electrical design.</text>
+<text x="45" y="770" font-size="17" fill="#526473" text-anchor="start" font-weight="400">No cable lengths, wire colours, fuse sizes or powered-test instructions are implied by this diagram.</text>
+<line x1="34" y1="809" x2="1166" y2="809" stroke="#d4dde3" stroke-width="2"/>
+<text x="34" y="833" font-size="14" fill="#526473" text-anchor="start" font-weight="400">S0/S1 candidate • simplified assembly illustration • dimensions in mm • not a fabrication template</text>
+</g>
+</svg>

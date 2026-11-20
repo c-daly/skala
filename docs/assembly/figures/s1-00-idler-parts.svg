@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1008" viewBox="0 0 1200 1008">
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10Z" fill="context-stroke"/></marker></defs>
+<rect width="100%" height="100%" fill="white"/>
+<g font-family="DejaVu Sans,Arial,sans-serif" stroke-linejoin="round" stroke-linecap="round">
+<text x="34" y="38" font-size="26" fill="#172b3a" text-anchor="start" font-weight="700">Identify the revised idler: P3 + P8 + two P4 rings</text>
+<text x="34" y="67" font-size="17" fill="#526473" text-anchor="start" font-weight="400">R2 hub has THREE rear cap pilots; FOUR front holes attach the wheel</text>
+<line x1="34" y1="83" x2="1166" y2="83" stroke="#d4dde3" stroke-width="2"/>
+<text x="45" y="125" font-size="21" fill="#236493" text-anchor="start" font-weight="700">P3 Tip hub — tip_hub_p0.stl</text>
+<text x="45" y="155" font-size="16" fill="#526473" text-anchor="start" font-weight="400">ACTUAL CAD SECTION • wheel side left</text>
+<path d="M164.000 377.200 L120.000 377.200 L120.000 364.000 L164.000 364.000 L164.000 377.200 Z" fill="#dcecf7" fill-rule="evenodd" stroke="#236493" stroke-width="1.4"/>
+<path d="M164.000 276.000 L120.000 276.000 L120.000 262.800 L164.000 262.800 L164.000 276.000 Z" fill="#dcecf7" fill-rule="evenodd" stroke="#236493" stroke-width="1.4"/>
+<path d="M236.000 212.000 L248.000 200.000 L292.000 200.000 L292.000 217.200 L252.000 217.200 L252.000 230.800 L292.000 230.800 L292.000 242.800 L172.000 242.800 L172.000 249.200 L120.000 249.200 L120.000 200.000 L172.000 200.000 L172.000 212.000 L236.000 212.000 Z" fill="#dcecf7" fill-rule="evenodd" stroke="#236493" stroke-width="1.4"/>
+<path d="M120.000 440.000 L120.000 390.800 L172.000 390.800 L172.000 397.200 L292.000 397.200 L292.000 440.000 L248.000 440.000 L236.000 428.000 L172.000 428.000 L172.000 440.000 L120.000 440.000 Z" fill="#dcecf7" fill-rule="evenodd" stroke="#236493" stroke-width="1.4"/>
+<line x1="425" y1="320" x2="302" y2="320" stroke="#156f50" stroke-width="3" marker-end="url(#arrow)"/>
+<text x="345" y="285" font-size="17" fill="#156f50" text-anchor="start" font-weight="700">Bearings enter</text>
+<text x="345" y="310" font-size="16" fill="#156f50" text-anchor="start" font-weight="400">from rear</text>
+<line x1="120" y1="463" x2="120" y2="477" stroke="#172b3a" stroke-width="2"/>
+<line x1="292" y1="463" x2="292" y2="477" stroke="#172b3a" stroke-width="2"/>
+<line x1="120" y1="470" x2="292" y2="470" stroke="#172b3a" stroke-width="1"/>
+<text x="206.0" y="460" font-size="16" fill="#172b3a" text-anchor="middle" font-weight="400">21.5 overall length</text>
+<text x="45" y="510" font-size="18" fill="#172b3a" text-anchor="start" font-weight="700">Ø30 flange and rear collar / Ø27 waist</text>
+<text x="45" y="540" font-size="16" fill="#172b3a" text-anchor="start" font-weight="400">Ø19.3 bore × 15 deep; three rear Ø1.7 pilots</text>
+<text x="45" y="570" font-size="16" fill="#172b3a" text-anchor="start" font-weight="400">Front Ø11 opening clears the M6 head.</text>
+<text x="45" y="600" font-size="16" fill="#172b3a" text-anchor="start" font-weight="400">Rear collar accepts P8 and three H8 screws.</text>
+<rect x="45" y="650" width="530" height="140" rx="8" fill="#f0f3f5" stroke="#d4dde3" stroke-width="2"/>
+<text x="62" y="679" font-size="18" fill="#172b3a" text-anchor="start" font-weight="700">Replace the earlier hub</text>
+<text x="62" y="707" font-size="16" fill="#526473" text-anchor="start" font-weight="400">A hub without the three rear pilots cannot accept P8.</text>
+<text x="62" y="730" font-size="16" fill="#526473" text-anchor="start" font-weight="400">The previous bearing fit alone did not retain it.</text>
+<text x="62" y="753" font-size="16" fill="#526473" text-anchor="start" font-weight="400">No drilling is specified for this revised print.</text>
+<line x1="610" y1="110" x2="610" y2="850" stroke="#d4dde3" stroke-width="2"/>
+<text x="645" y="125" font-size="21" fill="#156f50" text-anchor="start" font-weight="700">P8 Idler bearing cap</text>
+<text x="645" y="155" font-size="18" fill="#156f50" text-anchor="start" font-weight="400">idler_bearing_cap_s1.stl</text>
+<text x="645" y="185" font-size="15" fill="#526473" text-anchor="start" font-weight="400">CARRIER-FACING SIDE • countersinks visible</text>
+<circle cx="770" cy="310" r="90" fill="#d9f1e6" stroke="#156f50" stroke-width="2"/>
+<circle cx="770" cy="310" r="51.0" fill="white" stroke="#156f50" stroke-width="2"/>
+<circle cx="842.0" cy="310.0" r="12.299999999999999" fill="white" stroke="#156f50" stroke-width="2"/>
+<circle cx="842.0" cy="310.0" r="7.199999999999999" fill="white" stroke="#156f50" stroke-width="2"/>
+<circle cx="734.0" cy="247.64617092752042" r="12.299999999999999" fill="white" stroke="#156f50" stroke-width="2"/>
+<circle cx="734.0" cy="247.64617092752042" r="7.199999999999999" fill="white" stroke="#156f50" stroke-width="2"/>
+<circle cx="734.0" cy="372.3538290724796" r="12.299999999999999" fill="white" stroke="#156f50" stroke-width="2"/>
+<circle cx="734.0" cy="372.3538290724796" r="7.199999999999999" fill="white" stroke="#156f50" stroke-width="2"/>
+<text x="900" y="285" font-size="17" fill="#156f50" text-anchor="start" font-weight="700">Three countersinks</text>
+<text x="900" y="315" font-size="16" fill="#172b3a" text-anchor="start" font-weight="400">Ø30 × 2 thick</text>
+<text x="900" y="338" font-size="16" fill="#172b3a" text-anchor="start" font-weight="400">Ø17 opening</text>
+<text x="900" y="361" font-size="16" fill="#172b3a" text-anchor="start" font-weight="400">Ø24 screw circle</text>
+<text x="645" y="445" font-size="17" fill="#172b3a" text-anchor="start" font-weight="700">Shallow circular relief on the OTHER side</text>
+<text x="645" y="473" font-size="16" fill="#172b3a" text-anchor="start" font-weight="400">faces the bearing. Cap screws face the carrier.</text>
+<line x1="645" y1="510" x2="1150" y2="510" stroke="#d4dde3" stroke-width="2"/>
+<text x="645" y="550" font-size="19" fill="#a64c13" text-anchor="start" font-weight="700">P4 Hub spacer — hub_spacer_p0.stl</text>
+<circle cx="715" cy="640" r="47.5" fill="#ffe2c2" stroke="#a64c13" stroke-width="2"/>
+<circle cx="715" cy="640" r="31.5" fill="white" stroke="#a64c13" stroke-width="2"/>
+<rect x="800" y="592.5" width="30" height="95" rx="0" fill="#ffe2c2" stroke="#a64c13" stroke-width="2"/>
+<line x1="800" y1="608.5" x2="830" y2="608.5" stroke="#a64c13" stroke-width="2" stroke-dasharray="7 5"/>
+<line x1="800" y1="671.5" x2="830" y2="671.5" stroke="#a64c13" stroke-width="2" stroke-dasharray="7 5"/>
+<text x="875" y="620" font-size="16" fill="#172b3a" text-anchor="start" font-weight="400">Plain ring</text>
+<text x="875" y="643" font-size="16" fill="#172b3a" text-anchor="start" font-weight="400">Ø9.5 / Ø6.3 / 3 thick</text>
+<text x="875" y="666" font-size="16" fill="#172b3a" text-anchor="start" font-weight="400">Two per idler</text>
+<text x="645" y="735" font-size="16" fill="#172b3a" text-anchor="start" font-weight="400">One between bearings; one inside P8&#x27;s opening</text>
+<text x="645" y="762" font-size="16" fill="#172b3a" text-anchor="start" font-weight="400">between rear inner ring and carrier boss.</text>
+<rect x="645" y="795" width="505" height="90" rx="8" fill="#f0f3f5" stroke="#d4dde3" stroke-width="2"/>
+<text x="662" y="824" font-size="18" fill="#172b3a" text-anchor="start" font-weight="700">Not the four-hole pivot disc</text>
+<text x="662" y="852" font-size="16" fill="#526473" text-anchor="start" font-weight="400">pivot_spacer_p0.stl is a different, unused part.</text>
+<text x="34" y="938" font-size="14" fill="#526473" text-anchor="start" font-weight="400">P3 Tip hub: tip_hub_p0.stl   |   P4 Hub spacer: hub_spacer_p0.stl</text>
+<text x="34" y="962" font-size="14" fill="#526473" text-anchor="start" font-weight="400">P8 Idler bearing cap: idler_bearing_cap_s1.stl</text>
+<line x1="34" y1="967" x2="1166" y2="967" stroke="#d4dde3" stroke-width="2"/>
+<text x="34" y="991" font-size="14" fill="#526473" text-anchor="start" font-weight="400">S0/S1 candidate • simplified assembly illustration • dimensions in mm • not a fabrication template</text>
+</g>
+</svg>

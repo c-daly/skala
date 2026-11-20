@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="854" viewBox="0 0 1200 854">
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10Z" fill="context-stroke"/></marker></defs>
+<rect width="100%" height="100%" fill="white"/>
+<g font-family="DejaVu Sans,Arial,sans-serif" stroke-linejoin="round" stroke-linecap="round">
+<text x="34" y="38" font-size="26" fill="#172b3a" text-anchor="start" font-weight="700">6B  Restrain each drive lead on the chassis</text>
+<text x="34" y="67" font-size="17" fill="#526473" text-anchor="start" font-weight="400">P7 uses existing chassis holes • install before the deck • one stand and one tie on each side</text>
+<line x1="34" y1="83" x2="1166" y2="83" stroke="#d4dde3" stroke-width="2"/>
+<text x="45" y="130" font-size="19" fill="#172b3a" text-anchor="start" font-weight="700">Side section of P7 — open side faces forward</text>
+<rect x="187" y="507" width="168" height="28" rx="0" fill="#dcecf7" stroke="#236493" stroke-width="2"/>
+<rect x="187" y="227" width="28" height="280" rx="0" fill="#dcecf7" stroke="#236493" stroke-width="2"/>
+<rect x="187" y="227" width="154" height="28" rx="0" fill="#dcecf7" stroke="#236493" stroke-width="2"/>
+<rect x="225.5" y="227" width="21" height="28" rx="0" fill="white" stroke="#236493" stroke-width="2"/>
+<rect x="309.5" y="227" width="21" height="28" rx="0" fill="white" stroke="#236493" stroke-width="2"/>
+<rect x="89" y="535" width="364" height="42" rx="0" fill="#f0f3f5" stroke="#172b3a" stroke-width="2"/>
+<line x1="243" y1="580.5" x2="243" y2="468.5" stroke="#172b3a" stroke-width="5"/>
+<rect x="223.75" y="580.5" width="38.5" height="21" rx="0" fill="#b5c0c9" stroke="#172b3a" stroke-width="2"/>
+<rect x="220.74" y="475.5" width="44.52" height="28" rx="0" fill="#b5c0c9" stroke="#172b3a" stroke-width="2"/>
+<rect x="218.5" y="577.0" width="49" height="3.5" rx="0" fill="#b5c0c9" stroke="#172b3a" stroke-width="2"/>
+<rect x="218.5" y="503.5" width="49" height="3.5" rx="0" fill="#b5c0c9" stroke="#172b3a" stroke-width="2"/>
+<line x1="299" y1="580.5" x2="299" y2="468.5" stroke="#172b3a" stroke-width="5"/>
+<rect x="279.75" y="580.5" width="38.5" height="21" rx="0" fill="#b5c0c9" stroke="#172b3a" stroke-width="2"/>
+<rect x="276.74" y="475.5" width="44.52" height="28" rx="0" fill="#b5c0c9" stroke="#172b3a" stroke-width="2"/>
+<rect x="274.5" y="577.0" width="49" height="3.5" rx="0" fill="#b5c0c9" stroke="#172b3a" stroke-width="2"/>
+<rect x="274.5" y="503.5" width="49" height="3.5" rx="0" fill="#b5c0c9" stroke="#172b3a" stroke-width="2"/>
+<circle cx="278" cy="211.25" r="15.75" fill="#d9f1e6" stroke="#156f50" stroke-width="2"/>
+<path d="M236 241 V185 H320 V269 H236 Z" fill="none" stroke="#156f50" stroke-width="3"/>
+<circle cx="278" cy="211.25" r="3" fill="#156f50" stroke="#156f50" stroke-width="2"/>
+<line x1="278" y1="211.25" x2="360" y2="180" stroke="#156f50" stroke-width="1.5"/>
+<text x="370" y="175" font-size="18" fill="#156f50" text-anchor="start" font-weight="700">C1 drive lead</text>
+<text x="370" y="200" font-size="16" fill="#526473" text-anchor="start" font-weight="400">Shown end-on</text>
+<circle cx="201" cy="374" r="3" fill="#236493" stroke="#236493" stroke-width="2"/>
+<line x1="201" y1="374" x2="340" y2="360" stroke="#236493" stroke-width="1.5"/>
+<text x="350" y="355" font-size="18" fill="#236493" text-anchor="start" font-weight="700">P7 printed stand</text>
+<text x="350" y="380" font-size="16" fill="#526473" text-anchor="start" font-weight="400">44 mm to saddle</text>
+<circle cx="299" cy="591" r="3" fill="#172b3a" stroke="#172b3a" stroke-width="2"/>
+<line x1="299" y1="591" x2="300" y2="614" stroke="#172b3a" stroke-width="1.5"/>
+<text x="45" y="630" font-size="18" fill="#172b3a" text-anchor="start" font-weight="700">M3 × 16 from BELOW</text>
+<text x="45" y="655" font-size="16" fill="#526473" text-anchor="start" font-weight="400">Washer under head; washer + nyloc on base</text>
+<text x="610" y="170" font-size="20" fill="#172b3a" text-anchor="start" font-weight="700">Existing chassis holes</text>
+<text x="610" y="205" font-size="19" fill="#172b3a" text-anchor="start" font-weight="400">Rows 19 + 20 from FRONT</text>
+<text x="610" y="231" font-size="19" fill="#172b3a" text-anchor="start" font-weight="400">Column 2 inward from EACH side</text>
+<text x="610" y="257" font-size="19" fill="#172b3a" text-anchor="start" font-weight="400">Adjacent holes: 8 mm apart fore/aft</text>
+<text x="610" y="283" font-size="16" fill="#526473" text-anchor="start" font-weight="400">148 / 156 mm from front; 12 mm from side</text>
+<text x="610" y="320" font-size="20" fill="#172b3a" text-anchor="start" font-weight="700">Per stand</text>
+<text x="610" y="355" font-size="18" fill="#172b3a" text-anchor="start" font-weight="400">2 × M3 × 16 socket bolts</text>
+<text x="610" y="380" font-size="18" fill="#172b3a" text-anchor="start" font-weight="400">4 × Ø7 / Ø3.2 / 0.5 washers</text>
+<text x="610" y="405" font-size="18" fill="#172b3a" text-anchor="start" font-weight="400">2 × M3 nyloc nuts, 4 mm high</text>
+<text x="610" y="430" font-size="18" fill="#172b3a" text-anchor="start" font-weight="400">1 × 2.5 × 100 mm cable tie</text>
+<text x="610" y="485" font-size="20" fill="#172b3a" text-anchor="start" font-weight="700">Cable centre at restraint</text>
+<text x="610" y="525" font-size="18" fill="#172b3a" text-anchor="start" font-weight="400">X=−51, Y=±64, Z=46.25 mm</text>
+<text x="610" y="550" font-size="18" fill="#172b3a" text-anchor="start" font-weight="400">Tie through both top slots.</text>
+<text x="610" y="575" font-size="18" fill="#172b3a" text-anchor="start" font-weight="400">Close it without flattening the wires.</text>
+<rect x="45" y="685" width="1110" height="90" rx="8" fill="#f0f3f5" stroke="#d4dde3" stroke-width="2"/>
+<text x="62" y="714" font-size="18" fill="#172b3a" text-anchor="start" font-weight="700">Leave a removable connection</text>
+<text x="62" y="742" font-size="16" fill="#526473" text-anchor="start" font-weight="400">Retain the factory 180 mm JST–JST lead. Keep its free end inboard for the later OpenCR connection; do not cut it.</text>
+<text x="34" y="808" font-size="14" fill="#526473" text-anchor="start" font-weight="400">P5 Chassis: chassis_p0.stl   |   P7 Drive-lead restraint: drive_lead_restraint_s1.stl</text>
+<line x1="34" y1="813" x2="1166" y2="813" stroke="#d4dde3" stroke-width="2"/>
+<text x="34" y="837" font-size="14" fill="#526473" text-anchor="start" font-weight="400">S0/S1 candidate • simplified assembly illustration • dimensions in mm • not a fabrication template</text>
+</g>
+</svg>

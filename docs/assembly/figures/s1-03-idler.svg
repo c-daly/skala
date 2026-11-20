@@ -1,0 +1,140 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1168" viewBox="0 0 1200 1168">
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10Z" fill="context-stroke"/></marker></defs>
+<rect width="100%" height="100%" fill="white"/>
+<g font-family="DejaVu Sans,Arial,sans-serif" stroke-linejoin="round" stroke-linecap="round">
+<text x="34" y="38" font-size="26" fill="#172b3a" text-anchor="start" font-weight="700">3  Retain the idler with the rear bearing cap</text>
+<text x="34" y="67" font-size="17" fill="#526473" text-anchor="start" font-weight="400">P3 + P8 rotate with the wheel • M6 axle, bearing inner rings and P4 spacers stay fixed</text>
+<line x1="34" y1="83" x2="1166" y2="83" stroke="#d4dde3" stroke-width="2"/>
+<text x="45" y="125" font-size="18" fill="#172b3a" text-anchor="start" font-weight="700">A. Assembled axial section — actual P3/P8 CAD; bearing internals and wheel plate simplified</text>
+<path d="M220.000 530.000 L220.000 462.350 L291.500 462.350 L291.500 471.150 L456.500 471.150 L456.500 530.000 L396.000 530.000 L379.500 513.500 L291.500 513.500 L291.500 530.000 L220.000 530.000 Z" fill="#dcecf7" fill-rule="evenodd" stroke="#236493" stroke-width="1.4"/>
+<path d="M280.500 304.500 L220.000 304.500 L220.000 286.350 L280.500 286.350 L280.500 304.500 Z" fill="#dcecf7" fill-rule="evenodd" stroke="#236493" stroke-width="1.4"/>
+<path d="M379.500 216.500 L396.000 200.000 L456.500 200.000 L456.500 223.650 L401.500 223.650 L401.500 242.350 L456.500 242.350 L456.500 258.850 L291.500 258.850 L291.500 267.650 L220.000 267.650 L220.000 200.000 L291.500 200.000 L291.500 216.500 L379.500 216.500 Z" fill="#dcecf7" fill-rule="evenodd" stroke="#236493" stroke-width="1.4"/>
+<path d="M280.500 443.650 L220.000 443.650 L220.000 425.500 L280.500 425.500 L280.500 443.650 Z" fill="#dcecf7" fill-rule="evenodd" stroke="#236493" stroke-width="1.4"/>
+<path d="M478.500 530.000 L456.500 530.000 L456.500 472.800 L458.700 472.800 L458.700 458.500 L478.500 458.500 L478.500 530.000 Z" fill="#d9f1e6" fill-rule="evenodd" stroke="#156f50" stroke-width="1.4"/>
+<path d="M456.500 200.000 L478.500 200.000 L478.500 210.450 L476.300 210.450 L466.950 219.800 L456.500 219.800 L456.500 200.000 Z" fill="#d9f1e6" fill-rule="evenodd" stroke="#156f50" stroke-width="1.4"/>
+<path d="M478.500 271.500 L458.700 271.500 L458.700 257.200 L456.500 257.200 L456.500 246.200 L466.950 246.200 L476.300 255.550 L478.500 255.550 L478.500 271.500 Z" fill="#d9f1e6" fill-rule="evenodd" stroke="#156f50" stroke-width="1.4"/>
+<path d="M465.300 222.000 L475.200 212.100 L478.500 212.100 L478.500 253.900 L475.200 253.900 L465.300 244.000 L412.500 244.000 L412.500 222.000 L465.300 222.000 Z" fill="#b5c0c9" fill-rule="evenodd" stroke="#172b3a" stroke-width="1.4"/>
+<rect x="225.5" y="310" width="66" height="110" rx="0" fill="#b5c0c9" stroke="#172b3a" stroke-width="2"/>
+<rect x="291.5" y="332" width="550" height="66" rx="0" fill="#b5c0c9" stroke="#172b3a" stroke-width="2"/>
+<line x1="583" y1="332" x2="572" y2="398" stroke="#6b7984" stroke-width="1"/>
+<line x1="594" y1="332" x2="583" y2="398" stroke="#6b7984" stroke-width="1"/>
+<line x1="605" y1="332" x2="594" y2="398" stroke="#6b7984" stroke-width="1"/>
+<line x1="616" y1="332" x2="605" y2="398" stroke="#6b7984" stroke-width="1"/>
+<line x1="627" y1="332" x2="616" y2="398" stroke="#6b7984" stroke-width="1"/>
+<line x1="638" y1="332" x2="627" y2="398" stroke="#6b7984" stroke-width="1"/>
+<line x1="649" y1="332" x2="638" y2="398" stroke="#6b7984" stroke-width="1"/>
+<line x1="660" y1="332" x2="649" y2="398" stroke="#6b7984" stroke-width="1"/>
+<line x1="671" y1="332" x2="660" y2="398" stroke="#6b7984" stroke-width="1"/>
+<line x1="682" y1="332" x2="671" y2="398" stroke="#6b7984" stroke-width="1"/>
+<line x1="693" y1="332" x2="682" y2="398" stroke="#6b7984" stroke-width="1"/>
+<line x1="704" y1="332" x2="693" y2="398" stroke="#6b7984" stroke-width="1"/>
+<line x1="715" y1="332" x2="704" y2="398" stroke="#6b7984" stroke-width="1"/>
+<line x1="726" y1="332" x2="715" y2="398" stroke="#6b7984" stroke-width="1"/>
+<line x1="737" y1="332" x2="726" y2="398" stroke="#6b7984" stroke-width="1"/>
+<line x1="748" y1="332" x2="737" y2="398" stroke="#6b7984" stroke-width="1"/>
+<line x1="759" y1="332" x2="748" y2="398" stroke="#6b7984" stroke-width="1"/>
+<line x1="770" y1="332" x2="759" y2="398" stroke="#6b7984" stroke-width="1"/>
+<line x1="781" y1="332" x2="770" y2="398" stroke="#6b7984" stroke-width="1"/>
+<line x1="792" y1="332" x2="781" y2="398" stroke="#6b7984" stroke-width="1"/>
+<line x1="803" y1="332" x2="792" y2="398" stroke="#6b7984" stroke-width="1"/>
+<line x1="814" y1="332" x2="803" y2="398" stroke="#6b7984" stroke-width="1"/>
+<line x1="825" y1="332" x2="814" y2="398" stroke="#6b7984" stroke-width="1"/>
+<line x1="836" y1="332" x2="825" y2="398" stroke="#6b7984" stroke-width="1"/>
+<rect x="291.5" y="303.95" width="66" height="28.049999999999997" rx="0" fill="#b5c0c9" stroke="#172b3a" stroke-width="2"/>
+<rect x="291.5" y="260.5" width="66" height="11" rx="0" fill="#b5c0c9" stroke="#172b3a" stroke-width="2"/>
+<circle cx="324.5" cy="288" r="13.75" fill="white" stroke="#172b3a" stroke-width="2"/>
+<rect x="291.5" y="398" width="66" height="28.049999999999997" rx="0" fill="#b5c0c9" stroke="#172b3a" stroke-width="2"/>
+<rect x="291.5" y="458.5" width="66" height="11" rx="0" fill="#b5c0c9" stroke="#172b3a" stroke-width="2"/>
+<circle cx="324.5" cy="442" r="13.75" fill="white" stroke="#172b3a" stroke-width="2"/>
+<rect x="390.5" y="303.95" width="66" height="28.049999999999997" rx="0" fill="#b5c0c9" stroke="#172b3a" stroke-width="2"/>
+<rect x="390.5" y="260.5" width="66" height="11" rx="0" fill="#b5c0c9" stroke="#172b3a" stroke-width="2"/>
+<circle cx="423.5" cy="288" r="13.75" fill="white" stroke="#172b3a" stroke-width="2"/>
+<rect x="390.5" y="398" width="66" height="28.049999999999997" rx="0" fill="#b5c0c9" stroke="#172b3a" stroke-width="2"/>
+<rect x="390.5" y="458.5" width="66" height="11" rx="0" fill="#b5c0c9" stroke="#172b3a" stroke-width="2"/>
+<circle cx="423.5" cy="442" r="13.75" fill="white" stroke="#172b3a" stroke-width="2"/>
+<rect x="357.5" y="312.75" width="33" height="17.6" rx="0" fill="#ffe2c2" stroke="#a64c13" stroke-width="2"/>
+<rect x="357.5" y="399.65" width="33" height="17.6" rx="0" fill="#ffe2c2" stroke="#a64c13" stroke-width="2"/>
+<rect x="456.5" y="312.75" width="33" height="17.6" rx="0" fill="#ffe2c2" stroke="#a64c13" stroke-width="2"/>
+<rect x="456.5" y="399.65" width="33" height="17.6" rx="0" fill="#ffe2c2" stroke="#a64c13" stroke-width="2"/>
+<rect x="198" y="200" width="22" height="126.5" rx="0" fill="#f0f3f5" stroke="#526473" stroke-width="2"/>
+<rect x="489.5" y="233" width="236.5" height="97.9" rx="0" fill="#dcecf7" stroke="#236493" stroke-width="2"/>
+<rect x="719.4" y="293.5" width="6.6" height="37.4" rx="0" fill="white" stroke="white" stroke-width="2"/>
+<rect x="719.4" y="299" width="17.6" height="30.799999999999997" rx="0" fill="#b5c0c9" stroke="#172b3a" stroke-width="2"/>
+<rect x="737" y="301.53" width="66" height="30.47" rx="0" fill="#b5c0c9" stroke="#172b3a" stroke-width="2"/>
+<rect x="198" y="403.5" width="22" height="126.5" rx="0" fill="#f0f3f5" stroke="#526473" stroke-width="2"/>
+<rect x="489.5" y="399.1" width="236.5" height="97.9" rx="0" fill="#dcecf7" stroke="#236493" stroke-width="2"/>
+<rect x="719.4" y="399.1" width="6.6" height="37.4" rx="0" fill="white" stroke="white" stroke-width="2"/>
+<rect x="719.4" y="400.2" width="17.6" height="30.799999999999997" rx="0" fill="#b5c0c9" stroke="#172b3a" stroke-width="2"/>
+<rect x="737" y="398" width="66" height="30.47" rx="0" fill="#b5c0c9" stroke="#172b3a" stroke-width="2"/>
+<rect x="180.4" y="255" width="17.6" height="44" rx="0" fill="#b5c0c9" stroke="#172b3a" stroke-width="2"/>
+<rect x="198" y="266" width="44" height="22" rx="0" fill="#b5c0c9" stroke="#172b3a" stroke-width="2"/>
+<rect x="180.4" y="431" width="17.6" height="44" rx="0" fill="#b5c0c9" stroke="#172b3a" stroke-width="2"/>
+<rect x="198" y="442" width="44" height="22" rx="0" fill="#b5c0c9" stroke="#172b3a" stroke-width="2"/>
+<text x="75" y="180" font-size="16" fill="#526473" text-anchor="start" font-weight="400">Wheel face</text>
+<line x1="165" y1="185" x2="220" y2="215" stroke="#526473" stroke-width="2"/>
+<circle cx="352" cy="233" r="3" fill="#236493" stroke="#236493" stroke-width="2"/>
+<line x1="352" y1="233" x2="267" y2="164" stroke="#236493" stroke-width="1.5"/>
+<text x="275" y="170" font-size="18" fill="#236493" text-anchor="start" font-weight="700">P3 hub</text>
+<text x="275" y="195" font-size="16" fill="#526473" text-anchor="start" font-weight="400">19.3 mm bearing cavity</text>
+<circle cx="467.5" cy="216.5" r="3" fill="#156f50" stroke="#156f50" stroke-width="2"/>
+<line x1="467.5" y1="216.5" x2="527" y2="164" stroke="#156f50" stroke-width="1.5"/>
+<text x="535" y="170" font-size="18" fill="#156f50" text-anchor="start" font-weight="700">H8 ×3 holds P8 to P3</text>
+<text x="535" y="195" font-size="16" fill="#526473" text-anchor="start" font-weight="400">One cap screw cut by this section</text>
+<circle cx="638" cy="255" r="3" fill="#236493" stroke="#236493" stroke-width="2"/>
+<line x1="638" y1="255" x2="892" y2="259" stroke="#236493" stroke-width="1.5"/>
+<text x="900" y="265" font-size="18" fill="#236493" text-anchor="start" font-weight="700">P1 carrier boss</text>
+<text x="900" y="290" font-size="16" fill="#526473" text-anchor="start" font-weight="400">Fixed axle support</text>
+<circle cx="781" cy="409" r="3" fill="#172b3a" stroke="#172b3a" stroke-width="2"/>
+<line x1="781" y1="409" x2="892" y2="459" stroke="#172b3a" stroke-width="1.5"/>
+<text x="900" y="465" font-size="18" fill="#172b3a" text-anchor="start" font-weight="700">H5 washer + nyloc</text>
+<text x="900" y="490" font-size="16" fill="#526473" text-anchor="start" font-weight="400">Clamps inner-ring stack</text>
+<line x1="65" y1="365" x2="253" y2="365" stroke="#156f50" stroke-width="3" marker-end="url(#arrow)"/>
+<text x="45" y="345" font-size="16" fill="#156f50" text-anchor="start" font-weight="700">5 mm key</text>
+<text x="45" y="399" font-size="15" fill="#526473" text-anchor="start" font-weight="400">Head recessed</text>
+<text x="45" y="422" font-size="15" fill="#526473" text-anchor="start" font-weight="400">behind wheel</text>
+<circle cx="465.3" cy="475" r="3" fill="#156f50" stroke="#156f50" stroke-width="2"/>
+<line x1="465.3" y1="475" x2="452" y2="564" stroke="#156f50" stroke-width="1.5"/>
+<text x="460" y="570" font-size="18" fill="#156f50" text-anchor="start" font-weight="700">P8 catches rear OUTER ring</text>
+<text x="460" y="595" font-size="16" fill="#526473" text-anchor="start" font-weight="400">Ø17 opening; 0.2 mm nominal axial play</text>
+<circle cx="187" cy="453" r="3" fill="#172b3a" stroke="#172b3a" stroke-width="2"/>
+<line x1="187" y1="453" x2="37" y2="552" stroke="#172b3a" stroke-width="1.5"/>
+<text x="45" y="558" font-size="18" fill="#172b3a" text-anchor="start" font-weight="700">H2 wheel screws</text>
+<text x="45" y="583" font-size="16" fill="#526473" text-anchor="start" font-weight="400">Four M2×4 pan heads</text>
+<circle cx="473" cy="409" r="3" fill="#a64c13" stroke="#a64c13" stroke-width="2"/>
+<line x1="473" y1="409" x2="817" y2="564" stroke="#a64c13" stroke-width="1.5"/>
+<text x="825" y="570" font-size="18" fill="#a64c13" text-anchor="start" font-weight="700">P4 external spacer</text>
+<text x="825" y="595" font-size="16" fill="#526473" text-anchor="start" font-weight="400">Passes through cap; remains 3 mm</text>
+<text x="45" y="625" font-size="17" fill="#172b3a" text-anchor="start" font-weight="700">Cap and flush heads clear carrier by 1 mm. The cap is not in the axle&#x27;s inner-ring clamping stack.</text>
+<line x1="35" y1="650" x2="1165" y2="650" stroke="#d4dde3" stroke-width="2"/>
+<text x="45" y="690" font-size="19" fill="#172b3a" text-anchor="start" font-weight="700">B. Rear view — cap screws face the carrier</text>
+<circle cx="210" cy="820" r="105" fill="#d9f1e6" stroke="#156f50" stroke-width="2"/>
+<circle cx="210" cy="820" r="59.5" fill="white" stroke="#156f50" stroke-width="2"/>
+<circle cx="294.0" cy="820.0" r="13.3" fill="#b5c0c9" stroke="#172b3a" stroke-width="2"/>
+<line x1="289.0" y1="820.0" x2="299.0" y2="820.0" stroke="#172b3a" stroke-width="1.5"/>
+<line x1="294.0" y1="815.0" x2="294.0" y2="825.0" stroke="#172b3a" stroke-width="1.5"/>
+<circle cx="168.00000000000003" cy="747.2538660821072" r="13.3" fill="#b5c0c9" stroke="#172b3a" stroke-width="2"/>
+<line x1="163.00000000000003" y1="747.2538660821072" x2="173.00000000000003" y2="747.2538660821072" stroke="#172b3a" stroke-width="1.5"/>
+<line x1="168.00000000000003" y1="742.2538660821072" x2="168.00000000000003" y2="752.2538660821072" stroke="#172b3a" stroke-width="1.5"/>
+<circle cx="167.99999999999997" cy="892.7461339178928" r="13.3" fill="#b5c0c9" stroke="#172b3a" stroke-width="2"/>
+<line x1="162.99999999999997" y1="892.7461339178928" x2="172.99999999999997" y2="892.7461339178928" stroke="#172b3a" stroke-width="1.5"/>
+<line x1="167.99999999999997" y1="887.7461339178928" x2="167.99999999999997" y2="897.7461339178928" stroke="#172b3a" stroke-width="1.5"/>
+<circle cx="210" cy="820" r="33.25" fill="#ffe2c2" stroke="#a64c13" stroke-width="2"/>
+<circle cx="210" cy="820" r="22.05" fill="white" stroke="#a64c13" stroke-width="2"/>
+<text x="45" y="963" font-size="17" fill="#156f50" text-anchor="start" font-weight="700">Three H8 M2×6 flat countersunk screws</text>
+<text x="45" y="990" font-size="16" fill="#172b3a" text-anchor="start" font-weight="400">Four M2×4 wheel screws are on the OTHER end.</text>
+<text x="490" y="720" font-size="20" fill="#172b3a" text-anchor="start" font-weight="700">Assembly order</text>
+<text x="490" y="755" font-size="17" fill="#172b3a" text-anchor="start" font-weight="400">1  Seat first bearing from rear. Feed axle shaft</text>
+<text x="515" y="782" font-size="17" fill="#172b3a" text-anchor="start" font-weight="400">from wheel side; head stops on inner ring.</text>
+<text x="490" y="820" font-size="17" fill="#172b3a" text-anchor="start" font-weight="400">2  Add inner P4, second bearing, then P8 + H8 ×3.</text>
+<text x="515" y="847" font-size="17" fill="#172b3a" text-anchor="start" font-weight="400">Relief faces bearing; heads face carrier.</text>
+<text x="490" y="885" font-size="17" fill="#172b3a" text-anchor="start" font-weight="400">3  Add external P4; mount on carrier; clamp axle.</text>
+<text x="490" y="923" font-size="17" fill="#172b3a" text-anchor="start" font-weight="400">4  Attach wheel to front with four H2 M2×4 screws.</text>
+<text x="490" y="971" font-size="18" fill="#a64c13" text-anchor="start" font-weight="700">Turn AND pull: wheel must rotate freely and</text>
+<text x="490" y="1000" font-size="18" fill="#a64c13" text-anchor="start" font-weight="700">stay captured with the axle tightened.</text>
+<text x="45" y="1044" font-size="15" fill="#526473" text-anchor="start" font-weight="400">Nominal CAD retention is checked; printed fit, cap threads and loaded pull-out strength still need physical tests.</text>
+<text x="34" y="1098" font-size="14" fill="#526473" text-anchor="start" font-weight="400">P1 Track carrier: track_carrier_s1.stl   |   P3 Tip hub: tip_hub_p0.stl</text>
+<text x="34" y="1122" font-size="14" fill="#526473" text-anchor="start" font-weight="400">P4 Hub spacer: hub_spacer_p0.stl   |   P8 Idler bearing cap: idler_bearing_cap_s1.stl</text>
+<line x1="34" y1="1127" x2="1166" y2="1127" stroke="#d4dde3" stroke-width="2"/>
+<text x="34" y="1151" font-size="14" fill="#526473" text-anchor="start" font-weight="400">S0/S1 candidate • simplified assembly illustration • dimensions in mm • not a fabrication template</text>
+</g>
+</svg>

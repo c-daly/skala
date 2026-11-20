@@ -1,0 +1,13 @@
+{
+  "figures": [
+    "u2-01-sensor-layout.svg",
+    "u2-02-camera-pivot.svg",
+    "u2-03-sensor-stacks.svg"
+  ],
+  "source_sha256": {
+    "cad/sensors_s1.py": "c8feee7ec5ff601643b49fe633fed0c2c33dc003d426e3f61cce02f859eaf406",
+    "cad/sensor_parts.json": "705ee0b5341b5c58bf4ba6d4db3505fb3c018acbff66552a236fb77ceb30a0c3",
+    "docs/assembly/figures/make_sensor_figures.py": "b1c187712db7b56544fa3ec5b7c7165e425afa22722dbb003272a8cd3122e510",
+    "docs/assembly/figures/make_s1_figures.py": "44d0c28a784b7cb2a4ff61502cc7b281c4b9c87e4ce74f7e0da90891e0d51133"
+  }
+}
