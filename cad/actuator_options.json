@@ -1,0 +1,219 @@
+{
+  "decision_date": "2026-10-30",
+  "updated": "2026-11-05",
+  "applies_to_stage": "S2 onward: one joint, two-joint layout options, four pitch legs and eventual lateral joints; not a prerequisite for S0/S1 fixed-track research",
+  "active_first_build": "staged_base.json",
+  "status": "cost-constrained selection; no new pitch actuator approved for purchase",
+  "baseline_strategy": "Maintain a cheap-to-expensive planning ladder: DIY BLDC/cycloidal, integrated brushless robot joint, and high-end Dynamixel. Retain reduced owned XL430 and brushed encoder gearmotor as additional budget comparators. Compare complete installed systems at the same load, speed and duty; the ranking is provisional until fit, power and full costs are established. Direct XL430 pitch failed the earlier load screen.",
+  "high_end_aspirational_reference": "Larger Dynamixels remain an aspirational option at the user's request. XM540-W270-T is the priced TTL example, not a near-term budget assumption or a qualified ultimate-joint selection.",
+  "ultimate_destination": "Four powerful tracked legs with independent pitch and lateral movement. Assuming one lateral axis per leg, plan for eight positioning axes plus four track drives. Lateral axis orientation awaits clarification; pitch and lateral actuators need separate sizing.",
+  "selected_new_pitch_motor": null,
+  "reference_geometry_bom": "bom_r1.json",
+  "review": "../docs/assembly/p0-build-review.md#actuator-cost-decision--2026-10-30",
+  "inventory": {
+    "xl430_count_in_earlier_inventory": 4,
+    "current_owned_xl430_count": null,
+    "note": "Earlier P0 inventory lists four. Confirm current count; a requirement quantity is not proof of ownership.",
+    "xl430_reuse_path_total_required": 8,
+    "gearmotor_pitch_path_xl430_track_drives_required": 4,
+    "bldc_pitch_path_xl430_track_drives_required": 4,
+    "xl430_reuse_path_additional_if_inventory_is_still_four": 4
+  },
+  "pricing": {
+    "currency": "USD",
+    "checked_on": "2026-10-30",
+    "basis": "Displayed single-unit prices. Shipping, tax, fabrication, tooling, spares and any missing owned hardware excluded. Availability is not confirmed.",
+    "items": [
+      {"id":"xm540", "item":"XM540-W270-T", "unit_usd":482.89, "quantity":4, "subtotal_usd":1931.56, "checked_on":"2026-11-05", "status":"high-end aspirational reference; integrated actuator only, not a complete supported joint; store shows sold out", "source":"https://robotis.us/products/dynamixel-xm540-w270-t"},
+      {"id":"mg17", "item":"MG17-G50, China warehouse displayed base price", "unit_usd":18.06, "quantity":4, "subtotal_usd":72.24, "status":"R1 reference, gearbox only", "source":"https://www.omc-stepperonline.com/mg-series-planetary-gearbox-gear-ratio-50-1-backlash-45arc-min-for-nema-17-stepper-motor-mg17-g50"},
+      {"id":"gearmotor_example", "item":"Pololu 4756, 131:1 12 V 37D with encoder", "unit_usd":60.95, "quantity":4, "subtotal_usd":243.80, "status":"cost example; fails direct pitch gearbox load requirement", "source":"https://www.pololu.com/product/4756"},
+      {"id":"driver_example", "item":"Pololu 2992, single-channel G2 24v13 driver", "unit_usd":44.95, "quantity":4, "subtotal_usd":179.80, "status":"cost and interface example; current-limit suitability unresolved", "source":"https://www.pololu.com/product/2992"}
+    ],
+    "mg17_us_warehouse_increment_each_usd": 2.61,
+    "mg17_four_us_warehouse_subtotal_usd": 82.68,
+    "example_gearmotors_and_drivers_only_usd": 423.60,
+    "complete_xl430_path_cost_usd": null,
+    "complete_gearmotor_path_cost_usd": null,
+    "complete_bldc_path_cost_usd": null,
+    "complete_integrated_brushless_path_cost_usd": null,
+    "complete_high_end_dynamixel_path_cost_usd": null,
+    "unpriced": ["missing XL430s if needed", "reduction stages", "bearing supports and shafts", "couplings and hubs", "machining and cut stock", "fasteners and compression sleeves", "output reference sensors", "power protection and distribution", "connectors and cable", "controller interface hardware", "printed parts and spares"]
+  },
+  "cost_ladder": [
+    {
+      "tier":1, "option":"DIY BLDC motor with printed cycloidal reduction",
+      "basis":"Engineering allowance for joint-local materials, not supplier quote or proven build cost; see budget worksheet",
+      "one_axis_usd":"150–305", "two_axes_usd":"300–610", "four_axes_usd":"600–1220", "eight_axes_usd":"1200–2440",
+      "implementation":{"external_motor_driver":"One three-phase channel per axis; separate boards unless integrated into joint", "tradeoff":"Lowest cash target; most gearbox, sensing, firmware and thermal development"}
+    },
+    {
+      "tier":2, "option":"Integrated brushless robot joint, Unitree GO-M8010-6 example",
+      "basis":"Manufacturer listed actuator price checked 2026-11-05; mounting, communications interface and system power additional",
+      "one_axis_usd":"369.00", "two_axes_usd":"738.00", "four_axes_usd":"1476.00", "eight_axes_usd":"2952.00",
+      "implementation":{"external_motor_driver":"None per motor; driver/processor integrated. Compatible RS485 command interface still needed", "tradeoff":"Bought motor/reducer/control package; larger and heavier, nominal 24 V architecture and new protocol"}
+    },
+    {
+      "tier":3, "option":"High-end Dynamixel, XM540-W270-T example",
+      "basis":"Manufacturer listed actuator price checked 2026-11-05; supported joint, any extra reduction and system power additional",
+      "one_axis_usd":"482.89", "two_axes_usd":"965.78", "four_axes_usd":"1931.56", "eight_axes_usd":"3863.12",
+      "implementation":{"external_motor_driver":"None per motor; use compatible OpenCR TTL interface with appropriately rated power distribution", "tradeoff":"Aspirational integrated control and existing protocol; high cash cost, sustained torque and output support still require sizing"}
+    }
+  ],
+  "cost_ladder_scope": "Ordering is an expected cash-cost ladder, not a demonstrated installed-cost ranking or a strength ranking. DIY allowance and bought-actuator prices have different scopes explicitly labelled. All exclude shared battery/distribution/stop redesign, chassis changes, tools, labor, tax, shipping and spares. Eight-axis totals only show scale using identical units; they do not select identical pitch/lateral actuators. Final bills must include every excluded item before choosing a route.",
+  "diy_joint_budget_worksheet": [
+    {"item":"BLDC motor", "low_usd":25, "high_usd":50, "basis":"Engineering allowance; no motor selected"},
+    {"item":"Current-sensing three-phase driver with local MCU", "low_usd":40, "high_usd":80, "basis":"Engineering allowance; ST B-G431B-ESC1 is a concrete compact development-board example, not qualified Skala firmware"},
+    {"item":"Motor and output feedback, magnets and mounts", "low_usd":20, "high_usd":40, "basis":"Engineering allowance; no selected sensor package"},
+    {"item":"Gearbox/output bearings, metal pins/shafts and fasteners", "low_usd":35, "high_usd":70, "basis":"Engineering allowance; exact gearbox BOM unresolved"},
+    {"item":"Printed transmission, housing and adapter material", "low_usd":15, "high_usd":35, "basis":"Engineering allowance; excludes failed iterations and spares"},
+    {"item":"Joint-local wiring, connectors and cooling materials", "low_usd":15, "high_usd":30, "basis":"Engineering allowance; excludes shared power-system changes"}
+  ],
+  "development_layouts": [
+    {"layout":"Current S1: two fixed tracks", "track_drives":2, "pitch_axes":0, "lateral_axes":0, "role":"Research base and propulsion qualification"},
+    {"layout":"Two pitch-enabled tracks as the only legs", "track_drives":2, "pitch_axes":2, "lateral_axes":0, "role":"Lowest added hardware count to screen; establish body balance and contact support before unrestrained movement"},
+    {"layout":"Two fixed main tracks plus a powered flipper pair", "track_drives":4, "pitch_axes":2, "lateral_axes":0, "role":"More ground support, but adds two track modules and frame length/clearance; optional intermediate, not mandatory"},
+    {"layout":"Four pitch-enabled tracked legs", "track_drives":4, "pitch_axes":4, "lateral_axes":0, "role":"Pitch-only milestone toward ultimate robot"},
+    {"layout":"Four tracked legs with pitch and one lateral axis each", "track_drives":4, "pitch_axes":4, "lateral_axes":4, "role":"Ultimate minimum-axis interpretation; lateral direction/kinematics not yet fixed"}
+  ],
+  "quantity_rules": "Existing route tables use one pitch joint and four pitch joints. For two pitch joints use twice per_corner, not the four_corners column. For the ultimate robot count four pitch and four separately sized lateral assemblies; do not blindly double the pitch BOM. Shared controllers, communications and power do not scale purely per joint. S1 quantities stay unchanged.",
+  "bldc_proposal_cost": {
+    "recorded_on": "2026-11-05",
+    "status": "Original user-supplied motor/driver/encoder subtotal only, not verified compatible products or purchase quotes. The broader DIY budget worksheet above is the current planning allowance",
+    "currency": "USD",
+    "motor_each": 25,
+    "driver_each_low": 15,
+    "driver_each_high": 30,
+    "motor_encoder_each": 10,
+    "partial_one_joint_low": 50,
+    "partial_one_joint_high": 65,
+    "partial_four_joints_low": 200,
+    "partial_four_joints_high": 260,
+    "excluded": ["printed gearbox and iterations", "bearings, metal pins/shafts and fasteners", "output hub, support and axial retention", "output feedback and magnets", "MCU boards if separate from drivers", "cooling and insulated mounts", "battery or distribution changes", "wires, connectors and protection", "brake or lock if required", "chassis/deck changes", "tools, shipping, tax and spares"],
+    "decision": "Do not compare this partial subtotal with a complete Dynamixel installation or call the saving established. Price one complete compatible joint and the four-joint robot, including displaced parts and redesign."
+  },
+  "routes": [
+    {
+      "id": "integrated_brushless_joint",
+      "status": "Middle-cost purchased-joint candidate; Unitree GO-M8010-6 is a sourced example, not selected or fitted",
+      "hardware": [
+        {"item":"Integrated motor/reducer/FOC driver/feedback unit", "per_corner":1, "four_corners":4, "action":"GO-M8010-6 example; no separate motor power stage or local MCU needed. Published maximum torque is not a continuous-duty rating"},
+        {"item":"Supported hip/root attachment and fasteners", "per_corner":1, "four_corners":4, "action":"New carrier and adapter; verify permitted radial, axial and bending loads. Add external bearings if needed; existing root and chassis strength are not qualified"},
+        {"item":"Joint power/data cable and strain relief", "per_corner":1, "four_corners":4, "action":"Match exact manufacturer connectors and pinout; do not reuse a Dynamixel power/data lead by appearance"},
+        {"item":"Output reference, travel limits and holding provision", "per_corner":1, "four_corners":4, "action":"Verify reported angle, reduction scaling and restart reference; add output sensor/homing if needed. Stops and any brake/lock are separately sized"},
+        {"item":"Separate TTL track-drive lead", "per_corner":1, "four_corners":4, "action":"Retain a separate XL430 supply/data branch through the moving leg"}
+      ],
+      "shared": [
+        {"item":"Compatible RS485 command interface", "quantity":1, "action":"Use a verified OpenCR UART/RS485 implementation or separately cost a compatible interface board. Unitree framing/baud are not Dynamixel Protocol 2.0; do not attach to the XL430 TTL bus"},
+        {"item":"Joint power rail and physical stop", "quantity":1, "action":"Evaluate the manufacturer's recommended 24 V architecture with separate compatible XL430 power. Current LB-012 is not an established substitute. Include battery/charger, protection, switching and reverse-energy behavior"},
+        {"item":"Driver and calibration integration", "quantity":1, "action":"New protocol, command timeout and rearm behavior, reference procedure, current/thermal limits and actual output feedback; integrated electronics do not remove host integration work"}
+      ],
+      "price_source": "https://shop.unitree.com/products/go1-motor",
+      "specification_source": "https://www.unitree.com/mobile/go1/motor/",
+      "screen": "Published example: about 530 g, 96.5 x 92.5 x 42.3 mm, 12–30 V with 24 V recommended. Four units alone are about 2.12 kg, eight about 4.24 kg; frame and propulsion must be re-sized around actual installed mass. Full current/thermal and continuous-load evidence remains required. Store displays both ready-to-ship and backorder text; availability unconfirmed."
+    },
+    {
+      "id": "high_end_dynamixel",
+      "status": "Retained high-end aspirational route; XM540-W270-T is the price/interface reference, not an approved ultimate actuator",
+      "hardware": [
+        {"item":"Appropriately sized Dynamixel pitch actuator", "per_corner":1, "four_corners":4, "action":"Example XM540-W270-T includes driver, MCU, gearing and feedback. Choose sustained-load capability for the actual leg; larger price does not prove adequate torque"},
+        {"item":"Matched horn, frame, supported hub and fasteners", "per_corner":1, "four_corners":4, "action":"Check included horn/hardware and add missing structural parts. Qualify external bearing support and axial retention rather than hanging all chassis loads from the servo output"},
+        {"item":"Additional reduction and output-reference assembly if required", "per_corner":1, "four_corners":4, "action":"Conditional set, not an automatic purchase. Price/recheck speed, torque and feedback if direct output fails duty or structural limits"},
+        {"item":"Rated TTL power/data branch and moving cable set", "per_corner":1, "four_corners":4, "action":"Match T-series interface, full route and current capacity; existing XL430 power wiring is not automatically sufficient"},
+        {"item":"Mechanical travel and holding provision", "per_corner":1, "four_corners":4, "action":"Define stop loads and power-off behavior; integrated current control does not establish passive holding"}
+      ],
+      "shared": [
+        {"item":"Existing OpenCR TTL controller", "quantity":1, "action":"No new motor-driver boards; audit bus traffic, motor IDs and mode/current-limit setup"},
+        {"item":"Revised motor power distribution and stop", "quantity":1, "action":"Size for actual joint/track duty and fault currents, with independent compute power. High-end motors do not bypass supply, wiring, relay or battery checks"}
+      ],
+      "screen": "ROBOTIS labels 2.12 N m as an estimated rated torque calculated from 20% of stall, not a measured sustained Skala rating. The 10.6 N m stall figure does not close the joint load requirement. Pitch and lateral joints may need different models or reductions."
+    },
+    {
+      "id": "xl430_reduction",
+      "status": "reuse-first candidate; R1 is the retained detailed comparison, simpler transmission not yet selected",
+      "hardware": [
+        {"item":"XL430 pitch actuator", "per_corner":1, "four_corners":4, "action":"reuse confirmed stock; price any shortfall"},
+        {"item":"XL430 track-drive actuator", "per_corner":1, "four_corners":4, "action":"reuse confirmed stock; do not count a pitch motor twice"},
+        {"item":"External pitch reduction assembly", "per_corner":1, "four_corners":4, "action":"cost R1 MG17-G50 and a simpler alternative; ratio, efficiency, mass and gearbox load limit must pass together"},
+        {"item":"Input adapter and coupling assembly", "per_corner":1, "four_corners":4, "action":"R1 fuse, Oldham cross, pinned shaft and input bearing are required for R1; rederive for any other transmission"},
+        {"item":"Supported output and arm hub assembly", "per_corner":1, "four_corners":4, "action":"include bearing(s), shaft/journal, keyed or clamped hub, axial retention and frame; detailed R1 quantities in bom_r1.json"},
+        {"item":"Joint reference and travel-limit assembly", "per_corner":1, "four_corners":4, "action":"R1 uses a shared manual datum tool plus individual stop slots; automated homing or output sensing adds parts and firmware"},
+        {"item":"Pitch-to-drive TTL lead", "per_corner":1, "four_corners":4, "action":"R1 routing and termination sizes in bom_r1.json; changed joint geometry requires another sweep"},
+        {"item":"Body TTL power/data branch", "per_corner":1, "four_corners":4, "action":"include protected supply, connectors and a distribution arrangement for four branches"}
+      ],
+      "shared": [
+        {"item":"Owned OpenCR / compatible TTL controller", "quantity":1, "action":"audit existing board, ports and harness; no external H-bridge needed for the XL430 motors"},
+        {"item":"Manual datum pin and knob", "quantity":1, "action":"shared R1 tool; re-reference after reboot or coupling failure"},
+        {"item":"Protected motor distribution and motor-power stop", "quantity":1, "action":"include fuse(s), switch/disconnect, supply and wire ratings; XL430 has no programmable current-limit register"}
+      ]
+    },
+    {
+      "id": "encoder_gearmotor_pitch",
+      "status": "alternative to size and cost; no motor, ratio or driver selected",
+      "hardware": [
+        {"item":"Brushed DC pitch gearmotor with incremental encoder", "per_corner":1, "four_corners":4, "action":"select from sustained motor and gearbox limits; example 4756 alone is not adequate"},
+        {"item":"External reduction assembly", "per_corner":1, "four_corners":4, "action":"required for the 37D example; motor mount, pulley/gear pair(s), belt(s) or mesh, guards, tensioning and any intermediate shafts/bearings; exact stage count TBD"},
+        {"item":"Supported output and arm attachment assembly", "per_corner":1, "four_corners":4, "action":"bearing(s), shaft, keyed/clamped hubs, collars/spacers, axial retention, structural bracket and fasteners; do not hang the arm from the small gearmotor shaft"},
+        {"item":"Bidirectional H-bridge channel", "per_corner":1, "four_corners":4, "action":"four single-channel boards or two independent dual-channel boards; include current sensing, fault/enable wiring, configurable current limit and cooling provision"},
+        {"item":"Driver mounting and supply-support set", "per_corner":1, "four_corners":4, "action":"insulated standoffs/fasteners, power terminals, local bulk capacitor and current-limit-setting components; voltage/current ratings TBD"},
+        {"item":"Output reference sensor assembly", "per_corner":1, "four_corners":4, "action":"output-side absolute angle sensor plus target magnet/bracket, or a home switch plus cam and a qualified homing procedure; choose one scheme"},
+        {"item":"Motor power lead pair", "per_corner":1, "four_corners":4, "action":"driver outputs to pitch motor; connector and wire gauge sized to current and voltage drop"},
+        {"item":"Incremental encoder harness", "per_corner":1, "four_corners":4, "action":"Vcc/GND/A/B from motor rear to MCU or decoder, strain relief and logic-level adaptation as required"},
+        {"item":"Output-reference harness", "per_corner":1, "four_corners":4, "action":"sensor/switch to controller, with pull-ups or interface components as selected"},
+        {"item":"Driver logic harness", "per_corner":1, "four_corners":4, "action":"PWM/direction/enable/fault/current-sense and ground to controller; connector and pin allocation required"},
+        {"item":"Direct body-to-XL430 track-drive TTL branch", "per_corner":1, "four_corners":4, "action":"pitch gearmotor has no Dynamixel pass-through socket; route a separate TTL power/data lead across the moving joint"},
+        {"item":"Mechanical travel stop and overload-protection assembly", "per_corner":1, "four_corners":4, "action":"size to selected transmission and arm; old 12 N m shear-pin target is withdrawn"}
+      ],
+      "shared": [
+        {"item":"Motion controller with four pitch feedback loops", "quantity":1, "action":"evaluate owned OpenCR first; budget PWM, direction/enable, fault, ADC, encoder and output-reference inputs while retaining the track TTL bus"},
+        {"item":"Encoder logic interface / decoder bank", "quantity":1, "action":"as required by chosen MCU pins; four encoders need eight A/B channels. Example 4756 requires 3.5..20 V encoder Vcc and outputs Vcc-level pulses; verify 5 V tolerance or add level translation"},
+        {"item":"Protected motor distribution and motor-power stop", "quantity":1, "action":"separate compatible feeds for gearmotors and XL430 tracks; branch fuse(s), disconnect, bulk capacitance, reverse-energy management, connectors and wire; never assume a 6S pack can directly feed 12 V motors"},
+        {"item":"Track TTL bus controller/distribution", "quantity":1, "action":"retain owned OpenCR interface; a separate U2D2 is not automatically needed"},
+        {"item":"Mechanical support / holding provision", "quantity":1, "action":"support the first corner; qualify a brake or lock if later operation requires power-off holding. Motor driver braking is not a passive holding guarantee"}
+      ],
+      "non_hardware_dependencies": ["closed-loop pitch position control", "encoder counting and output referencing", "limits and current/thermal protection", "watchdog and motor-enable behavior", "fault reporting and loss-of-feedback response", "requalification of track-drive load after mass changes"]
+    },
+    {
+      "id": "bldc_cycloidal_pitch",
+      "status": "Lower-cost development candidate for later flippers; power, packaging and complete cost unproven. No motor, board, ratio or printable joint selected.",
+      "additional_board_answer": "Yes: four pitch motors require four independent three-phase power stages. Usually four single-motor controller boards or two suitable dual-motor boards, not both. Pi/OpenCR cannot directly power these motors. Motor/output encoder breakouts are additional small boards unless integrated into the chosen hardware.",
+      "electronics_variants": [
+        {"variant":"Compact MCU plus power stage, ST B-G431B-ESC1 development-board example", "driver_channels_for_four_joints":4, "processor":"STM32G431 MCU onboard; separate motor-angle sensor and joint-control firmware still required", "conditions":"Manufacturer envelope 30 x 41 mm includes detachable debugger daughterboard. Board is a packaging candidate, not a finished position-servo product. Rated-temperature, wiring and firmware tests remain; advertised 40 A peak used propeller cooling and is not an enclosed continuous rating."},
+        {"variant":"Integrated FOC servo controller, including suitable VESC-based hardware", "driver_channels_for_four_joints":4, "processor":"Motor-control MCU onboard; no separate Arduino needed for its inner loop", "conditions":"Exact board/firmware must support the chosen motor and encoder, controlled zero-speed torque, current limits, required position travel, command timeout and fault reporting. VESC branding alone does not establish these or the claimed price."},
+        {"variant":"SimpleFOC with rated three-phase driver and separate MCU", "driver_channels_for_four_joints":4, "processor":"Compatible MCU board(s) required; count depends on demonstrated simultaneous loop and pin capacity", "conditions":"Do not assume OpenCR runs four FOC loops alongside its track bus and watchdog. The inexpensive SimpleFOC Shield targets gimbal motors; it is not an approved driver for an unspecified low-resistance drone motor."}
+      ],
+      "hardware": [
+        {"item":"BLDC pitch motor", "per_corner":1, "four_corners":4, "action":"Select winding/KV, dimensions, shaft access and continuous torque at low speed; propeller power and stall torque are insufficient sizing data"},
+        {"item":"Printed cycloidal transmission and motor mount", "per_corner":1, "four_corners":4, "action":"Select ratio, material, tolerances and bearing fits together; include eccentric, discs, output carrier and covers. 30:1, 40:1 and 50:1 are proposals, not chosen ratios"},
+        {"item":"Gearbox bearings, metal pins/shafts and fastening set", "per_corner":1, "four_corners":4, "action":"Standard bought parts preferred; exact dimensions and quantities depend on selected gearbox. Entirely printed is not the baseline; no custom-machining access assumed"},
+        {"item":"Supported output, root adapter and axial-retention assembly", "per_corner":1, "four_corners":4, "action":"Carry arm bending and axial loads through rated bearings/frame; motor shaft alone must not support the module. Requalify the candidate 32 mm M4 root pattern"},
+        {"item":"Three-phase FOC driver channel with current sensing", "per_corner":1, "four_corners":4, "action":"One phase stage per motor; select the board arrangement above. Include its processor or separately priced MCU, configuration/programming connection and compatible command interface"},
+        {"item":"Motor-angle sensor, magnet and alignment mount", "per_corner":1, "four_corners":4, "action":"AS5047P is a candidate; match its interface to the driver. Budget four sensor boards if using separate breakouts, not bare chips alone"},
+        {"item":"Output-angle sensor, magnet and mount", "per_corner":1, "four_corners":4, "action":"Planning baseline is output-side absolute feedback as well as motor commutation feedback. Budget another four breakouts if not integrated. Substitution by homing requires a separately qualified startup/reference procedure"},
+        {"item":"Driver support, cooling and local supply components", "per_corner":1, "four_corners":4, "action":"Insulated carrier, fasteners, connector clearance, bulk capacitance and thermal provision. Shared boards may combine mounts; do not omit their volume or heat"},
+        {"item":"Pitch wiring set", "per_corner":1, "four_corners":4, "action":"Three motor phases, motor/output feedback, driver command/status/enable and protected supply. Define actual pinout, wire gauge, shielding/segregation, connectors and strain relief after selection"},
+        {"item":"Separate body-to-XL430 track TTL lead", "per_corner":1, "four_corners":4, "action":"No Dynamixel pass-through on the pitch motor. Sweep this lead through the full pivot travel; current S1 routing does not establish its length or clearance"},
+        {"item":"Travel stops and required holding provision", "per_corner":1, "four_corners":4, "action":"Include hard limits and overload protection. Budget a qualified brake/lock if power-off holding is required; printed cycloidal gearing is not automatically self-locking"}
+      ],
+      "shared": [
+        {"item":"Retained Pi/OpenCR supervisory control", "quantity":1, "action":"Keep sensor processing and track TTL control. Add compatible CAN/UART or other command link, transceiver if needed, pin allocation and firmware. Prefer local FOC loops on motor controllers; verify all interface voltage levels"},
+        {"item":"Revised drive power and physical stop", "quantity":1, "action":"Size battery discharge capability, branch protection, wiring, connectors, switching and regeneration handling for simultaneous track/pitch/head loads. Preserve independent compute power. A third battery is not automatically required; S1's drive supply is not already qualified for flippers"},
+        {"item":"Controller and joint packaging layout", "quantity":1, "action":"Place all four complete joints and all boards, plugs, cooling and cables before choosing the route. Current chassis/deck have no reserved four-driver installation"}
+      ],
+      "non_hardware_dependencies": ["motor commutation and phase-current loops", "output position control, multi-turn motor counting and boot calibration", "temperature/current limits and loss-of-feedback response", "local command watchdog, stop and explicit rearm", "Talos pitch command and measured-feedback mapping", "loaded track-drive and structure requalification after mass changes"]
+    }
+  ],
+  "bldc_evidence": [
+    {"item":"ST B-G431B-ESC1", "checked_on":"2026-11-05", "finding":"Compact combined MCU and three-phase power board with current sensing; concrete alternative to assuming the gimbal Shield suits a drone motor", "source":"https://www.st.com/en/evaluation-tools/b-g431b-esc1.html"},
+    {"item":"SimpleFOC Shield v3.2", "checked_on":"2026-11-05", "finding":"Manufacturer specifies gimbal use and warns that high-power drone motors can damage the driver; the proposed generic cheap pairing is not established", "source":"https://simplefoc.com/simplefoc_shield_product_v3"},
+    {"item":"AS5047P motor encoder", "checked_on":"2026-11-05", "finding":"14-bit single-turn angle does not identify absolute arm position after reduction/restart. At 40:1 the same motor angle recurs every 9 degrees of arm rotation; output sensing or a valid reference procedure is required", "source":"https://www.infineon.com/part/AS5047P"},
+    {"item":"Stephen Ferro printed actuator", "checked_on":"2026-11-05", "finding":"Author reports 19:1, 454 g, diameter 80 x 67 mm and over 12 N m supported statically using ODrive; dynamic result lower. Feasibility example, not continuous rating, full-system cost or Skala fit evidence", "source":"https://scferro.github.io/projects/03-actuator"}
+  ],
+  "selection_requirements": [
+    "First establish whole-robot packaging and electrical feasibility. Reject or explicitly cost any required change to chassis/deck, track spacing, battery, stop circuitry, distribution, cooling or propulsion before describing a route as cheaper.",
+    "Compare complete installed cost for one corner and four corners, including inventory shortfall and custom fabrication; partial subtotals cannot choose a winner.",
+    "Use sustained torque at required speed, gearbox permissible torque, thermal duty and actual total mass; stall torque is not a continuous rating.",
+    "Track output angle across the whole transmission; incremental counting loses its reference on restart, and a single-turn absolute motor sensor does not identify the output turn after reduction or detect a failed coupling.",
+    "Place drivers, sensor targets, bearings, connectors and service access in CAD before replacement prints; R1 clearances do not transfer to another motor.",
+    "Qualify one corner before ordering or printing four sets. Include lifting and dwell duty, simultaneous electrical load, temperature, current, backlash/wear, restart referencing, lost communications, power-off behavior and full cable sweep. No stair or power-off holding rating is established."
+  ]
+}

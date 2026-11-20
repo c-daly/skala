@@ -1,0 +1,27 @@
+{
+  "revision": "P0-R1-2026-10-29",
+  "status": "UNRELEASED engineering review",
+  "checks": "../../validation/p0-r1-geometry-2026-10-29.txt",
+  "bom": "../../bom_r1.json",
+  "source_sha256": {
+    "export_r1.py": "2943e836fca419828d074151120c0bad351f03d28464c12ab5da198d151bbc88",
+    "fabrication_r1.py": "69809bd3f668e6275731dc56965f5f7f8014c0b9511eb6246a0fe1db6387386d",
+    "bom_r1.json": "b153957e53be93cfc27cd1e3810039e566b2bcf014f6687863ad11d5de15d83d",
+    "check_r1.py": "62dd6833518c1bd6c61e79695ba1d5e0b083cc7bc2e48cf9db641831779cface",
+    "harness_r1.py": "e3eea304e423da7a51c48c2b333877e251f94294b11500766ed51320dd903993",
+    "assembly_r1.py": "c0c668f35204ded84f9a92c4877e031b59bdb95fd7e640b03bf96b0b733bee46",
+    "check_r1_world.py": "f65d7314a5a5ca74fc5af49ff563f0c152bc1b3d1aa19ea347e2dfb2b13aa3a9",
+    "load_r1.py": "0a855e7d4c6b9b15cf7c66bfe5e87a4e167ee18469b0d6e0aa87148a0e734773",
+    "reduction_p0.py": "16b48d51308181e721bed53c7829ba9f56fe88eecf8654ad91211083adceba16",
+    "parts/pitch_reduction_p0.py": "200a4ba39f15ac46c7683ca9c28ae072c465450a65dacad7ec1fa11ce31bbfec",
+    "parts/arm_p0.py": "9ec56a4112c87948f0b94e03f43b209de4b132c2cb49746282af3278caddd9c4",
+    "params.py": "0a4cbc22021aad2bef0c8a31ddcda512e9abb09ff6081622a4dc9ebe2030eefe",
+    "release_p0.json": "5315c91afe8f42c8fcdae49589b1b70f02075d89e71ebf32fbe1217d9f57d814"
+  },
+  "notes": [
+    "The corner STEP includes actual links; the four-arm overview uses conservative track envelopes.",
+    "No metal part STL is supplied. Metal parts require fabrication.",
+    "Arm STL is rotated 45 degrees on the bed; other orientations require slicing review.",
+    "Qualify one corner and fuse batch before printing four arms."
+  ]
+}
