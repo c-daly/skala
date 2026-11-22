@@ -1,6 +1,6 @@
 # Skala fixed-track assembly BOM
 
-Updated 2026-11-07 for lower candidate **P0-S1-2026-11-02-R2**, deck/board candidate **P0-U1-2026-11-03**, and the complete current fixed-track system plan. Lower quantities come from the [parts register](../../cad/staged_base.json); upper quantities come from the installed U1 stacks. The remaining-system table extends through power, sensors, wiring and recording, with proposed purchases and HOLD items explicitly separated from dimensioned hardware. Physical fit and loaded operation still require qualification.
+Updated 2026-11-22 for lower candidate **P0-S1-2026-11-02-R2**, deck/board candidate **P0-U1-2026-11-03**, and the complete current fixed-track system plan. Lower quantities come from the [parts register](../../cad/staged_base.json); upper quantities come from the modeled U1 stacks, not a claim that the boards are already installed. The remaining-system table extends through power, sensors, wiring and recording, with proposed purchases and HOLD items explicitly separated from dimensioned hardware. Physical fit and loaded operation still require qualification.
 
 **Buy only the shortfall after checking your stock.** “One module” and “Two-track base” are alternative totals, not quantities to add together. Counts below are individual pieces, excluding spares. Supplier links and listed specifications were checked on 2026-10-31; H8 was added on 2026-11-02; price, stock and shipping can change.
 
@@ -135,7 +135,7 @@ Small M2.5 screws use the [existing Westfield M2.5 socket family](https://www.we
 
 ### Electronics and remaining system items
 
-Owned electronics now confirmed: OpenCR 1.0, Raspberry Pi 4B, Camera Module 3 Standard, Waveshare WM8960 Audio HAT with two onboard microphones, RPLidar A1 **with its cable and small external board**, and the LB-012 drive battery/charger. Reuse these. Exact A1/adapter revision remains open. Speakers are optional for later playback.
+Owned electronics now confirmed: OpenCR 1.0, Raspberry Pi 4B, Camera Module 3 Standard, Waveshare WM8960 Audio HAT with two onboard microphones, RPLidar A1 **with its cable and small external board**, and the LB-012 drive battery/charger. Plan around these owned parts; the user also permits camera substitution after checking software support, mounting, cabling and power. No replacement camera is selected or added to this BOM. The current camera cradle and ribbon entries apply to Camera Module 3. Exact A1/adapter revision remains open. Speakers are optional for later playback.
 
 The current decision uses **two independent supplies: an owned 5 V/3 A bank for compute and the owned LB-012 for drive/head**. WM8960 draws power through the Pi's header; it needs no separate converter or power lead. The [system plan](s1-system-plan.md) supplies the power budget, functional circuit, W01–W16 harness schedule and H01–H10 holds. Quantities below are for **one complete current robot**, additional to the lower and U tables above. “Proposed” means evaluate before purchase; “HOLD” means the exact specification is not yet resolved. Check existing stock and orders before buying any shortfall.
 

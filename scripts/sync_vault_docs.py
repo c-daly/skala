@@ -3,6 +3,8 @@
 
 Source prose and CAD registers remain in this repository. Vault-specific context
 stays in the vault. Only named files are touched; concurrent edits abort apply.
+This is a one-way export: reconcile newer vault decisions and prose into the
+repository before preparing a bundle. It does not import vault changes.
 """
 
 import argparse
@@ -44,6 +46,9 @@ FIGURES = {
 PRINT_PARTS = json.loads((REPO / "cad/print_parts.json").read_text())
 SENSOR_PARTS = json.loads((REPO / "cad/sensor_parts.json").read_text())
 SENSOR_FILES = {"cad/out/stl/" + p["stl"]: PROJECT + "attachments/" + p["stl"] for p in SENSOR_PARTS}
+SUPPORT_FILES = {
+    "scripts/migrate_pi_to_jazzy.py": PROJECT + "attachments/migrate_pi_to_jazzy.py",
+}
 FIT_FILES = {"cad/out/stl/" + p["stl"]: PROJECT + "attachments/" + p["stl"]
              for p in PRINT_PARTS if p["export"] == "current"}
 RETAINED_FILES = {"cad/out/stl/" + p["stl"]: PROJECT + "attachments/" + p["stl"]
@@ -67,6 +72,7 @@ TARGETS = {
     **FIT_FILES,
     **RETAINED_FILES,
     **SENSOR_FILES,
+    **SUPPORT_FILES,
     "README.md": HOME,
     "cad/staged_base.json": PARTS,
     "cad/actuator_options.json": PITCH,
@@ -150,6 +156,16 @@ def convert(text, repo_name):
     return MD_LINK.sub(replace, text)
 
 
+def review_date(*texts, default="2026-11-07"):
+    """Keep explicit source review dates and never roll vault metadata back."""
+    dates = [default]
+    for text in texts:
+        dates.extend(re.findall(
+            r"(?:^updated:\s*|\b(?:updated|reviewed)\s+(?:\*\*)?)(\d{4}-\d{2}-\d{2})",
+            text, flags=re.M | re.I))
+    return max(dates)
+
+
 def frontmatter(existing, body, origin, updated="2026-10-30"):
     if existing.startswith("---\n"):
         header = existing.split("\n---\n", 1)[0]
@@ -218,7 +234,7 @@ def build(vault):
         file = vault / path
         return file.read_text() if file.exists() else ""
     def add(path, body, origin):
-        updated = "2026-11-07"
+        updated = review_date(existing(path), body)
         if path != HOME:
             body = re.sub(r"^(# .+\n)", lambda m: m.group(1) + "\n"
                           + wiki(HOME, "Project overview") + "\n", body, count=1)
@@ -358,6 +374,10 @@ def build(vault):
         ElementTree.fromstring(data)
         SOURCES[name] = digest(data)
         out[target] = data
+    for name, target in SUPPORT_FILES.items():
+        data = (REPO / name).read_bytes()
+        SOURCES[name] = digest(data)
+        out[target] = data
     fit = json.loads(source("cad/out/FIT_ARTICLES.json"))
     for name, expected in fit["source_sha256"].items():
         if digest((REPO / "cad" / name).read_bytes()) != expected:
@@ -491,7 +511,7 @@ def build(vault):
         "## Skala S1 capability plan" + section, talos, flags=re.S)
     if count != 1:
         raise ValueError("Cannot locate the existing Skala profile in the Talos note")
-    talos = re.sub(r"^updated:.*$", "updated: 2026-11-07", talos, flags=re.M)
+    talos = re.sub(r"^updated:.*$", "updated: " + review_date(talos, current), talos, flags=re.M)
     talos = re.sub(r"^source:.*$", 'source: "Talos design note; Skala profile refreshed from c-daly/skala docs/design/talos-capability-manifest.md"', talos, flags=re.M)
     out[TALOS] = talos.encode()
     return out

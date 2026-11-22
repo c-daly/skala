@@ -1,14 +1,14 @@
 # S1 complete-system design
 
-Updated 2026-11-20. **Design proposal through the end of the current two-fixed-track robot; not a powered-build release.** This page owns the electrical connections, remaining placements, software requirements and closure register. The [assembly guide](p0-assembly.md) owns the work sequence, the [BOM](p0-bom.md) owns purchasing quantities, and the [build review](p0-build-review.md) distinguishes checked geometry from physical evidence.
+Updated 2026-11-22. **This plan describes the intended complete two-fixed-track robot. Its unresolved interfaces are not released for powered assembly.** This page owns the electrical connections, remaining placements, software requirements and closure register. The [assembly guide](p0-assembly.md) owns the work sequence, the [BOM](p0-bom.md) owns purchasing quantities, and the [build review](p0-build-review.md) distinguishes checked geometry from physical evidence.
 
 The intended endpoint is a mobile, teleoperated research platform recording LiDAR, video, stereo audio, IMU, motor feedback and actions, with a tested body interface for later Sophia/Cliste experiments. Camera pan/tilt remains in the intended current payload, with unresolved mechanics explicitly retained. Powered flippers, stairs and self-righting are later work.
 
-**Status vocabulary:** confirmed = owned hardware or sourced specification; proposed = engineering choice awaiting qualification; HOLD = do not purchase, fabricate or energize the affected item until the named issue is closed. A proposal is not a tested assembly instruction.
+**Status vocabulary:** *owned* records hardware reported in hand; *sourced* records a manufacturer specification; *CAD-checked* means the named model passed its stated checks; *physically qualified* requires a recorded test on the actual assembly; *proposed* is an engineering choice awaiting qualification. These are distinct forms of evidence. A **HOLD** blocks the purchase, fabrication or energization affected by its named unresolved issue; it does not block unrelated bench tests. In the placement table, “confirmed” means ownership or specified identity, never a fit or powered-test result. H01–H10 are the holds below; G0–G7 are the test gates in the guide.
 
 ## Hardware and placement
 
-**Construction resumption:** the user expects BOM hardware without substitutions and has substantial assembly completed, with the deck still separate for access. Follow the guide's [bench sequence](p0-assembly.md#bench-checks-before-attaching-the-deck): preserve the existing TurtleBot3 software, work through power explicitly, test supported subassemblies, then complete installation. H01–H10 retain their existing meanings; delivered parts and prior TurtleBot3 operation do not establish the new power circuit, motor signs, sensor fit or loaded performance.
+**Construction resumption:** the user expects BOM hardware without substitutions and has substantial assembly completed, with the deck still separate for access. Follow the guide's [bench sequence](p0-assembly.md#bench-checks-before-attaching-the-deck): back up and inventory the inherited installation, work through power explicitly, test supported subassemblies, then complete installation. Skala reuses hardware and useful low-level code; retaining the TurtleBot3 application stack is not a requirement. H01–H10 retain their existing meanings; delivered parts and prior TurtleBot3 operation do not establish the new power circuit, motor signs, sensor fit or loaded performance.
 
 | Item | State and proposed home | Attachment / service requirement |
 | --- | --- | --- |
@@ -23,6 +23,8 @@ The intended endpoint is a mobile, teleoperated research platform recording LiDA
 | Stop button S1 | Proposed 2NC latching mushroom, front-right accessible face | Reserve around X=64, Y=−52. Mount in a separate insulated enclosure on existing grid; head/contact-block envelope, hand access and camera sweep need CAD H05 |
 | Relay K1, fuses and head regulator | Proposed insulated removable electrical tray, front under-deck region | Reserve X=36..100, Y=−28..28, Z=0..50; this is a routing/layout allocation, not verified free volume. H03/H05 must resolve competition with the camera base. Keep all terminals covered |
 | Cooling | No cooler assumed owned | Start open-air bench capture. Choose a low-profile Pi 4 heatsink only after HAT clearance; add a fan only if simultaneous capture throttles. H01/H08 |
+
+Camera Module 3 Standard remains the **owned camera and CAD baseline**, not a fixed requirement. The user permits substitution. Before selecting another camera, check its driver on the inventoried OS, review the P15 cradle and full head clearance, and revise cable/power allocations where needed. A USB camera would add to the shared USB load in the budget below. Record the selected camera and repeat H03 and G1's applicable checks; do not assume the existing cradle fits it.
 
 The U2 bridge carries load directly into existing deck holes at X=−32/+40, Y=±56 (deck rows 11/2, outermost columns). Its side frames put their uprights outside the boards and connector approach. The camera base uses X=80/96, Y=±24 (chassis rows 3/1, column 7 from either side). The [assembly guide, step 10](p0-assembly.md#10-fit-audio-camera-and-lidar) owns all fastening stacks, hole counts and matching checks; [V1–V8 in the BOM](p0-bom.md#sensor-mounting-hardware) own additional quantities.
 
@@ -40,29 +42,51 @@ U2 is an **M3 female–female 12 mm threaded adapter support**, eight total, bel
 
 The domains share a signal ground through the Pi–OpenCR USB connection. They are independently powered, **not galvanically isolated**. No wire joins their positive supply rails. Do not also connect OpenCR's 5 V output to the Pi GPIO or USB-C input.
 
-This is a functional connection diagram, not a terminal-orientation drawing. Cable IDs below supply the termination details; HOLD entries prevent construction of unresolved interfaces.
+The three diagrams separate drive power, compute power and relay control. They show functional connections, not connector pin positions or every return wire. Solid arrows identify power/data paths as labelled; dashed arrows in the control diagram describe the relay's required behavior. Use the harness schedule for terminations; the named holds still apply.
+
+### Drive power
+
+B1 supplies both tracks and the head servos through K1's normally open contacts. Opening K1 removes both branches. The fused coil feed is upstream of those contacts and is detailed in the control diagram below. Fuse values remain proposals.
 
 ```mermaid
-flowchart LR
-  B1["B1: LB-012 drive battery"] --> F0["F0: proposed 5 A main fuse"]
-  F0 --> K1["K1 COM to NO: physical power interruption"]
-  F0 --> FC["FC: proposed 0.25 A coil fuse"]
-  FC --> S1["S1 NC1: opens when pressed"]
-  S1 --> COIL["K1 VDD: coil supply"]
-  K1 --> FD["FD: proposed 3 A OpenCR branch"]
+flowchart TD
+  B1["B1: LB-012"] --> F0["F0: proposed 5 A main fuse"]
+  F0 --> K1["K1 contacts: COM to NO; NC unused"]
+  F0 --> COILFEED["FC coil branch: see relay-control diagram"]
+  K1 --> FD["FD: proposed 3 A fuse"]
   FD --> CR["OpenCR battery input; DC jack unused"]
-  CR --> L["TTL port: left XL430"]
-  CR --> R["TTL port: right XL430"]
-  K1 --> FH["FH: proposed 1.5 A head-input fuse"]
-  FH --> REG["Head 5 V regulator: H03 HOLD"]
+  CR --> TRACKS["Two TTL leads: left and right XL430"]
+  K1 --> FH["FH: proposed 1.5 A fuse"]
+  FH --> REG["5 V head regulator: H03 hold"]
   REG --> HEAD["Pan and tilt servos"]
-  CR -. "D7 proposed arm enable" .-> COIL
-  SENSE["S1 NC2 to GND; D8 pull-up"] -. "pressed or broken wire = stop" .-> CR
-  B2["B2: owned 5 V / 3 A power bank"] --> PI["Pi 4B USB-C"]
-  PI <-->|"USB data, GND and VBUS"| CR
-  PI -->|"USB"| A1["Owned A1 interface and LiDAR"]
-  PI -->|"CSI ribbon: power and data"| CAM["Camera Module 3 Standard"]
-  PI -->|"40-pin header: 5 V, GND, I2S/I2C"| HAT["WM8960 stereo microphones"]
+```
+
+### Compute power and sensor connections
+
+B2 powers the Pi and its downstream sensors. Pressing the motion stop does not intentionally interrupt this supply. The Pi–OpenCR USB connection carries data, ground and VBUS; H06 must verify the interaction between supplies. The CSI connection shown is for the current Camera Module 3 baseline.
+
+```mermaid
+flowchart TD
+  B2["B2: selected owned 5 V / 3 A bank"] -->|"Pi USB-C input"| PI["Raspberry Pi 4B"]
+  PI <-->|"USB data, GND and VBUS; H06 check"| CR["OpenCR USB device port"]
+  PI -->|"USB"| A1["Identified A1 interface and LiDAR"]
+  PI -->|"CSI: power and data"| CAM["Camera Module 3 Standard"]
+  PI -->|"40-pin header: power and I2S/I2C"| HAT["WM8960 stereo microphones"]
+```
+
+### Relay control and stop sensing
+
+K1 **VDD** supplies its coil; **EN** is a separate logic input. The proposed D7 signal goes to EN, never to VDD. S1 has two normally closed contacts: NC1 interrupts coil power, and NC2 reports the button state to OpenCR. Header mapping remains H05/H07 work.
+
+```mermaid
+flowchart TD
+  F0["After F0, before K1 contacts"] --> FC["FC: proposed 0.25 A coil fuse"]
+  FC --> NC1["S1 NC1: opens when pressed"]
+  NC1 --> VDD["K1 VDD: coil supply"]
+  D7["OpenCR D7: proposed 3.3 V arm output"] --> EN["K1 EN: driver enable"]
+  VDD -. "Coil power required" .-> CONTACTS["K1 COM/NO closes only with coil power and enable"]
+  EN -. "Enable also required" .-> CONTACTS
+  NC2["S1 NC2 between proposed D8 and GND"] -->|"D8 pull-up: open contact means stop"| INPUT["OpenCR stop input"]
 ```
 
 K1 is proposed as the assembled [Pololu 2482 relay carrier](https://www.pololu.com/product/2482), with a 12 V Omron G5LE-14 coil, onboard driver and suppression. Use its **COM/NO** contacts, leave NC empty. Its EN input accepts 3.3 V control; VDD is the coil supply, not the switched output. Power VDD through the normally closed stop contact, so pressing the button removes coil power independently of firmware. Proposed OpenCR D7 drives EN; D8 reads the second NC contact to ground using a 3.3 V pull-up. Never put battery voltage on D7/D8. The exact OpenCR header pin positions and firmware pin mapping remain H05/H07 checks.
@@ -150,13 +174,13 @@ For W06/W07 route from each P7 upward inboard, then to the forward-facing TTL ba
 
 ## Software and data endpoint
 
-Source inspection on 2026-11-07 still finds only planning READMEs under `firmware/opencr_reflex/` and `software/talos/`; this repository has no Skala-specific flashing or launch implementation. Separately, the user confirms the Pi and OpenCR previously operated these same two motors in a TurtleBot3, with ROS 2 **Humble or newer** on the Pi. Exact distribution, OS/kernel, OpenCR firmware and motor configuration await workshop inspection. Preserve that installation and adapt the matching TurtleBot3 stack to the requirements below. Do not treat missing repository code as evidence that the owned boards are blank.
+Source inspection on 2026-11-22 finds only requirements READMEs under `firmware/opencr_reflex/` and `software/talos/`; this repository has no Skala-specific flashing or launch implementation. Separately, the user confirms the Pi and OpenCR previously operated these same two motors in a TurtleBot3 and now identifies the Pi installation as **ROS 2 Humble on Ubuntu 22.04 (Jammy)**, correcting the earlier Jazzy recollection. Kernel/package versions, OpenCR firmware and motor configuration await workshop inventory. Preserve the baseline information and implement Skala's requirements below, reusing suitable low-level device support. The user's latest clarification leaves the TurtleBot3 application stack behind; installing Jazzy does not entail migrating TurtleBot3 navigation, robot description or launches. Missing repository code is not evidence that the owned boards are blank.
 
 Software work begins with the deck supported off the chassis. The [assembly bench sequence](p0-assembly.md#bench-checks-before-attaching-the-deck) orders inventory, power work, stationary sensors, trial routing and raised-track checks. G0 preserves the existing baseline; G1 can run from a qualified isolated compute source while H04–H06 drive/mobile-power design continues. G2 and the applicable power checks precede motor tests.
 
-1. Record the installed OS/kernel, architecture and ROS distribution; back up the SD card and workspace before upgrades or reflashing. Inspect automatic TurtleBot3 startup with drive power absent. Keep a suitable existing installation for initial bring-up; choose any later supported 64-bit image after camera/audio compatibility checks. Qualify the [Waveshare driver](https://github.com/waveshareteam/WM8960-Audio-HAT) on that exact kernel; inspect installer changes and pin the working commit. Confirm capture using `arecord -l`, then an explicitly selected card/device and supported PCM format. Keep speakers disconnected during the first recording tests.
-2. Verify camera enumeration and save a short capture using the camera stack available on the confirmed OS. **Camera Module 3 is not supported by Ubuntu 22.04's Raspberry Pi kernel or libcamera**; if G0 finds 22.04, the [OS decision in G0.5](commissioning-procedures.md#g05-decision-after-g0-the-pi-operating-system) precedes camera qualification. On a system with current [Raspberry Pi camera tools](https://www.raspberrypi.com/documentation/computers/camera_software.html), `rpicam-hello --list-cameras` is the enumeration command; its availability is not assumed on the old TurtleBot3 image. Check focus and orientation. Identify the A1 USB device/serial path, then use the matching [SLAMTEC SDK](https://github.com/Slamtec/rplidar_sdk) or compatible ROS driver; baud rate and scan mode come from the identified revision. Bind device paths by identity, not enumeration order; replace any obsolete TurtleBot3 sensor launches.
-3. Preserve and identify the OpenCR firmware before modifying it. Adapt the matching TurtleBot3 USB **device** firmware/ROS driver for Skala, retaining its useful DYNAMIXEL/IMU support while implementing startup disarmed, explicit arming, velocity-mode control and telemetry. Read existing IDs/baud/protocol/mode first. Candidate mapping is **left ID 1, right ID 2**; preserve valid settings and change only mismatches, one motor at a time with torque disabled. Verify physical wheel signs while raised and clear old goals before enabling. Apply Skala geometry consistently to motor-command conversion, odometry and the robot description; update IMU orientation and sensor transforms. XL430 load is inferred, not an ammeter.
+1. Record the installed OS/kernel, architecture and ROS distribution; back up the SD card and workspace before upgrades or reflashing. Inspect automatic TurtleBot3 startup with drive power absent so it is not accidentally carried into the Skala installation. Use the clean baseline below and qualify the [Waveshare driver](https://github.com/waveshareteam/WM8960-Audio-HAT) on that exact kernel; inspect installer changes and pin the working commit. Confirm capture using `arecord -l`, then an explicitly selected card/device and supported PCM format. Keep speakers disconnected during the first recording tests.
+2. Resolve software compatibility **before final assembly**, using the [bench checkpoint](commissioning-procedures.md#before-final-assembly-software-compatibility-checkpoint) and [G0.5's decision tree](commissioning-procedures.md#g05-decision-after-g0-the-pi-operating-system). Humble/Jammy is the confirmed existing installation; the user's latest clarification requests a clean start. The recommended [fresh baseline](commissioning-procedures.md#g07-clean-installation-on-the-existing-card) is Ubuntu Server 24.04 LTS (64-bit) with native Jazzy on the existing healthy card. A spare card is optional. Jazzy is recommended for its supported Noble packages, not a camera feature requirement. The reviewed stock Jammy 1073 kernel lacks the Camera Module 3 driver; userspace packages alone cannot fix it. Verify enumeration and save a short capture on the chosen installation, checking focus and orientation. `rpicam-hello --list-cameras` applies only when those [Raspberry Pi camera tools](https://www.raspberrypi.com/documentation/computers/camera_software.html) are installed; `camera_ros` is another route with its own libcamera requirements. Identify the A1 USB device/serial path, then use the matching [SLAMTEC SDK](https://github.com/Slamtec/rplidar_sdk) or compatible ROS driver; baud rate and scan mode come from the identified revision. Bind device paths by identity, not enumeration order; replace any obsolete TurtleBot3 sensor launches.
+3. Preserve and identify the OpenCR firmware before modifying it. Implement Skala's OpenCR USB **device** firmware and Pi driver, reusing suitable DYNAMIXEL/IMU support while implementing startup disarmed, explicit arming, velocity-mode control and telemetry. Existing TurtleBot3 firmware is a source/reference candidate, not a required application architecture. Read existing IDs/baud/protocol/mode first. Candidate mapping is **left ID 1, right ID 2**; preserve valid settings and change only mismatches, one motor at a time with torque disabled. Verify physical wheel signs while raised and clear old goals before enabling. Apply Skala geometry consistently to motor-command conversion, odometry and the robot description; update IMU orientation and sensor transforms. XL430 load is inferred, not an ammeter.
 4. Proposed initial raised-track limit: **5 rpm per drive**, explicit acceleration ramp, 20 Hz command heartbeat, command expiry **250 ms**, firmware watchdog, temperature warning/stop **50/60°C**. These are conservative test choices, not qualified floor limits. Set the XL430 bus watchdog to **25 × 20 ms = 500 ms** where supported by the owned firmware. It watches bus packets; continued telemetry traffic can keep it alive even if Pi commands stop, so it does not replace command-age checking in OpenCR.
 5. On a stale Pi command, fault or stop, zero goals, disable torque/head PWM and drop K1 EN. Require manual rearm after fault acknowledgment. Verify behavior for frozen Pi process, unplugged USB, stopped DXL packets, controller reset, battery sag and stop release. Test K1 control from USB power before motor power; startup must not pulse the relay.
 6. Implement the Pi body driver, bounded queues and recorder. Record monotonic capture timestamps, sequence numbers, source clock IDs, timestamp uncertainty/mapping, reconnect boundaries, dropped samples, requested/accepted commands, actual feedback, stop state and battery readings. USB arrival time is not automatically sensor exposure time. Store camera calibration, LiDAR/IMU body transforms and head commanded pose; MG90S does not provide measured angle feedback.
@@ -170,11 +194,11 @@ Use `vcgencmd get_throttled` and temperature logging during capture qualificatio
 | --- | --- | --- |
 | H01 | Confirm actual HAT seating and cooler clearance | V7 specifies both ends and thread engagement. Match natural board-face gap to 12.5 mm; otherwise revise only that support stack. Actual header contact/underside clearance remain physical checks. Bridge clears the modeled HAT; a cooler is not assumed fitted |
 | H02 | Match owned A1/interface and finish board-specific attachment | P11/P12/V2 supply a deck-supported bridge and scanner stack for A1M8 v3.0. Verify four feet and hanging motor. Identify USB board, fit insulating supports to P17 and strain-relieve both plugs; its exact attachment cannot be selected from “small external board.” Then verify current/scan clearance. No duplicate interface kit |
-| H03 | Match servo/horns; qualify flexible ribbon and electrical limits | P13–P16 remove nominal cradle/body collision and give explicit retained pivot and integral camera posts. Manufacturer Camera 3 fit and sampled pan/tilt geometry are checked. Owned flange/shaft offsets, spline screw reach, horn holes, cable sweep and operating pulse/power limits remain to confirm. A fixed camera remains an optional early experiment |
+| H03 | Match selected camera and servo/horns; qualify moving cable and electrical limits | P13–P16 use Camera Module 3 geometry with a retained pivot and integral camera posts. Owned flange/shaft offsets, spline screw reach, horn holes, cable sweep and operating pulse/power limits remain to confirm. If the camera is substituted, review the cradle, full head envelope and power/cable route before reusing these parts. A fixed camera remains an optional early experiment |
 | H04 | Mobile compute-source fit and behavior | Battery holder and W12; possibly source choice. Record and test one of the owned 5 V/3 A banks against the **total** bay envelope with its actual cable and restraints, then loaded voltage/thermal/runtime/shutdown tests; no replacement purchase from rating alone |
 | H05 | Stop/distribution enclosure, pigtails, fuse curves and contact ratings | Electrical tray, enclosure, wiring and mounting hardware. Pin exact connector housings/contacts and fuse holders, check DC transient behavior, pull test terminations, validate power removal and rearm. Current circuit is a reviewable proposal, not released harness fabrication |
 | H06 | Drive full-charge voltage and USB interaction | Potential drive supply conditioning or USB arrangement. Resolve 12.6 V vs published 12.0 V operating limit against owned XL430/ROBOTIS guidance. Match OpenCR revision; test compute-only, drive-only and both-on for unwanted power and USB-host VBUS behavior |
-| H07 | Existing TurtleBot3 inventory and Skala adaptation | Software and possibly WM8960 integration choice. Confirm exact ROS/OS/kernel and firmware, preserve a restore path, then verify geometry/signs, pin maps, startup/arming, all stop/watchdog fault injections and sensor capture. Existing hardware software is user-confirmed; Skala-specific implementation is absent from this repository |
+| H07 | Inherited hardware inventory and Skala control implementation | Software and possibly WM8960 integration choice. Confirm exact ROS/OS/kernel and firmware, preserve a restore path, then verify geometry/signs, pin maps, startup/arming, all stop/watchdog fault injections and sensor capture. Existing hardware software is user-confirmed; Skala-specific implementation is absent from this repository. Migrating TurtleBot3's application is not a prerequisite |
 | H08 | Simultaneous power/heat/audio-noise evidence | Cooling, compute source or powered hub; optional speaker deferred. Run camera/audio/LiDAR/recording together, then drive/head load; log USB peaks, supply droop, throttling, resets and noise |
 | H09 | Full motor and deck-service cable routes | Longer factory X3P leads and tie locations; P7/lower bends retained unless actual routing forces change. Measure each installed route with both plugs seated and deck service access included |
 | H10 | Physical base, payload and complete-robot performance | Lower reinforcement only if evidence demands it. Record fit/retention, payload mass/CG, sag/clearance, creep, turning/traction/temperature and stopping distance. CAD clearance is not a payload rating |
