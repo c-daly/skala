@@ -5,7 +5,7 @@
   "active_first_build": "staged_base.json",
   "status": "cost-constrained selection; no new pitch actuator approved for purchase",
   "baseline_strategy": "Maintain a cheap-to-expensive planning ladder: DIY BLDC/cycloidal, integrated brushless robot joint, and high-end Dynamixel. Retain reduced owned XL430 and brushed encoder gearmotor as additional budget comparators. Compare complete installed systems at the same load, speed and duty; the ranking is provisional until fit, power and full costs are established. Direct XL430 pitch failed the earlier load screen.",
-  "high_end_aspirational_reference": "Larger Dynamixels remain an aspirational option at the user's request. XM540-W270-T is the priced TTL example, not a near-term budget assumption or a qualified ultimate-joint selection.",
+  "high_end_aspirational_reference": "Larger Dynamixels remain an aspirational option. XM540-W270-T is the priced TTL example, not a near-term budget assumption or a qualified ultimate-joint selection.",
   "ultimate_destination": "Four powerful tracked legs with independent pitch and lateral movement. Assuming one lateral axis per leg, plan for eight positioning axes plus four track drives. Lateral axis orientation awaits clarification; pitch and lateral actuators need separate sizing.",
   "selected_new_pitch_motor": null,
   "reference_geometry_bom": "bom_r1.json",
@@ -78,7 +78,7 @@
   "quantity_rules": "Existing route tables use one pitch joint and four pitch joints. For two pitch joints use twice per_corner, not the four_corners column. For the ultimate robot count four pitch and four separately sized lateral assemblies; do not blindly double the pitch BOM. Shared controllers, communications and power do not scale purely per joint. S1 quantities stay unchanged.",
   "bldc_proposal_cost": {
     "recorded_on": "2026-11-05",
-    "status": "Original user-supplied motor/driver/encoder subtotal only, not verified compatible products or purchase quotes. The broader DIY budget worksheet above is the current planning allowance",
+    "status": "Original proposed motor/driver/encoder subtotal only, not verified compatible products or purchase quotes. The broader DIY budget worksheet above is the current planning allowance",
     "currency": "USD",
     "motor_each": 25,
     "driver_each_low": 15,

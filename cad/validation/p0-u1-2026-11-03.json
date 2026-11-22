@@ -345,11 +345,19 @@
   "source_sha256": {
     "cad/upper_s1.py": "fc5fbf8872c9d8fded6151f9976061f1db29159bc54a9f5fd47ffaf66aa1400d",
     "cad/audit_upper_s1.py": "a0bf3ef429894d488978df17f6cde9e23d4a505ce2a6519bced87b009bd89d63",
-    "cad/print_parts.json": "861f53ef2c87ffbb01c8c4a7dea97f1f2f2324669fed56de0214bf976a00596e",
+    "cad/print_parts.json": "8e559133dca2e9027b884cf35a75ed32b8ce346def2b04169c8fa4260249bdbc",
     "cad/vendor/upper_sources.json": "b054ab99ec167cb1d623689cef56068bc55dbc0978c5b6fe5f3bd31b19aaa73e",
     "cad/vendor/robotis/opencr_rev_h.step": "1fdbbb882216cc011a3cd038fc56abe5525135bec9c77a5e5ff5066c85e7b484",
     "cad/vendor/raspberrypi/pi4-mechanical.pdf": "a5c88057563016631ebca26666fd672614fc9aaa1c59128a541612c7798e9809",
     "cad/out/step/chassis_p0.step": "1d93d3e7671b686058e5679c1544c780933c737993c99b598798e83f40a7cd3e",
     "cad/out/step/deck_p0.step": "5e17aa9fc6de252ed5cf450c3cbac58ae0ec2129c5ba624c12bbb078a9e4c5f4"
+  },
+  "documentation_revision": {
+    "date": "2026-11-22",
+    "change": "Impersonal wording in source comments, docstrings and print-catalog descriptions only.",
+    "verification": "Executable Python ASTs and non-prose catalog fields match the preceding sources. Existing geometry, exported files and recorded results are retained; no CAD regeneration or new qualification is claimed.",
+    "previous_source_sha256": {
+      "cad/print_parts.json": "861f53ef2c87ffbb01c8c4a7dea97f1f2f2324669fed56de0214bf976a00596e"
+    }
   }
 }

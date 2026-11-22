@@ -145,11 +145,20 @@
     "staged_base.json": "d6850467ae5580f09f6256cb0af80603b8bfd1d1a0054add210f4d12b8865cc8",
     "harness_s1.py": "7ff82d9c44cc743aab0b902f1534f7ff80596c442579c29bc8cb5331c7c62065",
     "export_s0_fit.py": "94ca4c2b872fd3db892e86cef7546bc739eeb4024a9e192711ef38c2d9c3a152",
-    "print_parts.json": "861f53ef2c87ffbb01c8c4a7dea97f1f2f2324669fed56de0214bf976a00596e",
+    "print_parts.json": "8e559133dca2e9027b884cf35a75ed32b8ce346def2b04169c8fa4260249bdbc",
     "upper_s1.py": "fc5fbf8872c9d8fded6151f9976061f1db29159bc54a9f5fd47ffaf66aa1400d",
-    "parts/bearing_fit_coupon_s1.py": "5c56d023566552871cc1e7a542e5fc53eb301cde3191e2fdb2d0ae33633e64c0",
+    "parts/bearing_fit_coupon_s1.py": "4bad7b04442c391012f0bfe3b3321124e583fd2cef606099de49a60e9804ef95",
     "parts/tip_hub_p0.py": "d3219a47d3ce5a803357165d4bbbb5a3cf4e4b8b2d1de71ca1c18aa07e04b519",
     "params.py": "26e3c94870bc593021e94c94d83d6c82d1373f375f531276baab5d40d7aa7bd7",
     "out/step/tip_hub_p0.step": "05f3d99ad14fc1e745b9bfc4892bf13d345c421a312b96889d5a574ccbfa976f"
+  },
+  "documentation_revision": {
+    "date": "2026-11-22",
+    "change": "Impersonal wording in source comments, docstrings and print-catalog descriptions only.",
+    "verification": "Executable Python ASTs and non-prose catalog fields match the preceding sources. Existing geometry, exported files and recorded results are retained; no CAD regeneration or new qualification is claimed.",
+    "previous_source_sha256": {
+      "print_parts.json": "861f53ef2c87ffbb01c8c4a7dea97f1f2f2324669fed56de0214bf976a00596e",
+      "parts/bearing_fit_coupon_s1.py": "5c56d023566552871cc1e7a542e5fc53eb301cde3191e2fdb2d0ae33633e64c0"
+    }
   }
 }

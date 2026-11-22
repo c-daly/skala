@@ -1,3 +1,5 @@
+Editorial note (2026-11-22): absolute workspace paths normalized to repository-relative paths; recorded results unchanged.
+
 PASS Pinned R1 carrier, existing hub and vendor link match their source hashes
 PASS Continuous 28 x 10 mm motor backplate from X28 to X92: missing 0.00000 mm3
 PASS Vendor link has 12 mm pin/socket spacing
@@ -69,6 +71,6 @@ PASS Fixed-mount screws, washers and nuts clear installed material: []
 PASS Nominal lowest non-track part clears flat ground by 6.41 mm
 Base review bounds: [-152.   -164.    -20.41] .. [112.41 164.    64.  ] mm
 0 geometry failures; 69 checks. Not a print release.
-/home/fearsidhe/projects/skala/cad/staged_base.py:288: UserWarning: Skipping ellipse that is too small to export safely (length < 1e-6).
+cad/staged_base.py:288: UserWarning: Skipping ellipse that is too small to export safely (length < 1e-6).
   export_review()
-Review STEP/SVG saved to /home/fearsidhe/projects/skala/cad/review/staged-base; no STL or print release.
+Review STEP/SVG saved to cad/review/staged-base; no STL or print release.

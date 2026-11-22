@@ -66,7 +66,7 @@ These IDs, names and exact filenames also appear in the assembly guide, drawings
 
 ## Deck and board hardware
 
-For the ordered upper-deck parts, use the [upper-deck construction session](p0-assembly.md#resume-construction-with-the-upper-deck-parts) and its hardware allocation. The user specified these BOM items without substitutions; quantities and part selections below are unchanged. Record received stock and physical fit separately; the remaining-system HOLD entries below still identify unfinished interfaces.
+For the ordered upper-deck parts, use the [upper-deck construction session](p0-assembly.md#resume-construction-with-the-upper-deck-parts) and its hardware allocation. These BOM items are specified without substitutions; quantities and part selections below are unchanged. Record received stock and physical fit separately; the remaining-system HOLD entries below still identify unfinished interfaces.
 
 These quantities are **additional to the two-track base**, for one deck, one OpenCR and one bare Pi 4B. Links checked 2026-11-03. Check matching owned stock or a suitable assortment first; several specialist reference suppliers are in the UK, so shipping can exceed the small hardware cost. Do not substitute a male–female pillar for the female–female columns below. Dimensions are part of the selection, not just the M3 label.
 
@@ -135,13 +135,13 @@ Small M2.5 screws use the [existing Westfield M2.5 socket family](https://www.we
 
 ### Electronics and remaining system items
 
-Owned electronics now confirmed: OpenCR 1.0, Raspberry Pi 4B, Camera Module 3 Standard, Waveshare WM8960 Audio HAT with two onboard microphones, RPLidar A1 **with its cable and small external board**, and the LB-012 drive battery/charger. Plan around these owned parts; the user also permits camera substitution after checking software support, mounting, cabling and power. No replacement camera is selected or added to this BOM. The current camera cradle and ribbon entries apply to Camera Module 3. Exact A1/adapter revision remains open. Speakers are optional for later playback.
+Owned electronics now confirmed: OpenCR 1.0, Raspberry Pi 4B, Camera Module 3 Standard, Waveshare WM8960 Audio HAT with two onboard microphones, RPLidar A1 **with its cable and small external board**, and the LB-012 drive battery/charger. Plan around these owned parts; camera substitution is allowed after checking software support, mounting, cabling and power. No replacement camera is selected or added to this BOM. The current camera cradle and ribbon entries apply to Camera Module 3. Exact A1/adapter revision remains open. Speakers are optional for later playback.
 
 The current decision uses **two independent supplies: an owned 5 V/3 A bank for compute and the owned LB-012 for drive/head**. WM8960 draws power through the Pi's header; it needs no separate converter or power lead. The [system plan](s1-system-plan.md) supplies the power budget, functional circuit, W01–W16 harness schedule and H01–H10 holds. Quantities below are for **one complete current robot**, additional to the lower and U tables above. “Proposed” means evaluate before purchase; “HOLD” means the exact specification is not yet resolved. Check existing stock and orders before buying any shortfall.
 
 | ID | Item / quantity | Selection, link and readiness |
 | --- | --- | --- |
-| E01 | Compute source, 1 | **Owned:** select one of the user's existing 5 V/3 A USB power banks. Record model/port/dimensions and qualify the actual bank/cable under H04/H08. **No new bank or compute converter purchase.** Selection and retention remain open; the earlier Anker example is not an order |
+| E01 | Compute source, 1 | **Owned:** select one of the available 5 V/3 A USB power banks. Record model/port/dimensions and qualify the actual bank/cable under H04/H08. **No new bank or compute converter purchase.** Selection and retention remain open; the earlier Anker example is not an order |
 | E02 | Bench compute supply, optional reference | [Official Pi 15 W USB-C supply](https://www.raspberrypi.com/products/type-c-power-supply/), 5.1 V/3 A. Use if already available or needed to diagnose a bank/cable problem; not a required purchase before testing owned E01. Never a second simultaneous Pi input |
 | E03 | Physical stop, 1 | **Proposed:** [IDEC XW1E-BV402MFR, 2NC](https://www.idec.com/en-us/switches-indicator-lights/switches-pushbuttons/emergency-stop-switches/xw-22mm-estop/xw1e-bv402mfr). Coil interruption plus stop feedback; enclosure, terminals and mounting HOLD H05 |
 | E04 | Stop relay module, 1 | **Proposed:** [Pololu 2482 assembled 12 V SPDT carrier](https://www.pololu.com/product/2482). Includes relay, driver/suppression and terminals. H05: DC load/inrush, low-battery pickup, enclosure and four M2 mounting fasteners of as-yet-unspecified length |

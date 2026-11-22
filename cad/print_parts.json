@@ -1,6 +1,6 @@
 [
   {"id": "F1", "name": "Motor fit coupon", "stl": "motor_fit_coupon_s1.stl", "export": "current", "identify": "Short carrier section with the motor pocket; not installed on the robot."},
-  {"id": "F2", "name": "Bearing fit coupon", "stl": "bearing_fit_coupon_s1.stl", "export": "current", "identify": "Four rings, bores 19.0 / 19.1 / 19.2 / 19.3 mm. Labels were not visible on the user's print; alternating holes accepted the bearing. Retain the sample; no repeat print required."},
+  {"id": "F2", "name": "Bearing fit coupon", "stl": "bearing_fit_coupon_s1.stl", "export": "current", "identify": "Four rings, bores 19.0 / 19.1 / 19.2 / 19.3 mm. Labels were not visible on the printed sample; alternating holes accepted the bearing. Retain the sample; no repeat print required."},
   {"id": "P1", "name": "Track carrier", "stl": "track_carrier_s1.stl", "export": "current", "identify": "Long body with integral motor housing, continuous backplate and slotted idler boss."},
   {"id": "P2", "name": "Fixed bracket", "stl": "fixed_bracket_s1.stl", "export": "current", "identify": "Bracket with two carrier holes and four chassis-foot holes."},
   {"id": "P3", "name": "Tip hub", "stl": "tip_hub_p0.stl", "export": "current", "identify": "Revised hub: Ø30 wheel flange and rear collar, Ø27 waist, 21.5 mm long; three rear pilot holes for P8, four front wheel holes. Ø19.3 bearing bore. Earlier hub without rear holes is superseded; physical fit and load remain unqualified."},

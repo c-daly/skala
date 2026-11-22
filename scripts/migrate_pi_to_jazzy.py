@@ -214,7 +214,7 @@ class Migration:
         settings = self.path("/etc/update-manager/release-upgrades")
         settings.write_text(lts_prompt(settings.read_text()))
         print("Accept only Ubuntu 24.04 LTS (Noble). Review Ubuntu's prompts; do not select another target.")
-        # Keep the release upgrader on the user's terminal; never force -d or unattended mode.
+        # Keep the release upgrader on the interactive terminal; never force -d or unattended mode.
         self.run("do-release-upgrade")
         release = os_release(self.path("/etc/os-release"))
         if release.get("VERSION_ID") != "24.04":

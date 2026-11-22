@@ -2,7 +2,7 @@
   "generator": "docs/assembly/figures/make_s1_figures.py",
   "source_sha256": {
     "docs/assembly/figures/make_s1_figures.py": "44d0c28a784b7cb2a4ff61502cc7b281c4b9c87e4ce74f7e0da90891e0d51133",
-    "cad/print_parts.json": "861f53ef2c87ffbb01c8c4a7dea97f1f2f2324669fed56de0214bf976a00596e",
+    "cad/print_parts.json": "8e559133dca2e9027b884cf35a75ed32b8ce346def2b04169c8fa4260249bdbc",
     "cad/staged_base.json": "d6850467ae5580f09f6256cb0af80603b8bfd1d1a0054add210f4d12b8865cc8",
     "cad/staged_base.py": "83819788963b185830f1d598687f5fc26eff7237aae19de1ae368ad147fe5751",
     "cad/harness_s1.py": "7ff82d9c44cc743aab0b902f1534f7ff80596c442579c29bc8cb5331c7c62065",
@@ -23,5 +23,13 @@
     "s1-07-connections.svg",
     "s1-08-lead-restraint.svg"
   ],
-  "scope": "Assembly schematics. Not manufacturing drawings or physical qualification."
+  "scope": "Assembly schematics. Not manufacturing drawings or physical qualification.",
+  "documentation_revision": {
+    "date": "2026-11-22",
+    "change": "Impersonal wording in source comments, docstrings and print-catalog descriptions only.",
+    "verification": "Executable Python ASTs and non-prose catalog fields match the preceding sources. Existing geometry, exported files and recorded results are retained; no CAD regeneration or new qualification is claimed.",
+    "previous_source_sha256": {
+      "cad/print_parts.json": "861f53ef2c87ffbb01c8c4a7dea97f1f2f2324669fed56de0214bf976a00596e"
+    }
+  }
 }

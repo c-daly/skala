@@ -1,6 +1,6 @@
 """Four 626 bearing-fit rings; 19.3 mm is now the next full-hub candidate.
 
-Labels exist in CAD but were not visible on the user's print. Two alternating
+Labels exist in CAD but were not visible on the printed sample. Two alternating
 holes accepted the bearing; the nominal sizes were not uniquely identified.
 
 Each ring reproduces the hub's 27 mm barrel OD for one bearing's 6 mm depth.

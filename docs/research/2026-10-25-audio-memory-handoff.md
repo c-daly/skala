@@ -42,8 +42,8 @@ The repository contains actual S1 CAD and review assemblies:
 [dimensions and parts](../../cad/staged_base.json), `cad/staged_base.py` (assembly source in the Skala repository), and
 [CAD instructions](../../cad/README.md). The inspected `firmware/opencr_reflex/`
 and `software/talos/` trees contain planning READMEs, not executable drivers.
-The user's not-built status concerns the physical robot; it does not erase the
-existing CAD work. No physical microphone, camera, room or motor test occurred.
+The earlier incomplete-build status concerns physical assembly; the CAD work
+already exists. No physical microphone, camera, room or motor test occurred.
 
 The added [P0 design](../design/physical-design-spec.md)
 and [Talos capability manifest](../design/talos-capability-manifest.md)

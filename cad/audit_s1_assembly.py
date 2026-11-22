@@ -101,7 +101,7 @@ def run():
     c = S.carrier()
     h = S.hub()
     audit_idler_retention(record)
-    # User's earlier attachment, recovered from its generic Onshape filename.
+    # Reference motor body recovered from the original generic Onshape filename.
     # Its native axes are width X, shaft Y, body length Z. It does not contain
     # the separate four-hole wheel horn, so cannot certify horn projection.
     motor_body=import_step(str(S.HERE/'vendor/robotis/xl430_user_body.step'))

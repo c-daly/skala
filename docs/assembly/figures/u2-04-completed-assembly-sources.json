@@ -6,7 +6,7 @@
     "cad/out/step/deck_p0.step": "5e17aa9fc6de252ed5cf450c3cbac58ae0ec2129c5ba624c12bbb078a9e4c5f4",
     "cad/out/step/tip_hub_p0.step": "05f3d99ad14fc1e745b9bfc4892bf13d345c421a312b96889d5a574ccbfa976f",
     "cad/parts/tip_hub_p0.py": "d3219a47d3ce5a803357165d4bbbb5a3cf4e4b8b2d1de71ca1c18aa07e04b519",
-    "cad/print_parts.json": "861f53ef2c87ffbb01c8c4a7dea97f1f2f2324669fed56de0214bf976a00596e",
+    "cad/print_parts.json": "8e559133dca2e9027b884cf35a75ed32b8ce346def2b04169c8fa4260249bdbc",
     "cad/review/r1/step/arm_p0_r1.step": "9ae48cc99e8715f90c77fb0c5fb3eaa09b8c13a1494832f96a8cfdc79f575770",
     "cad/sensor_parts.json": "705ee0b5341b5c58bf4ba6d4db3505fb3c018acbff66552a236fb77ceb30a0c3",
     "cad/sensors_s1.py": "c8feee7ec5ff601643b49fe633fed0c2c33dc003d426e3f61cce02f859eaf406",
@@ -21,5 +21,13 @@
     "docs/assembly/figures/make_completed_sensor_view.py": "49c8033a123eee475c8193d23cd8247638ab9304e70e592acf7cf6746dc5d787"
   },
   "output_sha256": "33481b6d15b997ebf62fdfe92ce8626802b7295d96d262360fbb3e8c8c95e685",
-  "scope": "Step 10 nominal assembly. No proposed batteries/power tray. Bought-part envelopes, omitted cable/hardware detail and unfinished P17 board attachment labelled. A1 base webs are illustrative housing only, connecting the CAD mounting feet; not fit/clearance geometry."
+  "scope": "Step 10 nominal assembly. No proposed batteries/power tray. Bought-part envelopes, omitted cable/hardware detail and unfinished P17 board attachment labelled. A1 base webs are illustrative housing only, connecting the CAD mounting feet; not fit/clearance geometry.",
+  "documentation_revision": {
+    "date": "2026-11-22",
+    "change": "Impersonal wording in source comments, docstrings and print-catalog descriptions only.",
+    "verification": "Executable Python ASTs and non-prose catalog fields match the preceding sources. Existing geometry, exported files and recorded results are retained; no CAD regeneration or new qualification is claimed.",
+    "previous_source_sha256": {
+      "cad/print_parts.json": "861f53ef2c87ffbb01c8c4a7dea97f1f2f2324669fed56de0214bf976a00596e"
+    }
+  }
 }

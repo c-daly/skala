@@ -317,7 +317,7 @@ def build(vault):
             body += "\n## Sensor mounting check details\n\n" + register(sensors, 3)
             body += "\n## Sensor export details\n\n" + register(json.loads(source("cad/out/SENSOR_FIT_ARTICLES.json")), 3)
             body += "\n## Track geometry diagnostic\n\n```text\n" + source("cad/validation/p0-track-diagnosis-2026-10-28.txt").rstrip() + "\n```\n"
-        add(target, body, "c-daly/skala " + repo_name + "; generated vault reading copy")
+        add(target, body, "Skala repository " + repo_name + "; generated vault reading copy")
 
     data = json.loads(source("cad/staged_base.json"))
     add(PARTS, "# Skala parts and interfaces\n\n"
@@ -330,7 +330,7 @@ def build(vault):
         + table([{"id": p["id"], "name": p["name"], "file": wiki(PROJECT + "attachments/" + p["stl"], p["stl"]), "identification": p["identify"]} for p in catalog])
         + register(data) + "\n## Sensor mounting candidates\n\n"
         + table([{**p, "stl": wiki(PROJECT + "attachments/" + p["stl"], p["stl"])} for p in sensor_catalog]),
-        "c-daly/skala cad/staged_base.json, cad/print_parts.json and cad/sensor_parts.json; generated tables")
+        "Skala repository cad/staged_base.json, cad/print_parts.json and cad/sensor_parts.json; generated tables")
     data = json.loads(source("cad/actuator_options.json"))
     add(PITCH, "# Later tracked-leg actuator comparison\n\n"
         "Development options beyond S1: budget DIY BLDC/cycloidal joints, integrated brushless robot joints, and high-end aspirational Dynamixels. "
@@ -344,7 +344,7 @@ def build(vault):
         + register(data) + "## R1 reference parts\n\n"
         "This retained engineering comparison is not an approved purchase list.\n\n"
         + register(json.loads(source("cad/bom_r1.json")), 3),
-        "c-daly/skala cad/actuator_options.json and cad/bom_r1.json; generated tables")
+        "Skala repository cad/actuator_options.json and cad/bom_r1.json; generated tables")
 
     figure_receipt = json.loads(source("docs/assembly/figures/s1-figure-sources.json"))
     for name, expected in figure_receipt["source_sha256"].items():
@@ -416,7 +416,7 @@ def build(vault):
     home = convert(source("README.md"), "README.md")
     home += "\n## Decision history\n\n" + wiki(NARRATIVE, "Dated narrative") + (
         " records earlier choices and corrections. Historical decisions are not current build instructions.\n")
-    add(HOME, home, "c-daly/skala README.md; generated project overview")
+    add(HOME, home, "Skala repository README.md; generated project overview")
 
     narrative = existing(NARRATIVE)
     intro = ("Skala is being developed toward four powered tracked flippers and stair climbing. "
@@ -433,7 +433,7 @@ def build(vault):
     heading = "## 2026-11-07 — Owned power banks and one project overview"
     if heading not in narrative:
         narrative += ("\n\n" + heading + "\n\n"
-            "The user has several 5 V/3 A USB power banks. Current planning reuses one for the Pi and its downstream sensors; "
+            "Several 5 V/3 A USB power banks are available. Current planning reuses one for the Pi and its downstream sensors; "
             "the owned LB-012 remains the drive/head source. No new compute bank or converter is required. "
             "The 2.85 A worksheet is an estimate, not evidence that 3 A is inadequate. "
             "Select the actual bank and cable using fit, loaded voltage, temperature, runtime and shutdown checks. "
@@ -512,7 +512,7 @@ def build(vault):
     if count != 1:
         raise ValueError("Cannot locate the existing Skala profile in the Talos note")
     talos = re.sub(r"^updated:.*$", "updated: " + review_date(talos, current), talos, flags=re.M)
-    talos = re.sub(r"^source:.*$", 'source: "Talos design note; Skala profile refreshed from c-daly/skala docs/design/talos-capability-manifest.md"', talos, flags=re.M)
+    talos = re.sub(r"^source:.*$", 'source: "Talos design note; Skala profile refreshed from Skala repository docs/design/talos-capability-manifest.md"', talos, flags=re.M)
     out[TALOS] = talos.encode()
     return out
 

@@ -101,9 +101,9 @@ After a geometry or illustration change, generate and visually inspect the assem
 
     uv run docs/assembly/figures/make_s1_figures.py --preview-dir /tmp/skala-s1-assembly-figures
 
-From the repository root, prepare a bundle for both the WSL source vault and the Windows viewing vault:
+From the repository root, prepare a bundle for both the WSL source vault and the Windows viewing vault. Replace the example paths with the actual vault locations:
 
-    python scripts/sync_vault_docs.py --stage /tmp/skala-vault-reading --vault /home/fearsidhe/projects/vault --vault /mnt/c/vault
+    python scripts/sync_vault_docs.py --stage /tmp/skala-vault-reading --vault /path/to/source-vault --vault /path/to/viewing-vault
 
 Inspect the files under `/tmp/skala-vault-reading/files/`, then apply that exact bundle:
 

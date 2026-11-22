@@ -2,7 +2,7 @@
 
 Updated 2026-11-22.
 
-Planned local control for the current two-fixed-track robot. No Skala implementation or flashing procedure is present in this repository. The user confirms that the owned OpenCR previously controlled these same motors in a TurtleBot3. Identify and preserve its firmware/configuration as a hardware baseline; do not assume the board is blank or reset its motors as an inventory step. Skala is leaving the TurtleBot3 application stack behind. Reuse suitable OpenCR/DYNAMIXEL/IMU code where it helps implement Skala's contract, without making TurtleBot3 host packages or launches a requirement.
+Planned local control for the current two-fixed-track robot. No Skala implementation or flashing procedure is present in this repository. The existing OpenCR is reported to have controlled these same motors in a TurtleBot3. Identify and preserve its firmware/configuration as a hardware baseline; do not assume the board is blank or reset its motors as an inventory step. Skala is leaving the TurtleBot3 application stack behind. Reuse suitable OpenCR/DYNAMIXEL/IMU code where it helps implement Skala's contract, without making TurtleBot3 host packages or launches a requirement.
 
 Motor-bus passthrough through that installed firmware is **untested**. The earlier source review did not find forwarding code, which is narrower than proving that DYNAMIXEL Wizard cannot reach the motors. Investigate a read-only path first; installing a bridge/setup sketch would replace the controller firmware. See [motor access before firmware replacement](../../docs/assembly/commissioning-procedures.md#motor-access-before-firmware-replacement).
 

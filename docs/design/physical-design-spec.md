@@ -81,7 +81,7 @@ The XL430 has an internal drive controller; S1 adds no external H-bridge. Its lo
 
 ## Later powered flippers
 
-**High-end Dynamixels remain an aspirational option**, as requested by the user; they are not the assumed near-term purchase. Direct XL430 pitch drive failed the earlier load screen; external reduction remains a budget comparator. The [actuator register](../../cad/actuator_options.json) owns the cost ladder, associated parts and board alternatives. No replacement joint is selected. Compare equivalent output load, speed and duty, including complete installation and any required redesign.
+**High-end Dynamixels remain an aspirational option**; they are not the assumed near-term purchase. Direct XL430 pitch drive failed the earlier load screen; external reduction remains a budget comparator. The [actuator register](../../cad/actuator_options.json) owns the cost ladder, associated parts and board alternatives. No replacement joint is selected. Compare equivalent output load, speed and duty, including complete installation and any required redesign.
 
 The MG17-G50 R1 assembly remains evidence for one comparison, not a purchase list. Shaft support, output referencing, protection, power-off behavior and cable motion must be demonstrated on one joint before duplication. The old 12 N·m test and stall-torque sizing are withdrawn.
 
