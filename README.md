@@ -1,6 +1,6 @@
 # Skala
 
-Skala is Chris and his son's tracked research robot. The current build is a **two-fixed-track vehicle with Raspberry Pi 4B, OpenCR, camera, stereo microphone input and LiDAR**. Four powerful tracked legs with pitch and lateral movement, and eventual stair climbing, remain later development goals.
+Skala is a tracked research robot. The current build is a **two-fixed-track vehicle with Raspberry Pi 4B, OpenCR, camera, stereo microphone input and LiDAR**. Four powerful tracked legs with pitch and lateral movement, and eventual stair climbing, remain later development goals.
 
 This is the project starting point. In the vault, open **10-projects/skala/Skala** for this progress view and vault-local links to the instructions, drawings and print files. The repository maintains the build sources and exports the reading copies. When decisions or corrections are recorded in the vault first, reconcile them into the corresponding repository documents before exporting again; the export does not import vault edits automatically.
 
