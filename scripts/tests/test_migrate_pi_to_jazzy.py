@@ -151,6 +151,33 @@ class MigrationTests(unittest.TestCase):
         self.assertEqual(source.read_bytes(), original)
         self.assertFalse(any(call[0] == "do-release-upgrade" for call in self.runner.calls))
 
+    def test_backup_preserves_dangling_and_masked_systemd_links(self):
+        directory = self.root / "etc/systemd/system/multi-user.target.wants"
+        directory.mkdir(parents=True)
+        dangling = directory / "grub-initrd-fallback.service"
+        dangling.symlink_to("/missing-test-unit/grub-initrd-fallback.service")
+        masked = self.root / "etc/systemd/system/masked.service"
+        masked.symlink_to("/dev/null")
+        target = self.write("usr/lib/systemd/system/valid.service", "[Unit]\nDescription=Test\n")
+        valid = directory / "valid.service"
+        valid.symlink_to(target)
+        self.subject.make_backup()
+        with tarfile.open(self.subject.backup / "configuration.tar.gz") as archive:
+            for link in (dangling, masked, valid):
+                info = archive.getmember(link.relative_to(self.root).as_posix())
+                self.assertTrue(info.issym())
+                self.assertEqual(info.linkname, str(link.readlink()))
+            self.assertNotIn("usr/lib/systemd/system/valid.service", archive.getnames())
+        self.assertTrue(dangling.is_symlink())
+        self.assertFalse(dangling.exists())
+
+    def test_backup_keeps_a_dangling_top_level_configuration_link(self):
+        self.subject.path("etc/os-release").unlink()
+        self.subject.path("etc/os-release").symlink_to("../usr/lib/missing-os-release")
+        self.subject.make_backup()
+        with tarfile.open(self.subject.backup / "configuration.tar.gz") as archive:
+            self.assertTrue(archive.getmember("etc/os-release").issym())
+
     def test_jammy_reboot_boundary_does_not_install_jazzy_or_release_upgrade(self):
         self.write("run/reboot-required", "")
         self.subject.upgrade_jammy()

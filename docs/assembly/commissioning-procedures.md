@@ -236,7 +236,7 @@ On Jammy, `migrate` saves configuration and package inventories under `/var/back
 
 **Reboots:** whenever it prints `REBOOT REQUIRED`, run `sudo reboot`, reconnect and rerun the same `migrate` command. A Jammy package update and the release upgrade can require separate reboots. The script deliberately does not force a reboot or continue installing ROS in the same boot as the OS upgrade.
 
-**Backup limits:** its local archive covers selected system configuration and package inventories, not personal files, workspaces or a restorable whole-card image. Keep the G0 backup and anything important off the card before migrating. Package/release-upgrade output remains on the terminal; command lists are saved with each backup, and Ubuntu writes its own APT/release-upgrade logs.
+**Backup limits:** its local archive covers selected system configuration and package inventories, not personal files, workspaces or a restorable whole-card image. Symlinks are preserved as links, including dangling service links and `/dev/null` masks; targets outside the selected backup paths are not copied automatically. Keep the G0 backup and anything important off the card before migrating. Package/release-upgrade output remains on the terminal; command lists are saved with each backup, and Ubuntu writes its own APT/release-upgrade logs.
 
 After success, enter the new environment as your normal user:
 
@@ -246,7 +246,7 @@ skala-jazzy-shell
 
 This starts a Bash shell that sources Jazzy without loading old Humble/workspace startup files. Existing login configuration is preserved; use this command for Jazzy until that configuration has been reviewed. Successful CLI/Python import checks establish a ROS installation only. Camera Module 3 still needs compatible Raspberry Pi libcamera, WM8960/A1 integration still needs qualification, and OpenCR/Skala control remains separate work. Complete G1 before final assembly.
 
-**Validation of the script:** isolated tests cover wrong-host/architecture rejection, repository preservation, backup contents, package/download failures and reboot boundaries. The official Noble repository-package download and package identity were checked without installing it. No actual OS migration, Jazzy installation or hardware test has been run on the owned Pi.
+**Validation of the script:** isolated tests cover wrong-host/architecture rejection, repository preservation, backup contents (including dangling and masked service symlinks), package/download failures and reboot boundaries. The official Noble repository-package download and package identity were checked without installing it. The user reported an early missing `grub-initrd-fallback.service`-like path; a matching backup failure was reproduced and fixed by preserving symlinks instead of following them. That reproduced failure occurs before package mutation. No actual OS migration, Jazzy installation or hardware test has been run on the owned Pi by the agent.
 
 ## G1 — isolated compute and stationary sensors
 

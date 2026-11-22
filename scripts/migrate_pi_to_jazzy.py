@@ -171,14 +171,16 @@ class Migration:
         (self.backup / "manual-packages.txt").write_text(
             self.run("apt-mark", "showmanual", capture=True)
         )
-        with tarfile.open(self.backup / "configuration.tar.gz", "w:gz", dereference=True) as archive:
+        # Preserve links (including dangling units and /dev/null masks). Following
+        # them can fail on missing targets and changes systemd configuration semantics.
+        with tarfile.open(self.backup / "configuration.tar.gz", "w:gz", dereference=False) as archive:
             for name in (
                 "etc/apt", "etc/update-manager", "etc/default/locale", "etc/udev/rules.d",
                 "etc/netplan", "etc/systemd/system", "boot/firmware/config.txt",
                 "boot/firmware/cmdline.txt", "etc/os-release",
             ):
                 path = self.path(name)
-                if path.exists():
+                if path.exists() or path.is_symlink():
                     archive.add(path, arcname=name)
         print(f"Configuration/package backup: {self.backup}")
         print("This backup does not include your files/workspaces or provide whole-card rollback.")
