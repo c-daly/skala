@@ -1,6 +1,6 @@
 # Skala build review
 
-Updated 2026-11-22. **P0-S1-2026-11-02-R2 and upper candidate P0-U1-2026-11-03 have CAD checks, but no recorded loaded physical qualification.** Active scope extends through a complete two-fixed-track research robot with Pi/OpenCR, LiDAR, camera and audio. The [assembly guide](p0-assembly.md) owns procedure, the [physical spec](../design/physical-design-spec.md) owns architecture and the [system plan](s1-system-plan.md) owns electrical/remaining integration requirements. This page records evidence and outstanding conditions.
+Updated 2026-11-23. **P0-S1-2026-11-02-R2 and upper candidate P0-U1-2026-11-03 have CAD checks, but no recorded loaded physical qualification.** Active scope extends through a complete two-fixed-track research robot with Pi/OpenCR, LiDAR, camera and audio. The [assembly guide](p0-assembly.md) owns procedure, the [physical spec](../design/physical-design-spec.md) owns architecture and the [system plan](s1-system-plan.md) owns electrical/remaining integration requirements. This page records evidence and outstanding conditions.
 
 The guide supplies the lower fit sequence, deck/OpenCR/Pi assembly and **U2 conditional sensor mounts**. The complete electrical harness and powered commissioning remain unfinished. Loaded operation remains unqualified.
 
@@ -13,6 +13,10 @@ Current power planning reuses an owned 5 V/3 A compute bank. The bank model, cab
 **Kernel check, 2026-11-22:** the reported kernel string `5.15.0.1073-rasbpi` is interpreted as Ubuntu stock `5.15.0-1073-raspi`; the exact tagged source lacks IMX708 in Kconfig, Makefile and build annotations. No matching camera module/packages were reported; no raw terminal log is retained. [G0.5](commissioning-procedures.md#g05-decision-after-g0-the-pi-operating-system) links the pinned source and records the inference. Keeping Camera Module 3 needs a kernel/driver-stack change, rather than only installing camera applications. A supported substitute camera can avoid that particular change. No upgrade, substitute selection or camera-capture result is recorded; resolve and test the choice before final assembly.
 
 **2026-11-22 documentation reconciliation and follow-up correction:** the November 20 physical state above still applies. The reported Pi installation corrects the earlier Jazzy baseline: **ROS 2 Humble on Ubuntu 22.04 (Jammy)**. Kernel/package versions and OpenCR firmware remain to be inventoried; motor passthrough through that firmware has not been tested. The vault's November 20 camera-substitution decision is now carried into the build documents: Camera Module 3 remains the CAD baseline, but another camera can be selected after its mounting, power and capture requirements are checked. These are context corrections, not new hardware test results. G0 preserves and records the installed software before any OS or firmware replacement.
+
+## Ubuntu and ROS upgrade status — 2026-11-23
+
+Ubuntu and ROS distribution upgrades were reported complete on 2026-11-23. The planned target is Ubuntu 24.04 (Noble) with native ROS 2 Jazzy; post-upgrade release, kernel and package output has not yet been retained. This supersedes Humble/Jammy as the current software status in the November 22 entries above. It does not change the last physical assembly report or establish camera, audio, LiDAR, motor or stop/watchdog qualification. Preserve any pre-upgrade backup, capture the new inventory and continue with [G1 stationary sensor checks](commissioning-procedures.md#g1--isolated-compute-and-stationary-sensors) before final assembly.
 
 ## Sensor mounting candidate — 2026-11-06
 
