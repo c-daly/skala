@@ -77,18 +77,24 @@ def main():
     rect(520, 406, 48, 50, "#11171c", "#65747e", 3)
     rect(530, 416, 28, 16, "#37444e", "#a4b0b8")
     rect(530, 440, 28, 8, "#255179", "#9aadb9")
-    # Exposed scanner and its support remain outside the cosmetic enclosure.
+    # A1 side silhouette: optical drum, thin base, rear hanging motor and columns.
+    # This is a placement sketch, not a dimensioned drawing of the scanner.
     rect(415, 262, 240, 12, "#333c44", "#333c44")
-    for x in (437, 613):
-        rect(x, 207, 9, 55, "#acb3b6", "#65747e")
-    rect(467, 169, 132, 58, "#20272d", "#424d56", 13)
-    rect(482, 227, 101, 27, "#353e46", "#424d56", 7)
+    for x in (477, 613):
+        rect(x, 221, 9, 41, "#acb3b6", "#65747e")
+    rect(435, 211, 192, 10, "#252b31", "#424d56", 3)
+    rect(490, 169, 132, 42, "#20272d", "#424d56", 5)
+    circle(576, 190, 8, "#142f43", "#596671")
+    circle(606, 190, 4, "#142f43", "#596671")
+    rect(438, 221, 30, 32, "#a6afb7", "#65747e", 3)
+    rect(443, 207, 22, 4, "#535d66", "#424d56", 2)
+    path("M454 210 L520 210", stroke="#10171d", width=2)
     # Camera side outline at the open nose; no enclosure is attached to its moving frame.
     rect(902, 497, 68, 9, "#161c21", "#596671")
     rect(918, 465, 31, 32, "#242c33", "#596671")
     rect(928, 410, 12, 58, "#1e252b", "#596671")
     rect(929, 383, 35, 54, "#303a42", "#596671", 6)
-    rect(964, 394, 7, 31, RED, "#222b32", 2)
+    rect(964, 394, 7, 31, "#171c20", "#222b32", 2)
     # Existing tracks and printed structural parts remain black.
     rect(217, 529, 691, 155, "#22272c", "#515b63", 72)
     for x in (295, 830):
@@ -113,8 +119,8 @@ def main():
     path("M40 746 L1160 746", stroke="#d4dde3")
 
     for x, y, letter, title, detail in [
-        (45, 789, "A", "Split roof trim", "Separate around the LiDAR bridge.\nKeep the scanner mounted during removal."),
-        (640, 789, "B", "Side service covers", "Open access to boards, ports and cable ties.\nPosition holes from actual plugged-in hardware."),
+        (45, 789, "A", "Split roof trim", "Slide away around the fixed LiDAR bridge.\nKeep clear of the rear hanging motor."),
+        (640, 789, "B", "Side service covers", "Reach boards, ports and the tiny LiDAR PCB.\nIts carrier stays fixed beneath the rear bridge."),
         (45, 921, "C", "Mirrored front cheeks", "Keep the symmetric recess and gradual slope.\nRemove a cheek to reach the camera mechanism."),
         (640, 921, "D", "Rear service hatch", "Size the opening around the selected power bank.\nKeep the central drive-battery route separate."),
     ]:

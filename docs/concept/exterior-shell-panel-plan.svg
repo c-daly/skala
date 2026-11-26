@@ -33,15 +33,20 @@
 <rect x="530" y="416" width="28" height="16" rx="0" fill="#37444e" stroke="#a4b0b8" stroke-width="2"/>
 <rect x="530" y="440" width="28" height="8" rx="0" fill="#255179" stroke="#9aadb9" stroke-width="2"/>
 <rect x="415" y="262" width="240" height="12" rx="0" fill="#333c44" stroke="#333c44" stroke-width="2"/>
-<rect x="437" y="207" width="9" height="55" rx="0" fill="#acb3b6" stroke="#65747e" stroke-width="2"/>
-<rect x="613" y="207" width="9" height="55" rx="0" fill="#acb3b6" stroke="#65747e" stroke-width="2"/>
-<rect x="467" y="169" width="132" height="58" rx="13" fill="#20272d" stroke="#424d56" stroke-width="2"/>
-<rect x="482" y="227" width="101" height="27" rx="7" fill="#353e46" stroke="#424d56" stroke-width="2"/>
+<rect x="477" y="221" width="9" height="41" rx="0" fill="#acb3b6" stroke="#65747e" stroke-width="2"/>
+<rect x="613" y="221" width="9" height="41" rx="0" fill="#acb3b6" stroke="#65747e" stroke-width="2"/>
+<rect x="435" y="211" width="192" height="10" rx="3" fill="#252b31" stroke="#424d56" stroke-width="2"/>
+<rect x="490" y="169" width="132" height="42" rx="5" fill="#20272d" stroke="#424d56" stroke-width="2"/>
+<circle cx="576" cy="190" r="8" fill="#142f43" stroke="#596671" stroke-width="2"/>
+<circle cx="606" cy="190" r="4" fill="#142f43" stroke="#596671" stroke-width="2"/>
+<rect x="438" y="221" width="30" height="32" rx="3" fill="#a6afb7" stroke="#65747e" stroke-width="2"/>
+<rect x="443" y="207" width="22" height="4" rx="2" fill="#535d66" stroke="#424d56" stroke-width="2"/>
+<path d="M454 210 L520 210" fill="none" stroke="#10171d" stroke-width="2"/>
 <rect x="902" y="497" width="68" height="9" rx="0" fill="#161c21" stroke="#596671" stroke-width="2"/>
 <rect x="918" y="465" width="31" height="32" rx="0" fill="#242c33" stroke="#596671" stroke-width="2"/>
 <rect x="928" y="410" width="12" height="58" rx="0" fill="#1e252b" stroke="#596671" stroke-width="2"/>
 <rect x="929" y="383" width="35" height="54" rx="6" fill="#303a42" stroke="#596671" stroke-width="2"/>
-<rect x="964" y="394" width="7" height="31" rx="2" fill="#c93632" stroke="#222b32" stroke-width="2"/>
+<rect x="964" y="394" width="7" height="31" rx="2" fill="#171c20" stroke="#222b32" stroke-width="2"/>
 <rect x="217" y="529" width="691" height="155" rx="72" fill="#22272c" stroke="#515b63" stroke-width="2"/>
 <circle cx="295" cy="606" r="57" fill="#353c43" stroke="#6b757d" stroke-width="3"/>
 <circle cx="295" cy="606" r="17" fill="#242b32" stroke="#6b757d" stroke-width="2"/>
@@ -132,13 +137,13 @@
 <circle cx="63" cy="784" r="17" fill="white" stroke="#172b3a" stroke-width="2"/>
 <text x="63" y="791" font-size="18" fill="#172b3a" font-weight="700" text-anchor="middle">A</text>
 <text x="93" y="789" font-size="20" fill="#172b3a" font-weight="700" text-anchor="start">Split roof trim</text>
-<text x="93" y="822" font-size="17" fill="#526473" font-weight="400" text-anchor="start">Separate around the LiDAR bridge.</text>
-<text x="93" y="846" font-size="17" fill="#526473" font-weight="400" text-anchor="start">Keep the scanner mounted during removal.</text>
+<text x="93" y="822" font-size="17" fill="#526473" font-weight="400" text-anchor="start">Slide away around the fixed LiDAR bridge.</text>
+<text x="93" y="846" font-size="17" fill="#526473" font-weight="400" text-anchor="start">Keep clear of the rear hanging motor.</text>
 <circle cx="658" cy="784" r="17" fill="white" stroke="#172b3a" stroke-width="2"/>
 <text x="658" y="791" font-size="18" fill="#172b3a" font-weight="700" text-anchor="middle">B</text>
 <text x="688" y="789" font-size="20" fill="#172b3a" font-weight="700" text-anchor="start">Side service covers</text>
-<text x="688" y="822" font-size="17" fill="#526473" font-weight="400" text-anchor="start">Open access to boards, ports and cable ties.</text>
-<text x="688" y="846" font-size="17" fill="#526473" font-weight="400" text-anchor="start">Position holes from actual plugged-in hardware.</text>
+<text x="688" y="822" font-size="17" fill="#526473" font-weight="400" text-anchor="start">Reach boards, ports and the tiny LiDAR PCB.</text>
+<text x="688" y="846" font-size="17" fill="#526473" font-weight="400" text-anchor="start">Its carrier stays fixed beneath the rear bridge.</text>
 <circle cx="63" cy="916" r="17" fill="white" stroke="#172b3a" stroke-width="2"/>
 <text x="63" y="923" font-size="18" fill="#172b3a" font-weight="700" text-anchor="middle">C</text>
 <text x="93" y="921" font-size="20" fill="#172b3a" font-weight="700" text-anchor="start">Mirrored front cheeks</text>

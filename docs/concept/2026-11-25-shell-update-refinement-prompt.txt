@@ -1,0 +1,10 @@
+Use case: precise-object-edit
+Edit the supplied four-view SKALA shell concept sheet. Preserve its composition, labels, matte-black body, red shell trim/nameplate, gradual nose slopes, symmetric faceted camera recess, exposed tracks and maintenance-panel arrangement.
+Reference 1 is the edit target; reference 2 is the current assembly; reference 3 is the LiDAR fixture.
+
+Make these focused corrections consistently across all four views:
+1. The camera lens and its existing mounting hardware must be black, with the small PCB green. Remove the decorative red ring around the camera lens. Keep red only on shell trim and SKALA lettering.
+2. In the maintenance view, REMOVE the small upright green USB board currently attached to the near/front edge of the LiDAR bridge. Place that tiny board horizontally on a small insulating carrier underneath the REAR edge of the bridge, towards the robot's back and away from the camera. It is partly concealed in this view; a subtle green edge and short secured cable are enough. Do not enlarge it or add an electronics enclosure. The bridge and scanner remain fixed during shell removal.
+3. Keep the A1's motor/pulley end directed towards the rear of the robot in every view. In SIDE PROFILE the camera is at the right and motor at the left. In the straight FRONT view the motor is behind the scan drum, mostly occluded, not protruding sideways. Keep the recognizable teardrop scanner base, belt/pulley, optical windows and four support columns. No extra columns and no columns taller than the scanner base.
+
+Do not redesign any shell panel, move the camera, change the shallow shoulder slope, add extra features or replace the four-view layout. This remains a styling study; preserve the footer about fit, motion and cooling.

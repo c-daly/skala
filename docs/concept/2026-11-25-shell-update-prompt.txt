@@ -1,0 +1,25 @@
+Use case: precise-object-edit / product-mockup
+Asset type: revised exterior-shell concept sheet for the Skala repository and vault.
+
+Update the supplied Skala shell concept, preserving its selected visual identity.
+Input 1 is the main edit/style target: the earlier sloped shell, side and three-quarter views.
+Input 2 is the front-symmetry reference: retain its mirrored planar camera recess.
+Input 3 is the current uncovered CAD assembly: authoritative hardware placement and proportions, not its display colours.
+Input 4 is the corrected LiDAR fixture illustration: use its recognizable RPLIDAR A1 shape and mounting arrangement.
+
+Produce one polished landscape concept sheet with four clearly separated views of the SAME robot and consistent panel seams:
+top left FRONT THREE-QUARTER, top right SIDE PROFILE (front to right),
+bottom left FRONT, bottom right MAINTENANCE VIEW.
+Use a neutral light studio background, restrained shadows and detailed matte black printed surfaces.
+Title: SKALA — SHELL CONCEPT UPDATE
+Small footer: Styling study — fit, motion and cooling remain to be checked
+
+Keep the two exposed tracks, existing printed structure BLACK, modest red nameplate and narrow red accent strips only, broad shoulders with long gradual slopes towards the nose, and an open symmetric camera recess formed from planar facets. Keep the camera on the existing forward pan/tilt mechanism; do not turn it into a flush fixed camera, enclose its motion, add a giant lens, or colour its existing hardware red. Show the same front recess and shallow slope in all four views. Do not change the track layout, add wheels, arms, handles or decorative fins.
+
+Replace the earlier generic plain cylindrical LiDAR with the recognizable A1 from the hardware reference: round optical head with visible side optical openings and lid screws, a black teardrop mounting base, belt and small pulley, and the offset silver motor hanging below the rear of that base. Four slim columns support the scanner's mounting feet ABOVE the rectangular bridge. The scanner is not suspended between columns rising above its lid. Keep its horizontal scan band exposed all around. Match the existing scanner height and hardware placement from the CAD; no taller sensor tower and no new scanner enclosure.
+
+Show finished but removable shell panels: split roof trim around the fixed LiDAR bridge, vented side covers, independent mirrored front cheeks, rear service hatch, and small detachable lower nose strip. Follow the existing angular seams. Roof pieces slide away sideways without removing the scanner or its bridge. Do not attach shell panels to the scanner or rotating camera. Maintain acoustic openings and ventilation at the upper electronics; connector openings must be modest and located on robot-left where the Pi ports face. A small reachable stop button may occupy the planned front-right position, below the scanner band, without becoming the focus.
+
+In the MAINTENANCE VIEW, place one robot-left side cover and the adjacent front cheek next to the robot, showing their simple locating tabs and accessible screws. Keep scanner, bridge, tracks and camera mounted in place. Show restrained cables, the existing board stack, and a TINY bare USB-interface PCB on its small insulating holder beneath the rear of the LiDAR bridge. The PCB must remain a minor detail, not a giant electronics tray or a new bulky enclosure. Do not invent a dimensioned PCB or exact mounting-hole pattern. No floating internal parts and no duplicated camera.
+
+Treat the render as a styling proposal, not dimensioned engineering CAD. Prioritize faithful appearance, coherent service access and consistent hardware between the four views. No dimensions, claimed clearance values, personal names or personal references.

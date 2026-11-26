@@ -53,6 +53,9 @@ SUPPORT_FILES = {
     "scripts/migrate_pi_to_jazzy.py": PROJECT + "attachments/migrate_pi_to_jazzy.py",
     "docs/concept/2026-11-08-shell-symmetric-front.png": PROJECT + "attachments/2026-11-08-shell-symmetric-front.png",
     "docs/concept/2026-11-08-shell-sloped-concept.png": PROJECT + "attachments/2026-11-08-shell-sloped-concept.png",
+    "docs/concept/2026-11-25-shell-concept-update.png": PROJECT + "attachments/2026-11-25-shell-concept-update.png",
+    "docs/concept/2026-11-25-shell-update-prompt.txt": PROJECT + "attachments/2026-11-25-shell-update-prompt.txt",
+    "docs/concept/2026-11-25-shell-update-refinement-prompt.txt": PROJECT + "attachments/2026-11-25-shell-update-refinement-prompt.txt",
 }
 FIT_FILES = {"cad/out/stl/" + p["stl"]: PROJECT + "attachments/" + p["stl"]
              for p in PRINT_PARTS if p["export"] == "current"}
