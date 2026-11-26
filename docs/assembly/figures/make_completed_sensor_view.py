@@ -15,6 +15,7 @@ from pathlib import Path
 import cairosvg
 import numpy as np
 from PIL import Image
+import lidar_display as L
 
 HERE = Path(__file__).resolve().parent
 ROOT = HERE.parents[2]
@@ -41,7 +42,7 @@ def source_hashes():
              "cad/vendor/raspberrypi/camera3_standard.stp"]
     config = json.loads((ROOT / "cad/staged_base.json").read_text())
     names += ["cad/" + n for n in config["reference_geometry"]]
-    return {n: hashlib.sha256((ROOT/n).read_bytes()).hexdigest() for n in sorted(set(names))}
+    return {n: hashlib.sha256((ROOT/n).read_bytes()).hexdigest() for n in sorted(set(names + L.SOURCES))}
 
 
 def mesh_scene(cache_dir, sources):
@@ -63,6 +64,11 @@ def mesh_scene(cache_dir, sources):
     parts.update(U.installed())
     parts["opencr_board"] = U.opencr()
     parts.update(S.sensor_static())
+    # Clearance envelopes remain in engineering CAD; use the illustrated A1 here.
+    parts = {n: p for n, p in parts.items()
+             if n not in ("a1_rotor_envelope", "a1_motor_envelope") and not n.startswith("a1_foot_envelope_")}
+    display = L.parts()
+    parts.update({n: p for n, (p, _) in display.items()})
     moving = S.moving_parts()
     for n in ("camera_pcb", "camera_front", "camera_connector"):
         moving.pop(n)
@@ -100,7 +106,7 @@ def mesh_scene(cache_dir, sources):
             continue
         verts.append(np.array([tuple(p) for p in v], dtype=np.float32))
         faces.append(np.asarray(f, dtype=np.int32) + offset)
-        colours.extend([COLOURS[category]] * len(f))
+        colours.extend([display[name][1] if name in display else COLOURS[category]] * len(f))
         groups.extend([group] * len(f))
         offset += len(v)
     arrays = (np.concatenate(verts), np.concatenate(faces), np.asarray(colours, dtype=np.float32), np.asarray(groups, dtype=np.int32))
@@ -174,42 +180,13 @@ def render(scene, eye, width, height, scale=None, centre=None):
     return Image.fromarray(image), project
 
 
-def add_scanner_shell(scene):
-    """Illustrative bought A1 base joining its feet, not new printable geometry.
-
-    The collision model separates rotor, motor and mounting-foot envelopes.
-    Join them visually so that omitted housing webs do not suggest floating
-    feet. Foot positions and flange elevations stay those of the CAD candidate.
-    The simplified shell outline is not used for fit/clearance checks.
-    """
-    import math
-    from build123d import Axis
-    import sensors_s1 as S
-    shell = S.cyl(35.3, 5, (8, 0, 173))
-    for x, y in S.LIDAR_HOLES:
-        origin = (8, 0) if x > 0 else (-37.5, 0)
-        dx, dy = x-origin[0], y-origin[1]
-        web = S.box((math.hypot(dx, dy), 7, 5), (0, 0, 0))
-        web = web.rotate(Axis.Z, math.degrees(math.atan2(dy, dx)))
-        shell += web.translate(((x+origin[0])/2, y/2, 175.5))
-        shell += S.cyl(3.5, 5, (x, y, 173))
-    for x, y in S.LIDAR_HOLES:
-        shell -= S.cyl(1.65, 7, (x, y, 172))
-    v, f = shell.tessellate(.18, .26)
-    vertices, faces, colours, groups = scene
-    return (np.concatenate((vertices, np.array([tuple(p) for p in v], dtype=np.float32))),
-            np.concatenate((faces, np.asarray(f, dtype=np.int32)+len(vertices))),
-            np.concatenate((colours, np.tile(COLOURS["equipment"], (len(f), 1)))),
-            np.concatenate((groups, np.full(len(f), groups.max()+1))))
-
-
 def main():
     p = argparse.ArgumentParser()
     p.add_argument("--preview-dir", type=Path, default=Path("/tmp/skala-completed-assembly"))
     p.add_argument("--cache-dir", type=Path, default=Path("/tmp/skala-assembly-render-cache"))
     args = p.parse_args()
     sources = source_hashes()
-    scene = add_scanner_shell(mesh_scene(args.cache_dir, sources))
+    scene = mesh_scene(args.cache_dir, sources)
     print("Rendering assembly views", flush=True)
     hero, project = render(scene, (1.15, -1.45, .95), 1080, 830)
     # Same complete assembly, viewed square to its right side.
@@ -238,7 +215,7 @@ def main():
     text(42, 53, "Skala — after Step 10", 36, bold=True)
     text(43, 90, "Sensor mounts fitted • fixed-track prototype • camera facing forward", 21, MUTED)
     text(1330, 49, "ASSEMBLY SCHEMATIC", 17, MUTED, True)
-    text(1330, 78, "U2 candidate  /  07 Nov 2026", 16, MUTED)
+    text(1330, 78, "U2 candidate  /  view 25 Nov 2026", 16, MUTED)
     line([(42,112),(1678,112)], "#d8e0e5")
     embed(hero,30,145)
     text(50,151,"FRONT-RIGHT VIEW",16,MUTED,True)
@@ -291,7 +268,7 @@ def main():
     cairosvg.svg2png(url=str(svg_path),write_to=str(args.preview_dir/(NAME+".png")))
     sources[str(Path(__file__).resolve().relative_to(ROOT))]=hashlib.sha256(Path(__file__).read_bytes()).hexdigest()
     receipt={"figure":NAME+".svg","source_sha256":sources,"output_sha256":hashlib.sha256(svg_path.read_bytes()).hexdigest(),
-             "scope":"Step 10 nominal assembly. No proposed batteries/power tray. Bought-part envelopes, omitted cable/hardware detail and unfinished P17 board attachment labelled. A1 base webs are illustrative housing only, connecting the CAD mounting feet; not fit/clearance geometry."}
+             "scope":"Step 10 nominal assembly. No proposed batteries/power tray. A1 appearance follows the retained SLAMTEC drawing through lidar_display.py; illustrative base/belt/optical detail is not manufacturer CAD or fit/clearance geometry. Engineering CAD and printable geometry unchanged. Other bought-part envelopes, omitted cable/hardware detail and unfinished P17 board attachment labelled."}
     (HERE/(NAME+"-sources.json")).write_text(json.dumps(receipt,indent=2)+"\n")
     print(f"Generated {svg_path}",flush=True)
 

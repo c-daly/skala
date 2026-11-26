@@ -77,10 +77,10 @@
 <line x1="900" y1="947" x2="900" y2="987" stroke="#156f50" stroke-width="2" marker-end="url(#arrow)"/>
 <text x="675" y="974" font-size="16" fill="#156f50" text-anchor="start" font-weight="400">USB cable</text>
 <rect x="45" y="1120" width="1110" height="140" rx="8" fill="#f0f3f5" stroke="#d4dde3" stroke-width="2"/>
-<text x="62" y="1149" font-size="18" fill="#172b3a" text-anchor="start" font-weight="700">What remains before attaching the PCB</text>
-<text x="62" y="1177" font-size="16" fill="#526473" text-anchor="start" font-weight="400">Record its outline, mounting holes, underside components, connector directions and markings.</text>
-<text x="62" y="1200" font-size="16" fill="#526473" text-anchor="start" font-weight="400">Then define insulating supports and positive retention; the 24 × 40 mm space is only an allowance.</text>
-<text x="62" y="1223" font-size="16" fill="#526473" text-anchor="start" font-weight="400">Keep the PCB off screw heads and metalwork. Restrain cable jackets without loading the sockets.</text>
+<text x="62" y="1149" font-size="18" fill="#172b3a" text-anchor="start" font-weight="700">A simple holder for the small PCB</text>
+<text x="62" y="1177" font-size="16" fill="#526473" text-anchor="start" font-weight="400">Use an insulating cradle with a light retaining clip on clear edges; restrain the cable jackets.</text>
+<text x="62" y="1200" font-size="16" fill="#526473" text-anchor="start" font-weight="400">Check the board outline, underside and plugged-in height. A matched screw-hole pattern is optional.</text>
+<text x="62" y="1223" font-size="16" fill="#526473" text-anchor="start" font-weight="400">The 24 × 40 mm space is only an allowance; keep the PCB off screw heads and metalwork.</text>
 <text x="45" y="1320" font-size="17" fill="#172b3a" text-anchor="start" font-weight="700">The PCB stays stationary with P17. It is not a Pi GPIO HAT and does not attach to the rotating scanner.</text>
 <text x="34" y="1408" font-size="14" fill="#526473" text-anchor="start" font-weight="400">P12 LiDAR bridge: lidar_bridge_s1.stl   |   P17 LiDAR interface carrier: lidar_interface_carrier_s1.stl</text>
 <line x1="34" y1="1413" x2="1166" y2="1413" stroke="#d4dde3" stroke-width="2"/>

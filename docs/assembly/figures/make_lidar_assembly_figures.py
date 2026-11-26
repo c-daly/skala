@@ -7,36 +7,20 @@ invented. Exploded offsets do not change installed geometry or print exports.
 import argparse
 import hashlib
 import json
-import math
 from pathlib import Path
 
-from build123d import Axis, Plane, import_step
+from build123d import Plane, import_step
 
 import make_s1_figures as D
 from make_camera_assembly_figures import cad_view
 import sensors_s1 as S
 import upper_s1 as U
+import lidar_display as L
 
 HERE = Path(__file__).resolve().parent
 ROOT = HERE.parents[2]
 FRAME, BRIDGE, CARRIER = (53, 151, 171), (65, 116, 185), (224, 151, 58)
 METAL, SCANNER, DECK = (170, 181, 192), (67, 74, 85), (195, 204, 212)
-
-
-def scanner():
-    """Illustrative bought housing joins the CAD's separate feet and envelopes."""
-    shell = S.cyl(35.3, 24.5, (8, 0, 173))
-    shell += S.cyl(16, 31.5, (-37.5, 0, 146.5))
-    for x, y in S.LIDAR_HOLES:
-        origin = (8, 0) if x > 0 else (-37.5, 0)
-        dx, dy = x - origin[0], y - origin[1]
-        web = S.box((math.hypot(dx, dy), 7, 5), (0, 0, 0))
-        web = web.rotate(Axis.Z, math.degrees(math.atan2(dy, dx)))
-        shell += web.translate(((x + origin[0]) / 2, y / 2, 175.5))
-        shell += S.cyl(3.5, 5, (x, y, 173))
-    for x, y in S.LIDAR_HOLES:
-        shell -= S.cyl(1.65, 7, (x, y, 172))
-    return shell
 
 
 def exploded():
@@ -47,13 +31,13 @@ def exploded():
     parts = [(deck, DECK), (S.bridge_side(), FRAME),
              (S.bridge_side().mirror(Plane.XZ), FRAME),
              (S.lidar_bridge().translate((0, 0, 50)), BRIDGE),
-             (S.interface_carrier().translate((0, 0, 50)), CARRIER),
-             (scanner().translate((0, 0, 110)), SCANNER)]
+             (S.interface_carrier().translate((0, 0, 50)), CARRIER)]
+    parts += [(shape.translate((0, 0, 110)), colour) for shape, colour in L.parts().values()]
     parts += [(U.standoff(35, xy, 208, 6), METAL) for xy in S.LIDAR_HOLES]
     parts += [(U.standoff(15, (-44, y), 169), METAL) for y in (-24, 24)]
     project = cad_view(d, parts, (-1.3, -1.6, .8), 35, 145, 655, 835)
     labels = [
-        ((-37.5, 0, 266), 200, "Scanner — motor end rearward", "Four feet rest on the tall columns.\nM3×10 + washer through each foot\nfrom ABOVE; check the actual feet."),
+        ((-37.5, 0, 266), 200, "RPLIDAR A1 — motor rearward", "Teardrop base, belt-driven scan head.\nFour feet rest on the tall columns.\nM3×10 + washer from ABOVE."),
         ((-34, -20, 225), 370, "V2 — four 35 mm M3 columns", "M3×10 + washer through P12\nfrom BELOW into each column.\nUpper screws also M3×10."),
         ((36, -64, 186), 510, "P12 — bridge plate", "Four V1 M3×16 sets from ABOVE\nclamp P12 to the frame top rails.\nWashers both sides; nylocs below."),
         ((-44, -24, 169), 645, "P17 — PCB carrier below P12", "Two V5 15 mm M2.5 columns.\nM2.5×8 + washer at each end.\nPCB attachment remains unfinished."),
@@ -144,8 +128,8 @@ def carrier():
     d.text(675, 844, "Owned scanner cable", 16, D.ORANGE)
     d.line(900, 947, 900, 987, color=D.GREEN, arrow=True)
     d.text(675, 974, "USB cable", 16, D.GREEN)
-    d.note(45, 1120, 1110, "What remains before attaching the PCB",
-           "Record its outline, mounting holes, underside components, connector directions and markings.\nThen define insulating supports and positive retention; the 24 × 40 mm space is only an allowance.\nKeep the PCB off screw heads and metalwork. Restrain cable jackets without loading the sockets.")
+    d.note(45, 1120, 1110, "A simple holder for the small PCB",
+           "Use an insulating cradle with a light retaining clip on clear edges; restrain the cable jackets.\nCheck the board outline, underside and plugged-in height. A matched screw-hole pattern is optional.\nThe 24 × 40 mm space is only an allowance; keep the PCB off screw heads and metalwork.")
     d.text(45, 1320, "The PCB stays stationary with P17. It is not a Pi GPIO HAT and does not attach to the rotating scanner.", 17, bold=True)
     return d
 
@@ -165,7 +149,7 @@ def main():
              "cad/print_parts.json", "cad/staged_base.json", "cad/out/step/deck_p0.step",
              "cad/vendor/sensor_sources.json", "docs/assembly/figures/make_lidar_assembly_figures.py",
              "docs/assembly/figures/make_camera_assembly_figures.py",
-             "docs/assembly/figures/make_s1_figures.py", "docs/assembly/figures/make_completed_sensor_view.py"]
+             "docs/assembly/figures/make_s1_figures.py", "docs/assembly/figures/make_completed_sensor_view.py"] + L.SOURCES
     receipt = {
         "scope": "Illustrations of existing LiDAR fixture only; simplified A1M8 envelope, no invented PCB or board supports. No fit or powered qualification.",
         "source_sha256": {n: hashlib.sha256((ROOT / n).read_bytes()).hexdigest() for n in names},

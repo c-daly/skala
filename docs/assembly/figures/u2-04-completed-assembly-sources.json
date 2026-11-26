@@ -17,17 +17,11 @@
     "cad/vendor/robotis/ict01_caterpillar.step": "a9df2f096a368dabbb33939d20b0430766d3969d53c978454493c026627f5ed0",
     "cad/vendor/robotis/opencr_rev_h.step": "1fdbbb882216cc011a3cd038fc56abe5525135bec9c77a5e5ff5066c85e7b484",
     "cad/vendor/sensor_sources.json": "bd08042fa3f5afc7855dcd0f3ba7a6fe731287c8fd09d6852393e6ac6d083413",
+    "cad/vendor/slamtec/a1m8_v3.0.pdf": "b6938125e1778b1ddce3a9b35a50fa10b0af4a923fd1a52e538dc8b275a46834",
     "cad/vendor/waveshare/wm8960.stp": "393e821eab3035984c34e4a6b90700a96104138a256eea335c3f3e8242d3ab51",
-    "docs/assembly/figures/make_completed_sensor_view.py": "49c8033a123eee475c8193d23cd8247638ab9304e70e592acf7cf6746dc5d787"
+    "docs/assembly/figures/lidar_display.py": "5fd6e6b0f7584ec871de0adf0e3751efaa3b75e464c571cd67380218922693ea",
+    "docs/assembly/figures/make_completed_sensor_view.py": "2967c01a7536785037a74f0102a5676eabc56cb28775320e69dfd0ae5a4575ff"
   },
-  "output_sha256": "33481b6d15b997ebf62fdfe92ce8626802b7295d96d262360fbb3e8c8c95e685",
-  "scope": "Step 10 nominal assembly. No proposed batteries/power tray. Bought-part envelopes, omitted cable/hardware detail and unfinished P17 board attachment labelled. A1 base webs are illustrative housing only, connecting the CAD mounting feet; not fit/clearance geometry.",
-  "documentation_revision": {
-    "date": "2026-11-22",
-    "change": "Impersonal wording in source comments, docstrings and print-catalog descriptions only.",
-    "verification": "Executable Python ASTs and non-prose catalog fields match the preceding sources. Existing geometry, exported files and recorded results are retained; no CAD regeneration or new qualification is claimed.",
-    "previous_source_sha256": {
-      "cad/print_parts.json": "861f53ef2c87ffbb01c8c4a7dea97f1f2f2324669fed56de0214bf976a00596e"
-    }
-  }
+  "output_sha256": "083563b54a3011508cf98ced0ad6f8cd0454a1bd0f6e18f53e41b100e51a92e4",
+  "scope": "Step 10 nominal assembly. No proposed batteries/power tray. A1 appearance follows the retained SLAMTEC drawing through lidar_display.py; illustrative base/belt/optical detail is not manufacturer CAD or fit/clearance geometry. Engineering CAD and printable geometry unchanged. Other bought-part envelopes, omitted cable/hardware detail and unfinished P17 board attachment labelled."
 }

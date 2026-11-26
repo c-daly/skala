@@ -8,13 +8,15 @@
     "cad/staged_base.json": "d6850467ae5580f09f6256cb0af80603b8bfd1d1a0054add210f4d12b8865cc8",
     "cad/out/step/deck_p0.step": "5e17aa9fc6de252ed5cf450c3cbac58ae0ec2129c5ba624c12bbb078a9e4c5f4",
     "cad/vendor/sensor_sources.json": "bd08042fa3f5afc7855dcd0f3ba7a6fe731287c8fd09d6852393e6ac6d083413",
-    "docs/assembly/figures/make_lidar_assembly_figures.py": "5ad82c4385b7b3760ebb08322db136f636b04bfedc4a7c73d0855ff5639a99ed",
+    "docs/assembly/figures/make_lidar_assembly_figures.py": "b2ef3bfdc8113dd951caa5fa9ef1ea7c685f0ccbfd0568df85fb974db6fddaf5",
     "docs/assembly/figures/make_camera_assembly_figures.py": "9a83ed529a109706b287a126ace8933ee3bd52d14f8cbe01afac625f3feb0a91",
     "docs/assembly/figures/make_s1_figures.py": "44d0c28a784b7cb2a4ff61502cc7b281c4b9c87e4ce74f7e0da90891e0d51133",
-    "docs/assembly/figures/make_completed_sensor_view.py": "49c8033a123eee475c8193d23cd8247638ab9304e70e592acf7cf6746dc5d787"
+    "docs/assembly/figures/make_completed_sensor_view.py": "2967c01a7536785037a74f0102a5676eabc56cb28775320e69dfd0ae5a4575ff",
+    "docs/assembly/figures/lidar_display.py": "5fd6e6b0f7584ec871de0adf0e3751efaa3b75e464c571cd67380218922693ea",
+    "cad/vendor/slamtec/a1m8_v3.0.pdf": "b6938125e1778b1ddce3a9b35a50fa10b0af4a923fd1a52e538dc8b275a46834"
   },
   "output_sha256": {
-    "u2-07-lidar-assembly.svg": "0979b1c1407b3e0b36653423a32610eec3063741c13f3bcdd3f307e10048c4de",
-    "u2-08-lidar-board-carrier.svg": "fc8d836008bb26b1fa9af681750a18219b725aa7101ff5cd4330238902644284"
+    "u2-07-lidar-assembly.svg": "59865c63efd33dbe390bccd7ee65d35e3461fc244cc050e0b7b6cbc9f4f1ac49",
+    "u2-08-lidar-board-carrier.svg": "74e7fbdfa902dade5ec724023ebe0fa7dd9195648a38c8f28fc635ae5923f570"
   }
 }

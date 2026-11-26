@@ -7,7 +7,7 @@
     "cad/print_parts.json": "8e559133dca2e9027b884cf35a75ed32b8ce346def2b04169c8fa4260249bdbc",
     "docs/assembly/figures/make_camera_assembly_figures.py": "9a83ed529a109706b287a126ace8933ee3bd52d14f8cbe01afac625f3feb0a91",
     "docs/assembly/figures/make_s1_figures.py": "44d0c28a784b7cb2a4ff61502cc7b281c4b9c87e4ce74f7e0da90891e0d51133",
-    "docs/assembly/figures/make_completed_sensor_view.py": "49c8033a123eee475c8193d23cd8247638ab9304e70e592acf7cf6746dc5d787"
+    "docs/assembly/figures/make_completed_sensor_view.py": "2967c01a7536785037a74f0102a5676eabc56cb28775320e69dfd0ae5a4575ff"
   },
   "output_sha256": {
     "u2-05-camera-pan-assembly.svg": "7d48183bb1799cfe1c3b0d8bcda2b2af78615c66f52a553e9b2a30689f52a322",
