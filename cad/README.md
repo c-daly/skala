@@ -70,6 +70,9 @@ For U2 sensor changes, run these in order:
     uv run cad/audit_sensors_s1.py
     uv run cad/build.py
     uv run docs/assembly/figures/make_sensor_figures.py --preview-dir /tmp/skala-sensor-figures
+    uv run docs/assembly/figures/make_camera_assembly_figures.py --preview-dir /tmp/skala-camera-assembly
+
+For camera assembly wording or illustration changes alone, run the last command and inspect both PNG previews. It renders P13–P16 from the existing CAD and labels the horn/centre screw as schematic bought parts; it does not alter the print geometry or qualify a servo fit. The source/output hashes are recorded in `docs/assembly/figures/u2-camera-assembly-sources.json`.
 
 `out/SENSOR_FIT_ARTICLES.json` records validated sensor meshes and source hashes. `review/upper/sensor_stack_s1.step` shows installed coordinates and explicitly named hardware envelopes. The source registry `vendor/sensor_sources.json` distinguishes the actual Camera 3/HAT models from the conditional MG90S and A1 envelopes. The current A1/interface identity, HAT seating, servo/horn match and moving ribbon still need the guide's checks. The normal build refuses to export against a stale or failed sensor audit; it does not rerun that expensive audit silently.
 

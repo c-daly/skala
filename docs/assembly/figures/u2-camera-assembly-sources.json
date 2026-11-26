@@ -1,0 +1,16 @@
+{
+  "scope": "Assembly illustrations only; existing printed geometry, schematic horn and centre screw. No new fit or powered qualification.",
+  "source_sha256": {
+    "cad/sensors_s1.py": "c8feee7ec5ff601643b49fe633fed0c2c33dc003d426e3f61cce02f859eaf406",
+    "cad/sensor_parts.json": "705ee0b5341b5c58bf4ba6d4db3505fb3c018acbff66552a236fb77ceb30a0c3",
+    "cad/upper_s1.py": "fc5fbf8872c9d8fded6151f9976061f1db29159bc54a9f5fd47ffaf66aa1400d",
+    "cad/print_parts.json": "8e559133dca2e9027b884cf35a75ed32b8ce346def2b04169c8fa4260249bdbc",
+    "docs/assembly/figures/make_camera_assembly_figures.py": "9a83ed529a109706b287a126ace8933ee3bd52d14f8cbe01afac625f3feb0a91",
+    "docs/assembly/figures/make_s1_figures.py": "44d0c28a784b7cb2a4ff61502cc7b281c4b9c87e4ce74f7e0da90891e0d51133",
+    "docs/assembly/figures/make_completed_sensor_view.py": "49c8033a123eee475c8193d23cd8247638ab9304e70e592acf7cf6746dc5d787"
+  },
+  "output_sha256": {
+    "u2-05-camera-pan-assembly.svg": "7d48183bb1799cfe1c3b0d8bcda2b2af78615c66f52a553e9b2a30689f52a322",
+    "u2-06-camera-part-identification.svg": "1a69eb8e06b0100fae824855ced55d09e6688266545cbfe4aaf36abcf545ac18"
+  }
+}
