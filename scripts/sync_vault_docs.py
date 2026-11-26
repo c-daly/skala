@@ -50,6 +50,15 @@ PRINT_PARTS = json.loads((REPO / "cad/print_parts.json").read_text())
 SENSOR_PARTS = json.loads((REPO / "cad/sensor_parts.json").read_text())
 SENSOR_FILES = {"cad/out/stl/" + p["stl"]: PROJECT + "attachments/" + p["stl"] for p in SENSOR_PARTS}
 SUPPORT_FILES = {
+    "docs/concept/2026-11-26-shell-cad.png": PROJECT + "attachments/2026-11-26-shell-cad.png",
+    "docs/concept/2026-11-26-shell-fit-parts.png": PROJECT + "attachments/2026-11-26-shell-fit-parts.png",
+    "docs/concept/2026-11-26-shell-cutback-concept.png": PROJECT + "attachments/2026-11-26-shell-cutback-concept.png",
+    "docs/concept/2026-11-26-shell-cutback-prompt.txt": PROJECT + "attachments/2026-11-26-shell-cutback-prompt.txt",
+    **{"cad/review/shell/" + name: PROJECT + "attachments/" + name for name in (
+        "shell-first-fit-s1.zip", "shell_installed_s1.step",
+        "shell_side_cover_s1_L.stl", "shell_cheek_s1_L.stl", "shell_deck_bracket_s1.stl",
+        "shell_cheek_rear_bracket_s1.stl", "shell_cheek_front_bracket_s1.stl")},
+    "cad/review/shell/audit.json": PROJECT + "attachments/shell-first-fit-audit.json",
     "scripts/migrate_pi_to_jazzy.py": PROJECT + "attachments/migrate_pi_to_jazzy.py",
     "docs/concept/2026-11-08-shell-symmetric-front.png": PROJECT + "attachments/2026-11-08-shell-symmetric-front.png",
     "docs/concept/2026-11-08-shell-sloped-concept.png": PROJECT + "attachments/2026-11-08-shell-sloped-concept.png",
@@ -66,6 +75,7 @@ PROSE = {
     "docs/assembly/p0-bom.md": BOM,
     "docs/design/physical-design-spec.md": SPEC,
     "docs/design/exterior-shell-concept.md": PROJECT + "exterior-shell-concept.md",
+    "docs/design/shell-first-fit.md": PROJECT + "shell-first-fit.md",
     "docs/assembly/p0-build-review.md": REVIEW,
     "docs/assembly/s1-system-plan.md": SYSTEM,
     "docs/assembly/commissioning-procedures.md": PROJECT + "commissioning-procedures.md",
@@ -248,6 +258,28 @@ def build(vault):
             body = re.sub(r"^(# .+\n)", lambda m: m.group(1) + "\n"
                           + wiki(HOME, "Project overview") + "\n", body, count=1)
         out[path] = frontmatter(existing(path), body, origin, updated).encode()
+
+    shell = json.loads(source("cad/review/shell/audit.json"))
+    if shell["failures"]:
+        raise ValueError("Shell geometry audit failed")
+    for name, expected in shell["source_sha256"].items():
+        if digest((REPO/name).read_bytes()) != expected:
+            raise ValueError("Shell audit source changed; rebuild: " + name)
+        SOURCES[name] = expected
+    for name, result in shell["parts"].items():
+        for extension in ("stl", "step"):
+            path = "cad/review/shell/" + name + "." + extension
+            if digest((REPO/path).read_bytes()) != result[extension + "_sha256"]:
+                raise ValueError("Shell export changed: " + path)
+            SOURCES[path] = result[extension + "_sha256"]
+    installed = "cad/review/shell/shell_installed_s1.step"
+    if digest((REPO/installed).read_bytes()) != shell["installed_step_sha256"]:
+        raise ValueError("Installed shell STEP changed")
+    preview = json.loads(source("cad/review/shell/preview.json"))
+    for name, expected in {**preview["sources"], **preview["outputs"]}.items():
+        if digest((REPO/name).read_bytes()) != expected:
+            raise ValueError("Shell preview changed; regenerate: " + name)
+        SOURCES[name] = expected
 
     catalog = json.loads(source("cad/print_parts.json"))
     sensor_catalog = json.loads(source("cad/sensor_parts.json"))

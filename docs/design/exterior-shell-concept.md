@@ -1,28 +1,34 @@
 # Exterior shell concept
 
-Updated 2026-11-26. **Visual direction selected: the saved black-and-red shell concept, with a finished appearance and easy maintenance access.** The updated study retains its faceted body, symmetric camera recess and shoulders that slope gradually towards the nose, and incorporates the corrected A1 appearance and small interface-board arrangement. Keep the existing printed structure black and use red for small trim pieces and the nameplate.
+Updated 2026-11-26. **Visual direction: a black-and-red faceted shell with a finished appearance, easy maintenance access and an open camera front.** The new study cuts the cheeks back behind the camera while retaining bilateral symmetry, angular shoulders, the corrected A1 appearance and the small interface-board arrangement. Keep the existing printed structure black and use red for small trim pieces and the nameplate.
 
 The shell is a removable, nonstructural cover around the current two-track assembly. Its first purpose is to make the robot look complete and keep cabling orderly. Impact protection and weather sealing are outside this first version.
 
+**November 26 CAD decision:** the deep cheeks in the earlier artwork entered the modeled sideways/downward camera views. Cut them back for a wider clear view while retaining the intended camera travel. [First-fit CAD, STEP/STL files and mounting instructions](shell-first-fit.md) now cover one cheek, one rear side cover and their independent deck brackets. The installed review shows both sides; physical fit remains to be checked.
+
 ## Selected appearance
 
-![Updated shell concept: front three-quarter, side, front and maintenance views with a recognizable RPLIDAR A1, black camera hardware and removable covers](../concept/2026-11-25-shell-concept-update.png)
+![Updated shell concept: cut-back cheeks behind the camera, open sides around the head, retained A1 and removable covers](../concept/2026-11-26-shell-cutback-concept.png)
 
-The updated sheet shows four views of the same proposed exterior. The side profile retains the long, shallow shoulder slope; the front keeps the mirrored, faceted camera recess. The maintenance view shows a side cover and adjacent cheek removed while the camera and LiDAR stay mounted. The scanner now has the A1's teardrop base, optical head, belt/pulley and rear hanging motor, replacing the generic cylindrical scanner in the earlier artwork.
+The updated sheet shows front three-quarter, side, front and maintenance views. The camera stands forward of the body with its sides open; the short faceted cheeks end behind the head. The maintenance view shows removable covers while the camera and LiDAR stay mounted. The scanner retains the A1's teardrop base, optical head, belt/pulley and rear hanging motor.
 
 The tiny USB-interface PCB stays inside the shell on its small carrier beneath the **rear** of the bridge. Plan for a small insulating holder within the existing shell outline. Reach it through the side opening, with removable roof trim providing additional access. Its cradle and light clip remain to be sized; exact PCB screw-hole spacing is optional. The [LiDAR assembly guide](../assembly/p0-assembly.md#10b-install-the-lidar-bridge-and-scanner) defines the mounting and cable route.
 
-This is a **styling and access study**, not shell CAD or an assembly drawing. Internal electronics, cable dressing, fasteners and seams in the generated image are illustrative. The current [hardware assembly](../assembly/p0-assembly.md#10-fit-audio-camera-and-lidar) determines their actual locations. Optical clearance, panel removal, stop-button placement and ventilation still need the checks below; no new printable shell parts are released by this image.
+This image is an **appearance proposal around the first CAD**, not an assembly drawing. Roof/rear/nose trim, vents, internal electronics, cable dressing and cosmetic details are illustrative. The [CAD preview and first-fit guide](shell-first-fit.md) define the actual new pieces; the current [hardware assembly](../assembly/p0-assembly.md#10-fit-audio-camera-and-lidar) defines the retained hardware. Printed fit, actual camera images, stop-button placement and ventilation still need qualification.
+
+![Actual first shell CAD with the shortened cheeks and separate fixed mounting brackets](../concept/2026-11-26-shell-cad.png)
+
+The CAD preview deliberately shows only the modeled covers and brackets. The roof, rear and nose are open. Red in this CAD drawing identifies the new brackets; those structural parts should be printed black.
 
 ### Original styling references
 
-The November 8 studies remain the source of the selected appearance. The updated sheet above supersedes their generic LiDAR and decorative camera-lens colouring. Their hardware details and proportions are illustrative; the current assembly determines mounting, openings and clearances.
+The November 8 studies remain the source of the black-and-red faceted appearance. The updated sheet above supersedes their deep camera recess, generic LiDAR and decorative camera-lens colouring. The [November 25 intermediate sheet](../concept/2026-11-25-shell-concept-update.png) records the deep-cheek proposal before the CAD view check. These earlier images are historical styling references; current CAD determines openings and clearances.
 
 ![Selected shell appearance with a gradual shoulder slope in side and front three-quarter views](../concept/2026-11-08-shell-sloped-concept.png)
 
 ![Selected symmetric front with a faceted camera recess](../concept/2026-11-08-shell-symmetric-front.png)
 
-Keep the exposed tracks, raised LiDAR, broad sloping shoulders, deep-looking angular camera recess, vented side faces and restrained red accents. Express the recess with planar facets. Place seams along existing changes of angle and red trim lines so the removable pieces still read as one body.
+Keep the exposed tracks, raised LiDAR, faceted shoulders, planned vented faces and restrained red accents. Keep the camera opening symmetric and free of long forward wings. Place seams along changes of angle and trim lines so the removable pieces still read as one body.
 
 ## Proposed removable sections
 
@@ -31,18 +37,18 @@ Keep the exposed tracks, raised LiDAR, broad sloping shoulders, deep-looking ang
 | Group | Proposed construction | Maintenance purpose |
 | --- | --- | --- |
 | A Roof trim | Separate pieces around the existing LiDAR bridge, with open-ended splits around its supports | Slide the trim away sideways while the bridge and scanner stay fixed. Expose the rear PCB carrier and its cable restraints; avoid a single lid trapped beneath the LiDAR |
-| B Side covers | A removable cover on each side, with ventilation and access openings positioned from the actual boards and plugs | Reach Pi/OpenCR connectors, microSD, the small LiDAR interface PCB and cable restraints without removing the deck. The Pi USB/Ethernet ports face robot-left; the two sides need different service openings |
-| C Front cheeks | Mirrored faceted pieces following the saved gradual slope | Remove either cheek to reach the pan base, servo/horn fixings and ribbon. Preserve the symmetric exterior even if the concealed attachments differ |
+| B Side covers | SH1 rear side covers on independent deck brackets; vents remain to be designed | Reach the rear electronics and PCB carrier area. Removing a cover leaves the sensor bridge fixed |
+| C Front cheeks | SH1 cut-back forward side sections, ending behind the camera | Keep the head exposed for motion and access. The left piece includes the Pi USB/Ethernet opening; the right outline is symmetric with no copied port opening |
 | D Rear hatch | A separate rear service panel with its final opening matched to the selected power bank and cable | Reach the compute supply without peeling off the whole shell. Define a separate removal path for the centrally mounted drive battery |
 | E Lower nose trim | A small detachable strip completing the front outline | Reach the camera-base nuts and front wiring. Its height must clear the camera view at downward tilt |
 
-These are service groups, not final print-part counts. Keep individual prints within the existing 210 mm working footprint on the 220 mm bed; a long side/cheek assembly may need a joint at the diagonal seam. Use separate red trim pieces where practical so accents do not require reprinting a large black panel.
+These are service groups, not final print-part counts. B/C have first-fit CAD; A/D/E remain proposals. The first side cover and cheek have a 1 mm seam and fit the existing 210 mm working footprint on the 220 mm bed. Use separate red trim pieces where practical so accents do not require reprinting a large black panel.
 
 ## Attachment and access
 
-Use small replaceable mounting tabs on stationary chassis/deck structure. Start with locating tabs and accessible M3 screws; choose the number and exact positions after checking the occupied grid holes and screwdriver paths. Removing a cover must not loosen a sensor bracket, change board spacing or disturb track adjustment. The shell is not a carrying handle.
+SH1 uses four replaceable brackets under each side of the deck, attached through spare holes. Accessible M3 cover screws are separate from these deck fixings. Removing a cover must not loosen a sensor bracket, change board spacing or disturb track adjustment. The [first-fit guide](shell-first-fit.md#mounting-the-first-left-side-set) gives holes, fastener stacks and the initial installation sequence. The shell is not a carrying handle.
 
-Normal servicing should need only the affected panel: side cover for board connections, rear hatch for the compute bank, front cheek for the camera mechanism. The small LiDAR PCB's holder stays on P17 when the cover comes away; keep its USB/scanner leads with the stationary structure rather than tying them to a removable panel. Roof pieces must have a removal path around the LiDAR bridge and the hanging motor. Keep the stop button directly reachable with every panel installed and with either service cover removed; its position belongs to the [power and harness plan](../assembly/s1-system-plan.md#hardware-and-placement).
+Normal servicing should need only the affected panel: the left cheek for Pi connectors, rear side cover for the rear electronics, and future rear hatch for the compute bank. The camera mechanism stays exposed. The small LiDAR PCB's holder stays on P17 when a cover comes away; keep its USB/scanner leads with the stationary structure rather than tying them to a removable panel. After removing the cover screws, SH1's planned path is 3 mm outward, 10 mm upward, then outward past the track. Future roof pieces must clear the LiDAR bridge and hanging motor. Keep the stop button directly reachable with every panel installed; its position belongs to the [power and harness plan](../assembly/s1-system-plan.md#hardware-and-placement).
 
 ## Fit the selected shape around the current robot
 
@@ -58,13 +64,12 @@ The bank dimensions with its connector, stop enclosure, final cable bends and co
 
 Proceed directly from CAD checks to printed fit pieces; there is no cardboard stage.
 
-1. Place a rough shell surface around the current assembly, retaining the selected front symmetry and side slope. Include the moving head, cable allowances, scanner scan band and plugged-in connectors as spaces the shell must leave clear. Start with the front recess: it is the strongest visual feature and the tightest moving interface.
-2. Split that surface into the service groups above and demonstrate a removal path for each. Locate the stop opening and battery access before adding vents, screws or cosmetic details.
-3. Model and print one cheek and one side cover with their mounting tabs and seams. Fit them to the actual assembly and check the front and side silhouette, camera images across the intended motion, ribbon movement, connector clearance and hand/tool access. Confirm that both pieces fasten securely and can be removed independently. Separate tab or seam samples are optional if a particular fit is uncertain.
-4. Correct the CAD from that fit check, then complete the remaining panels, vents and red trim. Recheck any changed interfaces before printing the full set. Record the added mass before loaded driving checks.
+1. Review the SH1 CAD and its clearance/removal receipt. The cut-back front preserves the intended head travel; the generated appearance sheet supplies styling context only.
+2. Print the first left cheek, rear side cover and four brackets using the [first-fit package](shell-first-fit.md#files-and-first-print-quantities). Fit them to the actual assembly and check the silhouette, camera images, ribbon movement, plug access and independent removal. Separate tab or seam samples remain optional.
+3. Correct the CAD from that physical fit before completing the other side and the remaining roof/rear/nose panels. Resolve the stop opening and battery access, then vents and red trim. Recheck changed interfaces and record added mass before loaded driving checks.
 
-The updated concept sheet supplies the front, side, three-quarter and maintenance views for this review. The next step is a rough CAD surface and removal-path check around the actual assembly, followed by CAD and print files for the first cheek and side cover. The remaining shell parts follow the physical fit check; the existing base, sensor mounts and assembly instructions remain the starting hardware.
+The next step is to review and fit the first printed set. The existing base, sensor mounts and assembly instructions remain the starting hardware.
 
 ## Image generation record
 
-The updated sheet was made with the built-in imagegen tool, using the original styling studies and the corrected CAD assembly illustrations as references. The [initial prompt](../concept/2026-11-25-shell-update-prompt.txt) and [final refinement prompt](../concept/2026-11-25-shell-update-refinement-prompt.txt) record the constraints. The final refinement kept the camera hardware black and moved the small interface PCB beneath the rear bridge. Original November 8 image files are retained unchanged.
+The November 26 sheet was made with the built-in imagegen tool using the November 25 appearance sheet and the first actual shell CAD preview. The [cut-back prompt](../concept/2026-11-26-shell-cutback-prompt.txt) records the constraints. The CAD preview is rendered directly from the models, without generated geometry. Earlier images and the November 25 [initial](../concept/2026-11-25-shell-update-prompt.txt) and [refinement](../concept/2026-11-25-shell-update-refinement-prompt.txt) prompts are retained unchanged.

@@ -1,0 +1,37 @@
+{
+  "sources": {
+    "cad/harness_s1.py": "7ff82d9c44cc743aab0b902f1534f7ff80596c442579c29bc8cb5331c7c62065",
+    "cad/out/step/chassis_p0.step": "1d93d3e7671b686058e5679c1544c780933c737993c99b598798e83f40a7cd3e",
+    "cad/out/step/deck_p0.step": "5e17aa9fc6de252ed5cf450c3cbac58ae0ec2129c5ba624c12bbb078a9e4c5f4",
+    "cad/out/step/tip_hub_p0.step": "05f3d99ad14fc1e745b9bfc4892bf13d345c421a312b96889d5a574ccbfa976f",
+    "cad/parts/tip_hub_p0.py": "d3219a47d3ce5a803357165d4bbbb5a3cf4e4b8b2d1de71ca1c18aa07e04b519",
+    "cad/print_parts.json": "8e559133dca2e9027b884cf35a75ed32b8ce346def2b04169c8fa4260249bdbc",
+    "cad/review/r1/step/arm_p0_r1.step": "9ae48cc99e8715f90c77fb0c5fb3eaa09b8c13a1494832f96a8cfdc79f575770",
+    "cad/sensor_parts.json": "705ee0b5341b5c58bf4ba6d4db3505fb3c018acbff66552a236fb77ceb30a0c3",
+    "cad/sensors_s1.py": "c8feee7ec5ff601643b49fe633fed0c2c33dc003d426e3f61cce02f859eaf406",
+    "cad/staged_base.json": "d6850467ae5580f09f6256cb0af80603b8bfd1d1a0054add210f4d12b8865cc8",
+    "cad/staged_base.py": "83819788963b185830f1d598687f5fc26eff7237aae19de1ae368ad147fe5751",
+    "cad/upper_s1.py": "fc5fbf8872c9d8fded6151f9976061f1db29159bc54a9f5fd47ffaf66aa1400d",
+    "cad/vendor/raspberrypi/camera3_standard.stp": "ecbc4b091e51f31c6186b81ad68d4205b8dceec0d90c116cd7fd699e1f1c5702",
+    "cad/vendor/robotis/ict01_caterpillar.step": "a9df2f096a368dabbb33939d20b0430766d3969d53c978454493c026627f5ed0",
+    "cad/vendor/robotis/opencr_rev_h.step": "1fdbbb882216cc011a3cd038fc56abe5525135bec9c77a5e5ff5066c85e7b484",
+    "cad/vendor/sensor_sources.json": "bd08042fa3f5afc7855dcd0f3ba7a6fe731287c8fd09d6852393e6ac6d083413",
+    "cad/vendor/slamtec/a1m8_v3.0.pdf": "b6938125e1778b1ddce3a9b35a50fa10b0af4a923fd1a52e538dc8b275a46834",
+    "cad/vendor/waveshare/wm8960.stp": "393e821eab3035984c34e4a6b90700a96104138a256eea335c3f3e8242d3ab51",
+    "docs/assembly/figures/lidar_display.py": "5fd6e6b0f7584ec871de0adf0e3751efaa3b75e464c571cd67380218922693ea",
+    "cad/review/shell/shell_side_cover_s1_L.stl": "294d6aeb27147211e29ea6e34ec8b37b2d3ab501bcf6613e69b11eaa5ec6e127",
+    "cad/review/shell/shell_cheek_s1_L.stl": "a03838b1600903e972ede1a3e61254fdde819befc4624c515ca6ce66b80854c8",
+    "cad/review/shell/shell_deck_bracket_s1.stl": "854e3715cca345ea4737dc4b1757cf6670b4e7d4f3a694e769e3e355c89b9798",
+    "cad/review/shell/shell_cheek_rear_bracket_s1.stl": "1559d9f08b2c054c5541d9c381265b381c8c8a1682a482d5dc320c0b2c19ab38",
+    "cad/review/shell/shell_cheek_front_bracket_s1.stl": "f378d3d323cfb3b1b6bda346691fa52b97ec26b58e917ff1b9042c222065c282",
+    "docs/design/shell-first-fit.md": "d46a680395961556c1b465e6abb10ed04896a9f52d98fbcc9c35cbb715fdea02",
+    "cad/shell_s1.py": "b58d042db582712becdb021433dfe10bd35f4dcc521ae1b9fbae68adef9fa95d",
+    "cad/preview_shell_s1.py": "6bdabddea51ee83821b20da21a2ea000a4eb95d28663819e1c13308caf89adbc",
+    "docs/assembly/figures/make_completed_sensor_view.py": "2967c01a7536785037a74f0102a5676eabc56cb28775320e69dfd0ae5a4575ff"
+  },
+  "outputs": {
+    "docs/concept/2026-11-26-shell-cad.png": "0e9307c5c196ec8b3b972962b5e7f93e1a563b11ad972efe940ddc82fa52489c",
+    "docs/concept/2026-11-26-shell-fit-parts.png": "374b1536671e8801c5fd5e7f8e6a2742e090fc35e4ddf4370825837c44127426",
+    "cad/review/shell/shell-first-fit-s1.zip": "7d830c29ac04901b037beaa3febca6a25eabb633d18f186cbab63c35e1de9041"
+  }
+}

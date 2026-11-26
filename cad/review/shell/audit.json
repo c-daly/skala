@@ -1,0 +1,464 @@
+{
+  "revision": "P0-SH1-2026-11-26",
+  "checks": [
+    {
+      "name": "side_cover_L_one_valid_solid",
+      "passed": true
+    },
+    {
+      "name": "side_cover_L_retained_assembly_clear",
+      "passed": true,
+      "collisions_mm3": {}
+    },
+    {
+      "name": "side_cover_L_continuous_head_clearance",
+      "passed": true,
+      "conservative_x_gap_mm": 98.469
+    },
+    {
+      "name": "side_cover_L_below_lidar_scan",
+      "passed": true
+    },
+    {
+      "name": "cheek_L_one_valid_solid",
+      "passed": true
+    },
+    {
+      "name": "cheek_L_retained_assembly_clear",
+      "passed": true,
+      "collisions_mm3": {}
+    },
+    {
+      "name": "cheek_L_continuous_head_clearance",
+      "passed": true,
+      "conservative_x_gap_mm": 9.469
+    },
+    {
+      "name": "cheek_L_below_lidar_scan",
+      "passed": true
+    },
+    {
+      "name": "deck_bracket_L_0_one_valid_solid",
+      "passed": true
+    },
+    {
+      "name": "deck_bracket_L_0_retained_assembly_clear",
+      "passed": true,
+      "collisions_mm3": {}
+    },
+    {
+      "name": "deck_bracket_L_0_continuous_head_clearance",
+      "passed": true,
+      "conservative_x_gap_mm": 142.469
+    },
+    {
+      "name": "deck_bracket_L_0_below_lidar_scan",
+      "passed": true
+    },
+    {
+      "name": "deck_bracket_L_1_one_valid_solid",
+      "passed": true
+    },
+    {
+      "name": "deck_bracket_L_1_retained_assembly_clear",
+      "passed": true,
+      "collisions_mm3": {}
+    },
+    {
+      "name": "deck_bracket_L_1_continuous_head_clearance",
+      "passed": true,
+      "conservative_x_gap_mm": 110.469
+    },
+    {
+      "name": "deck_bracket_L_1_below_lidar_scan",
+      "passed": true
+    },
+    {
+      "name": "cheek_bracket_L_0_one_valid_solid",
+      "passed": true
+    },
+    {
+      "name": "cheek_bracket_L_0_retained_assembly_clear",
+      "passed": true,
+      "collisions_mm3": {}
+    },
+    {
+      "name": "cheek_bracket_L_0_continuous_head_clearance",
+      "passed": true,
+      "conservative_x_gap_mm": 70.469
+    },
+    {
+      "name": "cheek_bracket_L_0_below_lidar_scan",
+      "passed": true
+    },
+    {
+      "name": "cheek_bracket_L_1_one_valid_solid",
+      "passed": true
+    },
+    {
+      "name": "cheek_bracket_L_1_retained_assembly_clear",
+      "passed": true,
+      "collisions_mm3": {}
+    },
+    {
+      "name": "cheek_bracket_L_1_continuous_head_clearance",
+      "passed": true,
+      "conservative_x_gap_mm": 30.469
+    },
+    {
+      "name": "cheek_bracket_L_1_below_lidar_scan",
+      "passed": true
+    },
+    {
+      "name": "side_cover_R_one_valid_solid",
+      "passed": true
+    },
+    {
+      "name": "side_cover_R_retained_assembly_clear",
+      "passed": true,
+      "collisions_mm3": {}
+    },
+    {
+      "name": "side_cover_R_continuous_head_clearance",
+      "passed": true,
+      "conservative_x_gap_mm": 98.469
+    },
+    {
+      "name": "side_cover_R_below_lidar_scan",
+      "passed": true
+    },
+    {
+      "name": "cheek_R_one_valid_solid",
+      "passed": true
+    },
+    {
+      "name": "cheek_R_retained_assembly_clear",
+      "passed": true,
+      "collisions_mm3": {}
+    },
+    {
+      "name": "cheek_R_continuous_head_clearance",
+      "passed": true,
+      "conservative_x_gap_mm": 9.469
+    },
+    {
+      "name": "cheek_R_below_lidar_scan",
+      "passed": true
+    },
+    {
+      "name": "deck_bracket_R_0_one_valid_solid",
+      "passed": true
+    },
+    {
+      "name": "deck_bracket_R_0_retained_assembly_clear",
+      "passed": true,
+      "collisions_mm3": {}
+    },
+    {
+      "name": "deck_bracket_R_0_continuous_head_clearance",
+      "passed": true,
+      "conservative_x_gap_mm": 142.469
+    },
+    {
+      "name": "deck_bracket_R_0_below_lidar_scan",
+      "passed": true
+    },
+    {
+      "name": "deck_bracket_R_1_one_valid_solid",
+      "passed": true
+    },
+    {
+      "name": "deck_bracket_R_1_retained_assembly_clear",
+      "passed": true,
+      "collisions_mm3": {}
+    },
+    {
+      "name": "deck_bracket_R_1_continuous_head_clearance",
+      "passed": true,
+      "conservative_x_gap_mm": 110.469
+    },
+    {
+      "name": "deck_bracket_R_1_below_lidar_scan",
+      "passed": true
+    },
+    {
+      "name": "cheek_bracket_R_0_one_valid_solid",
+      "passed": true
+    },
+    {
+      "name": "cheek_bracket_R_0_retained_assembly_clear",
+      "passed": true,
+      "collisions_mm3": {}
+    },
+    {
+      "name": "cheek_bracket_R_0_continuous_head_clearance",
+      "passed": true,
+      "conservative_x_gap_mm": 70.469
+    },
+    {
+      "name": "cheek_bracket_R_0_below_lidar_scan",
+      "passed": true
+    },
+    {
+      "name": "cheek_bracket_R_1_one_valid_solid",
+      "passed": true
+    },
+    {
+      "name": "cheek_bracket_R_1_retained_assembly_clear",
+      "passed": true,
+      "collisions_mm3": {}
+    },
+    {
+      "name": "cheek_bracket_R_1_continuous_head_clearance",
+      "passed": true,
+      "conservative_x_gap_mm": 30.469
+    },
+    {
+      "name": "cheek_bracket_R_1_below_lidar_scan",
+      "passed": true
+    },
+    {
+      "name": "new_parts_do_not_interpenetrate",
+      "passed": true,
+      "pairs": []
+    },
+    {
+      "name": "brackets_use_spare_deck_holes",
+      "passed": true,
+      "holes_mm": [
+        [
+          -104,
+          -56
+        ],
+        [
+          -104,
+          56
+        ],
+        [
+          -88,
+          -56
+        ],
+        [
+          -88,
+          56
+        ],
+        [
+          -72,
+          -56
+        ],
+        [
+          -72,
+          56
+        ],
+        [
+          -56,
+          -56
+        ],
+        [
+          -56,
+          56
+        ],
+        [
+          -32,
+          -40
+        ],
+        [
+          -32,
+          40
+        ],
+        [
+          -16,
+          -40
+        ],
+        [
+          -16,
+          40
+        ],
+        [
+          8,
+          -56
+        ],
+        [
+          8,
+          56
+        ],
+        [
+          24,
+          -56
+        ],
+        [
+          24,
+          56
+        ]
+      ]
+    },
+    {
+      "name": "deck_bolt_thread_projection",
+      "passed": true,
+      "projection_mm": 3
+    },
+    {
+      "name": "cover_bolt_thread_projection",
+      "passed": true,
+      "projection_mm": 1.3
+    },
+    {
+      "name": "negative_inboard_part_hits_head",
+      "passed": true
+    },
+    {
+      "name": "negative_closed_port_hits_plug",
+      "passed": true
+    },
+    {
+      "name": "sampled_camera_views_clear_new_shell",
+      "passed": true,
+      "poses": 78,
+      "field_of_view_degrees": [
+        66,
+        41
+      ],
+      "lens_origin_local_mm": [
+        8,
+        0,
+        74
+      ],
+      "aperture_allowance_mm": 4,
+      "range_mm": 300,
+      "collisions": []
+    },
+    {
+      "name": "negative_deep_cheek_blocks_side_view",
+      "passed": true
+    },
+    {
+      "name": "sampled_independent_cover_removal",
+      "passed": true,
+      "samples_per_cover": 22,
+      "sequence_mm": [
+        "out 3",
+        "up 10",
+        "out 70"
+      ],
+      "collisions": []
+    },
+    {
+      "name": "cover_screwdriver_access",
+      "passed": true,
+      "tool_radius_mm": 3.5,
+      "collisions": []
+    }
+  ],
+  "failures": 0,
+  "source_sha256": {
+    "cad/audit_sensors_s1.py": "549f4cc764d5d43cb8b1b08a8db600cd2fc2649dd69337b668f2657bc2093430",
+    "cad/build_shell_s1.py": "92a6fb09dfff2ecb1572a0edc4a257246d7433c0901ee05987c163a54806cd7a",
+    "cad/export_s0_fit.py": "94ca4c2b872fd3db892e86cef7546bc739eeb4024a9e192711ef38c2d9c3a152",
+    "cad/harness_s1.py": "7ff82d9c44cc743aab0b902f1534f7ff80596c442579c29bc8cb5331c7c62065",
+    "cad/out/step/chassis_p0.step": "1d93d3e7671b686058e5679c1544c780933c737993c99b598798e83f40a7cd3e",
+    "cad/out/step/deck_p0.step": "5e17aa9fc6de252ed5cf450c3cbac58ae0ec2129c5ba624c12bbb078a9e4c5f4",
+    "cad/out/step/tip_hub_p0.step": "05f3d99ad14fc1e745b9bfc4892bf13d345c421a312b96889d5a574ccbfa976f",
+    "cad/parts/tip_hub_p0.py": "d3219a47d3ce5a803357165d4bbbb5a3cf4e4b8b2d1de71ca1c18aa07e04b519",
+    "cad/review/r1/step/arm_p0_r1.step": "9ae48cc99e8715f90c77fb0c5fb3eaa09b8c13a1494832f96a8cfdc79f575770",
+    "cad/sensors_s1.py": "c8feee7ec5ff601643b49fe633fed0c2c33dc003d426e3f61cce02f859eaf406",
+    "cad/shell_s1.py": "b58d042db582712becdb021433dfe10bd35f4dcc521ae1b9fbae68adef9fa95d",
+    "cad/staged_base.json": "d6850467ae5580f09f6256cb0af80603b8bfd1d1a0054add210f4d12b8865cc8",
+    "cad/staged_base.py": "83819788963b185830f1d598687f5fc26eff7237aae19de1ae368ad147fe5751",
+    "cad/upper_s1.py": "fc5fbf8872c9d8fded6151f9976061f1db29159bc54a9f5fd47ffaf66aa1400d",
+    "cad/vendor/robotis/ict01_caterpillar.step": "a9df2f096a368dabbb33939d20b0430766d3969d53c978454493c026627f5ed0",
+    "cad/vendor/robotis/opencr_rev_h.step": "1fdbbb882216cc011a3cd038fc56abe5525135bec9c77a5e5ff5066c85e7b484",
+    "cad/vendor/waveshare/wm8960.stp": "393e821eab3035984c34e4a6b90700a96104138a256eea335c3f3e8242d3ab51"
+  },
+  "optical_source": "https://www.raspberrypi.com/documentation/accessories/camera.html",
+  "physical_fit": false,
+  "scope": "First-fit candidates; nominal retained geometry and sampled optical/removal checks. Ribbon, actual plugs, nut fit, strength, audio and cooling require physical checks.",
+  "parts": {
+    "shell_side_cover_s1_L": {
+      "size_mm": [
+        76.0,
+        76.0,
+        22.4
+      ],
+      "volume_mm3": 14472.84,
+      "bed_contact_mm2": 4273.68,
+      "stl_validation": {
+        "closed_single_solid": true,
+        "triangles": 2060,
+        "mesh_volume_mm3": 14472.878,
+        "max_zero_snap_mm": 2.842170943040401e-14
+      },
+      "stl_sha256": "294d6aeb27147211e29ea6e34ec8b37b2d3ab501bcf6613e69b11eaa5ec6e127",
+      "step_sha256": "cfff8e0a0bc8d905ce3651dddbd15d384e1514a8186a40c2bcc0fd90faf00f21"
+    },
+    "shell_cheek_s1_L": {
+      "size_mm": [
+        88.0,
+        76.0,
+        22.4
+      ],
+      "volume_mm3": 11503.33,
+      "bed_contact_mm2": 2475.97,
+      "stl_validation": {
+        "closed_single_solid": true,
+        "triangles": 1584,
+        "mesh_volume_mm3": 11503.355,
+        "max_zero_snap_mm": 1.0000000116860974e-07
+      },
+      "stl_sha256": "a03838b1600903e972ede1a3e61254fdde819befc4624c515ca6ce66b80854c8",
+      "step_sha256": "39765cf130b0e6eac728bb37a2faf3b2c4f959c0520c4ec54f3775ae33b44ca9"
+    },
+    "shell_deck_bracket_s1": {
+      "size_mm": [
+        24.0,
+        54.0,
+        42.0
+      ],
+      "volume_mm3": 6187.63,
+      "bed_contact_mm2": 677.84,
+      "stl_validation": {
+        "closed_single_solid": true,
+        "triangles": 2108,
+        "mesh_volume_mm3": 6187.672,
+        "max_zero_snap_mm": 2.842170943040401e-14
+      },
+      "stl_sha256": "854e3715cca345ea4737dc4b1757cf6670b4e7d4f3a694e769e3e355c89b9798",
+      "step_sha256": "245276087c27d205c64b947af4fe2a488fc7a69f20b21d5a7d9caaefed75506e"
+    },
+    "shell_cheek_rear_bracket_s1": {
+      "size_mm": [
+        24.0,
+        54.0,
+        58.0
+      ],
+      "volume_mm3": 7723.63,
+      "bed_contact_mm2": 677.84,
+      "stl_validation": {
+        "closed_single_solid": true,
+        "triangles": 2108,
+        "mesh_volume_mm3": 7723.672,
+        "max_zero_snap_mm": 2.842170943040401e-14
+      },
+      "stl_sha256": "1559d9f08b2c054c5541d9c381265b381c8c8a1682a482d5dc320c0b2c19ab38",
+      "step_sha256": "78996a8eb21bc2c309618585b0eae7b17d390b3406fd69c05551248178f75fa7"
+    },
+    "shell_cheek_front_bracket_s1": {
+      "size_mm": [
+        24.0,
+        16.0,
+        42.0
+      ],
+      "volume_mm3": 4449.5,
+      "bed_contact_mm2": 230.92,
+      "stl_validation": {
+        "closed_single_solid": true,
+        "triangles": 1576,
+        "mesh_volume_mm3": 4449.534,
+        "max_zero_snap_mm": 2.842170943040401e-14
+      },
+      "stl_sha256": "f378d3d323cfb3b1b6bda346691fa52b97ec26b58e917ff1b9042c222065c282",
+      "step_sha256": "02f35af64a952de29928e0441cfbb86975c45a9f43633e9e6a3eff063fb0dbda"
+    }
+  },
+  "retained_output_files_unchanged": 154,
+  "installed_step_sha256": "bd11f1b95f50cb4156b07f9e8d31537cf242a32d231bf8f82e305d1083860c72"
+}

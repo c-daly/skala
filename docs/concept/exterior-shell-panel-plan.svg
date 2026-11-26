@@ -1,15 +1,15 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1160" viewBox="0 0 1200 1160">
 <title>Exterior shell panel plan</title>
-<desc>Side-profile planning sketch retaining the sloped black-and-red shell style. Five service groups identify split roof trim, side covers, front cheeks, rear hatch and lower nose trim. Open tracks and the raised LiDAR remain exposed. No dimensional or clearance qualification is implied.</desc>
+<desc>Side-profile planning sketch with cut-back front cheeks behind the camera. Five service groups identify split roof trim, side covers, front cheeks, rear hatch and lower nose trim. Open tracks and the raised LiDAR remain exposed. No dimensional or clearance qualification is implied.</desc>
 <defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10Z" fill="#197fa3"/></marker></defs>
 <rect width="1200" height="1160" fill="#ffffff"/>
 <g font-family="DejaVu Sans,Arial,sans-serif" stroke-linejoin="round" stroke-linecap="round">
 <text x="40" y="47" font-size="30" fill="#172b3a" font-weight="700" text-anchor="start">Exterior shell panel plan</text>
-<text x="40" y="80" font-size="18" fill="#526473" font-weight="400" text-anchor="start">Saved styling direction retained — proposed panel divisions and removal paths</text>
+<text x="40" y="80" font-size="18" fill="#526473" font-weight="400" text-anchor="start">Cut-back cheeks leave the camera sides open — service groups and proposed remaining trim</text>
 <path d="M40 100 L1160 100" fill="none" stroke="#d4dde3" stroke-width="2"/>
 <text x="40" y="135" font-size="16" fill="#526473" font-weight="700" text-anchor="start">SIDE PROFILE  /  FRONT →</text>
 <text x="1160" y="135" font-size="15" fill="#526473" font-weight="400" text-anchor="end">NOT TO SCALE</text>
-<path d="M245 505 L245 350 L285 285 L650 285 L1000 510 L1000 540 L245 540 Z" fill="#30363c" stroke="#172b3a" stroke-width="2"/>
+<path d="M245 505 L245 350 L285 285 L650 285 L780 375 L780 505 Z" fill="#30363c" stroke="#172b3a" stroke-width="2"/>
 <path d="M285 285 L650 285 L683 308 L277 308 Z" fill="#535d66" stroke="#172b3a" stroke-width="2"/>
 <path d="M277 315 L642 315 L732 375 L250 375 L250 352 Z" fill="#414a52" stroke="#172b3a" stroke-width="2"/>
 <path d="M310 332 L328 332 L313 359 L295 359 Z" fill="#171c20" stroke="#171c20" stroke-width="2"/>
@@ -21,17 +21,17 @@
 <path d="M538 332 L556 332 L541 359 L523 359 Z" fill="#171c20" stroke="#171c20" stroke-width="2"/>
 <path d="M576 332 L594 332 L579 359 L561 359 Z" fill="#171c20" stroke="#171c20" stroke-width="2"/>
 <path d="M614 332 L632 332 L617 359 L599 359 Z" fill="#171c20" stroke="#171c20" stroke-width="2"/>
-<path d="M250 382 L726 382 L810 490 L250 490 Z" fill="#292f35" stroke="#596671" stroke-width="2"/>
-<path d="M650 315 L1000 510 L823 510 L737 383 Z" fill="#353d44" stroke="#596671" stroke-width="2"/>
-<path d="M736 383 L821 497" fill="none" stroke="#c93632" stroke-width="5"/>
+<path d="M250 382 L545 382 L545 490 L250 490 Z" fill="#292f35" stroke="#596671" stroke-width="2"/>
+<path d="M552 382 L780 382 L780 490 L552 490 Z" fill="#353d44" stroke="#596671" stroke-width="2"/>
+<path d="M550 386 L550 488" fill="none" stroke="#c93632" stroke-width="4"/>
 <path d="M225 357 L245 350 L245 505 L225 505 Z" fill="#424b53" stroke="#172b3a" stroke-width="2"/>
 <rect x="810" y="514" width="190" height="25" rx="0" fill="#272d33" stroke="#596671" stroke-width="2"/>
 <path d="M951 520 L960 520 L952 533 L943 533 Z" fill="#c93632" stroke="#c93632" stroke-width="2"/>
 <path d="M968 520 L977 520 L969 533 L960 533 Z" fill="#c93632" stroke="#c93632" stroke-width="2"/>
-<text x="777" y="455" font-size="18" fill="#c93632" font-weight="700" text-anchor="start">SKALA</text>
-<rect x="520" y="406" width="48" height="50" rx="3" fill="#11171c" stroke="#65747e" stroke-width="2"/>
-<rect x="530" y="416" width="28" height="16" rx="0" fill="#37444e" stroke="#a4b0b8" stroke-width="2"/>
-<rect x="530" y="440" width="28" height="8" rx="0" fill="#255179" stroke="#9aadb9" stroke-width="2"/>
+<text x="670" y="455" font-size="18" fill="#c93632" font-weight="700" text-anchor="start">SKALA</text>
+<rect x="590" y="406" width="48" height="50" rx="3" fill="#11171c" stroke="#65747e" stroke-width="2"/>
+<rect x="600" y="416" width="28" height="16" rx="0" fill="#37444e" stroke="#a4b0b8" stroke-width="2"/>
+<rect x="600" y="440" width="28" height="8" rx="0" fill="#255179" stroke="#9aadb9" stroke-width="2"/>
 <rect x="415" y="262" width="240" height="12" rx="0" fill="#333c44" stroke="#333c44" stroke-width="2"/>
 <rect x="477" y="221" width="9" height="41" rx="0" fill="#acb3b6" stroke="#65747e" stroke-width="2"/>
 <rect x="613" y="221" width="9" height="41" rx="0" fill="#acb3b6" stroke="#65747e" stroke-width="2"/>
@@ -108,8 +108,8 @@
 <circle cx="370" cy="297" r="3.5" fill="#197fa3" stroke="#197fa3" stroke-width="2"/>
 <circle cx="434" cy="426" r="11" fill="white" stroke="#197fa3" stroke-width="2"/>
 <circle cx="434" cy="426" r="3.5" fill="#197fa3" stroke="#197fa3" stroke-width="2"/>
-<circle cx="850" cy="455" r="11" fill="white" stroke="#197fa3" stroke-width="2"/>
-<circle cx="850" cy="455" r="3.5" fill="#197fa3" stroke="#197fa3" stroke-width="2"/>
+<circle cx="714" cy="415" r="11" fill="white" stroke="#197fa3" stroke-width="2"/>
+<circle cx="714" cy="415" r="3.5" fill="#197fa3" stroke="#197fa3" stroke-width="2"/>
 <path d="M221 472 L171 472" fill="none" stroke="#197fa3" stroke-width="3" marker-end="url(#arrow)"/>
 <path d="M1008 526 L1080 526" fill="none" stroke="#197fa3" stroke-width="3" marker-end="url(#arrow)"/>
 <path d="M300 205 L370 290" fill="none" stroke="#526473" stroke-width="1.5"/>
@@ -120,8 +120,8 @@
 <circle cx="422" cy="413" r="3" fill="#172b3a" stroke="#172b3a" stroke-width="2"/>
 <circle cx="109" cy="364" r="19" fill="white" stroke="#172b3a" stroke-width="2"/>
 <text x="109" y="371" font-size="20" fill="#172b3a" font-weight="700" text-anchor="middle">B</text>
-<path d="M1081 361 L861 446" fill="none" stroke="#526473" stroke-width="1.5"/>
-<circle cx="861" cy="446" r="3" fill="#172b3a" stroke="#172b3a" stroke-width="2"/>
+<path d="M1081 361 L746 440" fill="none" stroke="#526473" stroke-width="1.5"/>
+<circle cx="746" cy="440" r="3" fill="#172b3a" stroke="#172b3a" stroke-width="2"/>
 <circle cx="1081" cy="361" r="19" fill="white" stroke="#172b3a" stroke-width="2"/>
 <text x="1081" y="368" font-size="20" fill="#172b3a" font-weight="700" text-anchor="middle">C</text>
 <path d="M108 503 L232 420" fill="none" stroke="#526473" stroke-width="1.5"/>
@@ -132,7 +132,7 @@
 <circle cx="958" cy="527" r="3" fill="#172b3a" stroke="#172b3a" stroke-width="2"/>
 <circle cx="1081" cy="609" r="19" fill="white" stroke="#172b3a" stroke-width="2"/>
 <text x="1081" y="616" font-size="20" fill="#172b3a" font-weight="700" text-anchor="middle">E</text>
-<text x="40" y="724" font-size="17" fill="#197fa3" font-weight="400" text-anchor="start">⊙ = remove towards the viewer. Mirrored covers come away on the opposite side.</text>
+<text x="40" y="724" font-size="17" fill="#197fa3" font-weight="400" text-anchor="start">⊙ = removable cover. SH1: unscrew, pull out 3 mm, lift 10 mm, then withdraw outward.</text>
 <path d="M40 746 L1160 746" fill="none" stroke="#d4dde3" stroke-width="2"/>
 <circle cx="63" cy="784" r="17" fill="white" stroke="#172b3a" stroke-width="2"/>
 <text x="63" y="791" font-size="18" fill="#172b3a" font-weight="700" text-anchor="middle">A</text>
@@ -146,9 +146,9 @@
 <text x="688" y="846" font-size="17" fill="#526473" font-weight="400" text-anchor="start">Its carrier stays fixed beneath the rear bridge.</text>
 <circle cx="63" cy="916" r="17" fill="white" stroke="#172b3a" stroke-width="2"/>
 <text x="63" y="923" font-size="18" fill="#172b3a" font-weight="700" text-anchor="middle">C</text>
-<text x="93" y="921" font-size="20" fill="#172b3a" font-weight="700" text-anchor="start">Mirrored front cheeks</text>
-<text x="93" y="954" font-size="17" fill="#526473" font-weight="400" text-anchor="start">Keep the symmetric recess and gradual slope.</text>
-<text x="93" y="978" font-size="17" fill="#526473" font-weight="400" text-anchor="start">Remove a cheek to reach the camera mechanism.</text>
+<text x="93" y="921" font-size="20" fill="#172b3a" font-weight="700" text-anchor="start">Cut-back front cheeks</text>
+<text x="93" y="954" font-size="17" fill="#526473" font-weight="400" text-anchor="start">Stop behind the head; keep its sides open.</text>
+<text x="93" y="978" font-size="17" fill="#526473" font-weight="400" text-anchor="start">The left cheek includes the Pi plug opening.</text>
 <circle cx="658" cy="916" r="17" fill="white" stroke="#172b3a" stroke-width="2"/>
 <text x="658" y="923" font-size="18" fill="#172b3a" font-weight="700" text-anchor="middle">D</text>
 <text x="688" y="921" font-size="20" fill="#172b3a" font-weight="700" text-anchor="start">Rear service hatch</text>
@@ -159,6 +159,6 @@
 <text x="93" y="1053" font-size="20" fill="#172b3a" font-weight="700" text-anchor="start">Detachable lower nose trim</text>
 <text x="93" y="1083" font-size="17" fill="#526473" font-weight="400" text-anchor="start">Keep access to the front fixings and check the camera image at downward tilt.</text>
 <path d="M40 1115 L1160 1115" fill="none" stroke="#d4dde3" stroke-width="2"/>
-<text x="40" y="1141" font-size="15" fill="#526473" font-weight="400" text-anchor="start">Planning sketch • mounting tabs, final splits, optical clearance and removal paths remain to be modeled</text>
+<text x="40" y="1141" font-size="15" fill="#526473" font-weight="400" text-anchor="start">Planning sketch • B/C have first-fit CAD; A/D/E remain proposals. Use the CAD review for geometry.</text>
 </g>
 </svg>

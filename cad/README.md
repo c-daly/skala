@@ -8,6 +8,8 @@ The [complete-system design](../docs/assembly/s1-system-plan.md) extends require
 
 ## Sources
 
+**SH1 first shell CAD, 2026-11-26:** [cut-back cheeks, side covers and independent deck brackets](../docs/design/shell-first-fit.md) are exported separately under `review/shell/`. Run `.venv/bin/python cad/build_shell_s1.py`, then `.venv/bin/python cad/preview_shell_s1.py`. The package contains the first left-side fit set; the installed STEP shows both sides. The builder checks retained-assembly clearance, the rigid head bound, sampled optical/removal paths and exported meshes. These are first-fit pieces; the remaining enclosure and physical qualification are outstanding. Existing `out/` files are preserved.
+
 | File | Responsibility |
 | --- | --- |
 | build.py | Normal build entry point; current STEP/STL outputs under out/ |
@@ -24,6 +26,9 @@ The [complete-system design](../docs/assembly/s1-system-plan.md) extends require
 | sensors_s1.py / sensor_parts.json | U2 sensor geometry, IDs, filenames and individual matching conditions |
 | audit_sensors_s1.py | Sensor holes, fastener stacks, component clearances, camera sweep and manufacturer-model checks |
 | export_sensors_s1.py | Conditional sensor STEP/STL output, called by the normal build after lower/U1 export |
+| shell_s1.py | SH1 side covers, cut-back cheeks and separate deck brackets |
+| build_shell_s1.py | Shell geometry audit, first-fit STEP/STL exports, installed STEP and package |
+| preview_shell_s1.py | Front, side and maintenance views rendered from actual shell and retained assembly CAD |
 
 S1 derives its corrected motor pocket and idler geometry from review/r1/step/arm_p0_r1.step, then replaces the root interface and adds mounting pads and cable openings. The existing tip hub and vendor ICT-01 link are also geometry-pinned. Reference hashes cover STEP DATA sections; changing an export timestamp does not change geometry. The review receipt separately records exact source-file hashes.
 
