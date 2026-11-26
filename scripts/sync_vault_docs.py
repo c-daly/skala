@@ -43,7 +43,8 @@ FIGURES = {
        for name in ("u1-01-deck-holes", "u1-02-board-layout", "u1-03-fastener-stacks")},
     **{f"docs/assembly/figures/{name}.svg": PROJECT + f"attachments/{name}.svg"
        for name in ("u2-01-sensor-layout", "u2-02-camera-pivot", "u2-03-sensor-stacks", "u2-04-completed-assembly",
-                    "u2-05-camera-pan-assembly", "u2-06-camera-part-identification")},
+                    "u2-05-camera-pan-assembly", "u2-06-camera-part-identification",
+                    "u2-07-lidar-assembly", "u2-08-lidar-board-carrier")},
 }
 PRINT_PARTS = json.loads((REPO / "cad/print_parts.json").read_text())
 SENSOR_PARTS = json.loads((REPO / "cad/sensor_parts.json").read_text())
@@ -382,6 +383,14 @@ def build(vault):
     for filename, expected in camera_figures["output_sha256"].items():
         if digest((REPO / "docs/assembly/figures" / filename).read_bytes()) != expected:
             raise ValueError(f"Camera assembly SVG differs from its receipt: {filename}")
+    lidar_figures = json.loads(source("docs/assembly/figures/u2-lidar-assembly-sources.json"))
+    for name, expected in lidar_figures["source_sha256"].items():
+        if digest((REPO / name).read_bytes()) != expected:
+            raise ValueError(f"LiDAR assembly figures are stale: {name}")
+        SOURCES[name] = expected
+    for filename, expected in lidar_figures["output_sha256"].items():
+        if digest((REPO / "docs/assembly/figures" / filename).read_bytes()) != expected:
+            raise ValueError(f"LiDAR assembly SVG differs from its receipt: {filename}")
     for name, target in FIGURES.items():
         data = (REPO / name).read_bytes()
         ElementTree.fromstring(data)

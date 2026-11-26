@@ -1,0 +1,89 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1454" viewBox="0 0 1200 1454">
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10Z" fill="context-stroke"/></marker></defs>
+<rect width="100%" height="100%" fill="white"/>
+<g font-family="DejaVu Sans,Arial,sans-serif" stroke-linejoin="round" stroke-linecap="round">
+<text x="34" y="38" font-size="26" fill="#172b3a" text-anchor="start" font-weight="700">10B  Where the LiDAR interface PCB goes</text>
+<text x="34" y="67" font-size="17" fill="#526473" text-anchor="start" font-weight="400">P17 hangs below the rear of P12 • carrier mounting is defined; the PCB attachment is still to be designed</text>
+<line x1="34" y1="83" x2="1166" y2="83" stroke="#d4dde3" stroke-width="2"/>
+<text x="45" y="125" font-size="19" fill="#172b3a" text-anchor="start" font-weight="700">Installed carrier — rear strip of P12 shown</text>
+<image x="45" y="145" width="545" height="340" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAiEAAAFUCAYAAADyEOxoAAAOd0lEQVR4nO3dT49V5R3A8WdGsBmpCgg2hgptpTQ1ogLRohLdmZh06wvoqu+gL6P7rrs0aVx00RiXNVqjpEZjG0pJsaEmtrUg1UCFuV3gDDN3zty/55zf8zzn81kNl5t7nuQC98vz59yV0WiUAAD6tho9AABgmEQIABBChAAAIUQIABBChAAAIUQIABBChAAAIUQIABBChAAAIUQIABBChAAAIUQIABBChAAAIUQIABBChAAAIUQIABBChAAAIUQIABBChAAAIUQIABBChAAAIUQIABBChAAAIUQIABBChAAAIUQIABBChAAAIUQIABBChAAAIUQIABBChAAAIUQIABBChAAAIUQIABBChAAAIUQIABBChAAAIUQIABBChAAAIUQIABBChAAAIUQIABBChAAAIUQIABBChAAAIUQIABBChAAAIUQIABBChAAAIUQIABBChAAAIUQIABBChAAAIUQIABBChAAAIUQIABBChAAAIUQIABBChAAAIUQIABBChAAAIUQIABBChAAAIUQIABBChAAAIUQIABBChAAAIUQIABBChAAAIUQIABBChAAAIUQIABBChAAAIUQIABBChAAAIUQIABBChAAAIUQIABBChAAAIUQIABBChAAAIUQIABBChAAAIUQIABBChAAAIUQIABBChAAAIUQIABBChAAAIUQIABBChAAAIUQIABBChAAAIUQIABBChAAAIUQIABBiT/QAAKANR599ddT0+CfvvrbS91iYzcpo1PieAUD2Dh1/fnTfwSMppZQeeeLlxud8+tEbOx4TJnkQIQBkY2M2Y5ZIOPrsq6PdwmMaYZIHEQJAr3ZbNknp7mxGUyTs9ty2CJP+iRAAWjdLaJRAmHRLhAAwt0mRkVJZoTGv8TARJYsTIQA0qmU2o2tmSxYnQgDY5vCJc6OUUjp47HRKKaX9j54MHU+JhMlsRAgA2xw+cW60ESC7ESbzEyY7uVkZAFOJjuU1LWE1LXkNKUzMhACQUrr7gWi/R6whzZiIEICBGPKJltLVGiYiBKAiTrQMRw1HhUUIQGGEBk1KnC0RIQBzmLak0WTeDwLLJrQl9zARIQBj2p5pmOV7UJa9BswqpzARIcDgmGmA7aLCRIQAVbJvApbTR5i4WRlQLKEB7bv2jz+llFK67+CjnV9LhADZsmwC3dgIjWgiBAhlNgPal0tkTCNCgM4JDWhfKaExiQgBlmbZBLpRQ2hMIkKAmZjNgPbVHhnTiBBgk9CA9g09NCYRITAglk2gG0JjMSIEKmM2YzFffHohrayuppWVO/diunMfx1FKo/U0Go3SA4/8KHR8xBIZ3RAhUCCh0Y7P/3Y+re65N62u7klpZXXic69d+Tit37qZDhw71dPo6JvQ6J8IgQxZNunHwe+d3vHYfz/76+bP93/neJ/DoQdCIy8iBIKYzcjTtx9+LHoILEFklEWEQIeEBov6z+U/ptU996aV1T1je1W+2aeyvp5u3/pfOnD0yeCR9k9o1EOEwBIsm9CVA8eeTteufDz5ORUHiNAYBhECU5jNIMqDRx6PHkJnRAYpiRAwmwEdERr1+PPvfrnSxeuKEAbBbAZ0Q2jUo6vQmESEUA2hAe0TGfWIiIxpRAjFsGwC3RAa9cgxNCYRIWTFbAa0T2TUpbTQmESE0DuhAe0TGvWoKTKmESG0zrIJdENo1GNIoTGJCGEhZjOgfSKjLkJjOhHCroQGtE9o1ENkLE+EDJhlE+iG0KiH0OiWCKmc2YzFXLvycVpZWU0rq/ektLKavvnusDQapZTS3S8QW1+/lfZ/94nIoRJAZNRFaMRZGY0m/meYgh0+cW508NjpzV/vf/Rk4GjKsfntpTNGyPrXN9PB75+JHDIdEBr1EBn5MhMyIFf//uGOx4TJTgeOPR09BHoiNOohNMokQgZEcDA0IqMuQqM+lmMqs3UPiD0fDIHQqIfIGB4zIYVxooUhEhr1EBpsJUIy5EQLQyMy6iI0mJUIGbMRAJ+8+1qnf4mERp2uXfk4rd6zd+xEzZ3TNOu3b6UHjzweO8BAQqMeIoO2DHJPyCwB8OlHb+z4vXnCxLLJ8Gwc7Z0UIeu3b6UDR5+MHWiHhEY9hAZ9qDZCuphpaAqTtq8BORMZ9RAZ5KDYCDHTAN0QGvUQGuQu6z0h9k1A+0RGXQ7duHMTwhs3vtr2+HvvvCVAyF62EXLo+POjx178WfQwoEhCox4bkbGb08+cTSmldPXq530MB1rVeYTsNpsxvslz/HkCBCYTGvXYf/39xsf37L13MzKgRq1HyOET50YppbS2/5GU0u7LJuPRYXkFthMZddltf8bZF14anTzV/AWIa2v7Oh0TROtkJmTrN7du/dK0rd9dIjpAaNTEJlCYX697QnyLK0MkNOohNKBd4RtThQmlExl1ERrQn/AIaTIeJqKEaEKjHiID8pFlhIwzW0IfhEY9hAaUoYgIaSJMmJfIqIvQgPIVGyFNhAlCox4iA+pXVYQ0ESb1ERr1EBowbNVHSBNhkjeRURehAexmkBHSRJj0S2jUQ2QAixIhEzgqvByhUQ+hAXRBhMzBbMl2IqMeIgOIIEKWVHuYCI16CA0gNyKkAyWFicioi9AASiJCehIZJkKjHiIDqEnrEfLPC7/f9o/k4RPnRgePnW77MlVoM0yERj2EBjAUnc+EiJL57BYmIqMuh258mG7c+GrbY++985b4AAal9+WY8ShJSZhMI0DKc+jGzpjc6vQzZ9PVq5/3NBqAPGWxJ0SYUKL919/f8dievfemlO5EBgCTZREhTYQJOWjan3H2hZdGKaV08tSZHc9fW9vXw6gA6pBthDQRJrRt0U2gTQECwHyKipAmwoRpnDYByFPxEdJEmAyP0AAoT5UR0sRR4bKJDID6DCZCxpktyY/QABiWwUZIE2HSPaEBwAYRMoUwmY/IAGBWImQBQw8ToQFAG0RIS2oKE5EBQB9ESIdyPpEjNACIJkJ61PdsidAAIGciJNgyYSIyACiZCMlQU5gAQG1WowcAAAyTCAEAQogQACCECAEAQtiYCrCgn798ZDTrc3/1xhUbzmGMCAHYxbTIePW5h5d6LWHC0IkQYNAmhcY8kTFN02vdufbx1q4BpREhQPX6Co15vfrcw+mDN8MuD+FECFC8NpdNgP6IEKAIuc5mAIsTIUA2hEZ7fv7ykZGNr+ROhAC9iVg2OX/p+q6/9/XtncP5yQ8faH0MUZzIIXciBGhV37MZkyJjXjUFSEqTTuRsJ0yIIkKAuZUcGqd/cH9rr1UiYUJORAiwQ27LJvMaemisXX59rvdImBBFhMBA5bYJdCMcZomRmiLjqX0XU7pwcfPXH3x5PJ08dWah11q7/HpKqZ33b5YwESUsS4RAxXILjVnUFBiz2PE+vH03Sm7O8TprTa/VsvHXN1vCskQIFMxNuupT0ntmGYdliRDIXImzGQzX+J/J85eup5+eObT5Z/i37/9LkLBJhEAmdosNoTEMTXthtt7HJOfjw9P28bz4+P5+BkJxRAhkRHDUa9nTP3/4yxebP0cESZunl2CDCAFoScnHjEUGEUQIzOjucsnx3q55/tL1zSn5nKfjh0RoQHtECGwxyybQD97s5tpX/n1z4ofE1un4lERJhHk/xCOOGwsNSiJCGJyST5sIj1jjUXH+0nWzGbAEEUJ1Sr93xtBu1lWyrt4rocFQiBCKFDGbcfeDoZvZiCMPfUuADIjQABFCxnJbNtkIhN9c6v3SFEhkwHQihDClL5uA0IDliBB698qph0YppXTux/tTSjZbkjehAd0RIYTYCJCUdh49TUmY0B+R0Z1f/Pqi74lhIhFCloRJfiZ9WG/9jpOU8nuvhEY3RAbLEiEUw826ulXyB3XJY8+d0KBLIoRimS2Zn1uO00RoEEWEUJWhh0nJkZGS0OiKyCBXIoTqtR0mT+27mNKFiymllD748ng6eerMwq+1dvn1zZ/bOJK8EQ6zfpibzaiH0KBEK6PRxFs1QOteOfXQaOvpmFwsEiavvf3ZUtes8V4oQqM7QoPaiBB6l2uENBnSUs48hEY3RAZDYzkGJhjqHhOR0R2hAXeJEJhTLUeFhUY3RAbMToTAknKeLREa3RAa0A57QshCSftEFtVFmIiM7ggN6J4IIVvC5A6h0Q2RAfFECEWpPUz23uNzsU1CA/ImQiheTWEiQuYnNKBcIoTqlBwlImQnkQH1EiEMQilhMtQIERowTCKEwcoxTGqOEKEBjBMhsEV0mJQcISIDmJcIgSn6DJPcI0RoAG0SIbCArsIkhwgRGkBfRAi0pI0w6SNCRAaQCxECHVkkStqKEKEBlECEQI+mhck8ESI0gNKJEAi2NUy2RojIAGonQgCAEKvRAwAAhkmEAAAhRAgAEEKEAAAhRAgAEEKEAAAhRAgAEEKEAAAhRAgAEEKEAAAhRAgAEEKEAAAhRAgAEEKEAAAhRAgAEEKEAAAhRAgAEEKEAAAhRAgAEEKEAAAhRAgAEEKEAAAhRAgAEEKEAAAhRAgAEEKEAAAhRAgAEEKEAAAhRAgAEEKEAAAhRAgAEEKEAAAhRAgAEEKEAAAhRAgAEEKEAAAhRAgAEEKEAAAhRAgAEEKEAAAhRAgAEEKEAAAhRAgAEEKEAAAhRAgAEEKEAAAhRAgAEEKEAAAhRAgAEEKEAAAhRAgAEEKEAAAhRAgAEEKEAAAhRAgAEEKEAAAhRAgAEEKEAAAhRAgAEEKEAAAhRAgAEEKEAAAhRAgAEEKEAAAhRAgAEEKEAAAhRAgAEEKEAAAhRAgAEEKEAAAhRAgAEEKEAAAhRAgAEEKEAAAhRAgAEEKEAAAhRAgAEEKEAAAhRAgAEEKEAAAhRAgAEEKEAAAhRAgAEEKEAAAhRAgAEEKEAAAhRAgAEEKEAAAhRAgAEEKEAAAhRAgAEEKEAAAhRAgAEEKEAAAhRAgAEEKEAAAh/g8kEQMnR3c+dwAAAABJRU5ErkJggg=="/>
+<circle cx="260.9816653934301" cy="340.068386363254" r="3" fill="#172b3a" stroke="#172b3a" stroke-width="2"/>
+<line x1="260.9816653934301" y1="340.068386363254" x2="47" y2="509" stroke="#172b3a" stroke-width="1.5"/>
+<text x="55" y="515" font-size="18" fill="#172b3a" text-anchor="start" font-weight="700">Two V5 columns, 15 mm long</text>
+<text x="55" y="540" font-size="16" fill="#526473" text-anchor="start" font-weight="400">They suspend the carrier, not the PCB.</text>
+<circle cx="353.18563789152023" cy="346.39659723544986" r="3" fill="#172b3a" stroke="#172b3a" stroke-width="2"/>
+<line x1="353.18563789152023" y1="346.39659723544986" x2="362" y2="464" stroke="#172b3a" stroke-width="1.5"/>
+<text x="370" y="470" font-size="18" fill="#172b3a" text-anchor="start" font-weight="700">P17 — slotted plate</text>
+<text x="370" y="495" font-size="16" fill="#526473" text-anchor="start" font-weight="400">28 × 60 × 3 mm.</text>
+<text x="655" y="125" font-size="19" fill="#172b3a" text-anchor="start" font-weight="700">Carrier fasteners — section, not to scale</text>
+<rect x="700" y="245" width="425" height="28" rx="0" fill="#dcecf7" stroke="#236493" stroke-width="2"/>
+<rect x="730" y="273" width="34" height="160" rx="0" fill="#b5c0c9" stroke="#172b3a" stroke-width="2"/>
+<rect x="1060" y="273" width="34" height="160" rx="0" fill="#b5c0c9" stroke="#172b3a" stroke-width="2"/>
+<rect x="700" y="433" width="425" height="24" rx="0" fill="#ffe2c2" stroke="#a64c13" stroke-width="2"/>
+<rect x="725" y="240" width="44" height="5" rx="0" fill="#b5c0c9" stroke="#172b3a" stroke-width="2"/>
+<rect x="733" y="224" width="28" height="16" rx="0" fill="#b5c0c9" stroke="#172b3a" stroke-width="2"/>
+<line x1="747" y1="240" x2="747" y2="302" stroke="#172b3a" stroke-width="4"/>
+<rect x="725" y="457" width="44" height="5" rx="0" fill="#b5c0c9" stroke="#172b3a" stroke-width="2"/>
+<rect x="733" y="462" width="28" height="16" rx="0" fill="#b5c0c9" stroke="#172b3a" stroke-width="2"/>
+<line x1="747" y1="462" x2="747" y2="400" stroke="#172b3a" stroke-width="4"/>
+<rect x="1055" y="240" width="44" height="5" rx="0" fill="#b5c0c9" stroke="#172b3a" stroke-width="2"/>
+<rect x="1063" y="224" width="28" height="16" rx="0" fill="#b5c0c9" stroke="#172b3a" stroke-width="2"/>
+<line x1="1077" y1="240" x2="1077" y2="302" stroke="#172b3a" stroke-width="4"/>
+<rect x="1055" y="457" width="44" height="5" rx="0" fill="#b5c0c9" stroke="#172b3a" stroke-width="2"/>
+<rect x="1063" y="462" width="28" height="16" rx="0" fill="#b5c0c9" stroke="#172b3a" stroke-width="2"/>
+<line x1="1077" y1="462" x2="1077" y2="400" stroke="#172b3a" stroke-width="4"/>
+<text x="655" y="176" font-size="17" fill="#172b3a" text-anchor="start" font-weight="700">M2.5×8 + washer from ABOVE P12</text>
+<line x1="747" y1="190" x2="747" y2="216" stroke="#236493" stroke-width="2" marker-end="url(#arrow)"/>
+<text x="812" y="265" font-size="17" fill="#236493" text-anchor="start" font-weight="400">P12 bridge, 4 mm</text>
+<text x="800" y="336" font-size="16" fill="#172b3a" text-anchor="start" font-weight="400">Space for the PCB and its</text>
+<text x="800" y="363" font-size="16" fill="#172b3a" text-anchor="start" font-weight="400">insulating supports — their</text>
+<text x="800" y="390" font-size="16" fill="#172b3a" text-anchor="start" font-weight="400">fit is not yet established.</text>
+<text x="815" y="451" font-size="17" fill="#a64c13" text-anchor="start" font-weight="400">P17 carrier, 3 mm</text>
+<line x1="747" y1="514" x2="747" y2="486" stroke="#a64c13" stroke-width="2" marker-end="url(#arrow)"/>
+<text x="655" y="550" font-size="17" fill="#172b3a" text-anchor="start" font-weight="700">M2.5×8 + washer from BELOW P17</text>
+<text x="655" y="590" font-size="17" fill="#172b3a" text-anchor="start" font-weight="400">Both columns are female–female: no nuts.</text>
+<text x="655" y="614" font-size="17" fill="#172b3a" text-anchor="start" font-weight="400">The 15 mm gap is not a PCB standoff height.</text>
+<line x1="34" y1="650" x2="1166" y2="650" stroke="#d4dde3" stroke-width="2"/>
+<text x="45" y="693" font-size="21" fill="#172b3a" text-anchor="start" font-weight="700">P17 viewed from above</text>
+<rect x="160" y="800" width="300" height="140" rx="0" fill="#ffe2c2" stroke="#a64c13" stroke-width="2"/>
+<circle cx="430" cy="880" r="6.75" fill="white" stroke="#a64c13" stroke-width="2"/>
+<circle cx="190" cy="880" r="6.75" fill="white" stroke="#a64c13" stroke-width="2"/>
+<rect x="355" y="902.5" width="50" height="15" rx="0" fill="white" stroke="#a64c13" stroke-width="2"/>
+<rect x="215" y="902.5" width="50" height="15" rx="0" fill="white" stroke="#a64c13" stroke-width="2"/>
+<rect x="355" y="822.5" width="50" height="15" rx="0" fill="white" stroke="#a64c13" stroke-width="2"/>
+<rect x="215" y="822.5" width="50" height="15" rx="0" fill="white" stroke="#a64c13" stroke-width="2"/>
+<circle cx="190" cy="880" r="3" fill="#172b3a" stroke="#172b3a" stroke-width="2"/>
+<line x1="190" y1="880" x2="37" y2="739" stroke="#172b3a" stroke-width="1.5"/>
+<text x="45" y="745" font-size="18" fill="#172b3a" text-anchor="start" font-weight="700">Two round holes, 48 mm apart</text>
+<text x="45" y="770" font-size="16" fill="#526473" text-anchor="start" font-weight="400">V5 columns attach here.</text>
+<circle cx="380" cy="830" r="3" fill="#172b3a" stroke="#172b3a" stroke-width="2"/>
+<line x1="380" y1="830" x2="359.109375" y2="1004" stroke="#172b3a" stroke-width="1.5"/>
+<text x="45" y="1010" font-size="18" fill="#172b3a" text-anchor="start" font-weight="700">Four slots for future retention</text>
+<text x="45" y="1035" font-size="16" fill="#526473" text-anchor="start" font-weight="400">Not the PCB&#x27;s mounting-hole pattern.</text>
+<text x="320" y="779" font-size="16" fill="#236493" text-anchor="start" font-weight="700">FRONT ↑</text>
+<text x="45" y="978" font-size="17" fill="#236493" text-anchor="start" font-weight="400">USB exits left ←</text>
+<text x="655" y="693" font-size="21" fill="#172b3a" text-anchor="start" font-weight="700">Cable route — function only, not a pinout</text>
+<rect x="655" y="733" width="490" height="80" rx="7" fill="#f0f3f5" stroke="#d4dde3" stroke-width="2"/>
+<text x="675" y="761" font-size="18" fill="#172b3a" text-anchor="start" font-weight="700">SCANNER</text>
+<text x="675" y="790" font-size="16" fill="#172b3a" text-anchor="start" font-weight="400">Fixed connector at the rear</text>
+<rect x="655" y="863" width="490" height="80" rx="7" fill="#ffe2c2" stroke="#d4dde3" stroke-width="2"/>
+<text x="675" y="891" font-size="18" fill="#172b3a" text-anchor="start" font-weight="700">BARE INTERFACE PCB ON P17</text>
+<text x="675" y="920" font-size="16" fill="#172b3a" text-anchor="start" font-weight="400">Retained, insulated, below the bridge</text>
+<rect x="655" y="993" width="490" height="80" rx="7" fill="#d9f1e6" stroke="#d4dde3" stroke-width="2"/>
+<text x="675" y="1021" font-size="18" fill="#172b3a" text-anchor="start" font-weight="700">RASPBERRY PI USB</text>
+<text x="675" y="1050" font-size="16" fill="#172b3a" text-anchor="start" font-weight="400">USB lead exits towards robot left</text>
+<line x1="900" y1="817" x2="900" y2="857" stroke="#a64c13" stroke-width="2" marker-end="url(#arrow)"/>
+<text x="675" y="844" font-size="16" fill="#a64c13" text-anchor="start" font-weight="400">Owned scanner cable</text>
+<line x1="900" y1="947" x2="900" y2="987" stroke="#156f50" stroke-width="2" marker-end="url(#arrow)"/>
+<text x="675" y="974" font-size="16" fill="#156f50" text-anchor="start" font-weight="400">USB cable</text>
+<rect x="45" y="1120" width="1110" height="140" rx="8" fill="#f0f3f5" stroke="#d4dde3" stroke-width="2"/>
+<text x="62" y="1149" font-size="18" fill="#172b3a" text-anchor="start" font-weight="700">What remains before attaching the PCB</text>
+<text x="62" y="1177" font-size="16" fill="#526473" text-anchor="start" font-weight="400">Record its outline, mounting holes, underside components, connector directions and markings.</text>
+<text x="62" y="1200" font-size="16" fill="#526473" text-anchor="start" font-weight="400">Then define insulating supports and positive retention; the 24 × 40 mm space is only an allowance.</text>
+<text x="62" y="1223" font-size="16" fill="#526473" text-anchor="start" font-weight="400">Keep the PCB off screw heads and metalwork. Restrain cable jackets without loading the sockets.</text>
+<text x="45" y="1320" font-size="17" fill="#172b3a" text-anchor="start" font-weight="700">The PCB stays stationary with P17. It is not a Pi GPIO HAT and does not attach to the rotating scanner.</text>
+<text x="34" y="1408" font-size="14" fill="#526473" text-anchor="start" font-weight="400">P12 LiDAR bridge: lidar_bridge_s1.stl   |   P17 LiDAR interface carrier: lidar_interface_carrier_s1.stl</text>
+<line x1="34" y1="1413" x2="1166" y2="1413" stroke="#d4dde3" stroke-width="2"/>
+<text x="34" y="1437" font-size="14" fill="#526473" text-anchor="start" font-weight="400">S0/S1 candidate • simplified assembly illustration • dimensions in mm • not a fabrication template</text>
+</g>
+</svg>

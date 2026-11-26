@@ -1,0 +1,20 @@
+{
+  "scope": "Illustrations of existing LiDAR fixture only; simplified A1M8 envelope, no invented PCB or board supports. No fit or powered qualification.",
+  "source_sha256": {
+    "cad/sensors_s1.py": "c8feee7ec5ff601643b49fe633fed0c2c33dc003d426e3f61cce02f859eaf406",
+    "cad/sensor_parts.json": "705ee0b5341b5c58bf4ba6d4db3505fb3c018acbff66552a236fb77ceb30a0c3",
+    "cad/upper_s1.py": "fc5fbf8872c9d8fded6151f9976061f1db29159bc54a9f5fd47ffaf66aa1400d",
+    "cad/print_parts.json": "8e559133dca2e9027b884cf35a75ed32b8ce346def2b04169c8fa4260249bdbc",
+    "cad/staged_base.json": "d6850467ae5580f09f6256cb0af80603b8bfd1d1a0054add210f4d12b8865cc8",
+    "cad/out/step/deck_p0.step": "5e17aa9fc6de252ed5cf450c3cbac58ae0ec2129c5ba624c12bbb078a9e4c5f4",
+    "cad/vendor/sensor_sources.json": "bd08042fa3f5afc7855dcd0f3ba7a6fe731287c8fd09d6852393e6ac6d083413",
+    "docs/assembly/figures/make_lidar_assembly_figures.py": "5ad82c4385b7b3760ebb08322db136f636b04bfedc4a7c73d0855ff5639a99ed",
+    "docs/assembly/figures/make_camera_assembly_figures.py": "9a83ed529a109706b287a126ace8933ee3bd52d14f8cbe01afac625f3feb0a91",
+    "docs/assembly/figures/make_s1_figures.py": "44d0c28a784b7cb2a4ff61502cc7b281c4b9c87e4ce74f7e0da90891e0d51133",
+    "docs/assembly/figures/make_completed_sensor_view.py": "49c8033a123eee475c8193d23cd8247638ab9304e70e592acf7cf6746dc5d787"
+  },
+  "output_sha256": {
+    "u2-07-lidar-assembly.svg": "0979b1c1407b3e0b36653423a32610eec3063741c13f3bcdd3f307e10048c4de",
+    "u2-08-lidar-board-carrier.svg": "fc8d836008bb26b1fa9af681750a18219b725aa7101ff5cd4330238902644284"
+  }
+}
