@@ -1,6 +1,6 @@
 # Exterior shell concept
 
-Updated 2026-11-25. **Visual direction selected: the saved black-and-red shell concept, with a finished appearance and easy maintenance access.** The updated study retains its faceted body, symmetric camera recess and shoulders that slope gradually towards the nose, and incorporates the corrected A1 appearance and small interface-board arrangement. Keep the existing printed structure black and use red for small trim pieces and the nameplate.
+Updated 2026-11-26. **Visual direction selected: the saved black-and-red shell concept, with a finished appearance and easy maintenance access.** The updated study retains its faceted body, symmetric camera recess and shoulders that slope gradually towards the nose, and incorporates the corrected A1 appearance and small interface-board arrangement. Keep the existing printed structure black and use red for small trim pieces and the nameplate.
 
 The shell is a removable, nonstructural cover around the current two-track assembly. Its first purpose is to make the robot look complete and keep cabling orderly. Impact protection and weather sealing are outside this first version.
 
@@ -56,12 +56,14 @@ The bank dimensions with its connector, stop enclosure, final cable bends and co
 
 ## First modeling and fitting pass
 
+Proceed directly from CAD checks to printed fit pieces; there is no cardboard stage.
+
 1. Place a rough shell surface around the current assembly, retaining the selected front symmetry and side slope. Include the moving head, cable allowances, scanner scan band and plugged-in connectors as spaces the shell must leave clear. Start with the front recess: it is the strongest visual feature and the tightest moving interface.
 2. Split that surface into the service groups above and demonstrate a removal path for each. Locate the stop opening and battery access before adding vents, screws or cosmetic details.
-3. Make a cardboard or thin fit mockup of one cheek and one side cover. Check the silhouette from the front and side, camera images across the intended motion, ribbon movement and hand/tool access.
-4. Print mounting-tab and seam samples, then one panel. Confirm fit, fastening and removal before completing the mirrored pieces, vents and red trim. Record the added mass before loaded driving checks.
+3. Model and print one cheek and one side cover with their mounting tabs and seams. Fit them to the actual assembly and check the front and side silhouette, camera images across the intended motion, ribbon movement, connector clearance and hand/tool access. Confirm that both pieces fasten securely and can be removed independently. Separate tab or seam samples are optional if a particular fit is uncertain.
+4. Correct the CAD from that fit check, then complete the remaining panels, vents and red trim. Recheck any changed interfaces before printing the full set. Record the added mass before loaded driving checks.
 
-The updated concept sheet supplies the front, side, three-quarter and maintenance views for this review. The next step is a rough CAD surface and removal-path check around the actual assembly, starting with one cheek and one side cover. Shell CAD and print files follow that fit work; the existing base, sensor mounts and assembly instructions remain the starting hardware.
+The updated concept sheet supplies the front, side, three-quarter and maintenance views for this review. The next step is a rough CAD surface and removal-path check around the actual assembly, followed by CAD and print files for the first cheek and side cover. The remaining shell parts follow the physical fit check; the existing base, sensor mounts and assembly instructions remain the starting hardware.
 
 ## Image generation record
 
