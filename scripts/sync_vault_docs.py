@@ -33,6 +33,7 @@ TALOS = "10-projects/LOGOS/talos/2026-10-24-capability-manifest-design.md"
 MODULE = PROJECT + "attachments/s1-track-module.svg"
 BASE = PROJECT + "attachments/s1-fixed-base.svg"
 FIGURES = {
+    "docs/concept/exterior-shell-panel-plan.svg": PROJECT + "attachments/exterior-shell-panel-plan.svg",
     "docs/assembly/figures/s1-00-idler-parts.svg": PROJECT + "attachments/s1-00-idler-parts.svg",
     "docs/assembly/figures/s1-01-overview.svg": BASE,
     "docs/assembly/figures/s1-02-motor.svg": MODULE,
@@ -49,6 +50,8 @@ SENSOR_PARTS = json.loads((REPO / "cad/sensor_parts.json").read_text())
 SENSOR_FILES = {"cad/out/stl/" + p["stl"]: PROJECT + "attachments/" + p["stl"] for p in SENSOR_PARTS}
 SUPPORT_FILES = {
     "scripts/migrate_pi_to_jazzy.py": PROJECT + "attachments/migrate_pi_to_jazzy.py",
+    "docs/concept/2026-11-08-shell-symmetric-front.png": PROJECT + "attachments/2026-11-08-shell-symmetric-front.png",
+    "docs/concept/2026-11-08-shell-sloped-concept.png": PROJECT + "attachments/2026-11-08-shell-sloped-concept.png",
 }
 FIT_FILES = {"cad/out/stl/" + p["stl"]: PROJECT + "attachments/" + p["stl"]
              for p in PRINT_PARTS if p["export"] == "current"}
@@ -58,6 +61,7 @@ PROSE = {
     "docs/assembly/p0-assembly.md": GUIDE,
     "docs/assembly/p0-bom.md": BOM,
     "docs/design/physical-design-spec.md": SPEC,
+    "docs/design/exterior-shell-concept.md": PROJECT + "exterior-shell-concept.md",
     "docs/assembly/p0-build-review.md": REVIEW,
     "docs/assembly/s1-system-plan.md": SYSTEM,
     "docs/assembly/commissioning-procedures.md": PROJECT + "commissioning-procedures.md",
