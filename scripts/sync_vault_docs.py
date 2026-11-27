@@ -50,6 +50,15 @@ PRINT_PARTS = json.loads((REPO / "cad/print_parts.json").read_text())
 SENSOR_PARTS = json.loads((REPO / "cad/sensor_parts.json").read_text())
 SENSOR_FILES = {"cad/out/stl/" + p["stl"]: PROJECT + "attachments/" + p["stl"] for p in SENSOR_PARTS}
 SUPPORT_FILES = {
+    "software/skala_sim/web/floorplan.svg": PROJECT + "attachments/skala-floorplan.svg",
+    **{f"software/skala_sim/validation/2026-11-27/floorplan/{name}": PROJECT + f"attachments/skala-floorplan-2026-11-27-{name}" for name in (
+        "validation.json", "rviz-interactive.json", "rviz-window.png", "foxglove-transport.json",
+        "foxglove-dashboard.json", "recording.json", "foxglove-dashboard.png",
+        "foxglove-diagnostics.png", "foxglove-recording.png")},
+    "software/skala_sim/config/foxglove-skala.json": PROJECT + "attachments/foxglove-skala.json",
+    **{f"software/skala_sim/validation/2026-11-27/{name}": PROJECT + f"attachments/skala-sim-2026-11-27-{name}" for name in (
+        "qualification.json", "validation.json", "demo.json", "controls-validation.json",
+        "controls.png", "gazebo-window.png", "rviz-window.png")},
     "docker/ros2/validation-2026-11-27.json": PROJECT + "attachments/ros2-workstation-validation-2026-11-27.json",
     "docs/concept/2026-11-26-shell-cad.png": PROJECT + "attachments/2026-11-26-shell-cad.png",
     "docs/concept/2026-11-26-shell-fit-parts.png": PROJECT + "attachments/2026-11-26-shell-fit-parts.png",
@@ -81,6 +90,7 @@ PROSE = {
     "docs/assembly/s1-system-plan.md": SYSTEM,
     "docs/assembly/commissioning-procedures.md": PROJECT + "commissioning-procedures.md",
     "docs/assembly/ros2-workstation-docker.md": PROJECT + "ros2-workstation-docker.md",
+    "docs/simulation/skala-slam.md": PROJECT + "skala-slam-simulation.md",
     "cad/README.md": CAD,
     "firmware/opencr_reflex/README.md": PROJECT + "opencr-control.md",
     "software/talos/README.md": PROJECT + "pi-body-software.md",
@@ -267,6 +277,14 @@ def build(vault):
     for name, expected in workstation["source_sha256"].items():
         if digest((REPO / name).read_bytes()) != expected:
             raise ValueError("Workstation configuration changed; revalidate: " + name)
+        SOURCES[name] = expected
+
+    simulation = json.loads(source("software/skala_sim/validation/2026-11-27/qualification.json"))
+    if simulation["status"] != "passed":
+        raise ValueError("Simulation qualification did not pass")
+    for name, expected in {**simulation["source_sha256"], **simulation["artifact_sha256"]}.items():
+        if digest((REPO / name).read_bytes()) != expected:
+            raise ValueError("Simulation evidence changed; revalidate: " + name)
         SOURCES[name] = expected
 
     shell = json.loads(source("cad/review/shell/audit.json"))

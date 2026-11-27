@@ -1,0 +1,43 @@
+{
+  "status": "passed",
+  "episode": "/home/ros/bags/skala/20261127T191843.885747Z",
+  "manifest_status": "saved",
+  "stop_reason": "stop requested",
+  "source_revision": "c99d010e5eb55baf4841a3d94a486ac872760e07",
+  "checkout_dirty": true,
+  "total_messages": 49377,
+  "duration_sim_seconds": 40.022,
+  "message_counts": {
+    "/clock": 20011,
+    "/tf": 2781,
+    "/robot_description": 1,
+    "/tf_static": 1,
+    "/sim/joint_states": 19993,
+    "/sim/internal/cmd_vel": 804,
+    "/sim/ground_truth/odom": 1176,
+    "/sim/imu": 1999,
+    "/sim/odom": 1176,
+    "/sim/control_mode/state": 804,
+    "/sim/scan": 200,
+    "/map": 41,
+    "/sim/camera/camera_info": 200,
+    "/sim/camera/image_raw": 190
+  },
+  "deserialized_samples": {
+    "/tf": true,
+    "/robot_description": true,
+    "/tf_static": true,
+    "/sim/imu": true,
+    "/sim/odom": true,
+    "/sim/scan": true,
+    "scan_returns": 360,
+    "/map": true,
+    "/sim/camera/image_raw": true,
+    "camera": {
+      "width": 640,
+      "height": 368,
+      "bytes": 706560
+    }
+  },
+  "physical_robot_tested": false
+}

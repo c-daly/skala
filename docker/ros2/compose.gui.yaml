@@ -1,0 +1,25 @@
+# Optional WSLg X11 display access for Gazebo and RViz. No host networking.
+services:
+  ros:
+    environment:
+      DISPLAY: ":0"
+      QT_X11_NO_MITSHM: "1"
+      LIBGL_ALWAYS_SOFTWARE: "0"
+      GALLIUM_DRIVER: d3d12
+      LD_LIBRARY_PATH: /usr/lib/wsl/lib
+      LP_NUM_THREADS: "2"
+    devices:
+      - /dev/dxg:/dev/dxg
+    volumes:
+      - type: bind
+        source: /usr/lib/wsl
+        target: /usr/lib/wsl
+        read_only: true
+        bind:
+          create_host_path: false
+      - type: bind
+        source: /mnt/wslg/.X11-unix
+        target: /tmp/.X11-unix
+        read_only: true
+        bind:
+          create_host_path: false

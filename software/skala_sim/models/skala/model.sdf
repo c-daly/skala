@@ -1,0 +1,507 @@
+<?xml version='1.0' encoding='utf-8'?>
+<sdf version="1.9">
+  <model name="skala">
+    <self_collide>false</self_collide>
+    <link name="base_link">
+      <inertial>
+        <pose>-0.02 0 0.055 0 0 0</pose>
+        <mass>1.9</mass>
+        <inertia>
+          <ixx>0.009278333333333333</ixx>
+          <iyy>0.0126825</iyy>
+          <izz>0.014835833333333333</izz>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyz>0</iyz>
+        </inertia>
+      </inertial>
+      <collision name="chassis">
+        <pose>0 0 -0.003 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.2 0.152 0.006</size>
+          </box>
+        </geometry>
+      </collision>
+      <collision name="payload_envelope">
+        <pose>-0.023 0 0.066 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.198 0.138 0.132</size>
+          </box>
+        </geometry>
+      </collision>
+      <collision name="lidar_head">
+        <pose>0.008 0 0.18775 0 0 0</pose>
+        <geometry>
+          <cylinder>
+            <radius>0.0353</radius>
+            <length>0.0195</length>
+          </cylinder>
+        </geometry>
+      </collision>
+      <collision name="shell_side_-1">
+        <pose>-0.033 -0.093 0.085 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.166 0.003 0.058</size>
+          </box>
+        </geometry>
+      </collision>
+      <collision name="shell_side_1">
+        <pose>-0.033 0.093 0.085 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.166 0.003 0.058</size>
+          </box>
+        </geometry>
+      </collision>
+      <visual name="base_link_black">
+        <geometry>
+          <mesh>
+            <uri>model://skala/meshes/base_link_black.stl</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <ambient>0.075 0.085 0.1 1</ambient>
+          <diffuse>0.075 0.085 0.1 1</diffuse>
+        </material>
+      </visual>
+      <visual name="base_link_board">
+        <geometry>
+          <mesh>
+            <uri>model://skala/meshes/base_link_board.stl</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <ambient>0.08 0.28 0.16 1</ambient>
+          <diffuse>0.08 0.28 0.16 1</diffuse>
+        </material>
+      </visual>
+      <visual name="base_link_metal">
+        <geometry>
+          <mesh>
+            <uri>model://skala/meshes/base_link_metal.stl</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <ambient>0.45 0.48 0.5 1</ambient>
+          <diffuse>0.45 0.48 0.5 1</diffuse>
+        </material>
+      </visual>
+      <visual name="base_link_lens">
+        <geometry>
+          <mesh>
+            <uri>model://skala/meshes/base_link_lens.stl</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <ambient>0.07 0.12 0.18 1</ambient>
+          <diffuse>0.07 0.12 0.18 1</diffuse>
+        </material>
+      </visual>
+      <visual name="base_link_red">
+        <geometry>
+          <mesh>
+            <uri>model://skala/meshes/base_link_red.stl</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <ambient>0.58 0.065 0.045 1</ambient>
+          <diffuse>0.58 0.065 0.045 1</diffuse>
+        </material>
+      </visual>
+      <sensor name="lidar" type="gpu_lidar">
+        <pose>0.008 0 0.1885 0 0 0</pose>
+        <always_on>true</always_on>
+        <update_rate>5</update_rate>
+        <topic>/skala/scan</topic>
+        <gz_frame_id>lidar_link</gz_frame_id>
+        <lidar>
+          <scan>
+            <horizontal>
+              <samples>360</samples>
+              <resolution>1</resolution>
+              <min_angle>-3.141592653589793</min_angle>
+              <max_angle>3.12413936106985</max_angle>
+            </horizontal>
+          </scan>
+          <range>
+            <min>0.15</min>
+            <max>12</max>
+            <resolution>0.01</resolution>
+          </range>
+        </lidar>
+      </sensor>
+      <sensor name="imu" type="imu">
+        <pose>-0.064 0 0.086 0 0 0</pose>
+        <always_on>true</always_on>
+        <update_rate>50</update_rate>
+        <topic>/skala/imu</topic>
+        <gz_frame_id>imu_link</gz_frame_id>
+      </sensor>
+    </link>
+    <link name="left_track">
+      <pose>0 0.143 0.02 0 0 0</pose>
+      <inertial>
+        <pose>0 0 0 0 0 0</pose>
+        <mass>0.18</mass>
+        <inertia>
+          <ixx>0.000124443841682798</ixx>
+          <iyy>0.0008561603373761243</iyy>
+          <izz>0.0007846364961973263</izz>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyz>0</iyz>
+        </inertia>
+      </inertial>
+      <collision name="straight_contact">
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.144 0.0420000002 0.0808223737</size>
+          </box>
+        </geometry>
+        <surface>
+          <friction>
+            <ode>
+              <mu>0.8</mu>
+              <mu2>0.8</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <collision name="end_-1">
+        <pose>-0.072 0 0 1.57079633 0 0</pose>
+        <geometry>
+          <cylinder>
+            <radius>0.04041118686510746</radius>
+            <length>0.042000000199999984</length>
+          </cylinder>
+        </geometry>
+        <surface>
+          <friction>
+            <ode>
+              <mu>0.8</mu>
+              <mu2>0.8</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <collision name="end_1">
+        <pose>0.072 0 0 1.57079633 0 0</pose>
+        <geometry>
+          <cylinder>
+            <radius>0.04041118686510746</radius>
+            <length>0.042000000199999984</length>
+          </cylinder>
+        </geometry>
+        <surface>
+          <friction>
+            <ode>
+              <mu>0.8</mu>
+              <mu2>0.8</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <visual name="left_track_track">
+        <geometry>
+          <mesh>
+            <uri>model://skala/meshes/left_track_track.stl</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <ambient>0.11 0.12 0.135 1</ambient>
+          <diffuse>0.11 0.12 0.135 1</diffuse>
+        </material>
+      </visual>
+    </link>
+    <joint name="left_track_fixed" type="fixed">
+      <parent>base_link</parent>
+      <child>left_track</child>
+    </joint>
+    <plugin filename="gz-sim-track-controller-system" name="gz::sim::systems::TrackController">
+      <link>left_track</link>
+      <min_velocity>-0.5</min_velocity>
+      <max_velocity>0.5</max_velocity>
+      <max_command_age>0.5</max_command_age>
+    </plugin>
+    <link name="right_track">
+      <pose>0 -0.143 0.02 0 0 0</pose>
+      <inertial>
+        <pose>0 0 0 0 0 0</pose>
+        <mass>0.18</mass>
+        <inertia>
+          <ixx>0.00012444384168279807</ixx>
+          <iyy>0.0008561603373761244</iyy>
+          <izz>0.0007846364961973263</izz>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyz>0</iyz>
+        </inertia>
+      </inertial>
+      <collision name="straight_contact">
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.144 0.0420000002 0.0808223737</size>
+          </box>
+        </geometry>
+        <surface>
+          <friction>
+            <ode>
+              <mu>0.8</mu>
+              <mu2>0.8</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <collision name="end_-1">
+        <pose>-0.072 0 0 1.57079633 0 0</pose>
+        <geometry>
+          <cylinder>
+            <radius>0.040411186865107473</radius>
+            <length>0.042000000199999984</length>
+          </cylinder>
+        </geometry>
+        <surface>
+          <friction>
+            <ode>
+              <mu>0.8</mu>
+              <mu2>0.8</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <collision name="end_1">
+        <pose>0.072 0 0 1.57079633 0 0</pose>
+        <geometry>
+          <cylinder>
+            <radius>0.040411186865107473</radius>
+            <length>0.042000000199999984</length>
+          </cylinder>
+        </geometry>
+        <surface>
+          <friction>
+            <ode>
+              <mu>0.8</mu>
+              <mu2>0.8</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <visual name="right_track_track">
+        <geometry>
+          <mesh>
+            <uri>model://skala/meshes/right_track_track.stl</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <ambient>0.11 0.12 0.135 1</ambient>
+          <diffuse>0.11 0.12 0.135 1</diffuse>
+        </material>
+      </visual>
+    </link>
+    <joint name="right_track_fixed" type="fixed">
+      <parent>base_link</parent>
+      <child>right_track</child>
+    </joint>
+    <plugin filename="gz-sim-track-controller-system" name="gz::sim::systems::TrackController">
+      <link>right_track</link>
+      <min_velocity>-0.5</min_velocity>
+      <max_velocity>0.5</max_velocity>
+      <max_command_age>0.5</max_command_age>
+    </plugin>
+    <link name="camera_pan_link">
+      <pose>0.108 0 0.033 0 0 0</pose>
+      <inertial>
+        <pose>0 0 0.022 0 0 0</pose>
+        <mass>0.045</mass>
+        <inertia>
+          <ixx>2.9718750000000004e-05</ixx>
+          <iyy>1.7343749999999998e-05</iyy>
+          <izz>2.4375e-05</izz>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyz>0</iyz>
+        </inertia>
+      </inertial>
+      <visual name="camera_pan_link_black">
+        <geometry>
+          <mesh>
+            <uri>model://skala/meshes/camera_pan_link_black.stl</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <ambient>0.075 0.085 0.1 1</ambient>
+          <diffuse>0.075 0.085 0.1 1</diffuse>
+        </material>
+      </visual>
+    </link>
+    <joint name="camera_pan_joint" type="revolute">
+      <parent>base_link</parent>
+      <child>camera_pan_link</child>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <lower>-1.5707963267948966</lower>
+          <upper>1.5707963267948966</upper>
+          <effort>1</effort>
+          <velocity>1.5</velocity>
+        </limit>
+        <dynamics>
+          <damping>0.02</damping>
+        </dynamics>
+      </axis>
+    </joint>
+    <plugin filename="gz-sim-joint-position-controller-system" name="gz::sim::systems::JointPositionController">
+      <joint_name>camera_pan_joint</joint_name>
+      <topic>/skala/camera_pan_joint/cmd_pos</topic>
+      <use_velocity_commands>true</use_velocity_commands>
+      <p_gain>8</p_gain>
+      <cmd_max>1.5</cmd_max>
+    </plugin>
+    <link name="camera_tilt_link">
+      <pose>0.108 0 0.072 0 0 0</pose>
+      <inertial>
+        <pose>0 0 0 0 0 0</pose>
+        <mass>0.035</mass>
+        <inertia>
+          <ixx>1.0864583333333336e-05</ixx>
+          <iyy>5.395833333333334e-06</iyy>
+          <izz>9.114583333333336e-06</izz>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyz>0</iyz>
+        </inertia>
+      </inertial>
+      <collision name="camera_collision">
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.025 0.05 0.035</size>
+          </box>
+        </geometry>
+      </collision>
+      <visual name="camera_tilt_link_black">
+        <geometry>
+          <mesh>
+            <uri>model://skala/meshes/camera_tilt_link_black.stl</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <ambient>0.075 0.085 0.1 1</ambient>
+          <diffuse>0.075 0.085 0.1 1</diffuse>
+        </material>
+      </visual>
+      <visual name="camera_tilt_link_lens">
+        <geometry>
+          <mesh>
+            <uri>model://skala/meshes/camera_tilt_link_lens.stl</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <ambient>0.07 0.12 0.18 1</ambient>
+          <diffuse>0.07 0.12 0.18 1</diffuse>
+        </material>
+      </visual>
+      <visual name="camera_tilt_link_board">
+        <geometry>
+          <mesh>
+            <uri>model://skala/meshes/camera_tilt_link_board.stl</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <ambient>0.08 0.28 0.16 1</ambient>
+          <diffuse>0.08 0.28 0.16 1</diffuse>
+        </material>
+      </visual>
+      <sensor name="camera" type="camera">
+        <pose>0.008 0 0.002 0 0 0</pose>
+        <always_on>true</always_on>
+        <update_rate>5</update_rate>
+        <topic>/skala/camera/image</topic>
+        <gz_frame_id>camera_optical_frame</gz_frame_id>
+        <camera>
+          <horizontal_fov>1.1519173063162575</horizontal_fov>
+          <image>
+            <width>640</width>
+            <height>368</height>
+            <format>R8G8B8</format>
+          </image>
+          <clip>
+            <near>0.015</near>
+            <far>20</far>
+          </clip>
+          <camera_info_topic>/skala/camera/camera_info</camera_info_topic>
+        </camera>
+      </sensor>
+    </link>
+    <joint name="camera_tilt_joint" type="revolute">
+      <parent>camera_pan_link</parent>
+      <child>camera_tilt_link</child>
+      <axis>
+        <xyz>0 1 0</xyz>
+        <limit>
+          <lower>-0.7853981633974483</lower>
+          <upper>0.5235987755982988</upper>
+          <effort>1</effort>
+          <velocity>1.5</velocity>
+        </limit>
+        <dynamics>
+          <damping>0.02</damping>
+        </dynamics>
+      </axis>
+    </joint>
+    <plugin filename="gz-sim-joint-position-controller-system" name="gz::sim::systems::JointPositionController">
+      <joint_name>camera_tilt_joint</joint_name>
+      <topic>/skala/camera_tilt_joint/cmd_pos</topic>
+      <use_velocity_commands>true</use_velocity_commands>
+      <p_gain>8</p_gain>
+      <cmd_max>1.5</cmd_max>
+    </plugin>
+    <plugin filename="gz-sim-tracked-vehicle-system" name="gz::sim::systems::TrackedVehicle">
+      <body_link>base_link</body_link>
+      <tracks_separation>0.286</tracks_separation>
+      <steering_efficiency>1.0</steering_efficiency>
+      <topic>/skala/cmd_vel</topic>
+      <odom_topic>/skala/odom</odom_topic>
+      <tf_topic>/skala/odom_tf</tf_topic>
+      <frame_id>odom</frame_id>
+      <child_frame_id>base_footprint</child_frame_id>
+      <odom_publish_frequency>30</odom_publish_frequency>
+      <left_track>
+        <link>left_track</link>
+      </left_track>
+      <right_track>
+        <link>right_track</link>
+      </right_track>
+      <linear_velocity>
+        <min_velocity>-0.25</min_velocity>
+        <max_velocity>0.25</max_velocity>
+        <min_acceleration>-0.5</min_acceleration>
+        <max_acceleration>0.5</max_acceleration>
+      </linear_velocity>
+      <angular_velocity>
+        <min_velocity>-0.8</min_velocity>
+        <max_velocity>0.8</max_velocity>
+        <min_acceleration>-1.5</min_acceleration>
+        <max_acceleration>1.5</max_acceleration>
+      </angular_velocity>
+    </plugin>
+    <plugin filename="gz-sim-odometry-publisher-system" name="gz::sim::systems::OdometryPublisher">
+      <odom_frame>world</odom_frame>
+      <robot_base_frame>base_link</robot_base_frame>
+      <dimensions>3</dimensions>
+      <odom_topic>/skala/ground_truth/odom</odom_topic>
+      <tf_topic>/skala/ground_truth/tf</tf_topic>
+      <odom_publish_frequency>30</odom_publish_frequency>
+    </plugin>
+    <plugin filename="gz-sim-joint-state-publisher-system" name="gz::sim::systems::JointStatePublisher">
+      <topic>/skala/joint_states</topic>
+      <joint_name>camera_pan_joint</joint_name>
+      <joint_name>camera_tilt_joint</joint_name>
+    </plugin>
+  </model>
+</sdf>

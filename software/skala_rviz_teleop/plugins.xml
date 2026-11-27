@@ -1,0 +1,5 @@
+<library path="skala_drive_panel">
+  <class name="skala_rviz_teleop/DrivePanel" type="skala_rviz_teleop::DrivePanel" base_class_type="rviz_common::Panel">
+    <description>WASD driving with release, focus-loss stop and a latched Space stop.</description>
+  </class>
+</library>

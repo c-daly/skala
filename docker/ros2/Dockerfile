@@ -11,6 +11,16 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
       ros-jazzy-rviz2 \
       ros-jazzy-rosbag2 \
       ros-jazzy-rosbag2-storage-default-plugins \
+      ros-jazzy-ros-gz \
+      ros-jazzy-teleop-twist-keyboard \
+      ros-jazzy-slam-toolbox \
+      ros-jazzy-foxglove-bridge \
+      python3-numpy \
+      python3-pil \
+      python3-xlib \
+      x11-utils \
+      libgl1-mesa-dri \
+      mesa-utils \
     && rm -rf /var/lib/apt/lists/*
 
 # Reuse an existing numeric identity (Ubuntu ships UID 1000) when present.

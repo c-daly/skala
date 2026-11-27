@@ -1,0 +1,76 @@
+Panels:
+  - Class: skala_rviz_teleop/DrivePanel
+    Name: Skala Drive
+  - Class: rviz_common/Displays
+    Name: Displays
+  - Class: rviz_common/Views
+    Name: Views
+Visualization Manager:
+  Class: ""
+  Global Options:
+    Fixed Frame: map
+    Background Color: 35; 40; 47
+    Frame Rate: 20
+  Displays:
+    - Class: rviz_default_plugins/Grid
+      Name: Grid (0.5 m)
+      Enabled: true
+      Cell Size: 0.5
+      Plane Cell Count: 20
+      Color: 75; 85; 95
+    - Class: rviz_default_plugins/Map
+      Name: Live SLAM map
+      Enabled: true
+      Alpha: 0.85
+      Topic:
+        Value: /map
+        Reliability Policy: Reliable
+        Durability Policy: Transient Local
+        History Policy: Keep Last
+        Depth: 1
+    - Class: rviz_default_plugins/RobotModel
+      Name: Skala pose
+      Enabled: true
+      Description Source: Topic
+      Description Topic:
+        Value: /robot_description
+        Durability Policy: Transient Local
+        Reliability Policy: Reliable
+        History Policy: Keep Last
+        Depth: 1
+    - Class: rviz_default_plugins/LaserScan
+      Name: Simulated A1 scan
+      Enabled: true
+      Topic:
+        Value: /sim/scan
+        Reliability Policy: Best Effort
+        Durability Policy: Volatile
+        History Policy: Keep Last
+        Depth: 5
+      Color: 255; 65; 40
+      Color Transformer: FlatColor
+      Style: Points
+      Size (Pixels): 3
+      Decay Time: 0
+    - Class: rviz_default_plugins/Image
+      Name: Camera Module 3
+      Enabled: true
+      Topic:
+        Value: /sim/camera/image_raw
+        Reliability Policy: Best Effort
+        Durability Policy: Volatile
+        History Policy: Keep Last
+        Depth: 2
+  Views:
+    Current:
+      Class: rviz_default_plugins/Orbit
+      Distance: 15
+      Pitch: 1.35
+      Yaw: 0
+      Focal Point: {X: 0, Y: 0, Z: 0}
+      Target Frame: map
+Window Geometry:
+  Width: 1600
+  Height: 1000
+  X: 50
+  Y: 40

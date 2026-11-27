@@ -1,0 +1,12 @@
+foxglove_bridge:
+  ros__parameters:
+    port: 8765
+    address: 0.0.0.0
+    use_sim_time: true
+    num_threads: 2
+    topic_whitelist: ["^/sim/.*", "^/map$", "^/tf$", "^/tf_static$", "^/clock$", "^/robot_description$", "^/rosout$", "^/diagnostics.*"]
+    client_topic_whitelist: ["^/sim/teleop/cmd_vel$", "^/sim/control_mode$", "^/sim/head/(pan|tilt)$"]
+    service_whitelist: ["^/slam_toolbox/(save_map|serialize_map)$", "^/sim/record/(start|stop)$"]
+    capabilities: [clientPublish, parameters, parametersSubscribe, services, connectionGraph, assets, time]
+    asset_uri_allowlist: ["^package://skala_sim/models/skala/.*\\.(stl|urdf)$"]
+    max_qos_depth: 10

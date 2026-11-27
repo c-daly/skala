@@ -1,5 +1,5 @@
 {
-  "recorded_at_utc": "2026-11-27T16:45:22.645308+00:00",
+  "recorded_at_utc": "2026-11-27T19:24:25.456621+00:00",
   "status": "local_validation_passed",
   "host": {
     "environment": "WSL2",
@@ -15,11 +15,24 @@
     "state": "running",
     "health": "healthy",
     "image": "skala/ros2-workstation:jazzy-local",
-    "image_id": "sha256:23d46404e8cb5a5ae36ce80e09e693337a12a501a2368804ab89d0d881d3399d",
+    "image_id": "sha256:7bab0c5c3e8504f3ae988245334827bf525fdd69bc940b2510e65bea539f40aa",
     "architecture": "amd64",
     "ubuntu_version": "24.04.5",
     "user": "ros",
-    "published_ports": {},
+    "published_ports": {
+      "18765/tcp": [
+        {
+          "HostIp": "127.0.0.1",
+          "HostPort": "18765"
+        }
+      ],
+      "8765/tcp": [
+        {
+          "HostIp": "127.0.0.1",
+          "HostPort": "18766"
+        }
+      ]
+    },
     "network_mode": "skala-ros2_default",
     "environment": {
       "ROS_DISTRO": "jazzy",
@@ -30,6 +43,11 @@
     },
     "mounts": [
       {
+        "type": "bind",
+        "destination": "/tmp/.X11-unix",
+        "writable": false
+      },
+      {
         "type": "volume",
         "destination": "/home/ros",
         "writable": true,
@@ -39,6 +57,11 @@
         "type": "bind",
         "destination": "/workspaces/skala",
         "writable": true
+      },
+      {
+        "type": "bind",
+        "destination": "/usr/lib/wsl",
+        "writable": false
       }
     ]
   },
@@ -50,7 +73,10 @@
     "ros-jazzy-rclpy": "7.1.13-1noble.20261105.084753",
     "ros-jazzy-ros-base": "0.11.0-1noble.20261105.164630",
     "ros-jazzy-rosbag2": "0.26.11-1noble.20261105.164454",
-    "ros-jazzy-rviz2": "14.1.24-1noble.20261105.153247"
+    "ros-jazzy-rviz2": "14.1.24-1noble.20261105.153247",
+    "ros-jazzy-foxglove-bridge": "3.6.3-1noble.20261105.114855",
+    "ros-jazzy-ros-gz": "1.0.25-1noble.20261105.155008",
+    "ros-jazzy-slam-toolbox": "2.8.5-1noble.20261105.115130"
   },
   "checks": {
     "compose_configuration": "passed",
@@ -68,18 +94,28 @@
     "temporary_ament_cmake_build_and_run": "passed",
     "interactive_bash_sources_jazzy": "passed",
     "bind_mount_write_and_uid_ownership": "passed",
-    "home_volume_survives_container_recreation": "passed"
+    "home_volume_survives_container_recreation": "passed",
+    "skala_python_and_rviz_cpp_colcon_build": "passed",
+    "gazebo_and_rviz_window_rendering": "passed",
+    "gui_renderer": {
+      "renderer": "D3D12 (NVIDIA GeForce RTX 5070)",
+      "accelerated": true,
+      "opengl": "4.6",
+      "sensor_server": "EGL software rendering; bounded threads"
+    }
   },
   "not_tested": [
     "Pi communication",
-    "robot sensors or control",
-    "RViz window rendering"
+    "physical robot sensors or control",
+    "physical gamepad input"
   ],
   "pi_changed": false,
   "source_sha256": {
-    "docker/ros2/Dockerfile": "4cd1327118f43156d44cbd0be861870a53a44e3f5125b55758fc223747a85883",
-    "docker/ros2/compose.yaml": "29b9777f854688973da05cfc932388fb0acaf5a50255c2ce739321b3b294cc03",
+    "docker/ros2/Dockerfile": "b69a665e4273468174cc27410030f21c0db247cf2083097ea9ede8a94f069ae5",
+    "docker/ros2/compose.yaml": "308c0f22d4c6558c5528d8dc603c416c45fca4474715f7830182d92894c634cd",
+    "docker/ros2/compose.gui.yaml": "ad24fad24fe8cffe43f3b954f2f22a08f502e229ef666c6b04f9d17bdee324c1",
     "docker/ros2/.dockerignore": "17e86c6f689d1c9bab24c925ee46d8192d7ae041ae8bff21e529b165361a00e7",
     "docker/ros2/smoke.py": "9b839279d3c2f2086bf03e6397927d99d7d95ec2d176d2fd97f4094175706796"
-  }
+  },
+  "check_history": "Base C++ smoke-package, shell, write-ownership and persistence checks were performed earlier on 2026-11-27; ROS/bag smoke was repeated in the expanded image. Simulation and RViz package builds also passed."
 }

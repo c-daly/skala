@@ -1,0 +1,9 @@
+{
+  "date": "2026-11-27",
+  "status": "confirmed_interactively",
+  "check": "Native RViz WASD moved the simulated robot during the interactive session",
+  "scope": "Movement confirmation only; not a measured latency result or a physical robot test",
+  "automated_desktop_check": "Windows and X11 injection attempts encountered focus/coordinate failures; their failed receipts are retained",
+  "physical_robot_tested": false,
+  "physical_controller_tested": false
+}

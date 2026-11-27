@@ -1,0 +1,30 @@
+{
+  "status": "failed",
+  "recorded_at_utc": "2026-11-27T18:36:42.087294+00:00",
+  "input": "XTest key events delivered to the actual RViz window",
+  "checks": {},
+  "error": "W did not publish forward",
+  "mode_at_failure": "stopped",
+  "last_commands": [
+    [
+      414557.353856935,
+      0.0,
+      0.0
+    ],
+    [
+      414557.39244911,
+      0.0,
+      0.0
+    ],
+    [
+      414557.445379184,
+      0.0,
+      0.0
+    ],
+    [
+      414557.445747486,
+      0.0,
+      0.0
+    ]
+  ]
+}

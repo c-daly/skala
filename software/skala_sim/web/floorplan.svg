@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="800" viewBox="0 0 900 800">
+<rect width="900" height="800" fill="#101419"/>
+<g font-family="sans-serif" fill="#e8edf2"><text x="40" y="40" font-size="25">Skala • multi-room floorplan</text>
+<text x="40" y="68" font-size="15">12 × 10 m · five rooms · connecting loops · 1 m doorways</text></g>
+<g transform="translate(450 425) scale(62 -62)">
+<rect x="-6.1" y="-5.1" width="12.2" height="10.2" fill="#949ca1" stroke="#26313a" stroke-width=".015"/>
+<rect x="-6.0" y="4.94" width="12" height="0.12" fill="#7a8c9c" stroke="#26313a" stroke-width=".015"/>
+<rect x="-6.0" y="-5.06" width="12" height="0.12" fill="#7a8c9c" stroke="#26313a" stroke-width=".015"/>
+<rect x="-6.06" y="-5.0" width="0.12" height="10" fill="#7a8c9c" stroke="#26313a" stroke-width=".015"/>
+<rect x="5.94" y="-5.0" width="0.12" height="10" fill="#7a8c9c" stroke="#26313a" stroke-width=".015"/>
+<rect x="-6.0" y="0.74" width="1.5" height="0.12" fill="#456e96" stroke="#26313a" stroke-width=".015"/>
+<rect x="-3.5" y="0.74" width="3.0" height="0.12" fill="#456e96" stroke="#26313a" stroke-width=".015"/>
+<rect x="0.5" y="0.74" width="3.0" height="0.12" fill="#456e96" stroke="#26313a" stroke-width=".015"/>
+<rect x="4.5" y="0.74" width="1.5" height="0.12" fill="#456e96" stroke="#26313a" stroke-width=".015"/>
+<rect x="-6.0" y="-0.8600000000000001" width="2.5" height="0.12" fill="#7a614a" stroke="#26313a" stroke-width=".015"/>
+<rect x="-2.5" y="-0.8600000000000001" width="5.0" height="0.12" fill="#7a614a" stroke="#26313a" stroke-width=".015"/>
+<rect x="3.5" y="-0.8600000000000001" width="2.5" height="0.12" fill="#7a614a" stroke="#26313a" stroke-width=".015"/>
+<rect x="-2.06" y="0.7999999999999999" width="0.12" height="1.7" fill="#7a8c9c" stroke="#26313a" stroke-width=".015"/>
+<rect x="-2.06" y="3.5" width="0.12" height="1.5" fill="#7a8c9c" stroke="#26313a" stroke-width=".015"/>
+<rect x="1.94" y="0.7999999999999999" width="0.12" height="1.7" fill="#7a8c9c" stroke="#26313a" stroke-width=".015"/>
+<rect x="1.94" y="3.5" width="0.12" height="1.5" fill="#7a8c9c" stroke="#26313a" stroke-width=".015"/>
+<rect x="-0.06" y="-5.0" width="0.12" height="1.5" fill="#7a8c9c" stroke="#26313a" stroke-width=".015"/>
+<rect x="-0.06" y="-2.5" width="0.12" height="1.7" fill="#7a8c9c" stroke="#26313a" stroke-width=".015"/>
+<rect x="-5.875" y="3.05" width="0.45" height="1.5" fill="#264f78" stroke="#26313a" stroke-width=".015"/>
+<rect x="-0.65" y="4.425000000000001" width="1.3" height="0.45" fill="#336e4f" stroke="#26313a" stroke-width=".015"/>
+<rect x="3.8" y="4.35" width="1.4" height="0.5" fill="#a3381f" stroke="#26313a" stroke-width=".015"/>
+<rect x="-5.3" y="-4.475" width="1.6" height="0.75" fill="#305975" stroke="#26313a" stroke-width=".015"/>
+<rect x="-5.3" y="-4.4750000000000005" width="1.6" height="0.15" fill="#305975" stroke="#26313a" stroke-width=".015"/>
+<rect x="-4.2" y="-3.0" width="0.8" height="0.6" fill="#804f26" stroke="#26313a" stroke-width=".015"/>
+<rect x="1.675" y="-4.3" width="0.65" height="0.6" fill="#9e6e30" stroke="#26313a" stroke-width=".015"/>
+<rect x="3.0749999999999997" y="-4.3999999999999995" width="0.65" height="0.6" fill="#9e6e30" stroke="#26313a" stroke-width=".015"/>
+<rect x="4.475" y="-3.8" width="0.65" height="0.6" fill="#9e6e30" stroke="#26313a" stroke-width=".015"/>
+<rect x="4.375" y="-2.1" width="0.65" height="0.6" fill="#9e6e30" stroke="#26313a" stroke-width=".015"/>
+<rect x="-4.8999999999999995" y="3.7499999999999996" width="1.2" height="0.7" fill="#804f26" stroke="#26313a" stroke-width=".015"/>
+<rect x="-4.84" y="3.8099999999999996" width="0.08" height="0.08" fill="#804f26" stroke="#26313a" stroke-width=".015"/>
+<rect x="-4.84" y="4.31" width="0.08" height="0.08" fill="#804f26" stroke="#26313a" stroke-width=".015"/>
+<rect x="-3.84" y="3.8099999999999996" width="0.08" height="0.08" fill="#804f26" stroke="#26313a" stroke-width=".015"/>
+<rect x="-3.84" y="4.31" width="0.08" height="0.08" fill="#804f26" stroke="#26313a" stroke-width=".015"/>
+<rect x="0.09999999999999998" y="1.5499999999999998" width="1.2" height="0.7" fill="#804f26" stroke="#26313a" stroke-width=".015"/>
+<rect x="0.15999999999999995" y="1.6099999999999999" width="0.08" height="0.08" fill="#804f26" stroke="#26313a" stroke-width=".015"/>
+<rect x="0.15999999999999995" y="2.11" width="0.08" height="0.08" fill="#804f26" stroke="#26313a" stroke-width=".015"/>
+<rect x="1.16" y="1.6099999999999999" width="0.08" height="0.08" fill="#804f26" stroke="#26313a" stroke-width=".015"/>
+<rect x="1.16" y="2.11" width="0.08" height="0.08" fill="#804f26" stroke="#26313a" stroke-width=".015"/>
+<rect x="4.2" y="2.4499999999999997" width="1.2" height="0.7" fill="#804f26" stroke="#26313a" stroke-width=".015"/>
+<rect x="4.26" y="2.51" width="0.08" height="0.08" fill="#804f26" stroke="#26313a" stroke-width=".015"/>
+<rect x="4.26" y="3.01" width="0.08" height="0.08" fill="#804f26" stroke="#26313a" stroke-width=".015"/>
+<rect x="5.26" y="2.51" width="0.08" height="0.08" fill="#804f26" stroke="#26313a" stroke-width=".015"/>
+<rect x="5.26" y="3.01" width="0.08" height="0.08" fill="#804f26" stroke="#26313a" stroke-width=".015"/>
+<circle cx="0" cy="0" r=".18" fill="#f46f50"/>
+<path d="M .25 0 L .85 0 M .62 .14 L .85 0 L .62 -.14" fill="none" stroke="#d45136" stroke-width=".06"/>
+</g>
+<g font-family="sans-serif" fill="#18232b" font-size="17" text-anchor="middle">
+<text x="202" y="245.20000000000002">Office</text>
+<text x="450" y="245.20000000000002">Studio</text>
+<text x="698" y="245.20000000000002">Workshop</text>
+<text x="264" y="604.8">Lounge</text>
+<text x="636" y="604.8">Storage</text>
+<text x="360" y="431">Start →</text></g>
+<text x="40" y="765" fill="#a1adba" font-family="sans-serif" font-size="14">Layout reference only. SLAM starts without this floorplan and builds its own map.</text>
+</svg>

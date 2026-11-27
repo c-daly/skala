@@ -1,0 +1,16 @@
+{
+  "status": "passed",
+  "clearance_disc_radius_m": 0.23,
+  "grid_step_m": 0.05,
+  "room_centers_reachable_from_spawn": {
+    "Office": true,
+    "Studio": true,
+    "Workshop": true,
+    "Lounge": true,
+    "Storage": true
+  },
+  "reachable_grid_cells": 30687,
+  "hall_clear_width_m": 1.48,
+  "door_clear_width_m": 1.0,
+  "method": "Planar box inflation and four-neighbor flood fill; not a dynamic driving test"
+}

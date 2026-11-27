@@ -1,0 +1,20 @@
+{
+  "recorded_at_utc": "2026-11-27T19:19:29.933Z",
+  "status": "passed",
+  "desktop_version": "3.6.1",
+  "layout": "software/skala_sim/config/foxglove-skala.json",
+  "tabs": [
+    "Drive and map",
+    "Sensor diagnostics",
+    "Record and review"
+  ],
+  "record_start_stop_responses": [
+    "success:truemessage:\"recording: /home/ros/bags/skala/20261127T191843.885747Z\"",
+    "success:truemessage:\"saved: /home/ros/bags/skala/20261127T191843.885747Z\""
+  ],
+  "diagnostics_visible": true,
+  "camera_topic_visible": true,
+  "speed_series_visible": true,
+  "physical_robot_tested": false,
+  "presentation_checked_at_utc": "2026-11-27T19:22:42.948Z"
+}

@@ -1,0 +1,32 @@
+{
+  "status": "Uncalibrated simulation parameters; not measured Skala performance",
+  "base_mass_kg": 1.9,
+  "base_com_m": [-0.02, 0.0, 0.055],
+  "base_inertia_box_m": [0.24, 0.19, 0.15],
+  "track_mass_kg_each": 0.18,
+  "pan_mass_kg": 0.045,
+  "tilt_mass_kg": 0.035,
+  "friction": 0.8,
+  "steering_efficiency": 1.0,
+  "maximum_linear_speed_m_s": 0.25,
+  "maximum_angular_speed_rad_s": 0.8,
+  "maximum_linear_acceleration_m_s2": 0.5,
+  "maximum_angular_acceleration_rad_s2": 1.5,
+  "command_timeout_s": 0.5,
+  "camera_width": 640,
+  "camera_height": 368,
+  "camera_hfov_degrees": 66,
+  "camera_rate_hz": 5,
+  "lidar_samples": 360,
+  "lidar_rate_hz": 5,
+  "lidar_min_range_m": 0.15,
+  "lidar_max_range_m": 12,
+  "imu_rate_hz": 50,
+  "notes": [
+    "Total mass 2.34 kg is a working assumption, including an allowance for the unfinished payload and shell.",
+    "Inertia uses uniform boxes; center of mass, friction and steering efficiency need physical calibration.",
+    "Velocity limits are simulation defaults, not motor performance ratings.",
+    "Steering efficiency 1.0 applies no extra empirical turn-loss correction; fit this against hardware later.",
+    "Camera and LiDAR are idealized; no autofocus, exposure, rolling scan, reflectance, noise or audio model."
+  ]
+}

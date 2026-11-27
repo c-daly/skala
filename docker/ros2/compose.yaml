@@ -10,6 +10,9 @@ services:
         LOCAL_GID: ${SKALA_GID:-1000}
     init: true
     restart: unless-stopped
+    ports:
+      - "127.0.0.1:18765:18765"
+      - "127.0.0.1:18766:8765"
     environment:
       ROS_DOMAIN_ID: "30"
       ROS_AUTOMATIC_DISCOVERY_RANGE: LOCALHOST

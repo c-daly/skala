@@ -1,0 +1,21 @@
+{
+  "recorded_at_utc": "2026-11-27T18:13:02.615694+00:00",
+  "status": "failed",
+  "checks": {},
+  "physical_robot_tested": false,
+  "model_calibrated_to_hardware": false,
+  "slam_inputs": [
+    "/sim/scan",
+    "odom to base_footprint TF"
+  ],
+  "ground_truth_used_by_slam": false,
+  "error": "condition timed out: {'clock': 29656, 'truth': 1748, 'odom': 1748, 'joints': 29650, 'imu': 2971, 'scan': 298, 'map': 61, 'info': 296, 'image': 290, 'mode': 1199}",
+  "artifact_sha256": {
+    "rviz-window.png": "c54019d60f0e45dc0813793cd0f6041c2b13d976ce15402e3ec8796fc3e1de5e",
+    "controls.png": "6efeb718eb792da9ec2863c2d58a44aae21cd04c0f883d6b28a41cf4f83a2b3d",
+    "camera-turned.png": "8a4490467d424bded040fa230492806ebd7471e030688b84c1a82cd24bfc1da9",
+    "camera-forward.png": "1a3f733abe2ca4e0cc589f66c3ab732125b4d48e9d20c08f6e7785dc7f61c450",
+    "gazebo-window.png": "e06f7dad5ab66bc0cbb92a878fa9d53434eb1dc7a4a51338d517774df8d8fb4f",
+    "slam-map.png": "6e65f9993f9e66705d93df1ff3774bb93b7a46025796bf62ce5943d59b010417"
+  }
+}

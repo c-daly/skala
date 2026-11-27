@@ -1,0 +1,229 @@
+{
+  "units": "metres",
+  "frame": "X forward, Y left, Z up; base_link at chassis top",
+  "configuration": "S1 fixed tracks, U1/U2 payload and SH1 first-fit covers; assembled CAD target",
+  "track_bounds": {
+    "left_track": {
+      "origin_m": [
+        0.0,
+        0.143,
+        0.02
+      ],
+      "minimum_m": [
+        -0.11241118686510745,
+        0.1219999999,
+        -0.02041118686510745
+      ],
+      "maximum_m": [
+        0.11241118686510747,
+        0.1640000001,
+        0.060411186865107463
+      ]
+    },
+    "right_track": {
+      "origin_m": [
+        0.0,
+        -0.143,
+        0.02
+      ],
+      "minimum_m": [
+        -0.11241118686510745,
+        -0.1640000001,
+        -0.020411186865107452
+      ],
+      "maximum_m": [
+        0.11241118686510747,
+        -0.1219999999,
+        0.06041118686510747
+      ]
+    }
+  },
+  "pan_origin_m": [
+    0.108,
+    0.0,
+    0.033
+  ],
+  "tilt_origin_m": [
+    0.108,
+    0.0,
+    0.072
+  ],
+  "pan_limits_rad": [
+    -1.5707963267948966,
+    1.5707963267948966
+  ],
+  "tilt_limits_rad": [
+    -0.7853981633974483,
+    0.5235987755982988
+  ],
+  "camera_origin_m": [
+    0.116,
+    0,
+    0.074
+  ],
+  "lidar_origin_m": [
+    0.008,
+    0,
+    0.1885
+  ],
+  "meshes": [
+    {
+      "link": "base_link",
+      "file": "base_link_black.stl",
+      "rgba": [
+        0.075,
+        0.085,
+        0.1,
+        1
+      ],
+      "triangles": 160981,
+      "sha256": "ff43699e1076dffe96247c8b13237a9e933c24b89d977830a136a806e253cedc"
+    },
+    {
+      "link": "base_link",
+      "file": "base_link_board.stl",
+      "rgba": [
+        0.08,
+        0.28,
+        0.16,
+        1
+      ],
+      "triangles": 42752,
+      "sha256": "d4a974748d18217ed93fa7f670553dab603f57750002ba9d75e26d5837462552"
+    },
+    {
+      "link": "base_link",
+      "file": "base_link_metal.stl",
+      "rgba": [
+        0.45,
+        0.48,
+        0.5,
+        1
+      ],
+      "triangles": 8953,
+      "sha256": "7290705ee5464ae92dbea5b85d9df5814e95bf8a0b3ba1aebbf37a5ec882f174"
+    },
+    {
+      "link": "left_track",
+      "file": "left_track_track.stl",
+      "rgba": [
+        0.11,
+        0.12,
+        0.135,
+        1
+      ],
+      "triangles": 156417,
+      "sha256": "0e422406bbd9475e12fa81726ad90d65532a13c92cd828f50ebab325c885a3f5"
+    },
+    {
+      "link": "right_track",
+      "file": "right_track_track.stl",
+      "rgba": [
+        0.11,
+        0.12,
+        0.135,
+        1
+      ],
+      "triangles": 156450,
+      "sha256": "1781295ed42dcf6b551c59bfc561c4ac7a07a09b466a061b4373abcd52130cef"
+    },
+    {
+      "link": "base_link",
+      "file": "base_link_lens.stl",
+      "rgba": [
+        0.07,
+        0.12,
+        0.18,
+        1
+      ],
+      "triangles": 324,
+      "sha256": "a993fdb732b2e675522bcdc5e5d0c8d238ea31e304edae7624c671f1e6f6135d"
+    },
+    {
+      "link": "base_link",
+      "file": "base_link_red.stl",
+      "rgba": [
+        0.58,
+        0.065,
+        0.045,
+        1
+      ],
+      "triangles": 5608,
+      "sha256": "802dfeaa94b46c20321317b788bd5f04d23055184c94f0b96a951032f7fa790d"
+    },
+    {
+      "link": "camera_pan_link",
+      "file": "camera_pan_link_black.stl",
+      "rgba": [
+        0.075,
+        0.085,
+        0.1,
+        1
+      ],
+      "triangles": 1073,
+      "sha256": "0713cc0fa97eb51bde7d06c808206c72d0d8b8907942b437b4679b99b09efacb"
+    },
+    {
+      "link": "camera_tilt_link",
+      "file": "camera_tilt_link_black.stl",
+      "rgba": [
+        0.075,
+        0.085,
+        0.1,
+        1
+      ],
+      "triangles": 2112,
+      "sha256": "2aec32730f65cd39ccb2f651b3e1f229132a4096cde62d0c159b0c86a06109ba"
+    },
+    {
+      "link": "camera_tilt_link",
+      "file": "camera_tilt_link_lens.stl",
+      "rgba": [
+        0.07,
+        0.12,
+        0.18,
+        1
+      ],
+      "triangles": 19225,
+      "sha256": "18eb8e12e71138a9f2984b69127745e7480939cdbce7221403a0e6cc40e2d125"
+    },
+    {
+      "link": "camera_tilt_link",
+      "file": "camera_tilt_link_board.stl",
+      "rgba": [
+        0.08,
+        0.28,
+        0.16,
+        1
+      ],
+      "triangles": 3102,
+      "sha256": "4dd7f374ebd91f244256383d15f893e9c6648c0b88b9586e007f594e526b02e9"
+    }
+  ],
+  "visual_vertex_clustering_grid_m": 0.00025,
+  "source_sha256": {
+    "cad/export_simulation.py": "414ca2198a462b43526eb6b2408685b575d55db003b138efada0e47d90d70b1b",
+    "cad/out/step/chassis_p0.step": "1d93d3e7671b686058e5679c1544c780933c737993c99b598798e83f40a7cd3e",
+    "cad/out/step/deck_p0.step": "5e17aa9fc6de252ed5cf450c3cbac58ae0ec2129c5ba624c12bbb078a9e4c5f4",
+    "cad/out/step/tip_hub_p0.step": "05f3d99ad14fc1e745b9bfc4892bf13d345c421a312b96889d5a574ccbfa976f",
+    "cad/parts/tip_hub_p0.py": "d3219a47d3ce5a803357165d4bbbb5a3cf4e4b8b2d1de71ca1c18aa07e04b519",
+    "cad/review/r1/step/arm_p0_r1.step": "9ae48cc99e8715f90c77fb0c5fb3eaa09b8c13a1494832f96a8cfdc79f575770",
+    "cad/sensors_s1.py": "c8feee7ec5ff601643b49fe633fed0c2c33dc003d426e3f61cce02f859eaf406",
+    "cad/shell_s1.py": "b58d042db582712becdb021433dfe10bd35f4dcc521ae1b9fbae68adef9fa95d",
+    "cad/staged_base.json": "d6850467ae5580f09f6256cb0af80603b8bfd1d1a0054add210f4d12b8865cc8",
+    "cad/staged_base.py": "83819788963b185830f1d598687f5fc26eff7237aae19de1ae368ad147fe5751",
+    "cad/upper_s1.py": "fc5fbf8872c9d8fded6151f9976061f1db29159bc54a9f5fd47ffaf66aa1400d",
+    "cad/vendor/raspberrypi/camera3_standard.stp": "ecbc4b091e51f31c6186b81ad68d4205b8dceec0d90c116cd7fd699e1f1c5702",
+    "cad/vendor/robotis/ict01_caterpillar.step": "a9df2f096a368dabbb33939d20b0430766d3969d53c978454493c026627f5ed0",
+    "cad/vendor/robotis/opencr_rev_h.step": "1fdbbb882216cc011a3cd038fc56abe5525135bec9c77a5e5ff5066c85e7b484",
+    "cad/vendor/slamtec/a1m8_v3.0.pdf": "b6938125e1778b1ddce3a9b35a50fa10b0af4a923fd1a52e538dc8b275a46834",
+    "cad/vendor/waveshare/wm8960.stp": "393e821eab3035984c34e4a6b90700a96104138a256eea335c3f3e8242d3ab51",
+    "docs/assembly/figures/lidar_display.py": "5fd6e6b0f7584ec871de0adf0e3751efaa3b75e464c571cd67380218922693ea"
+  },
+  "limits": [
+    "A1 appearance is illustrative",
+    "camera optical origin is an approximation",
+    "visual geometry is not physical qualification",
+    "tracks are rigid contact envelopes in physics"
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "recorded_at_utc": "2026-11-27T19:12:26.499Z",
+  "status": "passed",
+  "endpoint": "ws://localhost:18766",
+  "protocol": "foxglove.sdk.v1",
+  "server": "",
+  "capabilities": [
+    "clientPublish",
+    "connectionGraph",
+    "parameters",
+    "parametersSubscribe",
+    "time",
+    "services",
+    "assets"
+  ],
+  "message_counts": {
+    "/map": 13,
+    "/tf": 830,
+    "/sim/imu": 598,
+    "/sim/odom": 352,
+    "/sim/scan": 60,
+    "/sim/camera/image_raw": 55,
+    "/sim/record/state": 24
+  },
+  "recording_services": [
+    "/sim/record/start",
+    "/sim/record/stop"
+  ],
+  "physical_robot_tested": false
+}

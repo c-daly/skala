@@ -1,0 +1,110 @@
+#!/usr/bin/env bash
+# Run from any directory. Build artifacts stay in the persistent Docker home.
+set -euo pipefail
+repo=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")/.." && pwd)
+cd "$repo"
+compose=(docker compose -f docker/ros2/compose.yaml)
+mode=${1:-gui}
+if [[ $# -gt 0 ]]; then shift; fi
+
+build_package() {
+  "${compose[@]}" exec -T ros /ros_entrypoint.sh bash -c '
+    mkdir -p /home/ros/sim_ws
+    cd /home/ros/sim_ws
+    colcon build --base-paths /workspaces/skala/software/skala_sim /workspaces/skala/software/skala_rviz_teleop \
+      --packages-select skala_sim skala_rviz_teleop --symlink-install --executor sequential
+  '
+}
+
+case "$mode" in
+  start|gui|headless|build)
+    world=${1:-lab}
+    if [[ $# -gt 1 || ( "$world" != lab && "$world" != floorplan ) ]]; then
+      echo 'Choose one world: lab or floorplan.' >&2
+      exit 2
+    fi
+    if [[ "$mode" != build ]] && "${compose[@]}" exec -T ros bash -c '
+      [[ -f /home/ros/skala-sim.pid ]] && ps -p "$(cat /home/ros/skala-sim.pid)" -o args= | grep -q "ros2 launch skala_sim sim.launch.py"
+    ' 2>/dev/null; then
+      echo 'Skala simulation is already running. Use scripts/skala-sim stop before starting another.'
+      exit 1
+    fi
+    if [[ "$mode" == gui || "$mode" == start ]]; then
+      if [[ ! -S /mnt/wslg/.X11-unix/X0 ]]; then
+        echo 'WSLg X0 socket is unavailable. Use scripts/skala-sim headless.' >&2
+        exit 1
+      fi
+      compose+=(-f docker/ros2/compose.gui.yaml)
+    fi
+    "${compose[@]}" up -d --build --wait
+    build_package
+    [[ "$mode" != build ]] || exit 0
+    if [[ "$mode" == start ]]; then
+      "${compose[@]}" exec -d ros /ros_entrypoint.sh bash -c '
+        source /home/ros/sim_ws/install/setup.bash
+        echo $$ > /home/ros/skala-sim.pid
+        echo "$1" > /home/ros/skala-sim.world
+        exec ros2 launch skala_sim sim.launch.py gui:=true world:="$1" > /home/ros/skala-sim.log 2>&1
+      ' bash "$world"
+      echo 'Gazebo and RViz are starting. Use Enable WASD in RViz to drive.'
+      echo 'Telemetry: scripts/skala-sim dashboard. Optional browser controls: http://localhost:18765'
+      echo 'Stop with scripts/skala-sim stop. Log: /home/ros/skala-sim.log inside the container.'
+      exit 0
+    fi
+    exec "${compose[@]}" exec ros /ros_entrypoint.sh bash -c '
+      source /home/ros/sim_ws/install/setup.bash
+      echo $$ > /home/ros/skala-sim.pid
+      echo "$2" > /home/ros/skala-sim.world
+      exec ros2 launch skala_sim sim.launch.py gui:="$1" world:="$2"
+    ' bash "$([[ "$mode" == gui ]] && echo true || echo false)" "$world"
+    ;;
+  teleop)
+    echo 'Use Enable WASD in RViz. Xbox/XInput controller: scripts/skala-sim controller'
+    echo 'Optional browser controls: http://localhost:18765'
+    ;;
+  record)
+    action=${1:-start}
+    [[ "$action" == start || "$action" == stop ]] || { echo 'Use record start or record stop.' >&2; exit 2; }
+    exec "${compose[@]}" exec -T ros /ros_entrypoint.sh ros2 service call "/sim/record/$action" std_srvs/srv/Trigger '{}'
+    ;;
+  controller)
+    exec env WSL_INTEROP="${WSL_INTEROP:-/run/WSL/2_interop}" /mnt/c/Windows/System32/WindowsPowerShell/v1.0/powershell.exe -NoProfile -ExecutionPolicy Bypass \
+      -File "$(wslpath -w "$repo/scripts/skala-controller.ps1")" "$@"
+    ;;
+  dashboard)
+    exec env WSL_INTEROP="${WSL_INTEROP:-/run/WSL/2_interop}" /mnt/c/Windows/System32/WindowsPowerShell/v1.0/powershell.exe -NoProfile -ExecutionPolicy Bypass \
+      -File "$(wslpath -w "$repo/scripts/skala-foxglove.ps1")" "$@"
+    ;;
+  stop)
+    exec "${compose[@]}" exec -T ros bash -c '
+      if [[ -f /home/ros/skala-sim.pid ]] && ps -p "$(cat /home/ros/skala-sim.pid)" -o args= | grep -q "ros2 launch skala_sim sim.launch.py"; then
+        kill -INT "$(cat /home/ros/skala-sim.pid)"
+        for attempt in {1..150}; do
+          if ! ps -p "$(cat /home/ros/skala-sim.pid)" -o args= | grep -q "ros2 launch skala_sim sim.launch.py"; then exit 0; fi
+          sleep .1
+        done
+        echo "Simulation shutdown is still in progress; inspect /home/ros/skala-sim.log." >&2
+        exit 1
+      else
+        echo "No background simulation found. Use Ctrl+C in a foreground simulation terminal."
+      fi
+    '
+    ;;
+  check|demo)
+    if [[ "$mode" == demo ]] && "${compose[@]}" exec -T ros test -f /home/ros/skala-sim.world &&
+        [[ "$("${compose[@]}" exec -T ros cat /home/ros/skala-sim.world)" != lab ]]; then
+      echo 'The automatic route is for the lab world. Drive the floorplan with the control panel.' >&2
+      exit 2
+    fi
+    program=validate
+    [[ "$mode" != demo ]] || program=demo
+    exec "${compose[@]}" exec -T ros /ros_entrypoint.sh bash -c '
+      source /home/ros/sim_ws/install/setup.bash
+      exec ros2 run skala_sim "$@"
+    ' bash "$program" "$@"
+    ;;
+  *)
+    echo 'Usage: scripts/skala-sim start|gui|headless [lab|floorplan]; stop|build|teleop|controller|dashboard; record start|stop; demo|check [--output PATH]' >&2
+    exit 2
+    ;;
+esac

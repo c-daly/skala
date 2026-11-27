@@ -1,0 +1,97 @@
+<?xml version='1.0' encoding='utf-8'?>
+<robot name="skala">
+  <link name="base_footprint" />
+  <link name="base_link">
+    <visual>
+      <origin xyz="-0.015 0 0.06" />
+      <geometry>
+        <box size="0.22 0.19 0.13" />
+      </geometry>
+      <material name="base_link_colour">
+        <color rgba="0.1 0.12 0.15 1" />
+      </material>
+    </visual>
+  </link>
+  <joint name="base_link_fixed" type="fixed">
+    <parent link="base_footprint" />
+    <child link="base_link" />
+    <origin xyz="0 0 0.0204111869" rpy="0 0 0" />
+  </joint>
+  <link name="left_track">
+    <visual>
+      <origin xyz="0 0 0" />
+      <geometry>
+        <box size="0.225 0.042 0.081" />
+      </geometry>
+      <material name="left_track_colour">
+        <color rgba="0.22 0.23 0.25 1" />
+      </material>
+    </visual>
+  </link>
+  <joint name="left_track_fixed" type="fixed">
+    <parent link="base_link" />
+    <child link="left_track" />
+    <origin xyz="0 0.143 0.02" rpy="0 0 0" />
+  </joint>
+  <link name="right_track">
+    <visual>
+      <origin xyz="0 0 0" />
+      <geometry>
+        <box size="0.225 0.042 0.081" />
+      </geometry>
+      <material name="right_track_colour">
+        <color rgba="0.22 0.23 0.25 1" />
+      </material>
+    </visual>
+  </link>
+  <joint name="right_track_fixed" type="fixed">
+    <parent link="base_link" />
+    <child link="right_track" />
+    <origin xyz="0 -0.143 0.02" rpy="0 0 0" />
+  </joint>
+  <link name="camera_pan_link">
+    </link>
+  <joint name="camera_pan_joint" type="revolute">
+    <parent link="base_link" />
+    <child link="camera_pan_link" />
+    <origin xyz="0.108 0 0.033" rpy="0 0 0" />
+    <axis xyz="0 0 1" />
+    <limit lower="-1.5707963267948966" upper="1.5707963267948966" effort="1" velocity="1.5" />
+  </joint>
+  <link name="camera_tilt_link">
+    <visual>
+      <origin xyz="0.005 0 0" />
+      <geometry>
+        <box size="0.025 0.05 0.035" />
+      </geometry>
+      <material name="camera_tilt_link_colour">
+        <color rgba="0.85 0.2 0.12 1" />
+      </material>
+    </visual>
+  </link>
+  <joint name="camera_tilt_joint" type="revolute">
+    <parent link="camera_pan_link" />
+    <child link="camera_tilt_link" />
+    <origin xyz="0 0 0.039" rpy="0 0 0" />
+    <axis xyz="0 1 0" />
+    <limit lower="-0.7853981633974483" upper="0.5235987755982988" effort="1" velocity="1.5" />
+  </joint>
+  <link name="camera_optical_frame" />
+  <joint name="camera_optical_frame_fixed" type="fixed">
+    <parent link="camera_tilt_link" />
+    <child link="camera_optical_frame" />
+    <origin xyz="0.008 0 0.002" rpy="-1.57079633 0 -1.57079633" />
+  </joint>
+  <link name="lidar_link" />
+  <joint name="lidar_link_fixed" type="fixed">
+    <parent link="base_link" />
+    <child link="lidar_link" />
+    <origin xyz="0.008 0 0.1885" rpy="0 0 0" />
+  </joint>
+  <link name="imu_link" />
+  <joint name="imu_link_fixed" type="fixed">
+    <parent link="base_link" />
+    <child link="imu_link" />
+    <origin xyz="-0.064 0 0.086" rpy="0 0 0" />
+  </joint>
+</robot>

@@ -1,0 +1,10 @@
+Traceback (most recent call last):
+  File "/home/ros/sim_ws/install/skala_sim/lib/skala_sim/demo", line 33, in <module>
+    sys.exit(load_entry_point('skala-sim', 'console_scripts', 'demo')())
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ros/sim_ws/build/skala_sim/skala_sim/demo.py", line 91, in main
+    node.publisher.publish(Twist())
+  File "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/publisher.py", line 70, in publish
+    self.__publisher.publish(msg)
+rclpy._rclpy_pybind11.RCLError: Failed to publish: publisher's context is invalid, at ./src/rcl/publisher.c:423
+[ros2run]: Process exited with failure 1

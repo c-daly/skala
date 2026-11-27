@@ -1,0 +1,6 @@
+{
+  "input": "Windows desktop mouse and keyboard injection into actual RViz",
+  "status": "failed",
+  "error": "Native W did not move the SLAM pose: 0.016192866371853",
+  "checks": {}
+}

@@ -1,0 +1,336 @@
+{
+  "configById": {
+    "3D!skala_map": {
+      "topics": {
+        "/sim/scan": {
+          "visible": true,
+          "colorField": "intensity",
+          "colorMode": "flat",
+          "colorMap": "turbo",
+          "flatColor": "#ff6347",
+          "pointSize": 3
+        },
+        "/map": {
+          "visible": true
+        },
+        "/robot_description": {
+          "visible": true
+        }
+      },
+      "layers": {
+        "6fac70d5-e726-4245-9650-df9cb9d3a16e": {
+          "layerId": "foxglove.Grid",
+          "instanceId": "6fac70d5-e726-4245-9650-df9cb9d3a16e"
+        }
+      },
+      "cameraState": {
+        "perspective": false,
+        "distance": 14,
+        "phi": 0,
+        "thetaOffset": 0,
+        "targetOffset": [
+          0,
+          0,
+          0
+        ],
+        "target": [
+          0,
+          0,
+          0
+        ],
+        "targetOrientation": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "fovy": 45,
+        "near": 0.5,
+        "far": 5000
+      },
+      "followMode": "follow-position",
+      "scene": {
+        "transforms": {
+          "showLabel": false,
+          "axisSize": 0.1
+        }
+      },
+      "transforms": {},
+      "publish": {
+        "type": "point",
+        "poseTopic": "/move_base_simple/goal",
+        "pointTopic": "/clicked_point",
+        "poseEstimateTopic": "/initialpose",
+        "poseEstimateXDeviation": 0.5,
+        "poseEstimateYDeviation": 0.5,
+        "poseEstimateThetaDeviation": 0.26179939
+      },
+      "synchronize": false,
+      "imageMode": {},
+      "followTf": "map",
+      "foxglovePanelTitle": "SLAM map and LiDAR"
+    },
+    "Image!skala_camera": {
+      "cameraState": {
+        "distance": 20,
+        "perspective": true,
+        "phi": 60,
+        "target": [
+          0,
+          0,
+          0
+        ],
+        "targetOffset": [
+          0,
+          0,
+          0
+        ],
+        "targetOrientation": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "thetaOffset": 60,
+        "fovy": 45,
+        "near": 0.5,
+        "far": 5000
+      },
+      "followMode": "follow-pose",
+      "scene": {},
+      "transforms": {},
+      "topics": {},
+      "layers": {},
+      "publish": {
+        "type": "point",
+        "poseTopic": "/move_base_simple/goal",
+        "pointTopic": "/clicked_point",
+        "poseEstimateTopic": "/initialpose",
+        "poseEstimateXDeviation": 0.5,
+        "poseEstimateYDeviation": 0.5,
+        "poseEstimateThetaDeviation": 0.26179939
+      },
+      "synchronize": false,
+      "imageMode": {
+        "imageTopic": "/sim/camera/image_raw",
+        "calibrationTopic": "/sim/camera/camera_info"
+      },
+      "foxglovePanelTitle": "Camera"
+    },
+    "Plot!skala_speed": {
+      "paths": [
+        {
+          "value": "/sim/internal/cmd_vel.linear.x",
+          "label": "Command",
+          "enabled": true,
+          "timestampMethod": "receiveTime"
+        },
+        {
+          "value": "/sim/odom.twist.twist.linear.x",
+          "label": "Track odometry",
+          "enabled": true,
+          "timestampMethod": "receiveTime"
+        },
+        {
+          "value": "/sim/ground_truth/odom.twist.twist.linear.x",
+          "label": "Simulator truth",
+          "enabled": true,
+          "timestampMethod": "receiveTime"
+        }
+      ],
+      "xAxisVal": "timestamp",
+      "showLegend": true,
+      "showXAxisLabels": true,
+      "showYAxisLabels": true,
+      "legendDisplay": "top",
+      "isSynced": true,
+      "foxglovePanelTitle": "Forward speed (m/s)",
+      "minYValue": -0.3,
+      "maxYValue": 0.3
+    },
+    "Plot!skala_yaw": {
+      "paths": [
+        {
+          "value": "/sim/imu.angular_velocity.z",
+          "label": "IMU",
+          "enabled": true,
+          "timestampMethod": "receiveTime"
+        },
+        {
+          "value": "/sim/odom.twist.twist.angular.z",
+          "label": "Track odometry",
+          "enabled": true,
+          "timestampMethod": "receiveTime"
+        }
+      ],
+      "xAxisVal": "timestamp",
+      "showLegend": true,
+      "showXAxisLabels": true,
+      "showYAxisLabels": true,
+      "legendDisplay": "top",
+      "isSynced": true,
+      "foxglovePanelTitle": "Yaw rate (rad/s)",
+      "minYValue": -1,
+      "maxYValue": 1
+    },
+    "Plot!skala_accel": {
+      "paths": [
+        {
+          "value": "/sim/imu.linear_acceleration.x",
+          "label": "X",
+          "enabled": true,
+          "timestampMethod": "receiveTime"
+        },
+        {
+          "value": "/sim/imu.linear_acceleration.y",
+          "label": "Y",
+          "enabled": true,
+          "timestampMethod": "receiveTime"
+        },
+        {
+          "value": "/sim/imu.linear_acceleration.z",
+          "label": "Z",
+          "enabled": true,
+          "timestampMethod": "receiveTime"
+        }
+      ],
+      "xAxisVal": "timestamp",
+      "showLegend": true,
+      "showXAxisLabels": true,
+      "showYAxisLabels": true,
+      "legendDisplay": "top",
+      "isSynced": true,
+      "foxglovePanelTitle": "IMU acceleration (m/s\u00b2)"
+    },
+    "RawMessages!skala_joints": {
+      "topicPath": "/sim/joint_states",
+      "defaultExpanded": true,
+      "foxglovePanelTitle": "Head joints"
+    },
+    "RawMessages!skala_health": {
+      "topicPath": "/foxglove_bridge/sysinfo",
+      "defaultExpanded": true,
+      "foxglovePanelTitle": "Bridge and container resources"
+    },
+    "RosOut!skala_logs": {
+      "minLogLevel": 1,
+      "searchTerms": [],
+      "nameFilter": {},
+      "fontSize": 12,
+      "showLevel": true,
+      "showDate": true,
+      "showTime": true,
+      "showTimezone": true,
+      "showName": true,
+      "showSourceLocation": false,
+      "foxglovePanelTitle": "ROS logs"
+    },
+    "RawMessages!skala_mode": {
+      "topicPath": "/sim/control_mode/state",
+      "defaultExpanded": true,
+      "foxglovePanelTitle": "Control mode"
+    },
+    "RawMessages!skala_recording": {
+      "topicPath": "/sim/record/state",
+      "defaultExpanded": true,
+      "foxglovePanelTitle": "Recording status"
+    },
+    "CallService!skala_start": {
+      "requestPayload": "{}",
+      "layout": "vertical",
+      "timeoutSeconds": 10,
+      "serviceName": "/sim/record/start",
+      "buttonText": "Start MCAP recording",
+      "buttonColor": "#248543",
+      "foxglovePanelTitle": "Start recording"
+    },
+    "CallService!skala_stop": {
+      "requestPayload": "{}",
+      "layout": "vertical",
+      "timeoutSeconds": 10,
+      "serviceName": "/sim/record/stop",
+      "buttonText": "Stop and save MCAP",
+      "buttonColor": "#aa423a",
+      "foxglovePanelTitle": "Stop and save"
+    },
+    "Markdown!skala_notes": {
+      "fontSize": 12,
+      "renderMode": "static",
+      "markdown": "## Skala simulation\n\n**Drive:** RViz \u2192 Enable WASD; W/S forward/reverse, A/D turn, Space stops. Windows XInput: hold LB + left stick; B stops.\n\n**Record:** Start MCAP, drive, then Stop and save. Recordings stay in `/home/ros/bags/skala` in the persistent Docker home. Each capture is limited to five minutes.\n\n**Interpretation:** All telemetry here is simulated. Track parameters remain uncalibrated. Simulator truth is for evaluation; SLAM uses scan and odometry. IMU is displayed but not fused into SLAM.",
+      "foxglovePanelTitle": "Session notes"
+    },
+    "Tab!skala": {
+      "activeTabIdx": 0,
+      "tabs": [
+        {
+          "title": "Drive and map",
+          "layout": {
+            "direction": "row",
+            "first": "3D!skala_map",
+            "second": {
+              "direction": "column",
+              "first": "Image!skala_camera",
+              "second": "Plot!skala_speed",
+              "splitPercentage": 64
+            },
+            "splitPercentage": 65
+          }
+        },
+        {
+          "title": "Sensor diagnostics",
+          "layout": {
+            "direction": "row",
+            "first": {
+              "direction": "column",
+              "first": "Plot!skala_yaw",
+              "second": "Plot!skala_accel",
+              "splitPercentage": 50
+            },
+            "second": {
+              "direction": "column",
+              "first": "RawMessages!skala_joints",
+              "second": {
+                "direction": "column",
+                "first": "RawMessages!skala_health",
+                "second": "RosOut!skala_logs",
+                "splitPercentage": 50
+              },
+              "splitPercentage": 35
+            },
+            "splitPercentage": 60
+          }
+        },
+        {
+          "title": "Record and review",
+          "layout": {
+            "direction": "row",
+            "first": {
+              "direction": "column",
+              "first": "CallService!skala_start",
+              "second": "CallService!skala_stop",
+              "splitPercentage": 50
+            },
+            "second": {
+              "direction": "column",
+              "first": "RawMessages!skala_recording",
+              "second": {
+                "direction": "column",
+                "first": "RawMessages!skala_mode",
+                "second": "Markdown!skala_notes",
+                "splitPercentage": 30
+              },
+              "splitPercentage": 25
+            },
+            "splitPercentage": 40
+          }
+        }
+      ]
+    }
+  },
+  "layout": "Tab!skala",
+  "globalVariables": {},
+  "playbackConfig": {
+    "speed": 1
+  },
+  "userNodes": {}
+}

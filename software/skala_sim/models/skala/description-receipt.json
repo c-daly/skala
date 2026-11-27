@@ -1,0 +1,18 @@
+{
+  "source_sha256": {
+    "skala_sim/description.py": "9b090c2986f28f5610a03aef136d50d939eb00b06e9b80a15b4f30d261119a7b",
+    "skala_sim/floorplan.py": "a371842441e2c77c72a24834726c45a038e4edeca3b1f7f3702d137bb50f4b1d",
+    "config/parameters.json": "2a371414d29c19801cc04df4be1f0af85ecc57908a07676eb7041825de283520",
+    "models/skala/geometry.json": "fd410fcab2678f191455ed7a5b4a5213a2cf893644e2b609a8e1b85655f5c859"
+  },
+  "output_sha256": {
+    "models/skala/model.sdf": "b947b15e99fe7649866286335c604f32e83d6f0d66ab5e3aa376debb350bc355",
+    "models/skala/model.config": "d381917f8f7cdd885d9aae589e3bc6824dc7186386b48eb8f369e732219fbad2",
+    "models/skala/skala.urdf": "d45cee66de8fe7543e24acc0913d32a257cb71f962cdc5b64c4d7b6777d460ee",
+    "models/skala/skala-view.urdf": "0ab796de7e3a100c1137f76e2ae85c458e85f9fb9fde14d7d8dffaaa04ea74a3",
+    "worlds/skala_lab.sdf": "160754e95fdc9c55e28b788bed0e3a9de5e40c4ba6e84b3d6df6450f4b5152db",
+    "worlds/skala_floorplan.sdf": "3d55a7b81bd0c29fd6d51b9a38a1a1ca605b949dcd388b1f1729b8ecb00561fd",
+    "worlds/floorplan-access.json": "d135cb13fbfd3f72178da45f17e6aa28ec254839e6872e21947138c5164d5df6",
+    "web/floorplan.svg": "51722efa6d67b4c769d82fa74e337ca2e859f53ccbc65be15505fe2bdc908f4c"
+  }
+}

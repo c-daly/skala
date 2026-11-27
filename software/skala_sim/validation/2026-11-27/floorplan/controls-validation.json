@@ -1,0 +1,17 @@
+{
+  "status": "passed",
+  "gamepad_hardware_tested": false,
+  "checks": {
+    "wasd_forward_and_release": {
+      "distance_m": 0.21909999999997884
+    },
+    "space_stop": true,
+    "focus_loss_stop": true,
+    "gamepad_hold_steer_release": true,
+    "gamepad_stop_button": true,
+    "gamepad_disconnect_stop": true,
+    "stale_command_rejected": true,
+    "missing_token_rejected": true,
+    "browser_errors": []
+  }
+}

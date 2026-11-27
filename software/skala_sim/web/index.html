@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="skala-token" content="__TOKEN__">
+  <title>Skala · simulation controls</title>
+  <link rel="stylesheet" href="/style.css"><script src="/app.js" defer></script>
+</head>
+<body>
+<main>
+  <header><div><p class="eyebrow">SKALA / S1</p><h1>Simulation controls</h1></div><span id="connection" class="badge">Connecting</span></header>
+  <p class="intro">Drive the virtual robot. Watch its camera and the map built from simulated LiDAR.</p>
+  <p id="scenario" class="muted"></p>
+  <details id="floorplanReference" hidden><summary>Floorplan reference · separate from the live SLAM map</summary><p>Start in the central hallway facing east. Drive straight to the workshop doorway, or turn left into the studio. The rooms connect through side doorways to form loops.</p><img src="/floorplan.svg" alt="Five-room floorplan with connected doorways and a central hallway"></details>
+  <section class="toolbar">
+    <button id="enable">Enable manual controls</button>
+    <button id="stop" class="stop">Stop <kbd>Space</kbd></button>
+    <p id="mode" role="status">Controls stopped</p>
+  </section>
+  <div class="layout">
+    <section class="card control">
+      <h2>Drive</h2>
+      <div class="tabs" role="group" aria-label="Input device"><button id="keyboard" class="selected">Keyboard</button><button id="gamepad">Controller</button></div>
+      <div id="keyboardHelp"><p>Hold keys while this page has focus.</p><div class="keys"><kbd data-key="w">W</kbd><div><kbd data-key="a">A</kbd><kbd data-key="s">S</kbd><kbd data-key="d">D</kbd></div></div><p class="muted">W / S: forward / reverse<br>A / D: turn left / right<br>Release: stop · Space: disable controls</p></div>
+      <div id="gamepadHelp" hidden><p>Connect a controller to this machine and press a button.</p><label for="padSelect">Controller</label><select id="padSelect"><option value="">No controller detected</option></select><p id="padStatus" class="muted">Waiting for a controller</p><p>Hold <strong>LB / L1</strong> to drive.<br>Left stick: forward, reverse and turn.<br><strong>B / Circle</strong>: stop and disable.</p><details><summary>Button and axis mapping</summary><label>Forward axis <input id="forwardAxis" type="number" min="0" max="15" value="1"></label><label>Turn axis <input id="turnAxis" type="number" min="0" max="15" value="0"></label><label>Hold button <input id="holdButton" type="number" min="0" max="31" value="4"></label><label>Stop button <input id="stopButton" type="number" min="0" max="31" value="1"></label><label><input id="invertForward" type="checkbox" checked> Invert forward axis</label><label><input id="invertTurn" type="checkbox" checked> Invert turn axis</label><pre id="rawPad"></pre></details></div>
+      <label class="speed" for="speed">Drive speed <output id="speedLabel">0.15 m/s</output></label><input id="speed" type="range" min="0.05" max="0.25" step="0.01" value="0.15">
+      <div class="readout"><span>Forward <strong id="linear">0.00 m/s</strong></span><span>Turn <strong id="angular">0.00 rad/s</strong></span></div>
+      <p class="muted small">Changing input, leaving this page, releasing the hold button or disconnecting the controller stops commands. Manual control takes over from the automatic route.</p>
+    </section>
+    <div class="views">
+      <section class="card"><div class="cardHeading"><h2>Camera</h2><span>Live simulation</span></div><img id="cameraImage" alt="Simulated camera view"><p id="pose" class="muted">Waiting for SLAM pose</p></section>
+      <section class="card map"><div class="cardHeading"><h2>SLAM map</h2><span>LiDAR + odometry</span></div><img id="mapImage" alt="Live occupancy map"><p class="muted small">White: observed free space · Black: occupied · Gray: unknown</p></section>
+    </div>
+  </div>
+  <footer>Simulation only. Mass, traction and sensor behavior remain estimates until calibrated against physical Skala.</footer>
+</main>
+</body>
+</html>

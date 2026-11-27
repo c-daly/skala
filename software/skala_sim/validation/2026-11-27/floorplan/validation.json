@@ -1,0 +1,85 @@
+{
+  "recorded_at_utc": "2026-11-27T18:36:05.052682+00:00",
+  "status": "passed",
+  "checks": {
+    "manual_priority": {
+      "motion_while_automatic_commands_ignored_m": 0.0
+    },
+    "lidar": {
+      "samples": 360,
+      "finite_returns": 360,
+      "minimum_range_m": 0.7400451898574829,
+      "maximum_range_m": 6.191688537597656
+    },
+    "camera": {
+      "size": [
+        640,
+        368
+      ],
+      "pixel_stddev": 48.046198899495,
+      "calibration_published": true
+    },
+    "imu": {
+      "stationary_specific_force_m_s2": 9.810000000000018
+    },
+    "forward_motion": {
+      "ground_truth_displacement_m": [
+        0.3382419993273334,
+        -7.38736386871151e-16,
+        7.688343418958687e-07
+      ]
+    },
+    "command_timeout": {
+      "residual_motion_over_one_sim_second_m": 0.0
+    },
+    "turning": {
+      "ground_truth_yaw_change_rad": 0.8915097289168338
+    },
+    "camera_joints": {
+      "camera_pan_joint": 0.45,
+      "camera_tilt_joint": 0.2
+    },
+    "slam_map": {
+      "width": 477,
+      "height": 272,
+      "resolution_m": 0.02500000037252903,
+      "occupied_cells": 719,
+      "free_cells": 29311,
+      "map_messages": 11
+    },
+    "tf_tree": {
+      "map_to_camera_optical_frame": true,
+      "map_to_base_xy_m": [
+        0.42559842907320145,
+        -0.000900243672487856
+      ]
+    },
+    "stop_latch": {
+      "motion_while_commands_ignored_m": 0.0
+    }
+  },
+  "physical_robot_tested": false,
+  "model_calibrated_to_hardware": false,
+  "slam_inputs": [
+    "/sim/scan",
+    "odom to base_footprint TF"
+  ],
+  "ground_truth_used_by_slam": false,
+  "topic_message_counts": {
+    "clock": 5508,
+    "truth": 332,
+    "mode": 245,
+    "odom": 331,
+    "joints": 5472,
+    "imu": 557,
+    "scan": 56,
+    "map": 12,
+    "info": 56,
+    "image": 49
+  },
+  "artifact_sha256": {
+    "camera-forward.png": "f7f51e77b7f1f78b8fbcad5c67db40ead25efcb02bed12ad871661ba502d936a",
+    "camera-turned.png": "e1422ecc2e0b22801525cbebd90d2af553133c4ad8a9a1ef3fd82fdf0329481b",
+    "slam-map.png": "5278f0a8328a9756addc57503ae8e4e79b0d5d9dafafa08082e2f84b479cfd51"
+  }
+}

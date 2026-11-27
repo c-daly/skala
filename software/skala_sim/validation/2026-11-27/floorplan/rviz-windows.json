@@ -1,0 +1,6 @@
+{
+  "input": "Windows desktop mouse and keyboard injection into actual RViz",
+  "status": "failed",
+  "error": "Mode did not become keyboard",
+  "checks": {}
+}

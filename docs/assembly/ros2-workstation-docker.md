@@ -11,11 +11,11 @@ The preparation check found x86-64 WSL2 running Ubuntu 26.04, Docker Desktop 4.7
 | Compose project / service | `skala-ros2` / `ros` |
 | Local image | `skala/ros2-workstation:jazzy-local` |
 | Base image | `ros:jazzy-ros-base-noble`, pinned by digest in `docker/ros2/Dockerfile` |
-| Tools | ROS Base, C++/Python demos, RViz2, rosbag2 with SQLite storage, colcon, rosdep, compiler tools and Git |
+| Tools | ROS Base, RViz2, Gazebo Harmonic, ROS/Gazebo bridge, SLAM Toolbox, Foxglove Bridge, rosbag2/MCAP, demos, colcon, rosdep, compiler tools and Git |
 | Account | Non-root `ros`; UID/GID match this checkout's 1000:1000 |
 | ROS domain | `30`, a workstation default to verify against the Pi later |
 | Middleware / discovery | `rmw_fastrtps_cpp`; `ROS_AUTOMATIC_DISCOVERY_RANGE=LOCALHOST`; empty `ROS_STATIC_PEERS` |
-| Networking | Compose bridge network; no published ports or host networking |
+| Networking | Compose bridge network; simulation controls at `127.0.0.1:18765` and Foxglove at `127.0.0.1:18766`. No host networking or external DDS discovery |
 | Persistent home/workspace | Docker volume `skala-ros2_ros-home`, mounted at `/home/ros`; workspace at `/home/ros/ws` |
 | Repository | Current checkout mounted read/write at `/workspaces/skala` |
 
@@ -114,7 +114,7 @@ source install/setup.bash
 
 The current Skala body-driver directory still contains requirements rather than a runnable robot stack. Installing this environment does not supply a Skala launch file or start device drivers. New interactive shells source `/home/ros/ws/install/setup.bash` when it exists; keep its builds within Jazzy.
 
-RViz2 is installed, but **desktop-window forwarding is not configured by this Compose file**. A WSLg/display mount and working graphics path are separate setup steps. A successful package lookup or local messaging check does not establish that an RViz window works. CLI development, recording and replay checks can proceed without it.
+The optional `docker/ros2/compose.gui.yaml` mounts the WSLg X11 socket and read-only WSL graphics libraries, exposes `/dev/dxg`, and enables the RTX 5070 through Mesa D3D12 for the desktop viewers. Gazebo and RViz windows have been opened and visually checked on this machine. The separate headless sensor server uses bounded software rendering. Use the [Skala SLAM demonstration guide](../simulation/skala-slam.md) for the multi-room floorplan, native RViz WASD controls and Windows controller bridge. Both simulation packages build under `/home/ros/sim_ws` in the persistent home volume.
 
 ## Does the Pi need changes?
 
@@ -150,4 +150,4 @@ To change installed tools, edit the Dockerfile, rebuild and recreate the service
 
 On **2026-11-27**, the container was built, started and confirmed healthy. Local C++ to Python delivery passed with three received messages; all three were written to and read back from a SQLite ROS bag. A temporary C++ package built with colcon and ran successfully. Interactive shell setup, repository write ownership and home-volume persistence across container recreation also passed.
 
-The [workstation setup receipt](../../docker/ros2/validation-2026-11-27.json) records the built image, package versions, source hashes and completed checks. Robot communication, sensor operation and RViz window rendering remain untested. This environment does not close the [Pi commissioning gates](commissioning-procedures.md).
+The [workstation setup receipt](../../docker/ros2/validation-2026-11-27.json) records the built image, package versions, source hashes and completed checks. The [simulation guide](../simulation/skala-slam.md) records the subsequent Gazebo/SLAM and GUI work. Physical robot communication and sensor operation remain untested. This environment does not close the [Pi commissioning gates](commissioning-procedures.md).
