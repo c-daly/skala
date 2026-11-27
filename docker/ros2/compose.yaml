@@ -1,0 +1,34 @@
+name: skala-ros2
+
+services:
+  ros:
+    image: skala/ros2-workstation:jazzy-local
+    build:
+      context: .
+      args:
+        LOCAL_UID: ${SKALA_UID:-1000}
+        LOCAL_GID: ${SKALA_GID:-1000}
+    init: true
+    restart: unless-stopped
+    environment:
+      ROS_DOMAIN_ID: "30"
+      ROS_AUTOMATIC_DISCOVERY_RANGE: LOCALHOST
+      ROS_STATIC_PEERS: ""
+      RMW_IMPLEMENTATION: rmw_fastrtps_cpp
+    volumes:
+      - ros-home:/home/ros
+      - type: bind
+        source: ../..
+        target: /workspaces/skala
+        bind:
+          create_host_path: false
+    working_dir: /home/ros/ws
+    healthcheck:
+      test: ["CMD", "/ros_entrypoint.sh", "python3", "-c", "import rclpy, rosbag2_py; from std_msgs.msg import String"]
+      interval: 30s
+      timeout: 10s
+      start_period: 10s
+      retries: 3
+
+volumes:
+  ros-home:

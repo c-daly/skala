@@ -1,6 +1,8 @@
 # Skala commissioning procedures
 
-Created 2026-11-20. Updated 2026-11-23. This page gives the commands, expected results and records for the **commissioning gates** in the [assembly guide, section 13](p0-assembly.md#13-commission-in-stages). A gate is a test with recorded acceptance criteria. The [system plan](s1-system-plan.md) defines the design requirements and H01–H10 holds; a hold is an unresolved design or qualification issue, not a test result.
+Created 2026-11-20. Updated 2026-11-27. This page gives the commands, expected results and records for the **commissioning gates** in the [assembly guide, section 13](p0-assembly.md#13-commission-in-stages). A gate is a test with recorded acceptance criteria. The [system plan](s1-system-plan.md) defines the design requirements and H01–H10 holds; a hold is an unresolved design or qualification issue, not a test result.
+
+The [workstation Jazzy Docker guide](ros2-workstation-docker.md) covers development tools and local message/storage checks on the workstation. That container is running with discovery limited to itself. Pi communication, device drivers and sensor capture remain separate checks below; the workstation installation does not close a commissioning gate.
 
 **Coverage:** G0 preserves and inventories the existing installation. G1 tests stationary sensors; its camera commands require a working camera stack, whose installation on the owned Pi is still unresolved. G2–G7 are requirements only, listed at the end with their prerequisites. The repository contains no Skala control implementation, and no gate result has been recorded for this robot.
 

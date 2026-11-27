@@ -50,6 +50,7 @@ PRINT_PARTS = json.loads((REPO / "cad/print_parts.json").read_text())
 SENSOR_PARTS = json.loads((REPO / "cad/sensor_parts.json").read_text())
 SENSOR_FILES = {"cad/out/stl/" + p["stl"]: PROJECT + "attachments/" + p["stl"] for p in SENSOR_PARTS}
 SUPPORT_FILES = {
+    "docker/ros2/validation-2026-11-27.json": PROJECT + "attachments/ros2-workstation-validation-2026-11-27.json",
     "docs/concept/2026-11-26-shell-cad.png": PROJECT + "attachments/2026-11-26-shell-cad.png",
     "docs/concept/2026-11-26-shell-fit-parts.png": PROJECT + "attachments/2026-11-26-shell-fit-parts.png",
     "docs/concept/2026-11-26-shell-cutback-concept.png": PROJECT + "attachments/2026-11-26-shell-cutback-concept.png",
@@ -79,6 +80,7 @@ PROSE = {
     "docs/assembly/p0-build-review.md": REVIEW,
     "docs/assembly/s1-system-plan.md": SYSTEM,
     "docs/assembly/commissioning-procedures.md": PROJECT + "commissioning-procedures.md",
+    "docs/assembly/ros2-workstation-docker.md": PROJECT + "ros2-workstation-docker.md",
     "cad/README.md": CAD,
     "firmware/opencr_reflex/README.md": PROJECT + "opencr-control.md",
     "software/talos/README.md": PROJECT + "pi-body-software.md",
@@ -258,6 +260,14 @@ def build(vault):
             body = re.sub(r"^(# .+\n)", lambda m: m.group(1) + "\n"
                           + wiki(HOME, "Project overview") + "\n", body, count=1)
         out[path] = frontmatter(existing(path), body, origin, updated).encode()
+
+    workstation = json.loads(source("docker/ros2/validation-2026-11-27.json"))
+    if workstation["status"] != "local_validation_passed":
+        raise ValueError("Workstation local validation did not pass")
+    for name, expected in workstation["source_sha256"].items():
+        if digest((REPO / name).read_bytes()) != expected:
+            raise ValueError("Workstation configuration changed; revalidate: " + name)
+        SOURCES[name] = expected
 
     shell = json.loads(source("cad/review/shell/audit.json"))
     if shell["failures"]:

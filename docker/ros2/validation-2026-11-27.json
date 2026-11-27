@@ -1,0 +1,85 @@
+{
+  "recorded_at_utc": "2026-11-27T16:45:22.645308+00:00",
+  "status": "local_validation_passed",
+  "host": {
+    "environment": "WSL2",
+    "ubuntu_version": "26.04",
+    "kernel": "6.6.114.1-microsoft-standard-WSL2",
+    "architecture": "x86_64",
+    "docker_desktop": "4.74.0",
+    "docker_engine": "29.4.3",
+    "compose": "5.1.3"
+  },
+  "container": {
+    "name": "skala-ros2-ros-1",
+    "state": "running",
+    "health": "healthy",
+    "image": "skala/ros2-workstation:jazzy-local",
+    "image_id": "sha256:23d46404e8cb5a5ae36ce80e09e693337a12a501a2368804ab89d0d881d3399d",
+    "architecture": "amd64",
+    "ubuntu_version": "24.04.5",
+    "user": "ros",
+    "published_ports": {},
+    "network_mode": "skala-ros2_default",
+    "environment": {
+      "ROS_DISTRO": "jazzy",
+      "ROS_DOMAIN_ID": "30",
+      "ROS_AUTOMATIC_DISCOVERY_RANGE": "LOCALHOST",
+      "ROS_STATIC_PEERS": "",
+      "RMW_IMPLEMENTATION": "rmw_fastrtps_cpp"
+    },
+    "mounts": [
+      {
+        "type": "volume",
+        "destination": "/home/ros",
+        "writable": true,
+        "volume": "skala-ros2_ros-home"
+      },
+      {
+        "type": "bind",
+        "destination": "/workspaces/skala",
+        "writable": true
+      }
+    ]
+  },
+  "base_image": "ros:jazzy-ros-base-noble@sha256:5147d3ae250ce754afd399f6bfec15b33dd4e473ca357e30432a3182031bfad6",
+  "package_versions": {
+    "ros-jazzy-demo-nodes-cpp": "0.33.11-1noble.20261105.092654",
+    "ros-jazzy-demo-nodes-py": "0.33.11-1noble.20261105.085713",
+    "ros-jazzy-rclcpp": "28.1.23-1noble.20261105.084818",
+    "ros-jazzy-rclpy": "7.1.13-1noble.20261105.084753",
+    "ros-jazzy-ros-base": "0.11.0-1noble.20261105.164630",
+    "ros-jazzy-rosbag2": "0.26.11-1noble.20261105.164454",
+    "ros-jazzy-rviz2": "14.1.24-1noble.20261105.153247"
+  },
+  "checks": {
+    "compose_configuration": "passed",
+    "health_imports": "passed",
+    "local_ros_and_bag": {
+      "status": "passed",
+      "ros_distro": "jazzy",
+      "domain_id": "30",
+      "middleware": "rmw_fastrtps_cpp",
+      "discovery": "LOCALHOST",
+      "cpp_to_python_messages": 3,
+      "bag_messages_read_back": 3,
+      "robot_connection_tested": false
+    },
+    "temporary_ament_cmake_build_and_run": "passed",
+    "interactive_bash_sources_jazzy": "passed",
+    "bind_mount_write_and_uid_ownership": "passed",
+    "home_volume_survives_container_recreation": "passed"
+  },
+  "not_tested": [
+    "Pi communication",
+    "robot sensors or control",
+    "RViz window rendering"
+  ],
+  "pi_changed": false,
+  "source_sha256": {
+    "docker/ros2/Dockerfile": "4cd1327118f43156d44cbd0be861870a53a44e3f5125b55758fc223747a85883",
+    "docker/ros2/compose.yaml": "29b9777f854688973da05cfc932388fb0acaf5a50255c2ce739321b3b294cc03",
+    "docker/ros2/.dockerignore": "17e86c6f689d1c9bab24c925ee46d8192d7ae041ae8bff21e529b165361a00e7",
+    "docker/ros2/smoke.py": "9b839279d3c2f2086bf03e6397927d99d7d95ec2d176d2fd97f4094175706796"
+  }
+}
