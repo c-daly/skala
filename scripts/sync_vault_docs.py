@@ -50,6 +50,11 @@ PRINT_PARTS = json.loads((REPO / "cad/print_parts.json").read_text())
 SENSOR_PARTS = json.loads((REPO / "cad/sensor_parts.json").read_text())
 SENSOR_FILES = {"cad/out/stl/" + p["stl"]: PROJECT + "attachments/" + p["stl"] for p in SENSOR_PARTS}
 SUPPORT_FILES = {
+    "config/robot/ros-env.bash": PROJECT + "attachments/robot-ros-env.bash",
+    "config/robot/foxglove.yaml": PROJECT + "attachments/robot-foxglove.yaml",
+    "config/robot/skala-foxglove.service": PROJECT + "attachments/skala-foxglove.service",
+    "config/robot/validation-2026-11-27.json": PROJECT + "attachments/robot-connection-validation-2026-11-27.json",
+    "scripts/skala-robot-bridge": PROJECT + "attachments/skala-robot-bridge",
     "software/skala_sim/web/floorplan.svg": PROJECT + "attachments/skala-floorplan.svg",
     **{f"software/skala_sim/validation/2026-11-27/floorplan/{name}": PROJECT + f"attachments/skala-floorplan-2026-11-27-{name}" for name in (
         "validation.json", "rviz-interactive.json", "rviz-window.png", "foxglove-transport.json",
@@ -90,6 +95,7 @@ PROSE = {
     "docs/assembly/s1-system-plan.md": SYSTEM,
     "docs/assembly/commissioning-procedures.md": PROJECT + "commissioning-procedures.md",
     "docs/assembly/ros2-workstation-docker.md": PROJECT + "ros2-workstation-docker.md",
+    "docs/assembly/robot-connection.md": PROJECT + "robot-connection.md",
     "docs/simulation/skala-slam.md": PROJECT + "skala-slam-simulation.md",
     "cad/README.md": CAD,
     "firmware/opencr_reflex/README.md": PROJECT + "opencr-control.md",

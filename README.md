@@ -52,6 +52,7 @@ Reviewed **2026-11-27**, including the working local SLAM simulation with WASD/g
 | Understand structure, stages and future joint tradeoffs | [Physical design](docs/design/physical-design-spec.md) and [actuator register](cad/actuator_options.json) |
 | Run the commissioning tests (G0 backup/inventory, G1 sensors) | [Commissioning procedures](docs/assembly/commissioning-procedures.md) |
 | Open or rebuild the workstation ROS 2 environment | [Jazzy Docker setup and local checks](docs/assembly/ros2-workstation-docker.md) |
+| Configure the Pi and connect physical robot telemetry to Foxglove | [Robot connection guide](docs/assembly/robot-connection.md) |
 | See Skala driving and building a map; use WASD or a controller | [Skala SLAM simulation and calibration](docs/simulation/skala-slam.md) |
 | Configure control and research interfaces | [OpenCR requirements](firmware/opencr_reflex/README.md), [Pi requirements](software/talos/README.md), [Talos contract](docs/design/talos-capability-manifest.md) |
 | Plan later audio/cognition integration | [Audio handoff](docs/research/2026-10-25-audio-memory-handoff.md) and [shared research programme](../vault/20-areas/research/Cognition%20and%20Embodiment.md) |

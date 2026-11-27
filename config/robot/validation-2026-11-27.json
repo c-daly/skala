@@ -1,0 +1,42 @@
+{
+  "date": "2026-11-27",
+  "scope": "Native robot bridge configuration exercised in the existing x86-64 Jazzy workstation container; no Pi was connected or modified",
+  "passed": true,
+  "bridge_package": "ros-jazzy-foxglove-bridge 3.6.3-1noble.20261105.114855",
+  "ros_domain_id": 31,
+  "discovery_range": "LOCALHOST",
+  "rmw": "rmw_fastrtps_cpp",
+  "test_port": 18768,
+  "production_profile_port": 8765,
+  "advertised_capabilities": ["connectionGraph"],
+  "diagnostic_topic": "/skala/connection_check",
+  "schema": "std_msgs/msg/String",
+  "checks": {
+    "bash_syntax": "passed",
+    "systemd_analyze_verify": "passed outside sandbox",
+    "launcher_startup": "passed",
+    "websocket_upgrade": "passed with foxglove.sdk.v1",
+    "diagnostic_message_received": true,
+    "address": "127.0.0.1",
+    "use_sim_time": false,
+    "remote_access": false,
+    "write_and_asset_capabilities_not_advertised": true,
+    "temporary_processes_stopped": true
+  },
+  "check_notes": [
+    "An initial probe incorrectly expected the time capability with real-time operation; the bridge advertised only connectionGraph. The unused time request was removed, and the corrected profile passed.",
+    "Static systemd validation required leaving the sandbox; this does not establish user-service runtime or boot behavior."
+  ],
+  "not_tested": [
+    "Package installation or bridge operation on Pi arm64",
+    "Windows-to-Pi SSH forwarding",
+    "User-service startup or reboot persistence",
+    "Physical drivers, sensors, controls or hardware recording"
+  ],
+  "source_sha256": {
+    "config/robot/ros-env.bash": "dac58d95a937738ab3e13ea080d66b119af54327e48e0aee2404cc36e6a55fd9",
+    "config/robot/foxglove.yaml": "f7ce79b035b39f4a4d2386512ec6f7783982af279ae9b8d4c39720f53ec3c6ed",
+    "config/robot/skala-foxglove.service": "9f54268d1dd97be4108b920d00c46d541eeb8b7a88ff9a858bd9f7c57d7f3a26",
+    "scripts/skala-robot-bridge": "2d54e2d485725ad6cdfbcfc8b74083633b8e8e20453efddccf11f6edee28c9db"
+  }
+}

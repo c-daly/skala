@@ -13,7 +13,7 @@ The preparation check found x86-64 WSL2 running Ubuntu 26.04, Docker Desktop 4.7
 | Base image | `ros:jazzy-ros-base-noble`, pinned by digest in `docker/ros2/Dockerfile` |
 | Tools | ROS Base, RViz2, Gazebo Harmonic, ROS/Gazebo bridge, SLAM Toolbox, Foxglove Bridge, rosbag2/MCAP, demos, colcon, rosdep, compiler tools and Git |
 | Account | Non-root `ros`; UID/GID match this checkout's 1000:1000 |
-| ROS domain | `30`, a workstation default to verify against the Pi later |
+| ROS domain | `30` for local development/simulation; the separate robot viewing profile uses `31` on the Pi |
 | Middleware / discovery | `rmw_fastrtps_cpp`; `ROS_AUTOMATIC_DISCOVERY_RANGE=LOCALHOST`; empty `ROS_STATIC_PEERS` |
 | Networking | Compose bridge network; simulation controls at `127.0.0.1:18765` and Foxglove at `127.0.0.1:18766`. No host networking or external DDS discovery |
 | Persistent home/workspace | Docker volume `skala-ros2_ros-home`, mounted at `/home/ros`; workspace at `/home/ros/ws` |
@@ -118,11 +118,13 @@ The optional `docker/ros2/compose.gui.yaml` mounts the WSLg X11 socket and read-
 
 ## Does the Pi need changes?
 
-**No additional ROS installation or Docker is required merely to communicate with this workstation**, assuming native Jazzy is working on the Pi. Its device and application nodes must be running. ROS 2 nodes discover peers in the same domain and require compatible message types and QoS; the workstation does not remotely start the Pi's drivers just by opening a ROS shell. See the [ROS discovery explanation](https://github.com/ros2/ros2_documentation/blob/jazzy/source/Concepts/Basic/About-Discovery.rst) and [domain-ID guidance](https://github.com/ros2/ros2_documentation/blob/jazzy/source/Concepts/Intermediate/About-Domain-ID.rst).
+For **Foxglove telemetry**, follow the [robot connection guide](robot-connection.md): retain native Jazzy on the Pi, add Foxglove Bridge and SSH, and connect Windows Foxglove through a local SSH tunnel at `ws://localhost:18767`. Device nodes must run on the Pi. This viewing path needs no Pi Docker installation, Docker-to-LAN DDS discovery or changes to the workstation Compose profile. The guide includes a diagnostic publisher, sensor topic checks and optional bridge startup service; physical Pi communication remains untested.
+
+For a later **ROS application running inside this container**, direct ROS communication is a separate setup. Nodes need compatible message types, QoS and domain/discovery settings; opening a workstation ROS shell does not remotely start Pi drivers. See the [ROS discovery explanation](https://github.com/ros2/ros2_documentation/blob/jazzy/source/Concepts/Basic/About-Discovery.rst) and [domain-ID guidance](https://github.com/ros2/ros2_documentation/blob/jazzy/source/Concepts/Intermediate/About-Domain-ID.rst).
 
 The eventual connection check may require environment or networking changes on one or both machines:
 
-1. Record the Pi's active ROS distribution, domain and middleware, including the environment used by any services. Match domain IDs; `30` is the workstation default, not a newly verified Pi setting.
+1. Record the Pi's active ROS distribution, domain and middleware, including the environment used by any services. Use a separate hardware client profile matching the Pi's domain; the viewing guide selects `31`. Keep the simulator on `30`.
 2. Establish a working bidirectional DDS path between the container and Pi, then select subnet or explicit-peer discovery. The current Compose file deliberately fixes `LOCALHOST`; exporting another value only in the host terminal does not change it. Apply reviewed Compose settings and recreate the service when the robot is ready.
 3. Check firewall and network isolation, then use a harmless talker/listener test in both directions before sensor topics. Match QoS and installed message definitions before diagnosing missing data as a network fault.
 

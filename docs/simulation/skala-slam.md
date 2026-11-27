@@ -212,4 +212,4 @@ The [desktop dashboard check](../../software/skala_sim/validation/2026-11-27/flo
 
 ![Foxglove live Skala map, camera and speed telemetry](../../software/skala_sim/validation/2026-11-27/floorplan/foxglove-dashboard.png)
 
-The physical robot will need its own verified topic/frame mapping, network profile and control protections before reusing these views. Physical drivers, Nav2 autonomous navigation, IMU/encoder fusion, hardware diagnostics and calibration remain separate work. Selecting the simulator dashboard does not configure those capabilities.
+The [robot connection guide](../assembly/robot-connection.md) supplies the Pi bridge and Windows SSH tunnel for initial telemetry viewing. The physical robot will need its own verified topic/frame mapping and control protections before reusing control panels. Physical drivers, Nav2 autonomous navigation, IMU/encoder fusion, hardware diagnostics and calibration remain separate work. Selecting the simulator dashboard does not configure those capabilities.

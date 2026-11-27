@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# Native Pi telemetry only. Device drivers have their own commissioning steps.
+set -e
+repo=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")/.." && pwd)
+source "$repo/config/robot/ros-env.bash"
+exec ros2 run foxglove_bridge foxglove_bridge --ros-args \
+  -r __node:=foxglove_bridge --params-file "$repo/config/robot/foxglove.yaml" "$@"

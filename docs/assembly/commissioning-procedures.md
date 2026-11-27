@@ -4,6 +4,8 @@ Created 2026-11-20. Updated 2026-11-27. This page gives the commands, expected r
 
 The [workstation Jazzy Docker guide](ros2-workstation-docker.md) covers development tools and local message/storage checks on the workstation. That container is running with discovery limited to itself. Pi communication, device drivers and sensor capture remain separate checks below; the workstation installation does not close a commissioning gate.
 
+The [robot connection guide](robot-connection.md) adds the Pi's Foxglove bridge, a Windows SSH tunnel, topic checks and optional bridge startup. Use it to inspect the streams qualified here. Its initial diagnostic-only connection does not close a sensor or powered-driving gate.
+
 **Coverage:** G0 preserves and inventories the existing installation. G1 tests stationary sensors; its camera commands require a working camera stack, whose installation on the owned Pi is still unresolved. G2–G7 are requirements only, listed at the end with their prerequisites. The repository contains no Skala control implementation, and no gate result has been recorded for this robot.
 
 **Current software status, 2026-11-23:** Ubuntu and ROS distribution upgrades were reported complete on 2026-11-23. The planned target is Ubuntu 24.04 (Noble) with native ROS 2 Jazzy; post-upgrade release, kernel and package output has not yet been retained. Proceed with inventory and stationary sensor qualification; distribution upgrades alone do not establish camera, audio, LiDAR or OpenCR operation.

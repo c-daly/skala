@@ -8,6 +8,8 @@ The [S1 system plan](../../docs/assembly/s1-system-plan.md#software-and-data-end
 
 The separate [workstation Docker environment](../../docs/assembly/ros2-workstation-docker.md) supplies Jazzy tools, RViz and rosbag2. The [Skala simulation](../../docs/simulation/skala-slam.md) adds the current CAD, Gazebo physics/sensors, LiDAR SLAM and local WASD/gamepad controls. Its GUI and local operation have been exercised; Pi communication remains untested. It provides a place to develop against simulated data and later refine estimates from telemetry. It does not implement this Pi body layer or start physical device drivers.
 
+The [robot connection guide](../../docs/assembly/robot-connection.md) supplies a native Pi environment, Foxglove viewing profile and optional bridge service under `config/robot/`, with launcher `scripts/skala-robot-bridge`. Windows reaches the bridge through SSH. These are telemetry connection tools; they do not implement this directory's hardware driver or controller requirements.
+
 The [audio memory handoff](../../docs/research/2026-10-25-audio-memory-handoff.md)
 records future capture-clock, gap, buffering and restart requirements drawn from
 Cliste's experiments. Reuse the maintained Cliste encoder/memory and the
